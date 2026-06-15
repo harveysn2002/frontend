@@ -40,7 +40,7 @@ export function OfferSelector({
                 <p className="mt-1 text-sm text-brand-muted">{offer.subtitle}</p>
                 {savings > 0 && (
                   <p className="mt-2 text-xs font-bold text-brand-primary">
-                    كتوفري {formatMad(savings)}
+                    كتوفر {formatMad(savings)}
                   </p>
                 )}
               </div>

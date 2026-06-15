@@ -32,7 +32,7 @@ export default function ThankYouPage({
           ))}
         </div>
         <Link href="/collections">
-          <Button className="mt-8">رجعي للمجموعة</Button>
+          <Button className="mt-8">رجع للمجموعة</Button>
         </Link>
       </section>
     </div>

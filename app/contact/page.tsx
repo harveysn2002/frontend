@@ -1,14 +1,14 @@
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title: "تواصلي معنا | VORLAY",
+  title: "تواصل معنا | VORLAY",
 };
 
 export default function ContactPage() {
   return (
     <div className="container py-14">
       <section className="glass-card rounded-[3rem] p-8 md:p-12">
-        <h1 className="text-5xl font-black">تواصلي معنا</h1>
+        <h1 className="text-5xl font-black">تواصل معنا</h1>
         <p className="mt-5 max-w-2xl text-xl leading-9 text-brand-muted">
           عندك سؤال قبل الطلب؟ فريق VORLAY يجاوبك، والطلب كيتأكد بالهاتف قبل الإرسال.
         </p>

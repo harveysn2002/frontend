@@ -14,7 +14,7 @@ const links = [
   { href: "/products/wisada-dahr", label: "وسادة الظهر" },
   { href: "/products/taqm-dahr", label: "طقم الظهر" },
   { href: "/about", label: "من نحن" },
-  { href: "/contact", label: "تواصلي معنا" },
+  { href: "/contact", label: "تواصل معنا" },
 ];
 
 export function Header() {

@@ -25,7 +25,7 @@ export function Footer() {
         <div>
           <h3 className="font-black">الدعم</h3>
           <ul className="mt-4 space-y-3 text-sm text-brand-muted">
-            <li><Link href="/contact">تواصلي معنا</Link></li>
+            <li><Link href="/contact">تواصل معنا</Link></li>
             <li><Link href="/shipping-returns">التوصيل والاستبدال</Link></li>
             <li><Link href="/privacy-policy">سياسة الخصوصية</Link></li>
             <li><Link href="/terms">شروط الاستخدام</Link></li>
