@@ -15,7 +15,7 @@ export default function HomePage() {
             عروض إطلاق VORLAY متاحة اليوم
           </div>
           <h1 className="text-5xl font-black leading-tight text-brand-ink md:text-6xl">
-            راحة لظهرك... وثقة فوقفاتك
+            راحة لظهرك... وثقة فوقفتك
           </h1>
           <p className="mt-6 text-xl leading-9 text-brand-muted">
             منتجات دعم الظهر من VORLAY مختارة لكل شخص كيقضي نهارو بين الخدمة،
