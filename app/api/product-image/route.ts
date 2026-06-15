@@ -1,34 +1,38 @@
 import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { NextRequest } from "next/server";
 
 export const runtime = "nodejs";
 
-const localImages: Record<string, string> = {
-  "car-back-support":
-    "C:\\Users\\harve\\.cursor\\projects\\d-OneDrive-Documents-New-folder\\assets\\c__Users_harve_AppData_Roaming_Cursor_User_workspaceStorage_efc8674a470a374a548dd578fe459564_images_image-50aee6d2-e813-4778-b8b3-d84b791dc2f1.png",
-  "posture-belt-front":
-    "C:\\Users\\harve\\.cursor\\projects\\d-OneDrive-Documents-New-folder\\assets\\c__Users_harve_AppData_Roaming_Cursor_User_workspaceStorage_efc8674a470a374a548dd578fe459564_images_image-1a39fe43-9c72-4598-9c4a-7f43b9dd345e.png",
-  "posture-belt-back":
-    "C:\\Users\\harve\\.cursor\\projects\\d-OneDrive-Documents-New-folder\\assets\\c__Users_harve_AppData_Roaming_Cursor_User_workspaceStorage_efc8674a470a374a548dd578fe459564_images_image-b7b01c90-f588-4b02-9c76-db0e731e4792.png",
-  "seat-back-cushion":
-    "C:\\Users\\harve\\.cursor\\projects\\d-OneDrive-Documents-New-folder\\assets\\c__Users_harve_AppData_Roaming_Cursor_User_workspaceStorage_efc8674a470a374a548dd578fe459564_images_image-d2adad20-8e95-4f8d-a5a1-8a32d42b5c3a.png",
-};
+const allowedNames = new Set([
+  "car-back-support",
+  "posture-belt-front",
+  "posture-belt-back",
+  "seat-back-cushion",
+]);
 
 export async function GET(request: NextRequest) {
   const name = request.nextUrl.searchParams.get("name") || "";
-  const filePath = localImages[name];
 
-  if (filePath) {
+  if (allowedNames.has(name)) {
+    const filePath = path.join(
+      process.cwd(),
+      "public",
+      "images",
+      "products",
+      `${name}.png`,
+    );
+
     try {
       const file = await readFile(filePath);
       return new Response(file, {
         headers: {
           "Content-Type": "image/png",
-          "Cache-Control": "public, max-age=3600",
+          "Cache-Control": "public, max-age=86400",
         },
       });
     } catch {
-      // Fall back below when local Cursor assets are not available in production.
+      // Fall back to SVG placeholder when image is not uploaded yet.
     }
   }
 

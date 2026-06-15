@@ -4,7 +4,6 @@ import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getProductById } from "@/config/products";
 import { siteConfig } from "@/config/site";
 import { formatMad } from "@/lib/currency";
 import { trackInitiateCheckout } from "@/lib/tracking";
