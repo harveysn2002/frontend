@@ -36,7 +36,7 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Button variant="secondary" className="relative px-4" onClick={openCart} aria-label="Open cart">
+          <Button variant="secondary" className="relative px-4" onClick={openCart} aria-label="فتح السلّة">
             <ShoppingCart className="h-5 w-5" />
             {itemCount > 0 && (
               <span className="absolute -left-2 -top-2 grid h-6 w-6 place-items-center rounded-full bg-brand-gold text-xs text-white">

@@ -1,7 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ProductBuyBox } from "@/components/product/product-buy-box";
+import { MoroccoTrustStrip, OrderStepsStrip } from "@/components/product/morocco-trust-strip";
 import { ProductCard } from "@/components/product/product-card";
+import { ProductPageCta } from "@/components/product/product-page-cta";
+import { ProductPurchasePanel } from "@/components/product/product-purchase-panel";
 import { getProductById, getProductBySlug, products } from "@/config/products";
 
 export function generateStaticParams() {
@@ -26,7 +29,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     .slice(0, 2);
 
   return (
-    <div>
+    <div className="pb-24 md:pb-0">
       <section className="container grid gap-8 py-10 lg:grid-cols-[1fr_1.05fr]">
         <div className="grid gap-4">
           <div className="relative aspect-square overflow-hidden rounded-[3rem] bg-brand-soft shadow-soft">
@@ -39,8 +42,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               </div>
             ))}
           </div>
+          <MoroccoTrustStrip compact />
         </div>
-        <ProductBuyBox product={product} />
+        <ProductPurchasePanel product={product} />
+      </section>
+
+      <section className="container pb-10">
+        <h2 className="mb-5 text-2xl font-black">كيفاش كيطلب من VORLAY؟</h2>
+        <OrderStepsStrip />
       </section>
 
       <section className="bg-white py-16">
@@ -55,6 +64,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 </p>
               </div>
             ))}
+          </div>
+          <div className="mt-10">
+            <ProductPageCta
+              product={product}
+              title="باغي تجرب VORLAY دابا؟"
+              subtitle="اختار العرض اللي مناسب ليك، زيد للسلّة، وكمل الطلب فـ 30 ثانية بالدفع عند الاستلام."
+            />
           </div>
         </div>
       </section>
@@ -78,12 +94,19 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
       <section className="bg-brand-primary py-16 text-white">
         <div className="container">
-          <h2 className="text-4xl font-black">طلب واضح وبلا ادعاءات وهمية</h2>
+          <h2 className="text-4xl font-black">علاش VORLAY فالمغرب؟</h2>
+          <p className="mt-4 max-w-3xl text-lg leading-9 text-white/85">
+            VORLAY كتبني ثقة حقيقية: تجربة طلب واضحة، دعم قبل البيع، وتأكيد بالهاتف قبل
+            ما تخرج أي شحنة. بلا تقييمات وهمية وبلا أرقام مخترعة.
+          </p>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
-              "ما كايناش تقييمات وهمية أو أرقام غير حقيقية.",
-              "توصيل لجميع مدن المغرب، والدفع حتى الاستلام.",
-              "التقييمات الحقيقية غادي تظهر من بعد أول طلبات مؤكدة.",
+              "منتجات دعم الظهر للاستعمال اليومي",
+              "توصيل لجميع مدن المغرب",
+              "الدفع عند الاستلام فقط",
+              "تأكيد الطلب قبل الإرسال",
+              "دعم WhatsApp قبل وبعد الطلب",
+              "شفافية كاملة فالأسعار والتوصيل",
             ].map((point) => (
               <div key={point} className="rounded-[2rem] bg-white/10 p-6">
                 <p className="leading-8">{point}</p>
@@ -95,9 +118,18 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
       <section className="container py-16">
         <h2 className="text-4xl font-black">كمل التجربة</h2>
+        <p className="mt-3 text-brand-muted">زيد منتجات أخرى للسلّة باش تكمل الراحة ديالك</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {crossSells.map((item) => item && <ProductCard key={item.id} product={item} />)}
         </div>
+      </section>
+
+      <section className="container pb-10">
+        <ProductPageCta
+          product={product}
+          title="جاهز تطلب؟"
+          subtitle="زيد للسلّة ديالك دابا. ما كتخلص حتى توصلك السلعة."
+        />
       </section>
 
       <section className="container pb-20">
@@ -115,6 +147,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 <p className="mt-2 text-brand-muted">{a}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-8">
+            <Link
+              href="#order"
+              className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-brand-primary px-6 py-3 font-bold text-white hover:bg-brand-dark"
+            >
+              رجع للطلب و زيد للسلّة
+            </Link>
           </div>
         </div>
       </section>

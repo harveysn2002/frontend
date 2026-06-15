@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ProductQuickAdd } from "@/components/product/product-quick-add";
 import { RatingStars } from "@/components/product/rating-stars";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/config/products";
@@ -28,8 +29,11 @@ export function ProductCard({ product }: { product: Product }) {
           <div className="text-xs font-black text-brand-primary">{offer.badge}</div>
           <div className="mt-1 text-2xl font-black">{formatMad(offer.priceMad)}</div>
         </div>
-        <Link href={`/products/${product.slug}`}>
-          <Button className="w-full">شوف التفاصيل والعرض</Button>
+        <ProductQuickAdd product={product} />
+        <Link href={`/products/${product.slug}#order`}>
+          <Button variant="secondary" className="w-full">
+            شوف التفاصيل والعروض
+          </Button>
         </Link>
       </div>
     </article>
