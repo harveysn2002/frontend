@@ -4,6 +4,7 @@ import { CartDrawer } from "@/components/cart/cart-drawer";
 import { CheckoutModal } from "@/components/checkout/checkout-modal";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { WhatsAppFab } from "@/components/layout/social-links";
 import { PixelScripts } from "@/components/tracking/pixel-scripts";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Footer />
         <CartDrawer />
         <CheckoutModal />
+        <WhatsAppFab />
       </body>
     </html>
   );
