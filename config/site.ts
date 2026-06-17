@@ -6,7 +6,9 @@ export const siteConfig = {
   apiUrl: process.env.NEXT_PUBLIC_API_URL || "https://api.vorlay.shop",
   supportPhone: "+212600000000",
   supportEmail: "support@vorlay.shop",
-  shippingMad: 35,
+  /** Displayed shipping line is 0 — product prices already include delivery. */
+  shippingMad: 0,
+  priceIncludesShippingNote: "الثمن يشمل تكلفة التوصيل",
   announcement: "الدفع عند الاستلام | توصيل لجميع مدن المغرب | تأكيد الطلب بالهاتف",
   social: {
     whatsappNumber:

@@ -4,6 +4,7 @@ import { ProductQuickAdd } from "@/components/product/product-quick-add";
 import { RatingStars } from "@/components/product/rating-stars";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/config/products";
+import { siteConfig } from "@/config/site";
 import { formatMad } from "@/lib/currency";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -28,6 +29,9 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="rounded-2xl bg-brand-soft/35 p-4">
           <div className="text-xs font-black text-brand-primary">{offer.badge}</div>
           <div className="mt-1 text-2xl font-black">{formatMad(offer.priceMad)}</div>
+          <p className="mt-1 text-xs font-semibold text-brand-primary">
+            {siteConfig.priceIncludesShippingNote}
+          </p>
         </div>
         <ProductQuickAdd product={product} />
         <Link href={`/products/${product.slug}#order`}>

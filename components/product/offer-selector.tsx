@@ -3,6 +3,7 @@
 import { cn } from "@/lib/cn";
 import { formatMad } from "@/lib/currency";
 import type { Offer } from "@/config/products";
+import { siteConfig } from "@/config/site";
 
 export function OfferSelector({
   offers,
@@ -54,6 +55,9 @@ export function OfferSelector({
           </button>
         );
       })}
+      <p className="text-center text-sm font-semibold text-brand-primary">
+        {siteConfig.priceIncludesShippingNote}
+      </p>
     </div>
   );
 }

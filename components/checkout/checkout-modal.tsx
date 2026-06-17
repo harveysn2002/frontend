@@ -28,9 +28,7 @@ type CheckoutValues = z.infer<typeof schema>;
 
 export function CheckoutModal() {
   const items = useCartStore((state) => state.items);
-  const subtotal = useCartStore((state) => state.total());
-  const shipping = items.length > 0 ? siteConfig.shippingMad : 0;
-  const total = subtotal + shipping;
+  const total = useCartStore((state) => state.total());
   const isCheckoutOpen = useCartStore((state) => state.isCheckoutOpen);
   const closeCheckout = useCartStore((state) => state.closeCheckout);
   const isUpsellOpen = useCartStore((state) => state.isUpsellOpen);
@@ -79,9 +77,7 @@ export function CheckoutModal() {
 
     const purchaseEventId = createEventId("purchase");
     const currentItems = useCartStore.getState().items;
-    const currentSubtotal = useCartStore.getState().total();
-    const currentShipping = currentItems.length > 0 ? siteConfig.shippingMad : 0;
-    const currentTotal = currentSubtotal + currentShipping;
+    const currentTotal = useCartStore.getState().total();
 
     try {
       const response = await createOrder({
@@ -101,9 +97,9 @@ export function CheckoutModal() {
           is_upsell: Boolean(item.isUpsell),
         })),
         totals: {
-          subtotal_mad: currentSubtotal,
+          subtotal_mad: currentTotal,
           discount_mad: 0,
-          shipping_mad: currentShipping,
+          shipping_mad: 0,
           total_mad: currentTotal,
           currency: "MAD",
         },
@@ -176,14 +172,13 @@ export function CheckoutModal() {
                   <span>{formatMad(item.totalPriceMad)}</span>
                 </div>
               ))}
-              <div className="flex justify-between py-1 text-sm text-brand-muted">
-                <span>التوصيل</span>
-                <span>{formatMad(shipping)}</span>
-              </div>
               <div className="mt-3 flex justify-between border-t border-brand-primary/10 pt-3 text-lg font-black">
                 <span>المجموع</span>
                 <span>{formatMad(total)}</span>
               </div>
+              <p className="mt-2 text-sm font-semibold text-brand-primary">
+                {siteConfig.priceIncludesShippingNote}
+              </p>
             </div>
 
             <form className="mt-5 space-y-4" onSubmit={form.handleSubmit(onValid)}>

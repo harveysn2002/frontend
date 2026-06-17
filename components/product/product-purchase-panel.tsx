@@ -30,8 +30,6 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
     return () => observer.disconnect();
   }, []);
 
-  const totalWithShipping = selectedOffer.priceMad + siteConfig.shippingMad;
-
   return (
     <>
       <div id="order" ref={panelRef} className="glass-card scroll-mt-28 rounded-[2rem] p-5 md:p-7">
@@ -70,18 +68,13 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
         </div>
 
         <div className="mt-5 rounded-2xl bg-brand-soft/35 p-4">
-          <div className="flex items-center justify-between text-sm text-brand-muted">
+          <div className="flex items-center justify-between text-lg font-black">
             <span>{selectedOffer.title}</span>
-            <span>{formatMad(selectedOffer.priceMad)}</span>
+            <span className="text-brand-primary">{formatMad(selectedOffer.priceMad)}</span>
           </div>
-          <div className="mt-2 flex items-center justify-between text-sm text-brand-muted">
-            <span>التوصيل</span>
-            <span>{formatMad(siteConfig.shippingMad)}</span>
-          </div>
-          <div className="mt-3 flex items-center justify-between border-t border-brand-primary/10 pt-3 text-lg font-black">
-            <span>المجموع</span>
-            <span className="text-brand-primary">{formatMad(totalWithShipping)}</span>
-          </div>
+          <p className="mt-2 text-sm font-semibold text-brand-primary">
+            {siteConfig.priceIncludesShippingNote}
+          </p>
         </div>
 
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -110,7 +103,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
             <div className="min-w-0">
               <p className="truncate font-black text-brand-ink">{product.nameAr}</p>
               <p className="text-sm text-brand-muted">
-                {selectedOffer.title} · {formatMad(totalWithShipping)} شامل التوصيل
+                {selectedOffer.title} · {formatMad(selectedOffer.priceMad)}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-2 sm:max-w-md sm:flex-1">

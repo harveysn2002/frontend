@@ -17,9 +17,7 @@ export function CartDrawer() {
   const addOffer = useCartStore((state) => state.addOffer);
   const removeItem = useCartStore((state) => state.removeItem);
   const clear = useCartStore((state) => state.clear);
-  const subtotal = useCartStore((state) => state.total());
-  const shipping = items.length > 0 ? siteConfig.shippingMad : 0;
-  const total = subtotal + shipping;
+  const total = useCartStore((state) => state.total());
   const crossSell = getFirstMissingCrossSell(items);
   const crossSellOffer = crossSell?.offers.find((offer) => offer.recommended) || crossSell?.offers[0];
 
@@ -113,18 +111,13 @@ export function CartDrawer() {
           </div>
           <div className="border-t border-brand-primary/10 pt-4">
             <div className="mb-3 space-y-2">
-              <div className="flex items-center justify-between text-sm text-brand-muted">
-                <span>ثمن المنتجات</span>
-                <span>{formatMad(subtotal)}</span>
-              </div>
-              <div className="flex items-center justify-between text-sm text-brand-muted">
-                <span>التوصيل</span>
-                <span>{formatMad(shipping)}</span>
-              </div>
               <div className="flex items-center justify-between text-lg font-black">
                 <span>المجموع</span>
                 <span>{formatMad(total)}</span>
               </div>
+              <p className="text-sm font-semibold text-brand-primary">
+                {siteConfig.priceIncludesShippingNote}
+              </p>
             </div>
             <div className="mb-4 grid grid-cols-2 gap-2 text-xs font-bold text-brand-primary">
               <span>الدفع عند الاستلام</span>

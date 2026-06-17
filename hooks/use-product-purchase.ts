@@ -2,7 +2,6 @@
 
 import type { Offer, Product } from "@/config/products";
 import { trackAddToCart, trackInitiateCheckout } from "@/lib/tracking";
-import { siteConfig } from "@/config/site";
 import { useCartStore } from "@/store/cart-store";
 
 export function useProductPurchase(product: Product) {
@@ -33,10 +32,9 @@ export function useProductPurchase(product: Product) {
   function buyNow(offer: Offer) {
     addOffer(offer);
     const eventId = openCheckout();
-    const total = offer.priceMad + siteConfig.shippingMad;
     trackInitiateCheckout({
       eventId,
-      value: total,
+      value: offer.priceMad,
       currency: "MAD",
       contents: [
         {
