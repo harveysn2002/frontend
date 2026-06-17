@@ -6,7 +6,7 @@ import { OfferSelector } from "@/components/product/offer-selector";
 import { RatingStars } from "@/components/product/rating-stars";
 import { Button } from "@/components/ui/button";
 import type { Offer, Product } from "@/config/products";
-import { formatMad, offerPriceScopeLabel, offerQuantityLabel } from "@/lib/currency";
+import { formatMad, offerPriceClarityLabel, offerPriceScopeLabel, offerQuantityLabel } from "@/lib/currency";
 import { useProductPurchase } from "@/hooks/use-product-purchase";
 import { siteConfig } from "@/config/site";
 
@@ -75,6 +75,11 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
             <span className="text-brand-primary">{formatMad(selectedOffer.priceMad)}</span>
           </div>
           <p className="mt-1 text-sm font-bold text-brand-ink">{offerPriceScopeLabel(selectedOffer.quantity)}</p>
+          {offerPriceClarityLabel(selectedOffer.quantity) ? (
+            <p className="mt-1 text-sm font-black text-brand-primary">
+              {offerPriceClarityLabel(selectedOffer.quantity)}
+            </p>
+          ) : null}
           <p className="mt-2 text-sm font-semibold text-brand-primary">
             {siteConfig.priceIncludesShippingNote}
           </p>

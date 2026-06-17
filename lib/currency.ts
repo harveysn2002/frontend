@@ -17,6 +17,11 @@ export function offerPriceScopeLabel(quantity: number): string {
   return `الثمن لـ ${quantity} قطع`;
 }
 
+export function offerPriceClarityLabel(quantity: number): string | null {
+  if (quantity <= 1) return null;
+  return `لـ ${quantity} قطع — ماشي قطعة وحدة`;
+}
+
 export function offerUnitPriceMad(priceMad: number, quantity: number): number {
   return Math.round(priceMad / quantity);
 }

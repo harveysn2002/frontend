@@ -3,6 +3,7 @@
 import { cn } from "@/lib/cn";
 import {
   formatMad,
+  offerPriceClarityLabel,
   offerPriceScopeLabel,
   offerQuantityLabel,
   offerUnitPriceMad,
@@ -61,6 +62,11 @@ export function OfferSelector({
                   {offerQuantityLabel(offer.quantity)}
                 </div>
                 <div className="mt-2 text-2xl font-black leading-none">{formatMad(offer.priceMad)}</div>
+                {offerPriceClarityLabel(offer.quantity) ? (
+                  <div className="mt-1 text-sm font-black text-brand-primary">
+                    {offerPriceClarityLabel(offer.quantity)}
+                  </div>
+                ) : null}
                 <div className="mt-1 text-sm font-bold text-brand-ink">{offerPriceScopeLabel(offer.quantity)}</div>
                 {offer.quantity > 1 ? (
                   <div className="mt-1 text-xs font-semibold text-brand-muted">
