@@ -5,7 +5,7 @@ import { RatingStars } from "@/components/product/rating-stars";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/config/products";
 import { siteConfig } from "@/config/site";
-import { formatMad } from "@/lib/currency";
+import { formatMad, offerPriceScopeLabel } from "@/lib/currency";
 
 export function ProductCard({ product }: { product: Product }) {
   const offer = product.offers.find((item) => item.recommended) || product.offers[0];
@@ -27,8 +27,16 @@ export function ProductCard({ product }: { product: Product }) {
           ))}
         </ul>
         <div className="rounded-2xl bg-brand-soft/35 p-4">
-          <div className="text-xs font-black text-brand-primary">{offer.badge}</div>
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="text-xs font-black text-brand-primary">{offer.badge}</div>
+            {offer.quantity > 1 ? (
+              <div className="rounded-full bg-brand-primary px-2 py-0.5 text-xs font-black text-white">
+                ×{offer.quantity} قطع
+              </div>
+            ) : null}
+          </div>
           <div className="mt-1 text-2xl font-black">{formatMad(offer.priceMad)}</div>
+          <p className="mt-1 text-sm font-bold text-brand-ink">{offerPriceScopeLabel(offer.quantity)}</p>
           <p className="mt-1 text-xs font-semibold text-brand-primary">
             {siteConfig.priceIncludesShippingNote}
           </p>

@@ -6,7 +6,7 @@ import { OfferSelector } from "@/components/product/offer-selector";
 import { RatingStars } from "@/components/product/rating-stars";
 import { Button } from "@/components/ui/button";
 import type { Offer, Product } from "@/config/products";
-import { formatMad } from "@/lib/currency";
+import { formatMad, offerPriceScopeLabel, offerQuantityLabel } from "@/lib/currency";
 import { useProductPurchase } from "@/hooks/use-product-purchase";
 import { siteConfig } from "@/config/site";
 
@@ -68,10 +68,13 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
         </div>
 
         <div className="mt-5 rounded-2xl bg-brand-soft/35 p-4">
-          <div className="flex items-center justify-between text-lg font-black">
-            <span>{selectedOffer.title}</span>
+          <div className="flex flex-wrap items-center justify-between gap-2 text-lg font-black">
+            <span>
+              {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity)}
+            </span>
             <span className="text-brand-primary">{formatMad(selectedOffer.priceMad)}</span>
           </div>
+          <p className="mt-1 text-sm font-bold text-brand-ink">{offerPriceScopeLabel(selectedOffer.quantity)}</p>
           <p className="mt-2 text-sm font-semibold text-brand-primary">
             {siteConfig.priceIncludesShippingNote}
           </p>
@@ -103,7 +106,8 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
             <div className="min-w-0">
               <p className="truncate font-black text-brand-ink">{product.nameAr}</p>
               <p className="text-sm text-brand-muted">
-                {selectedOffer.title} · {formatMad(selectedOffer.priceMad)}
+                {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity)} ·{" "}
+                {formatMad(selectedOffer.priceMad)}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-2 sm:max-w-md sm:flex-1">
