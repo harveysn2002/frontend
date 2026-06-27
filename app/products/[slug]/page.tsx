@@ -23,6 +23,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   const product = getProductBySlug(params.slug);
   if (!product) notFound();
 
+  const heroFit = product.heroImageFit === "contain" ? "object-contain" : "object-cover";
+  const thumbFit = product.heroImageFit === "contain" ? "object-contain p-1" : "object-cover";
+
   const crossSells = product.crossSellIds
     .map((id) => getProductById(id))
     .filter(Boolean)
@@ -32,13 +35,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     <div className="pb-24 md:pb-0">
       <section className="container grid gap-8 py-10 lg:grid-cols-[1fr_1.05fr]">
         <div className="grid gap-4">
-          <div className="relative aspect-square overflow-hidden rounded-[3rem] bg-brand-soft shadow-soft">
-            <Image src={product.images[0]} alt={product.nameAr} fill priority className="object-cover" />
+          <div className="relative aspect-square overflow-hidden rounded-[3rem] bg-brand-ivory shadow-soft">
+            <Image src={product.images[0]} alt={product.nameAr} fill priority className={heroFit} />
           </div>
           <div className="grid grid-cols-4 gap-3">
             {product.images.map((image) => (
-              <div key={image} className="relative aspect-square overflow-hidden rounded-2xl bg-brand-soft">
-                <Image src={image} alt={product.nameAr} fill className="object-cover" />
+              <div key={image} className="relative aspect-square overflow-hidden rounded-2xl bg-brand-ivory">
+                <Image src={image} alt={product.nameAr} fill className={thumbFit} />
               </div>
             ))}
           </div>
@@ -87,8 +90,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
         </div>
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[3rem] bg-brand-soft shadow-soft">
-          <Image src={product.images[1]} alt={product.nameAr} fill className="object-cover" />
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[3rem] bg-brand-ivory shadow-soft">
+          <Image src={product.images[1]} alt={product.nameAr} fill className={heroFit} />
         </div>
       </section>
 

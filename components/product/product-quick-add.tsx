@@ -8,12 +8,13 @@ import { useProductPurchase } from "@/hooks/use-product-purchase";
 
 export function ProductQuickAdd({ product }: { product: Product }) {
   const offer = product.offers.find((item) => item.recommended) || product.offers[0];
+  const unit = product.quantityUnit ?? "piece";
   const { addToCart } = useProductPurchase(product);
 
   return (
     <Button className="w-full" onClick={() => addToCart(offer)}>
       <ShoppingBag className="ml-2 h-5 w-5" />
-      زيد للسلّة · {offerQuantityLabel(offer.quantity)} · {formatMad(offer.priceMad)}
+      زيد للسلّة · {offerQuantityLabel(offer.quantity, unit)} · {formatMad(offer.priceMad)}
     </Button>
   );
 }

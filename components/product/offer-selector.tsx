@@ -5,19 +5,22 @@ import {
   formatMad,
   offerPriceClarityLabel,
   offerPriceScopeLabel,
+  offerQuantityBadge,
   offerQuantityLabel,
   offerUnitPriceMad,
 } from "@/lib/currency";
-import type { Offer } from "@/config/products";
+import type { Offer, QuantityUnit } from "@/config/products";
 import { siteConfig } from "@/config/site";
 
 export function OfferSelector({
   offers,
   selectedOfferId,
+  quantityUnit = "piece",
   onSelect,
 }: {
   offers: Offer[];
   selectedOfferId: string;
+  quantityUnit?: QuantityUnit;
   onSelect: (offer: Offer) => void;
 }) {
   return (
@@ -44,9 +47,9 @@ export function OfferSelector({
                   <span className="rounded-full bg-brand-gold px-3 py-1 text-xs font-black text-white">
                     {offer.badge}
                   </span>
-                  {offer.quantity > 1 ? (
+                  {offerQuantityBadge(offer.quantity, quantityUnit) ? (
                     <span className="rounded-full bg-brand-primary px-3 py-1 text-xs font-black text-white">
-                      ×{offer.quantity} قطع
+                      {offerQuantityBadge(offer.quantity, quantityUnit)}
                     </span>
                   ) : null}
                 </div>
@@ -59,18 +62,20 @@ export function OfferSelector({
               </div>
               <div className="shrink-0 text-left">
                 <div className="rounded-xl bg-brand-primary/10 px-3 py-1 text-xs font-black text-brand-primary">
-                  {offerQuantityLabel(offer.quantity)}
+                  {offerQuantityLabel(offer.quantity, quantityUnit)}
                 </div>
                 <div className="mt-2 text-2xl font-black leading-none">{formatMad(offer.priceMad)}</div>
-                {offerPriceClarityLabel(offer.quantity) ? (
+                {offerPriceClarityLabel(offer.quantity, quantityUnit) ? (
                   <div className="mt-1 text-sm font-black text-brand-primary">
-                    {offerPriceClarityLabel(offer.quantity)}
+                    {offerPriceClarityLabel(offer.quantity, quantityUnit)}
                   </div>
                 ) : null}
-                <div className="mt-1 text-sm font-bold text-brand-ink">{offerPriceScopeLabel(offer.quantity)}</div>
+                <div className="mt-1 text-sm font-bold text-brand-ink">
+                  {offerPriceScopeLabel(offer.quantity, quantityUnit)}
+                </div>
                 {offer.quantity > 1 ? (
                   <div className="mt-1 text-xs font-semibold text-brand-muted">
-                    {formatMad(unitPrice)} للقطعة
+                    {formatMad(unitPrice)} {quantityUnit === "set" ? "للطقم" : "للقطعة"}
                   </div>
                 ) : null}
                 <div className="mt-1 text-sm text-brand-muted line-through">

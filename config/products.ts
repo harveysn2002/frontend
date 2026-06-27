@@ -1,5 +1,7 @@
 export type ProductId = "belt" | "pillow" | "bundle";
 
+export type QuantityUnit = "piece" | "set";
+
 export type Offer = {
   id: string;
   productId: ProductId;
@@ -28,12 +30,17 @@ export type Product = {
   mechanism: string;
   image: string;
   images: string[];
+  /** Promo graphics with text — use contain so badges/prices stay visible */
+  heroImageFit?: "cover" | "contain";
+  quantityUnit?: QuantityUnit;
   offers: Offer[];
   crossSellIds: ProductId[];
 };
 
 const placeholder = (label: string) =>
   `/api/placeholder?label=${encodeURIComponent(label)}`;
+
+const staticProductImage = (file: string) => `/images/products/${file}`;
 
 const productImage = (name: string) => `/api/product-image?name=${encodeURIComponent(name)}`;
 
@@ -108,16 +115,16 @@ export const products: Product[] = [
     id: "pillow",
     slug: "wisada-dahr",
     nameAr: "وسادة الظهر",
-    nameEn: "VORLAY Back Pillow",
-    headline: "وسادة الظهر لجلسة أريح فالمكتب والدار والسيارة",
+    nameEn: "VORLAY Back Pillow Set",
+    headline: "طقم 2 في 1 — دعم الرقبة والظهر فالمكتب والدار والسيارة",
     subheading:
-      "كتعاون على دعم الظهر أثناء الجلوس الطويل وتخلي الكرسي أكثر راحة.",
-    cardHeading: "راحة أرقى للجلوس الطويل",
-    cardSubheading: "للمكتب، السيارة، والصالون",
+      "وسادة الرقبة + وسادة الظهر فطلب واحد. كتعاون على جلسة أريح أثناء الجلوس الطويل.",
+    cardHeading: "طقم 2 في 1 — رقبة وظهر",
+    cardSubheading: "دعم الرقبة والظهر للمكتب، السيارة، والصالون",
     bestFor: ["المكتب", "السيارة", "الجلوس الطويل"],
     benefits: [
-      "كتدعم الظهر أثناء الجلوس.",
-      "مناسبة للكرسي والسيارة والصالون.",
+      "طقم 2 في 1: وسادة رقبة + وسادة ظهر.",
+      "مناسب للكرسي والسيارة والصالون.",
       "تصميم عملي وسهل النقل.",
       "كتخلي الجلسة أكثر توازنًا وراحة.",
     ],
@@ -127,13 +134,15 @@ export const products: Product[] = [
       "بغيت الكرسي يدعم ظهرك أكثر؟",
     ],
     mechanism:
-      "الوسادة كتعاون على ملء الفراغ بين الظهر والكرسي، ما يعطي إحساسًا أريح أثناء الجلوس.",
-    image: productImage("seat-back-cushion"),
+      "الطقم كيجمع وسادة الرقبة ووسادة الظهر باش يعاونك على جلسة مريحة فالمكتب، السيارة، أو الدار.",
+    image: staticProductImage("wisada-dahr-hero.png"),
+    heroImageFit: "contain",
+    quantityUnit: "set",
     images: [
-      productImage("seat-back-cushion"),
-      productImage("car-back-support"),
-      placeholder("وسادة الظهر - المكتب"),
-      placeholder("وسادة الظهر - التفاصيل"),
+      staticProductImage("wisada-dahr-hero.png"),
+      staticProductImage("car-cushion-set-hero.png"),
+      staticProductImage("vorlay-car-set-02-studio-product.png"),
+      staticProductImage("vorlay-car-set-03-hands-closeup.png"),
     ],
     crossSellIds: ["belt", "bundle"],
     offers: [
@@ -141,8 +150,8 @@ export const products: Product[] = [
         id: "pillow-1",
         productId: "pillow",
         quantity: 1,
-        title: "قطعة واحدة",
-        subtitle: "خلي جلستك أريح",
+        title: "طقم واحد",
+        subtitle: "2 في 1 — رقبة وظهر",
         badge: "للتجربة",
         priceMad: 199,
         compareAtPriceMad: 245,
@@ -151,8 +160,8 @@ export const products: Product[] = [
         id: "pillow-2",
         productId: "pillow",
         quantity: 2,
-        title: "قطعتين",
-        subtitle: "واحدة للمكتب وواحدة للسيارة",
+        title: "طقمين",
+        subtitle: "2 طقم 2 في 1 — واحد للمكتب وواحد للسيارة",
         badge: "الأكثر اختياراً",
         priceMad: 369,
         compareAtPriceMad: 490,
@@ -162,8 +171,8 @@ export const products: Product[] = [
         id: "pillow-3",
         productId: "pillow",
         quantity: 3,
-        title: "ثلاث قطع",
-        subtitle: "للدار والمكتب والسيارة",
+        title: "ثلاث أطقم",
+        subtitle: "3 طقم 2 في 1 — للدار والمكتب والسيارة",
         badge: "أفضل قيمة",
         priceMad: 529,
         compareAtPriceMad: 735,

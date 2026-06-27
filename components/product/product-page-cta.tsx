@@ -16,6 +16,7 @@ export function ProductPageCta({
   subtitle?: string;
 }) {
   const offer = product.offers.find((item) => item.recommended) || product.offers[0];
+  const unit = product.quantityUnit ?? "piece";
   const { addToCart, buyNow } = useProductPurchase(product);
 
   return (
@@ -24,10 +25,10 @@ export function ProductPageCta({
       {subtitle ? <p className="mt-3 max-w-2xl leading-8 text-white/85">{subtitle}</p> : null}
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <span className="rounded-full bg-white/15 px-4 py-2 text-sm font-bold">
-          {offer.title} · {offerQuantityLabel(offer.quantity)} · {formatMad(offer.priceMad)}
+          {offer.title} · {offerQuantityLabel(offer.quantity, unit)} · {formatMad(offer.priceMad)}
         </span>
         <span className="rounded-full bg-white/15 px-4 py-2 text-sm font-bold">
-          {offerPriceScopeLabel(offer.quantity)}
+          {offerPriceScopeLabel(offer.quantity, unit)}
         </span>
         <span className="rounded-full bg-white/15 px-4 py-2 text-sm font-bold">
           الدفع عند الاستلام

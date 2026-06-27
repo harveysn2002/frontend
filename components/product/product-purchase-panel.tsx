@@ -15,6 +15,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
   const [selectedOffer, setSelectedOffer] = useState<Offer>(defaultOffer);
   const [showSticky, setShowSticky] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+  const unit = product.quantityUnit ?? "piece";
   const { addToCart, buyNow } = useProductPurchase(product);
 
   useEffect(() => {
@@ -63,6 +64,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           <OfferSelector
             offers={product.offers}
             selectedOfferId={selectedOffer.id}
+            quantityUnit={unit}
             onSelect={setSelectedOffer}
           />
         </div>
@@ -70,14 +72,14 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
         <div className="mt-5 rounded-2xl bg-brand-soft/35 p-4">
           <div className="flex flex-wrap items-center justify-between gap-2 text-lg font-black">
             <span>
-              {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity)}
+              {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity, unit)}
             </span>
             <span className="text-brand-primary">{formatMad(selectedOffer.priceMad)}</span>
           </div>
-          <p className="mt-1 text-sm font-bold text-brand-ink">{offerPriceScopeLabel(selectedOffer.quantity)}</p>
-          {offerPriceClarityLabel(selectedOffer.quantity) ? (
+          <p className="mt-1 text-sm font-bold text-brand-ink">{offerPriceScopeLabel(selectedOffer.quantity, unit)}</p>
+          {offerPriceClarityLabel(selectedOffer.quantity, unit) ? (
             <p className="mt-1 text-sm font-black text-brand-primary">
-              {offerPriceClarityLabel(selectedOffer.quantity)}
+              {offerPriceClarityLabel(selectedOffer.quantity, unit)}
             </p>
           ) : null}
           <p className="mt-2 text-sm font-semibold text-brand-primary">
@@ -111,7 +113,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
             <div className="min-w-0">
               <p className="truncate font-black text-brand-ink">{product.nameAr}</p>
               <p className="text-sm text-brand-muted">
-                {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity)} ·{" "}
+                {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity, unit)} ·{" "}
                 {formatMad(selectedOffer.priceMad)}
               </p>
             </div>
