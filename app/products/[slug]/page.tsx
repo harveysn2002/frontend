@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { MoroccoTrustStrip, OrderStepsStrip } from "@/components/product/morocco-trust-strip";
 import { ProductCard } from "@/components/product/product-card";
 import { ProductPageCta } from "@/components/product/product-page-cta";
+import { ProductImageCarousel } from "@/components/product/product-image-carousel";
 import { ProductPurchasePanel } from "@/components/product/product-purchase-panel";
 import { getProductById, getProductBySlug, products } from "@/config/products";
 
@@ -23,8 +24,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   const product = getProductBySlug(params.slug);
   if (!product) notFound();
 
-  const heroFit = product.heroImageFit === "contain" ? "object-contain" : "object-cover";
-  const thumbFit = product.heroImageFit === "contain" ? "object-contain p-1" : "object-cover";
+  const heroFit = product.heroImageFit === "contain" ? "contain" : "cover";
+  const detailFit = product.heroImageFit === "contain" ? "object-contain" : "object-cover";
 
   const crossSells = product.crossSellIds
     .map((id) => getProductById(id))
@@ -35,16 +36,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     <div className="pb-24 md:pb-0">
       <section className="container grid gap-8 py-10 lg:grid-cols-[1fr_1.05fr]">
         <div className="grid gap-4">
-          <div className="relative aspect-square overflow-hidden rounded-[3rem] bg-brand-ivory shadow-soft">
-            <Image src={product.images[0]} alt={product.nameAr} fill priority className={heroFit} />
-          </div>
-          <div className="grid grid-cols-4 gap-3">
-            {product.images.map((image) => (
-              <div key={image} className="relative aspect-square overflow-hidden rounded-2xl bg-brand-ivory">
-                <Image src={image} alt={product.nameAr} fill className={thumbFit} />
-              </div>
-            ))}
-          </div>
+          <ProductImageCarousel images={product.images} alt={product.nameAr} imageFit={heroFit} />
           <MoroccoTrustStrip compact />
         </div>
         <ProductPurchasePanel product={product} />
@@ -90,8 +82,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
         </div>
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[3rem] bg-brand-ivory shadow-soft">
-          <Image src={product.images[1]} alt={product.nameAr} fill className={heroFit} />
+        <div className={`relative aspect-[4/3] overflow-hidden rounded-[3rem] shadow-soft ${product.heroImageFit === "contain" ? "bg-brand-ivory" : "bg-brand-soft"}`}>
+          <Image src={product.images[1] ?? product.images[0]} alt={product.nameAr} fill className={detailFit} />
         </div>
       </section>
 

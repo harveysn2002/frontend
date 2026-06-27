@@ -12,7 +12,13 @@ export function ProductQuickAdd({ product }: { product: Product }) {
   const { addToCart } = useProductPurchase(product);
 
   return (
-    <Button className="w-full" onClick={() => addToCart(offer)}>
+    <Button
+      className="w-full"
+      onClick={(event) => {
+        event.stopPropagation();
+        addToCart(offer);
+      }}
+    >
       <ShoppingBag className="ml-2 h-5 w-5" />
       زيد للسلّة · {offerQuantityLabel(offer.quantity, unit)} · {formatMad(offer.priceMad)}
     </Button>

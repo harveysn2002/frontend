@@ -11,17 +11,25 @@ export function ProductCard({ product }: { product: Product }) {
   const offer = product.offers.find((item) => item.recommended) || product.offers[0];
   const unit = product.quantityUnit ?? "piece";
   const imageFit = product.heroImageFit === "contain" ? "object-contain p-2" : "object-cover";
+  const productHref = `/products/${product.slug}`;
 
   return (
     <article className="glass-card overflow-hidden rounded-[2rem]">
-      <div className={`relative aspect-square ${product.heroImageFit === "contain" ? "bg-brand-ivory" : "bg-brand-soft/30"}`}>
+      <Link
+        href={productHref}
+        className={`relative block aspect-square transition hover:opacity-95 ${product.heroImageFit === "contain" ? "bg-brand-ivory" : "bg-brand-soft/30"}`}
+      >
         <Image src={product.image} alt={product.nameAr} fill className={imageFit} />
-      </div>
+      </Link>
       <div className="space-y-4 p-6">
         <div>
           <RatingStars />
-          <h3 className="mt-3 text-2xl font-black text-brand-ink">{product.nameAr}</h3>
-          <p className="mt-2 text-brand-muted">{product.cardSubheading}</p>
+          <Link href={productHref} className="group block">
+            <h3 className="mt-3 text-2xl font-black text-brand-ink transition group-hover:text-brand-primary">
+              {product.nameAr}
+            </h3>
+            <p className="mt-2 text-brand-muted">{product.cardSubheading}</p>
+          </Link>
         </div>
         <ul className="space-y-2 text-sm text-brand-muted">
           {product.benefits.slice(0, 3).map((benefit) => (
@@ -44,7 +52,7 @@ export function ProductCard({ product }: { product: Product }) {
           </p>
         </div>
         <ProductQuickAdd product={product} />
-        <Link href={`/products/${product.slug}#order`}>
+        <Link href={`${productHref}#order`}>
           <Button variant="secondary" className="w-full">
             شوف التفاصيل والعروض
           </Button>
