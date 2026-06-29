@@ -37,7 +37,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       <section className="container grid gap-8 py-10 lg:grid-cols-[1fr_1.05fr]">
         <div className="grid gap-4">
           <ProductImageCarousel images={product.images} alt={product.nameAr} imageFit={heroFit} />
-          <MoroccoTrustStrip compact />
+          <MoroccoTrustStrip compact showSocialProof />
         </div>
         <ProductPurchasePanel product={product} />
       </section>

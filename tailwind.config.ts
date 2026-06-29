@@ -25,6 +25,37 @@ const config: Config = {
       boxShadow: {
         soft: "0 20px 60px rgba(31, 41, 51, 0.10)",
       },
+      keyframes: {
+        "pop-in": {
+          "0%": { opacity: "0", transform: "scale(0.6) translateY(8px)" },
+          "70%": { transform: "scale(1.08) translateY(0)" },
+          "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
+        },
+        "slide-up": {
+          "0%": { opacity: "0", transform: "translateY(18px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-4px)" },
+        },
+        "pulse-ring": {
+          "0%": { transform: "scale(0.95)", opacity: "0.7" },
+          "70%": { transform: "scale(1.15)", opacity: "0" },
+          "100%": { transform: "scale(1.15)", opacity: "0" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" },
+        },
+      },
+      animation: {
+        "pop-in": "pop-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+        "slide-up": "slide-up 0.6s ease-out forwards",
+        float: "float 3s ease-in-out infinite",
+        "pulse-ring": "pulse-ring 2s ease-out infinite",
+        shimmer: "shimmer 3s linear infinite",
+      },
     },
   },
   plugins: [],
