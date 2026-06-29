@@ -18,10 +18,16 @@ import { collectAttribution, collectPixelCookies } from "@/lib/utm";
 import { useCartStore } from "@/store/cart-store";
 
 const schema = z.object({
-  name: z.string().min(2, "دخل الاسم الكامل"),
-  phone: z.string().refine((value) => normalizeMoroccanMobile(value), {
-    message: "دخل رقم هاتف مغربي صحيح",
-  }),
+  name: z.string().trim().min(2, "دخل الاسم الكامل"),
+  phone: z
+    .string()
+    .trim()
+    .min(1, "دخل رقم الهاتف")
+    .refine((value) => normalizeMoroccanMobile(value), {
+      message: "دخل رقم هاتف مغربي صحيح",
+    }),
+  city: z.string().trim().min(2, "دخل المدينة"),
+  region: z.string().trim().min(2, "دخل المنطقة أو الحي"),
 });
 
 type CheckoutValues = z.infer<typeof schema>;
@@ -44,7 +50,7 @@ export function CheckoutModal() {
 
   const form = useForm<CheckoutValues>({
     resolver: zodResolver(schema),
-    defaultValues: { name: "", phone: "" },
+    defaultValues: { name: "", phone: "", city: "", region: "" },
   });
 
   const upsell = useMemo(() => {
@@ -85,6 +91,8 @@ export function CheckoutModal() {
           name: values.name,
           phone: phone.local,
           phone_e164: phone.e164,
+          city: values.city,
+          region: values.region,
         },
         items: currentItems.map((item) => ({
           product_id: item.productId,
@@ -133,7 +141,9 @@ export function CheckoutModal() {
       clear();
       window.location.href = `/thank-you/${response.orderId}?order=${encodeURIComponent(response.orderNumber)}`;
     } catch (err) {
-      setError(err instanceof Error ? err.message : "تعذر تسجيل الطلب");
+      const message = err instanceof Error ? err.message : "تعذر تسجيل الطلب";
+      setError(message);
+      closeUpsell();
     } finally {
       setSubmitting(false);
     }
@@ -161,7 +171,7 @@ export function CheckoutModal() {
               </Dialog.Close>
             </div>
             <p className="mt-2 text-brand-muted">
-              دخل الاسم ورقم الهاتف، وفريق VORLAY غادي يتاصل بك لتأكيد التفاصيل قبل الإرسال.
+              دخل الاسم، الهاتف، المدينة والمنطقة. فريق VORLAY غادي يتاصل بك قبل الإرسال.
             </p>
 
             <div className="mt-5 rounded-3xl bg-brand-soft/35 p-4">
@@ -199,6 +209,26 @@ export function CheckoutModal() {
                 />
                 <span className="text-sm text-red-700">{form.formState.errors.phone?.message}</span>
               </label>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="block">
+                  <span className="font-bold">المدينة</span>
+                  <input
+                    className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
+                    placeholder="الدار البيضاء"
+                    {...form.register("city")}
+                  />
+                  <span className="text-sm text-red-700">{form.formState.errors.city?.message}</span>
+                </label>
+                <label className="block">
+                  <span className="font-bold">المنطقة / الحي</span>
+                  <input
+                    className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
+                    placeholder="المعاريف"
+                    {...form.register("region")}
+                  />
+                  <span className="text-sm text-red-700">{form.formState.errors.region?.message}</span>
+                </label>
+              </div>
               <div className="grid grid-cols-2 gap-2 text-xs font-bold text-brand-primary">
                 <span>الدفع عند الاستلام</span>
                 <span>تأكيد قبل الإرسال</span>
