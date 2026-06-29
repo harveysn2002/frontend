@@ -48,6 +48,10 @@ const config: Config = {
           "0%": { backgroundPosition: "200% 0" },
           "100%": { backgroundPosition: "-200% 0" },
         },
+        "marquee-rtl": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "pop-in": "pop-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
@@ -55,6 +59,7 @@ const config: Config = {
         float: "float 3s ease-in-out infinite",
         "pulse-ring": "pulse-ring 2s ease-out infinite",
         shimmer: "shimmer 3s linear infinite",
+        "marquee-rtl": "marquee-rtl 22s linear infinite",
       },
     },
   },

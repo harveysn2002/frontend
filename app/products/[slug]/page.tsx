@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MoroccoTrustStrip, OrderStepsStrip } from "@/components/product/morocco-trust-strip";
+import { MoroccoTrustMini, OrderStepsStrip } from "@/components/product/morocco-trust-strip";
+import { ProductSocialProof } from "@/components/product/product-social-proof";
+import { TrustTicker } from "@/components/layout/trust-ticker";
 import { ProductCard } from "@/components/product/product-card";
 import { ProductPageCta } from "@/components/product/product-page-cta";
 import { ProductImageCarousel } from "@/components/product/product-image-carousel";
@@ -37,7 +39,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       <section className="container grid gap-8 py-10 lg:grid-cols-[1fr_1.05fr]">
         <div className="grid gap-4">
           <ProductImageCarousel images={product.images} alt={product.nameAr} imageFit={heroFit} />
-          <MoroccoTrustStrip compact showSocialProof />
+          <TrustTicker />
+          <ProductSocialProof />
         </div>
         <ProductPurchasePanel product={product} />
       </section>
@@ -45,6 +48,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       <section className="container pb-10">
         <h2 className="mb-5 text-2xl font-black">كيفاش كيطلب من VORLAY؟</h2>
         <OrderStepsStrip />
+        <div className="mt-6">
+          <MoroccoTrustMini />
+        </div>
       </section>
 
       <section className="bg-white py-16">

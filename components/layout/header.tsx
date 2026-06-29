@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { Menu, ShoppingCart } from "lucide-react";
 import { BrandLogo } from "@/components/layout/brand-logo";
+import { TrustTicker } from "@/components/layout/trust-ticker";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/config/site";
 import { useCartStore } from "@/store/cart-store";
 
 const links = [
@@ -23,8 +23,8 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-brand-primary/10 bg-white/88 backdrop-blur-xl">
-      <div className="bg-brand-primary py-2 text-center text-sm font-semibold text-white">
-        {siteConfig.announcement}
+      <div className="overflow-hidden bg-brand-primary py-2 text-sm font-semibold text-white">
+        <TrustTicker variant="marquee" />
       </div>
       <div className="container flex items-center justify-between gap-4 py-4">
         <BrandLogo />
