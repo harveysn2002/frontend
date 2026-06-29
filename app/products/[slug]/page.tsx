@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MoroccoTrustMini, OrderStepsStrip } from "@/components/product/morocco-trust-strip";
-import { ProductSocialProof } from "@/components/product/product-social-proof";
-import { TrustTicker } from "@/components/layout/trust-ticker";
+import { ProductPainCards } from "@/components/product/product-pain-cards";
 import { ProductCard } from "@/components/product/product-card";
 import { ProductPageCta } from "@/components/product/product-page-cta";
 import { ProductImageCarousel } from "@/components/product/product-image-carousel";
@@ -39,8 +38,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       <section className="container grid gap-8 py-10 lg:grid-cols-[1fr_1.05fr]">
         <div className="grid gap-4">
           <ProductImageCarousel images={product.images} alt={product.nameAr} imageFit={heroFit} />
-          <TrustTicker />
-          <ProductSocialProof />
+          <ProductPainCards pains={product.pains} />
         </div>
         <ProductPurchasePanel product={product} />
       </section>
@@ -55,18 +53,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
       <section className="bg-white py-16">
         <div className="container">
-          <h2 className="text-4xl font-black">واش هاد الشي كيبان مألوف؟</h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {product.pains.map((pain) => (
-              <div key={pain} className="rounded-[2rem] bg-brand-ivory p-6">
-                <h3 className="text-xl font-black">{pain}</h3>
-                <p className="mt-3 text-brand-muted">
-                  VORLAY كتقترح دعم يومي مريح، بدون وعود علاجية أو مبالغة.
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10">
+          <div className="mt-0">
             <ProductPageCta
               product={product}
               title="باغي تجرب VORLAY دابا؟"
