@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { BrandLogo } from "@/components/layout/brand-logo";
+import { MobileNav } from "@/components/layout/mobile-nav";
 import { TrustTicker } from "@/components/layout/trust-ticker";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/store/cart-store";
@@ -44,9 +45,7 @@ export function Header() {
               </span>
             )}
           </Button>
-          <Button variant="ghost" className="lg:hidden" aria-label="Menu">
-            <Menu className="h-5 w-5" />
-          </Button>
+          <MobileNav />
         </div>
       </div>
     </header>
