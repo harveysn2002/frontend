@@ -48,6 +48,8 @@ export function ProductImageCarousel({
           alt={alt}
           fill
           priority={index === 0}
+          quality={92}
+          sizes="(max-width: 1024px) 100vw, 560px"
           className={mainFit}
         />
 
@@ -103,7 +105,7 @@ export function ProductImageCarousel({
                   : "border-transparent opacity-80 hover:opacity-100",
               )}
             >
-              <Image src={image} alt="" fill className={thumbFit} />
+              <Image src={image} alt="" fill quality={85} sizes="80px" className={thumbFit} />
             </button>
           ))}
         </div>

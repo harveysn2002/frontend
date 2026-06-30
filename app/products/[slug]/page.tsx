@@ -63,7 +63,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
         <div className={`relative aspect-[4/3] overflow-hidden rounded-[3rem] shadow-soft ${product.heroImageFit === "contain" ? "bg-brand-ivory" : "bg-brand-soft"}`}>
-          <Image src={product.images[1] ?? product.images[0]} alt={product.nameAr} fill className={detailFit} />
+          <Image src={product.images[1] ?? product.images[0]} alt={product.nameAr} fill quality={90} sizes="(max-width: 1024px) 100vw, 560px" className={detailFit} />
         </div>
       </section>
 

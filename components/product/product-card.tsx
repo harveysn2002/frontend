@@ -19,7 +19,7 @@ export function ProductCard({ product }: { product: Product }) {
         href={productHref}
         className={`relative block aspect-square transition hover:opacity-95 ${product.heroImageFit === "contain" ? "bg-brand-ivory" : "bg-brand-soft/30"}`}
       >
-        <Image src={product.image} alt={product.nameAr} fill className={imageFit} />
+        <Image src={product.image} alt={product.nameAr} fill quality={90} sizes="(max-width: 768px) 100vw, 400px" className={imageFit} />
       </Link>
       <div className="space-y-4 p-6">
         <div>
