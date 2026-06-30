@@ -69,12 +69,11 @@ export const products: Product[] = [
     ],
     mechanism:
       "الحزام كيعطي دعم وتذكير لطيف للوضعية أثناء الحركة والجلسة، بدون وعود علاجية.",
-    image: productImage("posture-belt-front"),
+    image: staticProductImage("belt-lifestyle-infographic.png"),
+    heroImageFit: "contain",
     images: [
-      productImage("posture-belt-front"),
-      productImage("posture-belt-back"),
-      placeholder("حزام الظهر - تفاصيل الحزام"),
-      placeholder("حزام الظهر - طريقة اللبس"),
+      staticProductImage("belt-lifestyle-infographic.png"),
+      staticProductImage("belt-features-infographic.png"),
     ],
     crossSellIds: ["pillow", "bundle"],
     offers: [
@@ -143,6 +142,7 @@ export const products: Product[] = [
     images: [
       staticProductImage("wisada-dahr-hero.webp"),
       staticProductImage("wisada-car-installed.png"),
+      staticProductImage("pillow-posture-infographic.png"),
       staticProductImage("wisada-before-after.png"),
     ],
     crossSellIds: ["belt", "bundle"],
