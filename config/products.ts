@@ -204,12 +204,15 @@ export const products: Product[] = [
     ],
     mechanism:
       "استعمل الوسادة للكرسي والسيارة، والحزام للأوقات اللي كتحتاج فيها دعم أكثر أثناء الحركة.",
-    image: productImage("car-back-support"),
+    image: staticProductImage("wisada-dahr-hero.webp"),
+    heroImageFit: "contain",
     images: [
-      productImage("car-back-support"),
-      productImage("posture-belt-front"),
-      productImage("seat-back-cushion"),
-      placeholder("طقم الظهر - هدية عملية"),
+      staticProductImage("wisada-dahr-hero.webp"),
+      staticProductImage("belt-lifestyle-infographic.png"),
+      staticProductImage("belt-features-infographic.png"),
+      staticProductImage("pillow-posture-infographic.png"),
+      staticProductImage("wisada-car-installed.png"),
+      staticProductImage("wisada-before-after.png"),
     ],
     crossSellIds: ["pillow", "belt"],
     offers: [
