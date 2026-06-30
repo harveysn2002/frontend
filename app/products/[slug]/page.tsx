@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MoroccoTrustMini, OrderStepsStrip } from "@/components/product/morocco-trust-strip";
 import { ProductPainCards } from "@/components/product/product-pain-cards";
@@ -48,18 +47,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <OrderStepsStrip />
         <div className="mt-6">
           <MoroccoTrustMini />
-        </div>
-      </section>
-
-      <section className="bg-white py-16">
-        <div className="container">
-          <div className="mt-0">
-            <ProductPageCta
-              product={product}
-              title="باغي تجرب VORLAY دابا؟"
-              subtitle="اختار العرض اللي مناسب ليك، زيد للسلّة، وكمل الطلب فـ 30 ثانية بالدفع عند الاستلام."
-            />
-          </div>
         </div>
       </section>
 
@@ -112,14 +99,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      <section className="container pb-10">
-        <ProductPageCta
-          product={product}
-          title="جاهز تطلب؟"
-          subtitle="زيد للسلّة ديالك دابا. ما كتخلص حتى توصلك السلعة."
-        />
-      </section>
-
       <section className="container pb-20">
         <div className="rounded-[3rem] bg-white p-8 shadow-soft">
           <h2 className="text-3xl font-black">أسئلة مهمة</h2>
@@ -136,15 +115,15 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               </div>
             ))}
           </div>
-          <div className="mt-8">
-            <Link
-              href="#order"
-              className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-brand-primary px-6 py-3 font-bold text-white hover:bg-brand-dark"
-            >
-              رجع للطلب و زيد للسلّة
-            </Link>
-          </div>
         </div>
+      </section>
+
+      <section className="container pb-24 md:pb-20">
+        <ProductPageCta
+          product={product}
+          title="باغي تجرب VORLAY دابا؟"
+          subtitle="اختار العرض اللي مناسب ليك، زيد للسلّة، وكمل الطلب فـ 30 ثانية بالدفع عند الاستلام."
+        />
       </section>
     </div>
   );
