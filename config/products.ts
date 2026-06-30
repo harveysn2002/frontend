@@ -74,6 +74,7 @@ export const products: Product[] = [
     images: [
       staticProductImage("belt-lifestyle-infographic.png"),
       staticProductImage("belt-wearing-infographic.png"),
+      staticProductImage("belt-daily-use-infographic.png"),
       staticProductImage("belt-features-infographic.png"),
     ],
     crossSellIds: ["pillow", "bundle"],
@@ -210,6 +211,8 @@ export const products: Product[] = [
     images: [
       staticProductImage("wisada-dahr-hero.png"),
       staticProductImage("belt-lifestyle-infographic.png"),
+      staticProductImage("belt-wearing-infographic.png"),
+      staticProductImage("belt-daily-use-infographic.png"),
       staticProductImage("belt-features-infographic.png"),
       staticProductImage("pillow-posture-infographic.png"),
       staticProductImage("wisada-car-installed.png"),
