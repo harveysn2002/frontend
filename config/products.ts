@@ -73,6 +73,7 @@ export const products: Product[] = [
     heroImageFit: "contain",
     images: [
       staticProductImage("belt-lifestyle-infographic.png"),
+      staticProductImage("belt-wearing-infographic.png"),
       staticProductImage("belt-features-infographic.png"),
     ],
     crossSellIds: ["pillow", "bundle"],
@@ -136,11 +137,11 @@ export const products: Product[] = [
     ],
     mechanism:
       "الطقم كيجمع وسادة رقبة ووسادة ظهر قابلة للتعديل. الميموري فوم كيتشكل على جسمك باش يعطي دعم مخصص للظهر والرقبة، خاصة فالسياقة الطويلة أو الجلوس المتواصل. الوجه الناعم كيخليك تحس براحة أكثر على البشرة، والحشوة كتبقى ثابتة حتى بعد الاستعمال المتكرر — بلا وعود علاجية.",
-    image: staticProductImage("wisada-dahr-hero.webp"),
+    image: staticProductImage("wisada-dahr-hero.png"),
     heroImageFit: "contain",
     quantityUnit: "set",
     images: [
-      staticProductImage("wisada-dahr-hero.webp"),
+      staticProductImage("wisada-dahr-hero.png"),
       staticProductImage("wisada-car-installed.png"),
       staticProductImage("pillow-posture-infographic.png"),
       staticProductImage("wisada-before-after.png"),
@@ -204,10 +205,10 @@ export const products: Product[] = [
     ],
     mechanism:
       "استعمل الوسادة للكرسي والسيارة، والحزام للأوقات اللي كتحتاج فيها دعم أكثر أثناء الحركة.",
-    image: staticProductImage("wisada-dahr-hero.webp"),
+    image: staticProductImage("wisada-dahr-hero.png"),
     heroImageFit: "contain",
     images: [
-      staticProductImage("wisada-dahr-hero.webp"),
+      staticProductImage("wisada-dahr-hero.png"),
       staticProductImage("belt-lifestyle-infographic.png"),
       staticProductImage("belt-features-infographic.png"),
       staticProductImage("pillow-posture-infographic.png"),
