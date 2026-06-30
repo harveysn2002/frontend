@@ -11,6 +11,9 @@ export type HomeHeroSlide = {
   description: string;
   image: string;
   imageAlt: string;
+  priceMad: number;
+  compareAtPriceMad?: number;
+  priceNote?: string;
 };
 
 const heroImage = (file: string) => `/images/hero/${file}`;
@@ -26,6 +29,9 @@ export const pillowSlide: HomeHeroSlide = {
     "طقم 2 في 1 — وسادة رقبة ووسادة ظهر بميموري فوم. للسيارة، المكتب، والجلوس الطويل.",
   image: heroImage("hero-home-transparent.png"),
   imageAlt: "طقم VORLAY — وسادة رقبة وظهر",
+  priceMad: 199,
+  compareAtPriceMad: 245,
+  priceNote: "طقم واحد 2 في 1 — الدفع عند الاستلام",
 };
 
 /** Single homepage hero — product pages keep their own galleries. */

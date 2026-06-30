@@ -3,14 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Check } from "lucide-react";
-import { getHeroOffer, homeHeroSlides } from "@/config/home-hero";
+import { homeHeroSlides } from "@/config/home-hero";
 import { formatMad } from "@/lib/currency";
 
 const trustPoints = ["الدفع عند الاستلام", "توصيل لجميع مدن المغرب", "تأكيد الطلب بالهاتف"];
 
 export function PremiumHomeHero() {
   const slide = homeHeroSlides[0];
-  const offer = getHeroOffer(slide.id);
+  const priceLabel = formatMad(slide.priceMad);
+  const compareLabel = slide.compareAtPriceMad ? formatMad(slide.compareAtPriceMad) : null;
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-dark to-[#0d4f4a] text-white">
@@ -49,17 +50,22 @@ export function PremiumHomeHero() {
             {slide.description}
           </p>
 
-          <p className="mt-3 text-sm font-bold text-brand-gold/90 sm:mt-4">
-            {slide.nameAr}
-            {offer ? ` · ${formatMad(offer.priceMad)}` : null}
-          </p>
+          <div className="mt-4 flex flex-wrap items-end gap-3 sm:mt-5">
+            <p className="text-3xl font-black text-white sm:text-4xl">{priceLabel}</p>
+            {compareLabel ? (
+              <p className="pb-1 text-base font-bold text-white/50 line-through sm:text-lg">{compareLabel}</p>
+            ) : null}
+          </div>
+          {slide.priceNote ? (
+            <p className="mt-1 text-sm font-bold text-brand-gold/90">{slide.priceNote}</p>
+          ) : null}
 
           <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-8 sm:gap-3">
             <Link
               href={`/products/${slide.slug}#order`}
               className="inline-flex min-h-11 flex-1 items-center justify-center rounded-2xl bg-gradient-to-l from-[#E8C872] via-brand-gold to-[#A8842E] px-5 py-2.5 text-sm font-black text-[#1a1208] shadow-[0_8px_30px_rgba(201,162,74,0.35)] transition hover:brightness-110 sm:min-h-12 sm:flex-none sm:px-6 sm:text-base"
             >
-              {offer ? `اطلب الآن — ${formatMad(offer.priceMad)}` : "اطلب الآن"}
+              {`اطلب الآن — ${priceLabel}`}
             </Link>
             <Link
               href={`/products/${slide.slug}`}
