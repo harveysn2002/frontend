@@ -13,47 +13,23 @@ export type HomeHeroSlide = {
   imageAlt: string;
 };
 
-/** Drop PNG/WebP files in public/images/hero/ — hero-{pillow|belt|bundle}.{webp|png} */
 const heroImage = (file: string) => `/images/hero/${file}`;
 
-const slideCopy: Record<
-  ProductId,
-  Pick<HomeHeroSlide, "badge" | "headlineWhite" | "headlineGold" | "description" | "image" | "imageAlt">
-> = {
-  pillow: {
-    badge: "VORLAY ✦ NEW COLLECTION",
-    headlineWhite: "راحة حقيقية",
-    headlineGold: "لكل رحلة",
-    description:
-      "طقم 2 في 1 — وسادة رقبة ووسادة ظهر بميموري فوم. للسيارة، المكتب، والجلوس الطويل.",
-    image: heroImage("hero-pillow.webp"),
-    imageAlt: "طقم VORLAY — وسادة رقبة وظهر",
-  },
-  belt: {
-    badge: "VORLAY ✦ BEST SELLER",
-    headlineWhite: "وقفة ثابتة",
-    headlineGold: "نهار كامل",
-    description:
-      "حزام دعم الظهر قابل للتعديل — للخدمة، الوقوف الطويل، والحركة اليومية.",
-    image: heroImage("hero-belt.png"),
-    imageAlt: "حزام VORLAY لدعم الظهر",
-  },
-  bundle: {
-    badge: "VORLAY ✦ BEST VALUE",
-    headlineWhite: "الحل الكامل",
-    headlineGold: "بأفضل قيمة",
-    description: "حزام + وسادة في طلب واحد — راحة فالجلوس والحركة بثمن أحسن.",
-    image: heroImage("hero-bundle.webp"),
-    imageAlt: "طقم VORLAY الكامل — حزام ووسادة",
-  },
+export const pillowSlide: HomeHeroSlide = {
+  id: "pillow",
+  slug: "wisada-dahr",
+  nameAr: "وسادة الظهر",
+  badge: "VORLAY ✦ NEW COLLECTION",
+  headlineWhite: "راحة حقيقية",
+  headlineGold: "لكل رحلة",
+  description:
+    "طقم 2 في 1 — وسادة رقبة ووسادة ظهر بميموري فوم. للسيارة، المكتب، والجلوس الطويل.",
+  image: heroImage("hero-home.png"),
+  imageAlt: "طقم VORLAY — وسادة رقبة وظهر",
 };
 
-export const homeHeroSlides: HomeHeroSlide[] = products.map((product) => ({
-  id: product.id,
-  slug: product.slug,
-  nameAr: product.nameAr,
-  ...slideCopy[product.id],
-}));
+/** Single homepage hero — product pages keep their own galleries. */
+export const homeHeroSlides: HomeHeroSlide[] = [pillowSlide];
 
 export function getHeroOffer(productId: ProductId) {
   const product = products.find((item) => item.id === productId);
