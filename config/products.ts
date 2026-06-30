@@ -143,9 +143,6 @@ export const products: Product[] = [
     images: [
       staticProductImage("wisada-dahr-hero.png"),
       staticProductImage("wisada-before-after.png"),
-      staticProductImage("car-cushion-set-hero.png"),
-      staticProductImage("vorlay-car-set-02-studio-product.png"),
-      staticProductImage("vorlay-car-set-03-hands-closeup.png"),
     ],
     crossSellIds: ["belt", "bundle"],
     offers: [
