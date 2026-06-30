@@ -43,7 +43,7 @@ const slideCopy: Record<
     headlineWhite: "الحل الكامل",
     headlineGold: "بأفضل قيمة",
     description: "حزام + وسادة في طلب واحد — راحة فالجلوس والحركة بثمن أحسن.",
-    image: heroImage("hero-bundle.png"),
+    image: heroImage("hero-bundle.webp"),
     imageAlt: "طقم VORLAY الكامل — حزام ووسادة",
   },
 };
