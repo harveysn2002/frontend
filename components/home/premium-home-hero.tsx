@@ -24,7 +24,9 @@ export function PremiumHomeHero() {
         {/* Product image */}
         <div className="relative order-2 lg:order-1">
           <div className="relative mx-auto aspect-square w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px]">
-            <div className="absolute inset-[10%] animate-hero-glow rounded-full bg-[radial-gradient(circle,rgba(201,162,74,0.3)_0%,transparent_70%)]" />
+            <div className="absolute inset-[4%] animate-hero-glow rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.1)_42%,transparent_68%)]" />
+            <div className="absolute inset-[12%] rounded-full bg-white/[0.07] blur-3xl" />
+            <div className="absolute inset-[18%] rounded-full border border-white/[0.08] bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)]" />
             <div className="relative h-full w-full animate-hero-float">
               <Image
                 src={slide.image}
@@ -33,7 +35,7 @@ export function PremiumHomeHero() {
                 priority
                 quality={92}
                 sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 520px"
-                className="object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.5)]"
+                className="relative z-10 object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]"
               />
             </div>
           </div>
