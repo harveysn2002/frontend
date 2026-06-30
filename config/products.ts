@@ -138,10 +138,11 @@ export const products: Product[] = [
     mechanism:
       "الطقم كيجمع وسادة رقبة ووسادة ظهر قابلة للتعديل. الميموري فوم كيتشكل على جسمك باش يعطي دعم مخصص للظهر والرقبة، خاصة فالسياقة الطويلة أو الجلوس المتواصل. الوجه الناعم كيخليك تحس براحة أكثر على البشرة، والحشوة كتبقى ثابتة حتى بعد الاستعمال المتكرر — بلا وعود علاجية.",
     image: staticProductImage("wisada-dahr-hero.png"),
-    heroImageFit: "cover",
+    heroImageFit: "contain",
     quantityUnit: "set",
     images: [
       staticProductImage("wisada-dahr-hero.png"),
+      staticProductImage("wisada-car-installed.png"),
       staticProductImage("wisada-before-after.png"),
     ],
     crossSellIds: ["belt", "bundle"],
