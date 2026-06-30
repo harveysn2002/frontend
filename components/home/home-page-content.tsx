@@ -1,11 +1,9 @@
 "use client";
 
 import type { ReactNode } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { PremiumHomeHero } from "@/components/home/premium-home-hero";
 import { ProductCard } from "@/components/product/product-card";
-import { TrustTicker } from "@/components/layout/trust-ticker";
-import { Button } from "@/components/ui/button";
 import { products } from "@/config/products";
 import { useInView } from "@/hooks/use-in-view";
 
@@ -40,50 +38,7 @@ function AnimatedBlock({
 export function HomePageContent() {
   return (
     <>
-      <section className="container grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-20">
-        <div>
-          <AnimatedBlock>
-            <div className="mb-4 inline-flex animate-pop-in rounded-full bg-brand-soft px-4 py-2 text-sm font-black text-brand-primary">
-              عروض إطلاق VORLAY متاحة اليوم
-            </div>
-          </AnimatedBlock>
-          <AnimatedBlock delay={0.05}>
-            <h1 className="text-5xl font-black leading-tight text-brand-ink md:text-6xl">
-              راحة لظهرك... وثقة فوقفتك
-            </h1>
-          </AnimatedBlock>
-          <AnimatedBlock delay={0.1}>
-            <p className="mt-6 text-xl leading-9 text-brand-muted">
-              منتجات دعم الظهر من VORLAY مختارة لكل شخص كيقضي نهارو بين الخدمة،
-              الجلوس، السياقة، والحركة، وكيحتاج حل عملي يرافقه فنهاره.
-            </p>
-          </AnimatedBlock>
-          <AnimatedBlock delay={0.15}>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/collections">
-                <Button className="text-lg transition-transform hover:scale-[1.02]">اكتشف المجموعة</Button>
-              </Link>
-              <Link href="/products/taqm-dahr">
-                <Button variant="secondary" className="text-lg transition-transform hover:scale-[1.02]">
-                  شوف أفضل عرض
-                </Button>
-              </Link>
-            </div>
-          </AnimatedBlock>
-          <AnimatedBlock delay={0.2} className="mt-8">
-            <TrustTicker />
-          </AnimatedBlock>
-        </div>
-        <AnimatedBlock delay={0.1} className="relative aspect-square overflow-hidden rounded-[3rem] bg-brand-soft shadow-soft">
-          <Image
-            src="/api/placeholder?label=VORLAY%20Hero"
-            alt="VORLAY hero"
-            fill
-            priority
-            className="object-cover transition-transform duration-700 hover:scale-[1.02]"
-          />
-        </AnimatedBlock>
-      </section>
+      <PremiumHomeHero />
 
       <section className="bg-white py-16">
         <div className="container">
