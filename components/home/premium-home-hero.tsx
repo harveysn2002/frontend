@@ -18,16 +18,17 @@ export function PremiumHomeHero() {
       <div className="container relative grid items-center gap-8 py-10 sm:gap-10 sm:py-12 lg:grid-cols-2 lg:gap-14 lg:py-16">
         {/* Product image */}
         <div className="relative order-2 lg:order-1">
-          <div className="relative mx-auto aspect-square w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px]">
-            <div className="relative h-full w-full animate-hero-float">
+          <div className="relative mx-auto aspect-[3/2] w-full max-w-[480px] sm:max-w-[540px] lg:max-w-[580px]">
+            <div className="pointer-events-none absolute inset-[8%] bg-white/12 blur-3xl" aria-hidden />
+            <div className="relative h-full w-full animate-hero-float px-2 py-1 sm:px-4 sm:py-2">
               <Image
                 src={slide.image}
                 alt={slide.imageAlt}
                 fill
                 priority
-                quality={92}
-                sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 520px"
-                className="object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.25)]"
+                quality={95}
+                sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, 580px"
+                className="object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)]"
               />
             </div>
           </div>
