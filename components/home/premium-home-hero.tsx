@@ -13,20 +13,11 @@ export function PremiumHomeHero() {
   const offer = getHeroOffer(slide.id);
 
   return (
-    <section className="relative overflow-hidden bg-[#0a0a0a] text-white">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -start-24 top-0 h-72 w-72 rounded-full bg-brand-primary/15 blur-[100px] md:h-96 md:w-96 md:blur-[120px]" />
-        <div className="absolute -end-16 bottom-0 h-56 w-56 rounded-full bg-brand-gold/12 blur-[80px] md:h-80 md:w-80 md:blur-[100px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(201,162,74,0.07),transparent_55%)]" />
-      </div>
-
+    <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-dark to-[#0d4f4a] text-white">
       <div className="container relative grid items-center gap-8 py-10 sm:gap-10 sm:py-12 lg:grid-cols-2 lg:gap-14 lg:py-16">
         {/* Product image */}
         <div className="relative order-2 lg:order-1">
           <div className="relative mx-auto aspect-square w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px]">
-            <div className="absolute inset-[4%] animate-hero-glow rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.1)_42%,transparent_68%)]" />
-            <div className="absolute inset-[12%] rounded-full bg-white/[0.07] blur-3xl" />
-            <div className="absolute inset-[18%] rounded-full border border-white/[0.08] bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)]" />
             <div className="relative h-full w-full animate-hero-float">
               <Image
                 src={slide.image}
@@ -35,7 +26,7 @@ export function PremiumHomeHero() {
                 priority
                 quality={92}
                 sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 520px"
-                className="relative z-10 object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]"
+                className="object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.25)]"
               />
             </div>
           </div>
@@ -91,7 +82,7 @@ export function PremiumHomeHero() {
         </div>
       </div>
 
-      <div className="h-1 w-full bg-gradient-to-l from-transparent via-brand-gold/50 to-transparent" />
+      <div className="h-1 w-full bg-gradient-to-l from-transparent via-white/25 to-transparent" />
     </section>
   );
 }
