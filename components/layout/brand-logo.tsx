@@ -3,6 +3,8 @@ import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 const LOGO_SRC = "/images/logos/vorlay-wordmark-header.png";
+const LOGO_WIDTH = 1009;
+const LOGO_HEIGHT = 168;
 
 export function BrandLogo({
   compact = false,
@@ -20,12 +22,12 @@ export function BrandLogo({
       <Image
         src={LOGO_SRC}
         alt="VORLAY"
-        width={compact ? 132 : 168}
-        height={compact ? 36 : 46}
+        width={LOGO_WIDTH}
+        height={LOGO_HEIGHT}
         priority
         className={cn(
           "h-auto w-auto transition group-hover:opacity-90",
-          compact ? "max-h-9" : "max-h-10 md:max-h-11",
+          compact ? "max-h-11 min-w-[180px]" : "min-w-[200px] max-h-12 sm:max-h-[3.25rem] md:max-h-14",
         )}
       />
     </Link>
