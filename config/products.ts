@@ -30,6 +30,8 @@ export type Product = {
   mechanism: string;
   image: string;
   images: string[];
+  /** Large image beside "كيفاش كيعاون؟" section */
+  detailImage?: string;
   /** Promo graphics with text — use contain so badges/prices stay visible */
   heroImageFit?: "cover" | "contain";
   quantityUnit?: QuantityUnit;
@@ -148,6 +150,7 @@ export const products: Product[] = [
       staticProductImage("pillow-posture-infographic.png"),
       staticProductImage("wisada-before-after.png"),
     ],
+    detailImage: staticProductImage("pillow-posture-infographic.png"),
     crossSellIds: ["belt", "bundle"],
     offers: [
       {
