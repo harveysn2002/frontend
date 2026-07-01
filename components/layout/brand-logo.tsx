@@ -3,8 +3,8 @@ import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 const LOGO_SRC = "/images/logos/vorlay-wordmark-header.png";
-const LOGO_WIDTH = 1009;
-const LOGO_HEIGHT = 168;
+const LOGO_WIDTH = 1013;
+const LOGO_HEIGHT = 170;
 
 export function BrandLogo({
   compact = false,
