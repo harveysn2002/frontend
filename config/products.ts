@@ -69,9 +69,10 @@ export const products: Product[] = [
     ],
     mechanism:
       "الحزام كيعطي دعم وتذكير لطيف للوضعية أثناء الحركة والجلسة، بدون وعود علاجية.",
-    image: staticProductImage("belt-lifestyle-infographic.png"),
+    image: staticProductImage("belt-hero-white.png"),
     heroImageFit: "contain",
     images: [
+      staticProductImage("belt-hero-white.png"),
       staticProductImage("belt-lifestyle-infographic.png"),
       staticProductImage("belt-wearing-infographic.png"),
       staticProductImage("belt-daily-use-infographic.png"),
