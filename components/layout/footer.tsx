@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BrandLogo } from "@/components/layout/brand-logo";
 import { SocialLinks } from "@/components/layout/social-links";
 import { siteConfig } from "@/config/site";
+import { getListedProducts } from "@/config/products";
 import { whatsappLink } from "@/lib/social";
 
 export function Footer() {
@@ -28,9 +29,11 @@ export function Footer() {
           <h3 className="font-black">المتجر</h3>
           <ul className="mt-4 space-y-3 text-sm text-brand-muted">
             <li><Link href="/collections">المجموعة</Link></li>
-            <li><Link href="/products/hizam-dahr">حزام الظهر</Link></li>
-            <li><Link href="/products/wisada-dahr">وسادة الظهر</Link></li>
-            <li><Link href="/products/taqm-dahr">طقم الظهر</Link></li>
+            {getListedProducts().map((product) => (
+              <li key={product.id}>
+                <Link href={`/products/${product.slug}`}>{product.nameAr}</Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>

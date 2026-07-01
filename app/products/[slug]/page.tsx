@@ -6,10 +6,10 @@ import { ProductCard } from "@/components/product/product-card";
 import { ProductPageCta } from "@/components/product/product-page-cta";
 import { ProductImageCarousel } from "@/components/product/product-image-carousel";
 import { ProductPurchasePanel } from "@/components/product/product-purchase-panel";
-import { getProductById, getProductBySlug, products } from "@/config/products";
+import { getProductBySlug, getListedProductById, getListedProducts } from "@/config/products";
 
 export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+  return getListedProducts().map((product) => ({ slug: product.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
@@ -30,7 +30,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   const detailImage = product.detailImage ?? product.images[1] ?? product.images[0];
 
   const crossSells = product.crossSellIds
-    .map((id) => getProductById(id))
+    .map((id) => getListedProductById(id))
     .filter(Boolean)
     .slice(0, 2);
 

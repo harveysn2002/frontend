@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { PremiumHomeHero } from "@/components/home/premium-home-hero";
 import { ProductCard } from "@/components/product/product-card";
-import { products } from "@/config/products";
+import { getListedProducts } from "@/config/products";
 import { useInView } from "@/hooks/use-in-view";
 
 const trust = ["الدفع عند الاستلام", "تأكيد الطلب بالهاتف", "توصيل لجميع مدن المغرب"];
@@ -69,7 +69,7 @@ export function HomePageContent() {
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
               <h2 className="text-4xl font-black">اختار المنتج المناسب</h2>
-              <p className="mt-3 text-brand-muted">ثلاث حلول واضحة للجلوس، الحركة، أو أفضل قيمة.</p>
+              <p className="mt-3 text-brand-muted">حلول واضحة للجلوس، الحركة، والراحة اليومية.</p>
             </div>
             <Link href="/collections" className="hidden font-black text-brand-primary md:block">
               شاهد المجموعة
@@ -77,7 +77,7 @@ export function HomePageContent() {
           </div>
         </AnimatedBlock>
         <div className="grid gap-6 md:grid-cols-3">
-          {products.map((product, index) => (
+          {getListedProducts().map((product, index) => (
             <AnimatedBlock key={product.id} delay={index * 0.08}>
               <ProductCard product={product} />
             </AnimatedBlock>

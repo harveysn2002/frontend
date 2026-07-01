@@ -37,6 +37,8 @@ export type Product = {
   quantityUnit?: QuantityUnit;
   offers: Offer[];
   crossSellIds: ProductId[];
+  /** Set false to hide from storefront until back in stock */
+  listed?: boolean;
 };
 
 const placeholder = (label: string) =>
@@ -223,6 +225,7 @@ export const products: Product[] = [
       staticProductImage("wisada-before-after.png"),
     ],
     crossSellIds: ["pillow", "belt"],
+    listed: false,
     offers: [
       {
         id: "bundle-1",
@@ -284,12 +287,24 @@ export const upsellOffers: Offer[] = [
   },
 ];
 
+export function getListedProducts() {
+  return products.filter((product) => product.listed !== false);
+}
+
 export function getProductBySlug(slug: string) {
-  return products.find((product) => product.slug === slug);
+  const product = products.find((item) => item.slug === slug);
+  if (!product || product.listed === false) return undefined;
+  return product;
 }
 
 export function getProductById(id: ProductId) {
   return products.find((product) => product.id === id);
+}
+
+export function getListedProductById(id: ProductId) {
+  const product = getProductById(id);
+  if (!product || product.listed === false) return undefined;
+  return product;
 }
 
 export function getOfferById(offerId: string) {

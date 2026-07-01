@@ -6,16 +6,27 @@ import { BrandLogo } from "@/components/layout/brand-logo";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { TrustTicker } from "@/components/layout/trust-ticker";
 import { Button } from "@/components/ui/button";
+import { getListedProducts } from "@/config/products";
 import { useCartStore } from "@/store/cart-store";
 
-const links = [
+const staticLinks = [
   { href: "/", label: "الرئيسية" },
   { href: "/collections", label: "المجموعة" },
-  { href: "/products/hizam-dahr", label: "حزام الظهر" },
-  { href: "/products/wisada-dahr", label: "وسادة الظهر" },
-  { href: "/products/taqm-dahr", label: "طقم الظهر" },
   { href: "/about", label: "من نحن" },
   { href: "/contact", label: "تواصل معنا" },
+];
+
+const productLinks = getListedProducts().map((product) => ({
+  href: `/products/${product.slug}`,
+  label: product.nameAr,
+}));
+
+const links = [
+  staticLinks[0],
+  staticLinks[1],
+  ...productLinks,
+  staticLinks[2],
+  staticLinks[3],
 ];
 
 export function Header() {
