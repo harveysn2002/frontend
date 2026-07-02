@@ -7,7 +7,20 @@ import { ProductCard } from "@/components/product/product-card";
 import { getListedProducts } from "@/config/products";
 import { useInView } from "@/hooks/use-in-view";
 
-const trust = ["الدفع عند الاستلام", "تأكيد الطلب بالهاتف", "توصيل لجميع مدن المغرب"];
+const trust = [
+  {
+    title: "الدفع عند الاستلام",
+    description: "ما كتخلصش حتى تستلم الطلب وتراجعو براحتك.",
+  },
+  {
+    title: "تأكيد الطلب بالهاتف",
+    description: "كنتاصل معاك ونأكدو العنوان قبل ما نصيفط الشحنة.",
+  },
+  {
+    title: "توصيل لجميع مدن المغرب",
+    description: "التوصيل لمعظم المدن والقرى داخل المغرب.",
+  },
+];
 const pains = ["الوقوف الطويل", "الجلوس بزاف", "خدمة الدار والحركة"];
 
 function AnimatedBlock({
@@ -88,12 +101,10 @@ export function HomePageContent() {
       <section className="bg-brand-primary py-10 text-white sm:py-14">
         <div className="container grid gap-8 md:grid-cols-3">
           {trust.map((item, index) => (
-            <AnimatedBlock key={item} delay={index * 0.1}>
+            <AnimatedBlock key={item.title} delay={index * 0.1}>
               <div className="rounded-[2rem] bg-white/10 p-6 transition-transform duration-300 hover:-translate-y-1">
-                <div className="text-3xl font-black">{item}</div>
-                <p className="mt-3 text-white/80">
-                  VORLAY ما كتعرضش أرقام أو تقييمات حتى تكون مبنية على طلبات حقيقية.
-                </p>
+                <div className="text-3xl font-black">{item.title}</div>
+                <p className="mt-3 text-white/80">{item.description}</p>
               </div>
             </AnimatedBlock>
           ))}
