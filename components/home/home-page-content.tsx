@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { PremiumHomeHero } from "@/components/home/premium-home-hero";
 import { ProductCard } from "@/components/product/product-card";
+import { StoreSocialStats } from "@/components/trust/store-social-stats";
 import { getListedProducts } from "@/config/products";
 import { useInView } from "@/hooks/use-in-view";
 
@@ -99,7 +100,9 @@ export function HomePageContent() {
       </section>
 
       <section className="bg-brand-primary py-10 text-white sm:py-14">
-        <div className="container grid gap-8 md:grid-cols-3">
+        <div className="container">
+          <StoreSocialStats variant="dark" className="mb-8" />
+          <div className="grid gap-8 md:grid-cols-3">
           {trust.map((item, index) => (
             <AnimatedBlock key={item.title} delay={index * 0.1}>
               <div className="rounded-[2rem] bg-white/10 p-6 transition-transform duration-300 hover:-translate-y-1">
@@ -108,6 +111,7 @@ export function HomePageContent() {
               </div>
             </AnimatedBlock>
           ))}
+          </div>
         </div>
       </section>
     </>

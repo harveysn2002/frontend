@@ -2,6 +2,8 @@
 
 import { Clock, MessageCircle, PackageCheck, ShieldCheck } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { getActiveSocialProof } from "@/config/social-proof";
+import { StoreSocialStats } from "@/components/trust/store-social-stats";
 import { useInView } from "@/hooks/use-in-view";
 
 const proofPoints = [
@@ -29,6 +31,7 @@ const proofPoints = [
 
 export function ProductSocialProof() {
   const { ref, visible } = useInView<HTMLDivElement>(0.15);
+  const socialProof = getActiveSocialProof();
 
   return (
     <div
@@ -38,7 +41,11 @@ export function ProductSocialProof() {
       }`}
     >
       <p className="text-xs font-bold text-brand-muted">شنو كتستناك من VORLAY؟</p>
-      <p className="mt-1 text-sm font-black text-brand-ink">معلومات حقيقية — بلا أرقام ولا تقييمات مخترعة</p>
+      <p className="mt-1 text-sm font-black text-brand-ink">
+        {socialProof ? "أرقام من طلبات حقيقية" : "تجربة طلب واضحة ودعم قبل البيع"}
+      </p>
+
+      {socialProof ? <StoreSocialStats className="mt-3" /> : null}
 
       <div className="mt-3 grid gap-2">
         {proofPoints.map(({ icon: Icon, title, text }, index) => (

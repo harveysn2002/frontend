@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MoroccoTrustMini, OrderStepsStrip } from "@/components/product/morocco-trust-strip";
+import { StoreSocialStats } from "@/components/trust/store-social-stats";
+import { socialProofPlaceholderNote, getActiveSocialProof } from "@/config/social-proof";
 import { ProductPainCards } from "@/components/product/product-pain-cards";
 import { ProductCard } from "@/components/product/product-card";
 import { ProductPageCta } from "@/components/product/product-page-cta";
@@ -33,6 +35,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     .map((id) => getListedProductById(id))
     .filter(Boolean)
     .slice(0, 2);
+
+  const socialProof = getActiveSocialProof();
 
   return (
     <div className="pb-24 md:pb-0">
@@ -73,9 +77,11 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <div className="container">
           <h2 className="text-4xl font-black">علاش VORLAY فالمغرب؟</h2>
           <p className="mt-4 max-w-3xl text-lg leading-9 text-white/85">
-            VORLAY كتبني ثقة حقيقية: تجربة طلب واضحة، دعم قبل البيع، وتأكيد بالهاتف قبل
-            ما تخرج أي شحنة. بلا تقييمات وهمية وبلا أرقام مخترعة.
+            {socialProof
+              ? "أرقام وتقييمات من طلبات حقيقية — ثقة مبنية على تجربة زبناء فالمغرب."
+              : `VORLAY كتبني ثقة حقيقية: ${socialProofPlaceholderNote}`}
           </p>
+          <StoreSocialStats variant="dark" className="mt-6" />
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
               "منتجات دعم الظهر للاستعمال اليومي",
