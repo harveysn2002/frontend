@@ -40,7 +40,7 @@ export function HomePageContent() {
     <>
       <PremiumHomeHero />
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-10 sm:py-14">
         <div className="container">
           <AnimatedBlock>
             <div className="max-w-3xl">
@@ -64,7 +64,7 @@ export function HomePageContent() {
         </div>
       </section>
 
-      <section className="container py-16">
+      <section className="container py-10 sm:py-14">
         <AnimatedBlock>
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
@@ -85,7 +85,7 @@ export function HomePageContent() {
         </div>
       </section>
 
-      <section className="bg-brand-primary py-16 text-white">
+      <section className="bg-brand-primary py-10 text-white sm:py-14">
         <div className="container grid gap-8 md:grid-cols-3">
           {trust.map((item, index) => (
             <AnimatedBlock key={item} delay={index * 0.1}>

@@ -1,6 +1,10 @@
 import type { ProductId } from "@/config/products";
 import { products } from "@/config/products";
 
+export type HeroRotatingItem =
+  | { kind: "headline"; lineWhite: string; lineGold: string }
+  | { kind: "body"; text: string };
+
 export type HomeHeroSlide = {
   id: ProductId;
   slug: string;
@@ -36,6 +40,16 @@ export const pillowSlide: HomeHeroSlide = {
 
 /** Single homepage hero — product pages keep their own galleries. */
 export const homeHeroSlides: HomeHeroSlide[] = [pillowSlide];
+
+export const heroRotatingItems: HeroRotatingItem[] = [
+  {
+    kind: "headline",
+    lineWhite: pillowSlide.headlineWhite,
+    lineGold: pillowSlide.headlineGold,
+  },
+  { kind: "body", text: pillowSlide.description },
+  ...(pillowSlide.priceNote ? [{ kind: "body" as const, text: pillowSlide.priceNote }] : []),
+];
 
 export function getHeroOffer(productId: ProductId) {
   const product = products.find((item) => item.id === productId);

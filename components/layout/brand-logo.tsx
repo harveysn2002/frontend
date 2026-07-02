@@ -22,7 +22,7 @@ export function BrandLogo({
           "relative block w-full",
           compact
             ? "h-10 max-w-[11rem] sm:h-11 sm:max-w-[12rem]"
-            : "h-[4.25rem] max-w-[min(100%,18rem)] sm:h-[4.5rem] sm:max-w-[19rem] md:h-16 md:max-w-[21rem]",
+            : "h-11 max-w-[min(100%,13.5rem)] sm:h-[4rem] sm:max-w-[16rem] md:h-16 md:max-w-[21rem]",
         )}
       >
         <Image
