@@ -17,7 +17,7 @@ export const siteConfig = {
     instagramUrl:
       process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/vorlay",
     facebookUrl:
-      process.env.NEXT_PUBLIC_FACEBOOK_URL || "https://facebook.com/vorlay",
+      process.env.NEXT_PUBLIC_FACEBOOK_URL || "https://www.facebook.com/vorlayshop",
   },
   supportHours: "من الاثنين إلى السبت، 9:00 - 18:00",
 };
