@@ -48,7 +48,6 @@ export const heroRotatingItems: HeroRotatingItem[] = [
     lineGold: pillowSlide.headlineGold,
   },
   { kind: "body", text: pillowSlide.description },
-  ...(pillowSlide.priceNote ? [{ kind: "body" as const, text: pillowSlide.priceNote }] : []),
 ];
 
 export function getHeroOffer(productId: ProductId) {

@@ -48,6 +48,9 @@ export function PremiumHomeHero() {
               </p>
             ) : null}
           </div>
+          {slide.priceNote ? (
+            <p className="mt-1 text-sm font-bold text-brand-gold/90">{slide.priceNote}</p>
+          ) : null}
 
           <div className="mt-4 flex flex-wrap gap-2 sm:mt-5 sm:gap-2.5">
             <Link

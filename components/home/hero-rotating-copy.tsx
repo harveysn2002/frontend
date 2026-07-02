@@ -52,14 +52,14 @@ export function HeroRotatingCopy({ items }: HeroRotatingCopyProps) {
         )}
       >
         {current.kind === "headline" ? (
-          <h1 className="text-2xl font-black leading-[1.25] sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="text-3xl font-black leading-[1.2] sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="block text-white">{current.lineWhite}</span>
-            <span className="mt-0.5 block bg-gradient-to-l from-[#E8C872] via-brand-gold to-[#A8842E] bg-clip-text text-transparent sm:mt-1">
+            <span className="mt-1 block bg-gradient-to-l from-[#E8C872] via-brand-gold to-[#A8842E] bg-clip-text text-transparent">
               {current.lineGold}
             </span>
           </h1>
         ) : (
-          <p className="max-w-xl text-base font-bold leading-7 text-white/90 sm:text-lg sm:leading-8 md:text-xl md:leading-9">
+          <p className="max-w-xl text-base leading-8 text-white/75 sm:text-lg sm:leading-9">
             {current.text}
           </p>
         )}
