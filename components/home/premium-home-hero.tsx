@@ -14,7 +14,7 @@ export function PremiumHomeHero() {
   const compareLabel = slide.compareAtPriceMad ? formatMad(slide.compareAtPriceMad) : null;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-dark to-[#0d4f4a] text-white">
+    <section className="relative w-full max-w-full overflow-hidden bg-gradient-to-br from-brand-primary via-brand-dark to-[#0d4f4a] text-white">
       <div className="container relative grid items-center gap-8 py-10 sm:gap-10 sm:py-12 lg:grid-cols-2 lg:gap-14 lg:py-16">
         {/* Product image */}
         <div className="relative order-2 lg:order-1">

@@ -23,12 +23,16 @@ export function TrustTicker({ variant = "fade", className = "" }: TrustTickerPro
     <div
       className={
         isAnnouncement
-          ? `relative h-7 overflow-hidden text-white ${className}`
+          ? `relative mx-auto h-7 w-full max-w-full overflow-hidden text-white ${className}`
           : `relative overflow-hidden rounded-2xl border border-brand-primary/12 bg-gradient-to-l from-brand-soft/70 to-white px-4 py-3.5 ${className}`
       }
       aria-live="polite"
     >
-      <div className={`relative flex items-center justify-center ${isAnnouncement ? "h-7" : "min-h-[2rem]"}`}>
+      <div
+        className={`relative mx-auto flex w-full max-w-full items-center justify-center overflow-hidden ${
+          isAnnouncement ? "h-7" : "min-h-[2rem]"
+        }`}
+      >
         {trustTickerItems.map((item, itemIndex) => {
           const Icon = item.icon;
           const isActive = itemIndex === index;
@@ -59,8 +63,8 @@ export function TrustTicker({ variant = "fade", className = "" }: TrustTickerPro
             </div>
           );
         })}
-        <span className={`invisible flex items-center gap-2 font-black ${isAnnouncement ? "text-sm" : "text-base"}`}>
-          <span className="h-9 w-9" />
+        <span className="pointer-events-none absolute inset-0 flex items-center justify-center gap-2 font-black opacity-0">
+          <span className={isAnnouncement ? "h-7 w-7" : "h-9 w-9"} />
           {trustTickerItems[0].label}
         </span>
       </div>

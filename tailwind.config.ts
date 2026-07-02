@@ -6,6 +6,9 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./config/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  corePlugins: {
+    container: false,
+  },
   theme: {
     extend: {
       colors: {

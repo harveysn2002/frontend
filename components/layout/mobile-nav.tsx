@@ -33,7 +33,7 @@ export function MobileNav() {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <Button variant="ghost" className="lg:hidden" aria-label="فتح القائمة">
+        <Button variant="ghost" className="!min-h-0 h-10 w-10 px-0 lg:hidden" aria-label="فتح القائمة">
           <Menu className="h-5 w-5" />
         </Button>
       </Dialog.Trigger>
