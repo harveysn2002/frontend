@@ -5,9 +5,10 @@ import { useInView } from "@/hooks/use-in-view";
 
 type ProductPainCardsProps = {
   pains: string[];
+  painResponses?: string[];
 };
 
-export function ProductPainCards({ pains }: ProductPainCardsProps) {
+export function ProductPainCards({ pains, painResponses }: ProductPainCardsProps) {
   const { ref, visible } = useInView<HTMLDivElement>(0.12);
 
   return (
@@ -27,7 +28,9 @@ export function ProductPainCards({ pains }: ProductPainCardsProps) {
             }}
           >
             <h3 className="text-base font-black leading-7 text-brand-ink">{pain}</h3>
-            <p className="mt-2 text-sm leading-7 text-brand-muted">{painAnswer}</p>
+            <p className="mt-2 text-sm leading-7 text-brand-muted">
+              {painResponses?.[index] ?? painAnswer}
+            </p>
           </div>
         ))}
       </div>

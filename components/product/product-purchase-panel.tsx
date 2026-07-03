@@ -36,7 +36,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
       <div id="order" ref={panelRef} className="glass-card scroll-mt-28 rounded-[2rem] p-5 md:p-7">
         <RatingStars />
         <p className="mt-3 inline-flex rounded-full bg-brand-gold/15 px-3 py-1 text-xs font-black text-brand-ink">
-          VORLAY · دعم الظهر للحياة اليومية فالمغرب
+          {product.eyebrow ?? "VORLAY · دعم يومي مريح · الدفع عند الاستلام"}
         </p>
         <h1 className="mt-4 text-4xl font-black leading-tight text-brand-ink md:text-5xl">
           {product.headline}

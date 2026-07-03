@@ -16,7 +16,7 @@ export function ProductImageCarousel({
 }) {
   const [index, setIndex] = useState(0);
   const contain = imageFit === "contain";
-  const mainFit = contain ? "object-contain p-2" : "object-cover";
+  const mainFit = contain ? "object-contain" : "object-cover";
   const thumbFit = contain ? "object-contain p-0.5" : "object-cover";
   const surface = contain ? "bg-brand-ivory" : "bg-brand-soft";
 
@@ -48,8 +48,8 @@ export function ProductImageCarousel({
           alt={alt}
           fill
           priority={index === 0}
-          quality={92}
-          sizes="(max-width: 1024px) 100vw, 560px"
+          quality={95}
+          sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 640px"
           className={mainFit}
         />
 

@@ -27,13 +27,19 @@ export type Product = {
   bestFor: string[];
   benefits: string[];
   pains: string[];
+  /** Persuasive one-liner under each pain card (same order as `pains`) */
+  painResponses?: string[];
   mechanism: string;
   image: string;
   images: string[];
   /** Large image beside "كيفاش كيعاون؟" section */
   detailImage?: string;
+  /** Short persuasive line above the headline (gold pill) */
+  eyebrow?: string;
   /** Promo graphics with text — use contain so badges/prices stay visible */
   heroImageFit?: "cover" | "contain";
+  /** Gallery fit — defaults to `heroImageFit` when omitted */
+  carouselImageFit?: "cover" | "contain";
   quantityUnit?: QuantityUnit;
   offers: Offer[];
   crossSellIds: ProductId[];
@@ -71,8 +77,14 @@ export const products: Product[] = [
       "كتحس الوقفة كتتهرس مع آخر النهار؟",
       "بغيت دعم بلا شكل طبي محرج؟",
     ],
+    painResponses: [
+      "حزام VORLAY خفيف وقابل للتعديل — كيعاونك تبقى واقف بثقة طوال النهار.",
+      "دعم يومي عملي كيخليك تحس بثبات أكثر، بلا تعقيد ولا لبس ثقيل.",
+      "تصميم بسيط وأنيق — كيلبس تحت الملابس وما كيبانش مزعج.",
+    ],
     mechanism:
       "الحزام كيعطي دعم وتذكير لطيف للوضعية أثناء الحركة والجلسة، بدون وعود علاجية.",
+    eyebrow: "VORLAY · دعم يومي للوقفة والحركة · الدفع عند الاستلام",
     image: staticProductImage("belt-hero-white.png"),
     heroImageFit: "contain",
     images: [
@@ -141,16 +153,23 @@ export const products: Product[] = [
       "كرسي السيارة أو المكتب ما كيعطيش الدعم اللي بغيتي؟",
       "بغيت طقم كامل (رقبة + ظهر) فطلب واحد؟",
     ],
+    painResponses: [
+      "طقم وسائد VORLAY — رقبة وظهر بميموري فوم. من أوّل لمسة غادي تحس بالفرق.",
+      "كيركب فأي كرسي سيارة أو مكتب — ميموري فوم كيتشكل على جسمك وكيعطي دعم مخصص.",
+      "طقم 2 في 1 فباكية واحدة — ما خاصك تشري كل حاجة بوحدها. الدفع عند الاستلام.",
+    ],
     mechanism:
       "الطقم كيجمع وسادة رقبة ووسادة ظهر قابلة للتعديل. الميموري فوم كيتشكل على جسمك باش يعطي دعم مخصص للظهر والرقبة، خاصة فالسياقة الطويلة أو الجلوس المتواصل. الوجه الناعم كيخليك تحس براحة أكثر على البشرة، والحشوة كتبقى ثابتة حتى بعد الاستعمال المتكرر — بلا وعود علاجية.",
-    image: staticProductImage("wisada-dahr-hero.png"),
+    eyebrow: "VORLAY · طقم 2 في 1 الأكثر طلباً · توصيل لجميع مدن المغرب",
+    image: staticProductImage("wisada-car-installed.png"),
     heroImageFit: "contain",
+    carouselImageFit: "contain",
     quantityUnit: "set",
     images: [
-      staticProductImage("wisada-dahr-hero.png"),
       staticProductImage("wisada-car-installed.png"),
-      staticProductImage("pillow-posture-infographic.png"),
       staticProductImage("wisada-before-after.png"),
+      staticProductImage("wisada-dahr-hero.png"),
+      staticProductImage("pillow-posture-infographic.png"),
     ],
     detailImage: staticProductImage("pillow-posture-infographic.png"),
     crossSellIds: ["belt", "bundle"],
@@ -212,6 +231,7 @@ export const products: Product[] = [
     ],
     mechanism:
       "استعمل الوسادة للكرسي والسيارة، والحزام للأوقات اللي كتحتاج فيها دعم أكثر أثناء الحركة.",
+    eyebrow: "VORLAY · أفضل قيمة — حزام + وسادة · الدفع عند الاستلام",
     image: staticProductImage("wisada-dahr-hero.png"),
     heroImageFit: "contain",
     images: [

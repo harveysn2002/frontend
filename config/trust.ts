@@ -8,4 +8,4 @@ export const trustTickerItems: Array<{ label: string; icon: LucideIcon }> = [
 ];
 
 export const painAnswer =
-  "VORLAY كتقترح دعم يومي مريح، بدون وعود علاجية أو مبالغة.";
+  "ڤورلاي كتجاوب بمنتج عملي ومريح — والدفع عند الاستلام.";

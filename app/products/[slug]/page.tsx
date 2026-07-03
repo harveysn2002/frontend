@@ -27,6 +27,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   if (!product) notFound();
 
   const heroFit = product.heroImageFit === "contain" ? "contain" : "cover";
+  const carouselFit =
+    product.carouselImageFit === "contain"
+      ? "contain"
+      : product.carouselImageFit === "cover"
+        ? "cover"
+        : heroFit;
   const detailFit = product.heroImageFit === "contain" ? "object-contain" : "object-cover";
 
   const detailImage = product.detailImage ?? product.images[1] ?? product.images[0];
@@ -42,8 +48,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     <div className="pb-24 md:pb-0">
       <section className="container grid gap-8 py-10 lg:grid-cols-[1fr_1.05fr]">
         <div className="grid gap-4">
-          <ProductImageCarousel images={product.images} alt={product.nameAr} imageFit={heroFit} />
-          <ProductPainCards pains={product.pains} />
+          <ProductImageCarousel images={product.images} alt={product.nameAr} imageFit={carouselFit} />
+          <ProductPainCards pains={product.pains} painResponses={product.painResponses} />
         </div>
         <ProductPurchasePanel product={product} />
       </section>
