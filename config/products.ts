@@ -161,17 +161,15 @@ export const products: Product[] = [
     mechanism:
       "الطقم كيجمع وسادة رقبة ووسادة ظهر قابلة للتعديل. الميموري فوم كيتشكل على جسمك باش يعطي دعم مخصص للظهر والرقبة، خاصة فالسياقة الطويلة أو الجلوس المتواصل. الوجه الناعم كيخليك تحس براحة أكثر على البشرة، والحشوة كتبقى ثابتة حتى بعد الاستعمال المتكرر — بلا وعود علاجية.",
     eyebrow: "VORLAY · طقم 2 في 1 الأكثر طلباً · توصيل لجميع مدن المغرب",
-    image: staticProductImage("wisada-dahr-hero.png"),
+    image: staticProductImage("wisada-before-after.png"),
     heroImageFit: "cover",
     carouselImageFit: "cover",
     quantityUnit: "set",
     images: [
-      staticProductImage("wisada-dahr-hero.png"),
       staticProductImage("wisada-before-after.png"),
-      staticProductImage("wisada-car-installed.png"),
       staticProductImage("pillow-posture-infographic.png"),
     ],
-    detailImage: staticProductImage("wisada-dahr-hero.png"),
+    detailImage: staticProductImage("wisada-before-after.png"),
     crossSellIds: ["belt", "bundle"],
     offers: [
       {
@@ -232,17 +230,15 @@ export const products: Product[] = [
     mechanism:
       "استعمل الوسادة للكرسي والسيارة، والحزام للأوقات اللي كتحتاج فيها دعم أكثر أثناء الحركة.",
     eyebrow: "VORLAY · أفضل قيمة — حزام + وسادة · الدفع عند الاستلام",
-    image: staticProductImage("wisada-dahr-hero.png"),
-    heroImageFit: "contain",
+    image: staticProductImage("wisada-before-after.png"),
+    heroImageFit: "cover",
     images: [
-      staticProductImage("wisada-dahr-hero.png"),
+      staticProductImage("wisada-before-after.png"),
       staticProductImage("belt-lifestyle-infographic.png"),
       staticProductImage("belt-wearing-infographic.png"),
       staticProductImage("belt-daily-use-infographic.png"),
       staticProductImage("belt-features-infographic.png"),
       staticProductImage("pillow-posture-infographic.png"),
-      staticProductImage("wisada-car-installed.png"),
-      staticProductImage("wisada-before-after.png"),
     ],
     crossSellIds: ["pillow", "belt"],
     listed: false,
