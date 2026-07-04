@@ -176,7 +176,10 @@ export const products: Product[] = [
     ],
     detailImage: staticProductImage("wisada-hero-white.png"),
     afterPainImage: staticProductImage("wisada-story-compare.png"),
-    storyImages: [staticProductImage("wisada-story-lifestyle.png")],
+    storyImages: [
+      staticProductImage("wisada-story-comfort.png"),
+      staticProductImage("wisada-story-lifestyle.png"),
+    ],
     crossSellIds: ["belt", "bundle"],
     offers: [
       {
