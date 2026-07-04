@@ -36,8 +36,8 @@ export type Product = {
   detailImage?: string;
   /** Full-width story banners between text sections */
   storyImages?: string[];
-  /** Image shown under the product headline in the buy panel */
-  headlineImage?: string;
+  /** Image shown after pain cards, before the price panel */
+  afterPainImage?: string;
   /** Short persuasive line above the headline (gold pill) */
   eyebrow?: string;
   /** Promo graphics with text — use contain so badges/prices stay visible */
@@ -171,7 +171,7 @@ export const products: Product[] = [
     quantityUnit: "set",
     images: [staticProductImage("pillow-posture-infographic.png")],
     detailImage: staticProductImage("pillow-posture-infographic.png"),
-    headlineImage: staticProductImage("wisada-story-compare.png"),
+    afterPainImage: staticProductImage("wisada-story-compare.png"),
     storyImages: [
       staticProductImage("wisada-story-comfort.png"),
       staticProductImage("wisada-story-lifestyle.png"),

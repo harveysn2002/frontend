@@ -47,6 +47,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <div className="grid gap-4">
           <ProductImageCarousel images={product.images} alt={product.nameAr} imageFit={carouselFit} />
           <ProductPainCards pains={product.pains} painResponses={product.painResponses} />
+          {product.afterPainImage ? (
+            <ProductStoryBanner
+              src={product.afterPainImage}
+              alt={`${product.nameAr} — الفرق من أول لمسة`}
+              contained={false}
+            />
+          ) : null}
         </div>
         <ProductPurchasePanel product={product} />
       </section>
