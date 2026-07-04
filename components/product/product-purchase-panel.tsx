@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { ShoppingBag, Zap } from "lucide-react";
 import { OfferSelector } from "@/components/product/offer-selector";
 import { RatingStars } from "@/components/product/rating-stars";
@@ -41,6 +42,20 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
         <h1 className="mt-4 text-4xl font-black leading-tight text-brand-ink md:text-5xl">
           {product.headline}
         </h1>
+        {product.headlineImage ? (
+          <div className="mt-4 overflow-hidden rounded-2xl bg-white">
+            <Image
+              src={product.headlineImage}
+              alt={product.nameAr}
+              width={1600}
+              height={900}
+              quality={95}
+              priority
+              sizes="(max-width: 1024px) 100vw, 560px"
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        ) : null}
         <p className="mt-4 text-lg leading-8 text-brand-muted">{product.subheading}</p>
 
         <div className="mt-5 flex flex-wrap gap-2">

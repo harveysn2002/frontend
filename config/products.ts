@@ -34,8 +34,10 @@ export type Product = {
   images: string[];
   /** Large image beside "كيفاش كيعاون؟" section */
   detailImage?: string;
-  /** Full-width story banners stacked below the buy section */
+  /** Full-width story banners between text sections */
   storyImages?: string[];
+  /** Image shown under the product headline in the buy panel */
+  headlineImage?: string;
   /** Short persuasive line above the headline (gold pill) */
   eyebrow?: string;
   /** Promo graphics with text — use contain so badges/prices stay visible */
@@ -169,10 +171,10 @@ export const products: Product[] = [
     quantityUnit: "set",
     images: [staticProductImage("pillow-posture-infographic.png")],
     detailImage: staticProductImage("pillow-posture-infographic.png"),
+    headlineImage: staticProductImage("wisada-story-compare.png"),
     storyImages: [
       staticProductImage("wisada-story-comfort.png"),
       staticProductImage("wisada-story-lifestyle.png"),
-      staticProductImage("wisada-story-compare.png"),
     ],
     crossSellIds: ["belt", "bundle"],
     offers: [
