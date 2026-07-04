@@ -10,14 +10,14 @@ import { formatMad, offerPriceScopeLabel, offerQuantityBadge } from "@/lib/curre
 export function ProductCard({ product }: { product: Product }) {
   const offer = product.offers.find((item) => item.recommended) || product.offers[0];
   const unit = product.quantityUnit ?? "piece";
-  const imageFit = product.heroImageFit === "contain" ? "object-contain p-2" : "object-cover";
+  const imageFit = product.heroImageFit === "contain" ? "object-contain" : "object-cover";
   const productHref = `/products/${product.slug}`;
 
   return (
     <article className="glass-card overflow-hidden rounded-[2rem]">
       <Link
         href={productHref}
-        className={`relative block aspect-square transition hover:opacity-95 ${product.heroImageFit === "contain" ? "bg-brand-ivory" : "bg-brand-soft/30"}`}
+        className={`relative block aspect-[4/5] transition hover:opacity-95 sm:aspect-square ${product.heroImageFit === "contain" ? "bg-brand-ivory" : "bg-brand-soft/30"}`}
       >
         <Image src={product.image} alt={product.nameAr} fill quality={90} sizes="(max-width: 768px) 100vw, 400px" className={imageFit} />
       </Link>

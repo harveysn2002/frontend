@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MoroccoTrustMini, OrderStepsStrip } from "@/components/product/morocco-trust-strip";
 import { StoreSocialStats } from "@/components/trust/store-social-stats";
@@ -33,10 +32,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       : product.carouselImageFit === "cover"
         ? "cover"
         : heroFit;
-  const detailFit = product.heroImageFit === "contain" ? "object-contain" : "object-cover";
-
-  const detailImage = product.detailImage ?? product.images[1] ?? product.images[0];
-
   const crossSells = product.crossSellIds
     .map((id) => getListedProductById(id))
     .filter(Boolean)
@@ -74,9 +69,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
         </div>
-        <div className={`relative aspect-[4/3] overflow-hidden rounded-[3rem] shadow-soft ${product.heroImageFit === "contain" ? "bg-brand-ivory" : "bg-brand-soft"}`}>
-          <Image src={detailImage} alt={product.nameAr} fill quality={90} sizes="(max-width: 1024px) 100vw, 560px" className={detailFit} />
-        </div>
+        <ProductImageCarousel images={product.images} alt={product.nameAr} imageFit={carouselFit} />
       </section>
 
       <section className="bg-brand-primary py-16 text-white">
@@ -136,7 +129,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <ProductPageCta
           product={product}
           title="باغي تجرب VORLAY دابا؟"
-          subtitle="اختار العرض اللي مناسب ليك، زيد للسلّة، وكمل الطلب فـ 30 ثانية بالدفع عند الاستلام."
+          subtitle="اختار العرض اللي مناسب ليك، زيد للسلّة، وكمل الطلب بالدفع عند الاستلام."
         />
       </section>
     </div>

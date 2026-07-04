@@ -162,8 +162,8 @@ export const products: Product[] = [
       "الطقم كيجمع وسادة رقبة ووسادة ظهر قابلة للتعديل. الميموري فوم كيتشكل على جسمك باش يعطي دعم مخصص للظهر والرقبة، خاصة فالسياقة الطويلة أو الجلوس المتواصل. الوجه الناعم كيخليك تحس براحة أكثر على البشرة، والحشوة كتبقى ثابتة حتى بعد الاستعمال المتكرر — بلا وعود علاجية.",
     eyebrow: "VORLAY · طقم 2 في 1 الأكثر طلباً · توصيل لجميع مدن المغرب",
     image: staticProductImage("wisada-dahr-hero.png"),
-    heroImageFit: "contain",
-    carouselImageFit: "contain",
+    heroImageFit: "cover",
+    carouselImageFit: "cover",
     quantityUnit: "set",
     images: [
       staticProductImage("wisada-dahr-hero.png"),
@@ -171,7 +171,7 @@ export const products: Product[] = [
       staticProductImage("wisada-car-installed.png"),
       staticProductImage("pillow-posture-infographic.png"),
     ],
-    detailImage: staticProductImage("pillow-posture-infographic.png"),
+    detailImage: staticProductImage("wisada-dahr-hero.png"),
     crossSellIds: ["belt", "bundle"],
     offers: [
       {
@@ -180,9 +180,10 @@ export const products: Product[] = [
         quantity: 1,
         title: "طقم واحد",
         subtitle: "2 في 1 — رقبة وظهر",
-        badge: "للتجربة",
+        badge: "الأكثر طلباً",
         priceMad: 199,
         compareAtPriceMad: 245,
+        recommended: true,
       },
       {
         id: "pillow-2",
@@ -190,10 +191,9 @@ export const products: Product[] = [
         quantity: 2,
         title: "طقمين",
         subtitle: "2 طقم 2 في 1 — واحد للمكتب وواحد للسيارة",
-        badge: "الأكثر اختياراً",
+        badge: "وفّر أكثر",
         priceMad: 369,
         compareAtPriceMad: 490,
-        recommended: true,
       },
       {
         id: "pillow-3",

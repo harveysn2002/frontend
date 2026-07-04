@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { X } from "lucide-react";
@@ -46,7 +46,6 @@ export function CheckoutModal() {
   const [pendingValues, setPendingValues] = useState<CheckoutValues | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
-  const [seconds, setSeconds] = useState(15);
 
   const form = useForm<CheckoutValues>({
     resolver: zodResolver(schema),
@@ -59,15 +58,6 @@ export function CheckoutModal() {
     const product = selected ? getProductById(selected.productId) : null;
     return selected && product ? { offer: selected, product } : null;
   }, [items]);
-
-  useEffect(() => {
-    if (!isUpsellOpen) return;
-    setSeconds(15);
-    const timer = window.setInterval(() => {
-      setSeconds((current) => Math.max(0, current - 1));
-    }, 1000);
-    return () => window.clearInterval(timer);
-  }, [isUpsellOpen]);
 
   function onValid(values: CheckoutValues) {
     setPendingValues(values);
@@ -165,7 +155,7 @@ export function CheckoutModal() {
           <Dialog.Overlay className="fixed inset-0 z-50 bg-brand-ink/40" />
           <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[94vh] w-[calc(100%-1.5rem)] max-w-xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[2rem] bg-white p-5 shadow-soft md:p-7">
             <div className="flex items-center justify-between">
-              <Dialog.Title className="text-2xl font-black">كمل الطلب فـ 30 ثانية</Dialog.Title>
+              <Dialog.Title className="text-2xl font-black">كمل الطلب</Dialog.Title>
               <Dialog.Close className="rounded-full p-2 hover:bg-brand-soft" aria-label="Close checkout">
                 <X className="h-5 w-5" />
               </Dialog.Close>
@@ -263,8 +253,7 @@ export function CheckoutModal() {
                 </div>
               </>
             )}
-            <p className="mb-4 text-sm font-bold text-brand-gold">العرض ينتهي خلال {seconds} ثانية</p>
-            <div className="grid gap-3">
+            <div className="mt-2 grid gap-3">
               <Button disabled={submitting} onClick={acceptUpsell}>
                 نعم، زيدها للطلب
               </Button>
