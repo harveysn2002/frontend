@@ -16,9 +16,7 @@ export function ProductImageCarousel({
 }) {
   const [index, setIndex] = useState(0);
   const contain = imageFit === "contain";
-  const mainFit = contain ? "object-contain" : "object-cover";
-  const thumbFit = contain ? "object-contain p-0.5" : "object-cover";
-  const surface = contain ? "bg-brand-ivory" : "bg-brand-soft";
+  const surface = contain ? "bg-white" : "bg-brand-soft";
 
   function go(step: number) {
     setIndex((current) => (current + step + images.length) % images.length);
@@ -29,10 +27,7 @@ export function ProductImageCarousel({
   return (
     <div className="grid gap-3">
       <div
-        className={cn(
-          "relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-soft sm:aspect-square sm:rounded-[2.5rem]",
-          surface,
-        )}
+        className={cn("relative overflow-hidden rounded-2xl shadow-soft sm:rounded-[1.75rem]", surface)}
         onTouchStart={(event) => {
           const touch = event.touches[0];
           (event.currentTarget as HTMLElement).dataset.touchX = String(touch.clientX);
@@ -45,15 +40,17 @@ export function ProductImageCarousel({
           go(delta > 0 ? -1 : 1);
         }}
       >
+        {/* Natural aspect ratio — never crop wide infographics */}
         <Image
           key={images[index]}
           src={images[index]}
           alt={alt}
-          fill
+          width={1600}
+          height={1200}
           priority={index === 0}
           quality={95}
           sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 640px"
-          className={cn(mainFit, "transition-opacity duration-300")}
+          className="h-auto w-full object-contain"
         />
 
         {images.length > 1 ? (
@@ -101,14 +98,13 @@ export function ProductImageCarousel({
               aria-label={`عرض صورة ${thumbIndex + 1}`}
               onClick={() => setIndex(thumbIndex)}
               className={cn(
-                "relative aspect-square overflow-hidden rounded-xl border-2 transition sm:rounded-2xl",
-                surface,
+                "relative aspect-[4/3] overflow-hidden rounded-xl border-2 bg-white transition sm:rounded-2xl",
                 thumbIndex === index
                   ? "border-brand-primary ring-2 ring-brand-soft sm:ring-4"
                   : "border-transparent opacity-80 hover:opacity-100",
               )}
             >
-              <Image src={image} alt="" fill quality={85} sizes="120px" className={thumbFit} />
+              <Image src={image} alt="" fill quality={85} sizes="120px" className="object-contain p-0.5" />
             </button>
           ))}
         </div>

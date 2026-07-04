@@ -4,7 +4,7 @@ import Image from "next/image";
 export function ProductStoryBanner({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="container py-8 md:py-12">
-      <div className="overflow-hidden rounded-[1.5rem] bg-brand-ink shadow-soft sm:rounded-[2rem]">
+      <div className="overflow-hidden rounded-2xl bg-white shadow-soft sm:rounded-[1.75rem]">
         <Image
           src={src}
           alt={alt}
@@ -12,7 +12,7 @@ export function ProductStoryBanner({ src, alt }: { src: string; alt: string }) {
           height={900}
           quality={92}
           sizes="(max-width: 1280px) 100vw, 1200px"
-          className="h-auto w-full object-cover"
+          className="h-auto w-full object-contain"
         />
       </div>
     </div>

@@ -10,16 +10,35 @@ import { formatMad, offerPriceScopeLabel, offerQuantityBadge } from "@/lib/curre
 export function ProductCard({ product }: { product: Product }) {
   const offer = product.offers.find((item) => item.recommended) || product.offers[0];
   const unit = product.quantityUnit ?? "piece";
-  const imageFit = product.heroImageFit === "contain" ? "object-contain" : "object-cover";
+  const contain = product.heroImageFit === "contain";
   const productHref = `/products/${product.slug}`;
 
   return (
     <article className="glass-card overflow-hidden rounded-[2rem]">
       <Link
         href={productHref}
-        className={`relative block aspect-[4/5] transition hover:opacity-95 sm:aspect-square ${product.heroImageFit === "contain" ? "bg-brand-ivory" : "bg-brand-soft/30"}`}
+        className={`relative block transition hover:opacity-95 ${contain ? "bg-white" : "aspect-[4/5] bg-brand-soft/30 sm:aspect-square"}`}
       >
-        <Image src={product.image} alt={product.nameAr} fill quality={90} sizes="(max-width: 768px) 100vw, 400px" className={imageFit} />
+        {contain ? (
+          <Image
+            src={product.image}
+            alt={product.nameAr}
+            width={800}
+            height={600}
+            quality={90}
+            sizes="(max-width: 768px) 100vw, 400px"
+            className="h-auto w-full object-contain"
+          />
+        ) : (
+          <Image
+            src={product.image}
+            alt={product.nameAr}
+            fill
+            quality={90}
+            sizes="(max-width: 768px) 100vw, 400px"
+            className="object-cover"
+          />
+        )}
       </Link>
       <div className="space-y-4 p-6">
         <div>
