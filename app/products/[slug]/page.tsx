@@ -7,6 +7,7 @@ import { ProductCard } from "@/components/product/product-card";
 import { ProductPageCta } from "@/components/product/product-page-cta";
 import { ProductImageCarousel } from "@/components/product/product-image-carousel";
 import { ProductPurchasePanel } from "@/components/product/product-purchase-panel";
+import { ProductStoryBanners } from "@/components/product/product-story-banners";
 import { getProductBySlug, getListedProductById, getListedProducts } from "@/config/products";
 
 export function generateStaticParams() {
@@ -56,6 +57,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           <MoroccoTrustMini />
         </div>
       </section>
+
+      {product.storyImages?.length ? (
+        <ProductStoryBanners images={product.storyImages} alt={product.nameAr} />
+      ) : null}
 
       <section className="container grid items-center gap-10 py-16 lg:grid-cols-2">
         <div>
