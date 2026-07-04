@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { cn } from "@/lib/cn";
 
 /** Single story image between text sections (namabeauty-style). */
 export function ProductStoryBanner({
