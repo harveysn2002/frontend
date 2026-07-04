@@ -7,7 +7,7 @@ import { ProductCard } from "@/components/product/product-card";
 import { ProductPageCta } from "@/components/product/product-page-cta";
 import { ProductImageCarousel } from "@/components/product/product-image-carousel";
 import { ProductPurchasePanel } from "@/components/product/product-purchase-panel";
-import { ProductStoryBanners } from "@/components/product/product-story-banners";
+import { ProductStoryBanner } from "@/components/product/product-story-banners";
 import { getProductBySlug, getListedProductById, getListedProducts } from "@/config/products";
 
 export function generateStaticParams() {
@@ -33,6 +33,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       : product.carouselImageFit === "cover"
         ? "cover"
         : heroFit;
+  const story = product.storyImages ?? [];
   const crossSells = product.crossSellIds
     .map((id) => getListedProductById(id))
     .filter(Boolean)
@@ -50,7 +51,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <ProductPurchasePanel product={product} />
       </section>
 
-      <section className="container pb-10">
+      <section className="container pb-6">
         <h2 className="mb-5 text-2xl font-black">كيفاش كيطلب من VORLAY؟</h2>
         <OrderStepsStrip />
         <div className="mt-6">
@@ -58,24 +59,21 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {product.storyImages?.length ? (
-        <ProductStoryBanners images={product.storyImages} alt={product.nameAr} />
-      ) : null}
+      {story[0] ? <ProductStoryBanner src={story[0]} alt={`${product.nameAr} — راحة فكل رحلة`} /> : null}
 
-      <section className="container grid items-center gap-10 py-16 lg:grid-cols-2">
-        <div>
-          <h2 className="text-4xl font-black">كيفاش كيعاون؟</h2>
-          <p className="mt-5 text-lg leading-9 text-brand-muted">{product.mechanism}</p>
-          <div className="mt-6 grid gap-3">
-            {product.benefits.map((benefit) => (
-              <div key={benefit} className="rounded-2xl bg-white p-4 font-semibold shadow-sm">
-                {benefit}
-              </div>
-            ))}
-          </div>
+      <section className="container py-10 md:py-14">
+        <h2 className="text-4xl font-black">كيفاش كيعاون؟</h2>
+        <p className="mt-5 max-w-3xl text-lg leading-9 text-brand-muted">{product.mechanism}</p>
+        <div className="mt-6 grid gap-3 md:grid-cols-2">
+          {product.benefits.map((benefit) => (
+            <div key={benefit} className="rounded-2xl bg-white p-4 font-semibold shadow-sm">
+              {benefit}
+            </div>
+          ))}
         </div>
-        <ProductImageCarousel images={product.images} alt={product.nameAr} imageFit={carouselFit} />
       </section>
+
+      {story[1] ? <ProductStoryBanner src={story[1]} alt={`${product.nameAr} — الراحة اللي كتستحقها`} /> : null}
 
       <section className="bg-brand-primary py-16 text-white">
         <div className="container">
@@ -102,6 +100,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </section>
+
+      {story[2] ? <ProductStoryBanner src={story[2]} alt={`${product.nameAr} — الفرق من أول لمسة`} /> : null}
 
       <section className="container py-16">
         <h2 className="text-4xl font-black">كمل التجربة</h2>

@@ -1,30 +1,20 @@
 import Image from "next/image";
 
-export function ProductStoryBanners({
-  images,
-  alt,
-}: {
-  images: string[];
-  alt: string;
-}) {
-  if (images.length === 0) return null;
-
+/** Single full-width story image between text sections (namabeauty-style). */
+export function ProductStoryBanner({ src, alt }: { src: string; alt: string }) {
   return (
-    <section className="w-full" aria-label={alt}>
-      {images.map((src, index) => (
-        <div key={src} className="relative w-full overflow-hidden bg-brand-ink">
-          <Image
-            src={src}
-            alt={`${alt} — ${index + 1}`}
-            width={1600}
-            height={900}
-            quality={92}
-            sizes="100vw"
-            className="h-auto w-full object-cover"
-            priority={index === 0}
-          />
-        </div>
-      ))}
-    </section>
+    <div className="container py-8 md:py-12">
+      <div className="overflow-hidden rounded-[1.5rem] bg-brand-ink shadow-soft sm:rounded-[2rem]">
+        <Image
+          src={src}
+          alt={alt}
+          width={1600}
+          height={900}
+          quality={92}
+          sizes="(max-width: 1280px) 100vw, 1200px"
+          className="h-auto w-full object-cover"
+        />
+      </div>
+    </div>
   );
 }
