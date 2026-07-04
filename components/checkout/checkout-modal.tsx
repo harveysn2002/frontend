@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { X } from "lucide-react";
@@ -242,9 +243,21 @@ export function CheckoutModal() {
                 <p className="mt-3 text-brand-muted">
                   زيد {upsell.product.nameAr} بثمن خاص قبل ما نأكدو الطلب.
                 </p>
-                <div className="my-5 rounded-3xl bg-brand-soft/40 p-4">
+                <div className="my-4 overflow-hidden rounded-2xl bg-white">
+                  <Image
+                    src={upsell.product.image}
+                    alt={upsell.product.nameAr}
+                    width={480}
+                    height={480}
+                    quality={90}
+                    sizes="320px"
+                    className="mx-auto h-auto w-full max-w-[280px] object-contain"
+                  />
+                </div>
+                <div className="rounded-3xl bg-brand-soft/40 p-4">
                   <div className="text-lg font-black">{upsell.offer.title}</div>
-                  <div className="mt-1 text-3xl font-black text-brand-primary">
+                  <p className="mt-1 text-sm text-brand-muted">{upsell.product.cardSubheading}</p>
+                  <div className="mt-2 text-3xl font-black text-brand-primary">
                     {formatMad(upsell.offer.priceMad)}
                   </div>
                   <div className="text-sm text-brand-muted line-through">
