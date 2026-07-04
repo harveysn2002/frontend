@@ -87,7 +87,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               "توصيل لجميع مدن المغرب",
               "الدفع عند الاستلام فقط",
               "تأكيد الطلب قبل الإرسال",
-              "دعم WhatsApp قبل وبعد الطلب",
+              "تأكيد الطلب بالهاتف قبل الإرسال",
               "شفافية كاملة فالأسعار والتوصيل",
             ].map((point) => (
               <div key={point} className="rounded-[2rem] bg-white/10 p-6">

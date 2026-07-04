@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/layout/brand-logo";
 import { SocialLinks } from "@/components/layout/social-links";
-import { siteConfig } from "@/config/site";
+import { hasWhatsApp, siteConfig } from "@/config/site";
 import { getListedProducts } from "@/config/products";
 import { whatsappLink } from "@/lib/social";
 
 export function Footer() {
-  const whatsappUrl = whatsappLink(
-    siteConfig.social.whatsappNumber,
-    siteConfig.social.whatsappMessage,
-  );
+  const whatsappUrl = hasWhatsApp
+    ? whatsappLink(siteConfig.social.whatsappNumber, siteConfig.social.whatsappMessage)
+    : null;
 
   return (
     <footer className="border-t border-brand-primary/10 bg-white">
@@ -40,11 +39,13 @@ export function Footer() {
           <h3 className="font-black">الدعم</h3>
           <ul className="mt-4 space-y-3 text-sm text-brand-muted">
             <li><Link href="/contact">تواصل معنا</Link></li>
-            <li>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                WhatsApp
-              </a>
-            </li>
+            {whatsappUrl ? (
+              <li>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  WhatsApp
+                </a>
+              </li>
+            ) : null}
             <li>
               <a href={siteConfig.social.instagramUrl} target="_blank" rel="noopener noreferrer">
                 Instagram

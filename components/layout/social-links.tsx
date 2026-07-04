@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config/site";
+import { hasWhatsApp, siteConfig } from "@/config/site";
 import { whatsappLink } from "@/lib/social";
 
 type IconProps = {
@@ -36,18 +36,17 @@ type SocialLinksProps = {
 };
 
 export function SocialLinks({ className = "", iconClassName = "h-5 w-5", showLabels = false }: SocialLinksProps) {
-  const whatsappUrl = whatsappLink(
-    siteConfig.social.whatsappNumber,
-    siteConfig.social.whatsappMessage,
-  );
-
   const links = [
-    {
-      href: whatsappUrl,
-      label: "WhatsApp",
-      icon: WhatsAppIcon,
-      className: "bg-[#25D366] text-white hover:bg-[#1ebe57]",
-    },
+    ...(hasWhatsApp
+      ? [
+          {
+            href: whatsappLink(siteConfig.social.whatsappNumber, siteConfig.social.whatsappMessage),
+            label: "WhatsApp",
+            icon: WhatsAppIcon,
+            className: "bg-[#25D366] text-white hover:bg-[#1ebe57]",
+          },
+        ]
+      : []),
     {
       href: siteConfig.social.instagramUrl,
       label: "Instagram",
@@ -82,6 +81,8 @@ export function SocialLinks({ className = "", iconClassName = "h-5 w-5", showLab
 }
 
 export function WhatsAppFab() {
+  if (!hasWhatsApp) return null;
+
   const whatsappUrl = whatsappLink(
     siteConfig.social.whatsappNumber,
     siteConfig.social.whatsappMessage,

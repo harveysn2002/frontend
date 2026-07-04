@@ -25,7 +25,7 @@ const proofPoints = [
   {
     icon: MessageCircle,
     title: "دعم حقيقي",
-    text: `WhatsApp متاح ${siteConfig.supportHours}.`,
+    text: `فريق VORLAY كيجاوبك ${siteConfig.supportHours}.`,
   },
 ];
 
