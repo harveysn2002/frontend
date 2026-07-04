@@ -171,7 +171,6 @@ export const products: Product[] = [
     quantityUnit: "set",
     images: [
       staticProductImage("wisada-hero-white.png"),
-      staticProductImage("wisada-story-compare.png"),
       staticProductImage("wisada-story-lifestyle.png"),
     ],
     detailImage: staticProductImage("wisada-hero-white.png"),
