@@ -65,17 +65,22 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
             selectedOfferId={selectedOffer.id}
             quantityUnit={unit}
             onSelect={setSelectedOffer}
+            onBuyNow={buyNow}
           />
         </div>
 
-        <div className="mt-3 flex items-center justify-between gap-2 rounded-xl bg-brand-soft/30 px-3 py-2.5 text-sm">
+        <button
+          type="button"
+          onClick={() => buyNow(selectedOffer)}
+          className="mt-3 flex w-full items-center justify-between gap-2 rounded-xl bg-brand-soft/30 px-3 py-2.5 text-sm transition hover:bg-brand-soft/50 active:scale-[0.99]"
+        >
           <span className="font-bold text-brand-ink">
             {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity, unit)}
           </span>
           <span className="text-base font-black text-brand-primary sm:text-lg">
             {formatMad(selectedOffer.priceMad)}
           </span>
-        </div>
+        </button>
 
         <div className="mt-3 grid grid-cols-2 gap-2">
           <Button

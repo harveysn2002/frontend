@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, type MouseEvent } from "react";
 import { cn } from "@/lib/cn";
 import {
   formatMad,
@@ -15,12 +16,27 @@ export function OfferSelector({
   selectedOfferId,
   quantityUnit = "piece",
   onSelect,
+  onBuyNow,
 }: {
   offers: Offer[];
   selectedOfferId: string;
   quantityUnit?: QuantityUnit;
   onSelect: (offer: Offer) => void;
+  onBuyNow?: (offer: Offer) => void;
 }) {
+  const buyLock = useRef(false);
+
+  function handlePriceAction(event: MouseEvent, offer: Offer) {
+    event.stopPropagation();
+    if (buyLock.current) return;
+    buyLock.current = true;
+    onSelect(offer);
+    onBuyNow?.(offer);
+    window.setTimeout(() => {
+      buyLock.current = false;
+    }, 700);
+  }
+
   return (
     <div className="grid gap-2">
       {offers.map((offer) => {
@@ -73,13 +89,34 @@ export function OfferSelector({
                 ) : null}
               </div>
 
-              <div className="shrink-0 text-left">
+              <div
+                role="button"
+                tabIndex={0}
+                aria-label={`اطلب ${offer.title} — ${formatMad(offer.priceMad)}`}
+                onClick={(event) => handlePriceAction(event, offer)}
+                onDoubleClick={(event) => handlePriceAction(event, offer)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    onSelect(offer);
+                    onBuyNow?.(offer);
+                  }
+                }}
+                className={cn(
+                  "shrink-0 cursor-pointer rounded-xl px-1.5 py-1 text-left transition hover:bg-brand-primary/8 active:scale-[0.98]",
+                  onBuyNow && "hover:ring-1 hover:ring-brand-primary/20",
+                )}
+              >
                 <div className="text-lg font-black leading-none text-brand-ink sm:text-xl">
                   {formatMad(offer.priceMad)}
                 </div>
                 <div className="mt-0.5 text-[11px] text-brand-muted line-through sm:text-xs">
                   {formatMad(offer.compareAtPriceMad)}
                 </div>
+                {onBuyNow ? (
+                  <p className="mt-1 text-[9px] font-bold text-brand-primary sm:text-[10px]">اضغط للطلب</p>
+                ) : null}
               </div>
             </div>
           </button>
