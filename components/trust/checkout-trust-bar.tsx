@@ -1,4 +1,4 @@
-import { checkoutTrustItems, riskFreeOrderNote } from "@/config/trust";
+import { checkoutTrustItems } from "@/config/trust";
 
 export function CheckoutTrustBar({ showNote = true }: { showNote?: boolean }) {
   return (
@@ -15,8 +15,8 @@ export function CheckoutTrustBar({ showNote = true }: { showNote?: boolean }) {
         ))}
       </div>
       {showNote ? (
-        <p className="mt-2 text-center text-[10px] leading-5 text-brand-muted sm:text-[11px]">
-          {riskFreeOrderNote}
+        <p className="mt-1.5 text-center text-[10px] leading-4 text-brand-muted">
+          COD · تأكيد بالهاتف · توصيل شامل
         </p>
       ) : null}
     </div>

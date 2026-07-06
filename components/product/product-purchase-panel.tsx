@@ -4,8 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { ShoppingBag, Zap } from "lucide-react";
 import { OfferSelector } from "@/components/product/offer-selector";
 import { ProductTrustBadges } from "@/components/product/product-trust-badges";
-import { CheckoutTrustBar } from "@/components/trust/checkout-trust-bar";
-import { riskFreeOrderNote } from "@/config/trust";
 import { RatingStars } from "@/components/product/rating-stars";
 import { Button } from "@/components/ui/button";
 import type { Offer, Product } from "@/config/products";
@@ -56,11 +54,11 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           ))}
         </div>
 
-        <div className="mt-4">
-          <ProductTrustBadges />
+        <div className="mt-3">
+          <ProductTrustBadges compact />
         </div>
 
-        <div className="mt-4">
+        <div className="mt-3">
           <OfferSelector
             offers={product.offers}
             selectedOfferId={selectedOffer.id}
@@ -101,12 +99,8 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           </Button>
         </div>
 
-        <div className="mt-3">
-          <CheckoutTrustBar />
-        </div>
-
-        <p className="mt-2.5 text-center text-[11px] leading-5 text-brand-muted sm:text-xs">
-          {riskFreeOrderNote}
+        <p className="mt-2 text-center text-[10px] leading-5 text-brand-muted sm:text-[11px]">
+          ما كتخلص والو دابا · تأكيد بالهاتف قبل الإرسال
         </p>
       </div>
 
