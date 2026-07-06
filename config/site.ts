@@ -1,6 +1,9 @@
 const PLACEHOLDER_WHATSAPP = new Set(["", "212600000000", "600000000"]);
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, "");
+/** Default VORLAY WhatsApp — override with NEXT_PUBLIC_WHATSAPP_NUMBER at build time if needed */
+const whatsappNumber = (
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "212633115775"
+).replace(/\D/g, "");
 
 /** True only when a real WhatsApp number is configured (not a placeholder). */
 export const hasWhatsApp = Boolean(whatsappNumber) && !PLACEHOLDER_WHATSAPP.has(whatsappNumber);
