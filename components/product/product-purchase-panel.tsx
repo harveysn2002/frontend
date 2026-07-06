@@ -1,14 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ShoppingBag, Zap } from "lucide-react";
 import { OfferSelector } from "@/components/product/offer-selector";
 import { ProductTrustBadges } from "@/components/product/product-trust-badges";
 import { RatingStars } from "@/components/product/rating-stars";
-import { Button } from "@/components/ui/button";
 import type { Offer, Product } from "@/config/products";
-import { formatMad, offerQuantityLabel } from "@/lib/currency";
+import { formatMad } from "@/lib/currency";
 import { useProductPurchase } from "@/hooks/use-product-purchase";
+
+const buyButtonClass =
+  "flex w-full min-h-12 items-center justify-center gap-2 rounded-2xl bg-gradient-to-l from-[#E8C872] via-brand-gold to-[#A8842E] px-5 py-3.5 text-base font-black text-[#1a1208] shadow-[0_8px_28px_rgba(201,162,74,0.32)] transition hover:brightness-110 active:scale-[0.99] sm:min-h-[3.25rem] sm:text-lg";
 
 export function ProductPurchasePanel({ product }: { product: Product }) {
   const defaultOffer = product.offers.find((offer) => offer.recommended) || product.offers[0];
@@ -17,6 +18,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const unit = product.quantityUnit ?? "piece";
   const { addToCart, buyNow } = useProductPurchase(product);
+  const priceLabel = formatMad(selectedOffer.priceMad);
 
   useEffect(() => {
     const node = panelRef.current;
@@ -54,11 +56,8 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           ))}
         </div>
 
-        <div className="mt-3">
-          <ProductTrustBadges compact />
-        </div>
-
-        <div className="mt-3">
+        <p className="mt-5 text-sm font-black text-brand-ink">اختار العرض:</p>
+        <div className="mt-2">
           <OfferSelector
             offers={product.offers}
             selectedOfferId={selectedOffer.id}
@@ -68,59 +67,37 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           />
         </div>
 
-        <button
-          type="button"
-          onClick={() => buyNow(selectedOffer)}
-          className="mt-3 flex w-full items-center justify-between gap-2 rounded-xl bg-brand-soft/30 px-3 py-2.5 text-sm transition hover:bg-brand-soft/50 active:scale-[0.99]"
-        >
-          <span className="font-bold text-brand-ink">
-            {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity, unit)}
-          </span>
-          <span className="text-base font-black text-brand-primary sm:text-lg">
-            {formatMad(selectedOffer.priceMad)}
-          </span>
+        <button type="button" onClick={() => buyNow(selectedOffer)} className={`mt-4 ${buyButtonClass}`}>
+          <span>اطلب دابا</span>
+          <span className="opacity-60">·</span>
+          <span>{priceLabel}</span>
         </button>
 
-        <div className="mt-3 grid grid-cols-2 gap-2">
-          <Button
-            className="min-h-10 w-full px-3 text-sm sm:min-h-11"
-            onClick={() => addToCart(selectedOffer)}
-          >
-            <ShoppingBag className="h-4 w-4" />
-            زيد للسلّة
-          </Button>
-          <Button
-            variant="secondary"
-            className="min-h-10 w-full px-3 text-sm sm:min-h-11"
-            onClick={() => buyNow(selectedOffer)}
-          >
-            <Zap className="h-4 w-4" />
-            اطلب دابا COD
-          </Button>
+        <p className="mt-2 text-center text-[11px] font-semibold text-brand-muted sm:text-xs">
+          الدفع عند الاستلام · بدون دفع أونلاين
+        </p>
+
+        <div className="mt-3">
+          <ProductTrustBadges compact />
         </div>
 
-        <p className="mt-2 text-center text-[10px] leading-5 text-brand-muted sm:text-[11px]">
-          ما كتخلص والو دابا · تأكيد بالهاتف قبل الإرسال
-        </p>
+        <button
+          type="button"
+          onClick={() => addToCart(selectedOffer)}
+          className="mt-3 w-full text-center text-xs font-bold text-brand-primary underline-offset-2 hover:underline"
+        >
+          زيد للسلّة ديالي
+        </button>
       </div>
 
       {showSticky ? (
-        <div className="fixed inset-x-0 bottom-0 z-50 border-t border-brand-primary/10 bg-white/95 p-2.5 shadow-[0_-12px_40px_rgba(31,41,51,0.12)] backdrop-blur-xl sm:p-3">
-          <div className="container flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <div className="min-w-0">
-              <p className="truncate text-sm font-black text-brand-ink">{product.nameAr}</p>
-              <p className="text-xs text-brand-muted">
-                {selectedOffer.title} · {formatMad(selectedOffer.priceMad)}
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-2 sm:max-w-sm sm:flex-1">
-              <Button className="min-h-10 w-full text-sm" onClick={() => addToCart(selectedOffer)}>
-                زيد للسلّة
-              </Button>
-              <Button variant="secondary" className="min-h-10 w-full text-sm" onClick={() => buyNow(selectedOffer)}>
-                اطلب دابا
-              </Button>
-            </div>
+        <div className="fixed inset-x-0 bottom-0 z-50 border-t border-brand-primary/10 bg-white/95 p-3 shadow-[0_-12px_40px_rgba(31,41,51,0.12)] backdrop-blur-xl">
+          <div className="container">
+            <button type="button" onClick={() => buyNow(selectedOffer)} className={buyButtonClass}>
+              <span>اطلب دابا</span>
+              <span className="opacity-60">·</span>
+              <span>{priceLabel}</span>
+            </button>
           </div>
         </div>
       ) : null}

@@ -115,14 +115,14 @@ export function OfferSelector({
                   {formatMad(offer.compareAtPriceMad)}
                 </div>
                 {onBuyNow ? (
-                  <p className="mt-1 text-[9px] font-bold text-brand-primary sm:text-[10px]">اضغط للطلب</p>
+                  <p className="mt-1 text-[9px] font-bold text-brand-primary/70 sm:text-[10px]">اضغط للطلب</p>
                 ) : null}
               </div>
             </div>
           </button>
         );
       })}
-      <p className="pt-0.5 text-center text-[11px] font-semibold text-brand-primary sm:text-xs">
+      <p className="pt-1 text-center text-[10px] font-semibold text-brand-primary sm:text-[11px]">
         {siteConfig.priceIncludesShippingNote}
       </p>
     </div>
