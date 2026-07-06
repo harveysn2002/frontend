@@ -4,9 +4,7 @@ import { cn } from "@/lib/cn";
 import {
   formatMad,
   offerPriceClarityLabel,
-  offerPriceScopeLabel,
   offerQuantityBadge,
-  offerQuantityLabel,
   offerUnitPriceMad,
 } from "@/lib/currency";
 import type { Offer, QuantityUnit } from "@/config/products";
@@ -24,11 +22,13 @@ export function OfferSelector({
   onSelect: (offer: Offer) => void;
 }) {
   return (
-    <div className="grid gap-3">
+    <div className="grid gap-2">
       {offers.map((offer) => {
         const selected = offer.id === selectedOfferId;
         const savings = offer.compareAtPriceMad - offer.priceMad;
         const unitPrice = offerUnitPriceMad(offer.priceMad, offer.quantity);
+        const qtyBadge = offerQuantityBadge(offer.quantity, quantityUnit);
+        const clarity = offerPriceClarityLabel(offer.quantity, quantityUnit);
 
         return (
           <button
@@ -36,49 +36,48 @@ export function OfferSelector({
             type="button"
             onClick={() => onSelect(offer)}
             className={cn(
-              "rounded-3xl border bg-white p-4 text-right transition",
-              selected ? "border-brand-primary ring-4 ring-brand-soft" : "border-brand-primary/15",
+              "relative w-full rounded-2xl border bg-white px-3 py-2.5 text-right transition sm:px-3.5 sm:py-3",
+              selected
+                ? "border-brand-primary shadow-[0_0_0_2px_rgba(13,111,103,0.12)]"
+                : "border-brand-primary/12 hover:border-brand-primary/25",
             )}
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-2 sm:gap-3">
               <div className="min-w-0 flex-1">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-lg font-black">{offer.title}</span>
-                  <span className="rounded-full bg-brand-gold px-3 py-1 text-xs font-black text-white">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="text-sm font-black text-brand-ink sm:text-base">{offer.title}</span>
+                  <span className="rounded-full bg-brand-gold/90 px-2 py-0.5 text-[10px] font-black text-white">
                     {offer.badge}
                   </span>
-                  {offerQuantityBadge(offer.quantity, quantityUnit) ? (
-                    <span className="rounded-full bg-brand-primary px-3 py-1 text-xs font-black text-white">
-                      {offerQuantityBadge(offer.quantity, quantityUnit)}
+                  {qtyBadge ? (
+                    <span className="rounded-full bg-brand-primary px-2 py-0.5 text-[10px] font-black text-white">
+                      {qtyBadge}
                     </span>
                   ) : null}
                 </div>
-                <p className="mt-1 text-sm text-brand-muted">{offer.subtitle}</p>
-                {savings > 0 && (
-                  <p className="mt-2 text-xs font-bold text-brand-primary">
+                <p className="mt-0.5 line-clamp-2 text-[11px] leading-5 text-brand-muted sm:text-xs">
+                  {offer.subtitle}
+                </p>
+                {clarity ? (
+                  <p className="mt-0.5 text-[10px] font-bold text-brand-primary sm:text-[11px]">{clarity}</p>
+                ) : null}
+                {savings > 0 ? (
+                  <p className="mt-0.5 text-[10px] font-bold text-brand-primary sm:text-[11px]">
                     كتوفر {formatMad(savings)}
                   </p>
-                )}
-              </div>
-              <div className="shrink-0 text-left">
-                <div className="rounded-xl bg-brand-primary/10 px-3 py-1 text-xs font-black text-brand-primary">
-                  {offerQuantityLabel(offer.quantity, quantityUnit)}
-                </div>
-                <div className="mt-2 text-2xl font-black leading-none">{formatMad(offer.priceMad)}</div>
-                {offerPriceClarityLabel(offer.quantity, quantityUnit) ? (
-                  <div className="mt-1 text-sm font-black text-brand-primary">
-                    {offerPriceClarityLabel(offer.quantity, quantityUnit)}
-                  </div>
                 ) : null}
-                <div className="mt-1 text-sm font-bold text-brand-ink">
-                  {offerPriceScopeLabel(offer.quantity, quantityUnit)}
-                </div>
                 {offer.quantity > 1 ? (
-                  <div className="mt-1 text-xs font-semibold text-brand-muted">
+                  <p className="mt-0.5 text-[10px] text-brand-muted">
                     {formatMad(unitPrice)} {quantityUnit === "set" ? "للطقم" : "للقطعة"}
-                  </div>
+                  </p>
                 ) : null}
-                <div className="mt-1 text-sm text-brand-muted line-through">
+              </div>
+
+              <div className="shrink-0 text-left">
+                <div className="text-lg font-black leading-none text-brand-ink sm:text-xl">
+                  {formatMad(offer.priceMad)}
+                </div>
+                <div className="mt-0.5 text-[11px] text-brand-muted line-through sm:text-xs">
                   {formatMad(offer.compareAtPriceMad)}
                 </div>
               </div>
@@ -86,7 +85,7 @@ export function OfferSelector({
           </button>
         );
       })}
-      <p className="text-center text-sm font-semibold text-brand-primary">
+      <p className="pt-0.5 text-center text-[11px] font-semibold text-brand-primary sm:text-xs">
         {siteConfig.priceIncludesShippingNote}
       </p>
     </div>

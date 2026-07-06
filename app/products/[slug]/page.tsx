@@ -45,12 +45,18 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     <div className="pb-24 md:pb-0">
       <section className="container grid gap-8 py-10 lg:grid-cols-[1fr_1.05fr]">
         <div className="grid gap-4">
-          <ProductImageCarousel images={product.images} alt={product.nameAr} imageFit={carouselFit} />
+          <ProductImageCarousel
+            images={product.images}
+            alt={product.nameAr}
+            imageFit={carouselFit}
+            product={product}
+          />
           <ProductPainCards pains={product.pains} painResponses={product.painResponses} />
           {product.afterPainImage ? (
             <ProductStoryBanner
               src={product.afterPainImage}
               alt={`${product.nameAr} — الفرق من أول لمسة`}
+              product={product}
               contained={false}
             />
           ) : null}
@@ -66,7 +72,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {story[0] ? <ProductStoryBanner src={story[0]} alt={`${product.nameAr} — راحة فكل رحلة`} /> : null}
+      {story[0] ? (
+        <ProductStoryBanner
+          src={story[0]}
+          alt={`${product.nameAr} — راحة فكل رحلة`}
+          product={product}
+        />
+      ) : null}
 
       <section className="container py-10 md:py-14">
         <h2 className="text-4xl font-black">كيفاش كيعاون؟</h2>
@@ -80,7 +92,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {story[1] ? <ProductStoryBanner src={story[1]} alt={`${product.nameAr} — الراحة اللي كتستحقها`} /> : null}
+      {story[1] ? (
+        <ProductStoryBanner
+          src={story[1]}
+          alt={`${product.nameAr} — الراحة اللي كتستحقها`}
+          product={product}
+        />
+      ) : null}
 
       <section className="bg-brand-primary py-16 text-white">
         <div className="container">
@@ -108,7 +126,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {story[2] ? <ProductStoryBanner src={story[2]} alt={`${product.nameAr} — الفرق من أول لمسة`} /> : null}
+      {story[2] ? (
+        <ProductStoryBanner
+          src={story[2]}
+          alt={`${product.nameAr} — الفرق من أول لمسة`}
+          product={product}
+        />
+      ) : null}
 
       <section className="container py-16">
         <h2 className="text-4xl font-black">كمل التجربة</h2>

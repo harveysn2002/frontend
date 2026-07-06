@@ -4,13 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { HeroRotatingCopy } from "@/components/home/hero-rotating-copy";
+import { ImageBuyNowCta } from "@/components/product/image-buy-now-cta";
 import { heroRotatingItems, homeHeroSlides } from "@/config/home-hero";
+import { getProductBySlug } from "@/config/products";
 import { formatMad } from "@/lib/currency";
 
 const trustPoints = ["الدفع عند الاستلام", "توصيل لجميع مدن المغرب", "تأكيد الطلب بالهاتف"];
 
 export function PremiumHomeHero() {
   const slide = homeHeroSlides[0];
+  const product = getProductBySlug(slide.slug);
   const priceLabel = formatMad(slide.priceMad);
   const compareLabel = slide.compareAtPriceMad ? formatMad(slide.compareAtPriceMad) : null;
 
@@ -30,6 +33,7 @@ export function PremiumHomeHero() {
                 className="object-contain"
               />
             </div>
+            {product ? <ImageBuyNowCta product={product} className="pt-3" /> : null}
           </div>
         </div>
 

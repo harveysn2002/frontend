@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ImageBuyNowCta } from "@/components/product/image-buy-now-cta";
 import { ProductQuickAdd } from "@/components/product/product-quick-add";
 import { RatingStars } from "@/components/product/rating-stars";
 import { Button } from "@/components/ui/button";
@@ -15,31 +16,34 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className="glass-card overflow-hidden rounded-[2rem]">
-      <Link
-        href={productHref}
-        className={`relative block transition hover:opacity-95 ${contain ? "bg-white" : "aspect-[4/5] bg-brand-soft/30 sm:aspect-square"}`}
-      >
-        {contain ? (
-          <Image
-            src={product.image}
-            alt={product.nameAr}
-            width={800}
-            height={600}
-            quality={90}
-            sizes="(max-width: 768px) 100vw, 400px"
-            className="h-auto w-full object-contain"
-          />
-        ) : (
-          <Image
-            src={product.image}
-            alt={product.nameAr}
-            fill
-            quality={90}
-            sizes="(max-width: 768px) 100vw, 400px"
-            className="object-cover"
-          />
-        )}
-      </Link>
+      <div>
+        <Link
+          href={productHref}
+          className={`relative block transition hover:opacity-95 ${contain ? "bg-white" : "aspect-[4/5] bg-brand-soft/30 sm:aspect-square"}`}
+        >
+          {contain ? (
+            <Image
+              src={product.image}
+              alt={product.nameAr}
+              width={800}
+              height={600}
+              quality={90}
+              sizes="(max-width: 768px) 100vw, 400px"
+              className="h-auto w-full object-contain"
+            />
+          ) : (
+            <Image
+              src={product.image}
+              alt={product.nameAr}
+              fill
+              quality={90}
+              sizes="(max-width: 768px) 100vw, 400px"
+              className="object-cover"
+            />
+          )}
+        </Link>
+        <ImageBuyNowCta product={product} className="pb-1 pt-2" />
+      </div>
       <div className="space-y-4 p-6">
         <div>
           <RatingStars />

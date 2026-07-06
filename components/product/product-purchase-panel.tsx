@@ -3,10 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { ShoppingBag, Zap } from "lucide-react";
 import { OfferSelector } from "@/components/product/offer-selector";
+import { ProductTrustBadges } from "@/components/product/product-trust-badges";
 import { RatingStars } from "@/components/product/rating-stars";
 import { Button } from "@/components/ui/button";
 import type { Offer, Product } from "@/config/products";
-import { formatMad, offerPriceClarityLabel, offerPriceScopeLabel, offerQuantityLabel } from "@/lib/currency";
+import { formatMad, offerQuantityLabel } from "@/lib/currency";
 import { useProductPurchase } from "@/hooks/use-product-purchase";
 import { siteConfig } from "@/config/site";
 
@@ -33,34 +34,32 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
 
   return (
     <>
-      <div id="order" ref={panelRef} className="glass-card scroll-mt-28 rounded-[2rem] p-5 md:p-7">
+      <div id="order" ref={panelRef} className="glass-card scroll-mt-28 rounded-[1.5rem] p-4 sm:rounded-[1.75rem] sm:p-5 md:p-6">
         <RatingStars />
-        <p className="mt-3 inline-flex rounded-full bg-brand-gold/15 px-3 py-1 text-xs font-black text-brand-ink">
+        <p className="mt-2 inline-flex rounded-full bg-brand-gold/15 px-2.5 py-0.5 text-[10px] font-black text-brand-ink sm:text-xs">
           {product.eyebrow ?? "VORLAY · دعم يومي مريح · الدفع عند الاستلام"}
         </p>
-        <h1 className="mt-4 text-4xl font-black leading-tight text-brand-ink md:text-5xl">
+        <h1 className="mt-3 text-2xl font-black leading-tight text-brand-ink sm:text-3xl md:text-4xl">
           {product.headline}
         </h1>
-        <p className="mt-4 text-lg leading-8 text-brand-muted">{product.subheading}</p>
+        <p className="mt-2 text-sm leading-7 text-brand-muted sm:text-base sm:leading-8">{product.subheading}</p>
 
-        <div className="mt-5 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap gap-1.5">
           {product.bestFor.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-brand-primary/15 bg-white px-3 py-1 text-xs font-bold text-brand-primary"
+              className="rounded-full border border-brand-primary/12 bg-white px-2.5 py-0.5 text-[10px] font-bold text-brand-primary sm:text-xs"
             >
               {tag}
             </span>
           ))}
         </div>
 
-        <div className="mt-6 grid gap-2 text-sm font-semibold text-brand-primary md:grid-cols-3">
-          <span>الدفع عند الاستلام</span>
-          <span>تأكيد الطلب بالهاتف</span>
-          <span>توصيل لجميع مدن المغرب</span>
+        <div className="mt-4">
+          <ProductTrustBadges />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4">
           <OfferSelector
             offers={product.offers}
             selectedOfferId={selectedOffer.id}
@@ -69,59 +68,52 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           />
         </div>
 
-        <div className="mt-5 rounded-2xl bg-brand-soft/35 p-4">
-          <div className="flex flex-wrap items-center justify-between gap-2 text-lg font-black">
-            <span>
-              {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity, unit)}
-            </span>
-            <span className="text-brand-primary">{formatMad(selectedOffer.priceMad)}</span>
-          </div>
-          <p className="mt-1 text-sm font-bold text-brand-ink">{offerPriceScopeLabel(selectedOffer.quantity, unit)}</p>
-          {offerPriceClarityLabel(selectedOffer.quantity, unit) ? (
-            <p className="mt-1 text-sm font-black text-brand-primary">
-              {offerPriceClarityLabel(selectedOffer.quantity, unit)}
-            </p>
-          ) : null}
-          <p className="mt-2 text-sm font-semibold text-brand-primary">
-            {siteConfig.priceIncludesShippingNote}
-          </p>
+        <div className="mt-3 flex items-center justify-between gap-2 rounded-xl bg-brand-soft/30 px-3 py-2.5 text-sm">
+          <span className="font-bold text-brand-ink">
+            {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity, unit)}
+          </span>
+          <span className="text-base font-black text-brand-primary sm:text-lg">
+            {formatMad(selectedOffer.priceMad)}
+          </span>
         </div>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          <Button className="w-full text-base" onClick={() => addToCart(selectedOffer)}>
-            <ShoppingBag className="ml-2 h-5 w-5" />
-            زيد للسلّة ديالي
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <Button
+            className="min-h-10 w-full px-3 text-sm sm:min-h-11"
+            onClick={() => addToCart(selectedOffer)}
+          >
+            <ShoppingBag className="h-4 w-4" />
+            زيد للسلّة
           </Button>
           <Button
             variant="secondary"
-            className="w-full text-base"
+            className="min-h-10 w-full px-3 text-sm sm:min-h-11"
             onClick={() => buyNow(selectedOffer)}
           >
-            <Zap className="ml-2 h-5 w-5" />
+            <Zap className="h-4 w-4" />
             اطلب دابا COD
           </Button>
         </div>
 
-        <p className="mt-3 text-center text-sm text-brand-muted">
-          ما غادي تخلص والو الآن. الفريق غادي يتاصل بك لتأكيد الطلب قبل الإرسال.
+        <p className="mt-2.5 text-center text-[11px] leading-5 text-brand-muted sm:text-xs">
+          ما غادي تخلص والو الآن · {siteConfig.priceIncludesShippingNote} · تأكيد بالهاتف قبل الإرسال
         </p>
       </div>
 
       {showSticky ? (
-        <div className="fixed inset-x-0 bottom-0 z-50 border-t border-brand-primary/10 bg-white/95 p-3 shadow-[0_-12px_40px_rgba(31,41,51,0.12)] backdrop-blur-xl md:p-4">
-          <div className="container flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="fixed inset-x-0 bottom-0 z-50 border-t border-brand-primary/10 bg-white/95 p-2.5 shadow-[0_-12px_40px_rgba(31,41,51,0.12)] backdrop-blur-xl sm:p-3">
+          <div className="container flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0">
-              <p className="truncate font-black text-brand-ink">{product.nameAr}</p>
-              <p className="text-sm text-brand-muted">
-                {selectedOffer.title} · {offerQuantityLabel(selectedOffer.quantity, unit)} ·{" "}
-                {formatMad(selectedOffer.priceMad)}
+              <p className="truncate text-sm font-black text-brand-ink">{product.nameAr}</p>
+              <p className="text-xs text-brand-muted">
+                {selectedOffer.title} · {formatMad(selectedOffer.priceMad)}
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-2 sm:max-w-md sm:flex-1">
-              <Button className="w-full" onClick={() => addToCart(selectedOffer)}>
+            <div className="grid grid-cols-2 gap-2 sm:max-w-sm sm:flex-1">
+              <Button className="min-h-10 w-full text-sm" onClick={() => addToCart(selectedOffer)}>
                 زيد للسلّة
               </Button>
-              <Button variant="secondary" className="w-full" onClick={() => buyNow(selectedOffer)}>
+              <Button variant="secondary" className="min-h-10 w-full text-sm" onClick={() => buyNow(selectedOffer)}>
                 اطلب دابا
               </Button>
             </div>

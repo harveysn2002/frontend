@@ -3,16 +3,20 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ImageBuyNowCta } from "@/components/product/image-buy-now-cta";
+import type { Product } from "@/config/products";
 import { cn } from "@/lib/cn";
 
 export function ProductImageCarousel({
   images,
   alt,
   imageFit = "cover",
+  product,
 }: {
   images: string[];
   alt: string;
   imageFit?: "cover" | "contain";
+  product?: Product;
 }) {
   const [index, setIndex] = useState(0);
   const contain = imageFit === "contain";
@@ -109,6 +113,8 @@ export function ProductImageCarousel({
           ))}
         </div>
       ) : null}
+
+      {product ? <ImageBuyNowCta product={product} className="pt-1" /> : null}
     </div>
   );
 }
