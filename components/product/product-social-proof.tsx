@@ -1,33 +1,9 @@
 "use client";
 
-import { Clock, MessageCircle, PackageCheck, ShieldCheck } from "lucide-react";
-import { siteConfig } from "@/config/site";
-import { getActiveSocialProof } from "@/config/social-proof";
 import { StoreSocialStats } from "@/components/trust/store-social-stats";
+import { socialProofPoints } from "@/config/trust";
+import { getActiveSocialProof } from "@/config/social-proof";
 import { useInView } from "@/hooks/use-in-view";
-
-const proofPoints = [
-  {
-    icon: PackageCheck,
-    title: "طلب واضح ومباشر",
-    text: "تختار العرض، تدخل معلوماتك، وكتاخد رقم الطلب فالموقع.",
-  },
-  {
-    icon: ShieldCheck,
-    title: siteConfig.priceIncludesShippingNote,
-    text: "ما كاينش مفاجآت فالثمن — التوصيل داخل السعر المعروض.",
-  },
-  {
-    icon: Clock,
-    title: "تأكيد قبل الإرسال",
-    text: "فريق VORLAY كيتصل بك بالهاتف قبل ما تخرج أي شحنة.",
-  },
-  {
-    icon: MessageCircle,
-    title: "دعم حقيقي",
-    text: `فريق VORLAY كيجاوبك ${siteConfig.supportHours}.`,
-  },
-];
 
 export function ProductSocialProof() {
   const { ref, visible } = useInView<HTMLDivElement>(0.15);
@@ -42,18 +18,18 @@ export function ProductSocialProof() {
     >
       <p className="text-xs font-bold text-brand-muted">شنو كتستناك من VORLAY؟</p>
       <p className="mt-1 text-sm font-black text-brand-ink">
-        {socialProof ? "أرقام من طلبات حقيقية" : "تجربة طلب واضحة ودعم قبل البيع"}
+        {socialProof ? "أرقام من طلبات حقيقية" : "تجربة طلب واضحة — بلا مخاطرة"}
       </p>
 
       {socialProof ? <StoreSocialStats className="mt-3" /> : null}
 
-      <div className="mt-3 grid gap-2">
-        {proofPoints.map(({ icon: Icon, title, text }, index) => (
+      <div className="mt-3 grid gap-2 sm:grid-cols-2">
+        {socialProofPoints.map(({ icon: Icon, title, text }, index) => (
           <div
             key={title}
             className="flex items-start gap-3 rounded-2xl bg-brand-ivory/80 px-3 py-2.5"
             style={{
-              animation: visible ? `slide-up 0.5s ease-out ${index * 0.08}s forwards` : undefined,
+              animation: visible ? `slide-up 0.5s ease-out ${index * 0.06}s forwards` : undefined,
               opacity: visible ? undefined : 0,
             }}
           >

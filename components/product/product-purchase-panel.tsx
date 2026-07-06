@@ -4,12 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { ShoppingBag, Zap } from "lucide-react";
 import { OfferSelector } from "@/components/product/offer-selector";
 import { ProductTrustBadges } from "@/components/product/product-trust-badges";
+import { CheckoutTrustBar } from "@/components/trust/checkout-trust-bar";
+import { riskFreeOrderNote } from "@/config/trust";
 import { RatingStars } from "@/components/product/rating-stars";
 import { Button } from "@/components/ui/button";
 import type { Offer, Product } from "@/config/products";
 import { formatMad, offerQuantityLabel } from "@/lib/currency";
 import { useProductPurchase } from "@/hooks/use-product-purchase";
-import { siteConfig } from "@/config/site";
 
 export function ProductPurchasePanel({ product }: { product: Product }) {
   const defaultOffer = product.offers.find((offer) => offer.recommended) || product.offers[0];
@@ -100,8 +101,12 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           </Button>
         </div>
 
+        <div className="mt-3">
+          <CheckoutTrustBar />
+        </div>
+
         <p className="mt-2.5 text-center text-[11px] leading-5 text-brand-muted sm:text-xs">
-          ما غادي تخلص والو الآن · {siteConfig.priceIncludesShippingNote} · تأكيد بالهاتف قبل الإرسال
+          {riskFreeOrderNote}
         </p>
       </div>
 

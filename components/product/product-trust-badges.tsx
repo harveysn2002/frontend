@@ -1,40 +1,18 @@
-import type { LucideIcon } from "lucide-react";
-import { BadgeCheck, PackageCheck, PhoneCall, ShieldCheck, Truck } from "lucide-react";
-import { hasWhatsApp, siteConfig } from "@/config/site";
-
-type TrustItem = { icon: LucideIcon; title: string; subtitle: string };
-
-const baseTrustItems: TrustItem[] = [
-  {
-    icon: ShieldCheck,
-    title: "الدفع عند الاستلام",
-    subtitle: "كتخلّص غير ملي توصل الطلب",
-  },
-  {
-    icon: PhoneCall,
-    title: "تأكيد بالهاتف",
-    subtitle: "نتاصلو بيك قبل الإرسال",
-  },
-  {
-    icon: Truck,
-    title: "توصيل لجميع المغرب",
-    subtitle: siteConfig.priceIncludesShippingNote,
-  },
-  {
-    icon: PackageCheck,
-    title: "تفتيش قبل الدفع",
-    subtitle: "شوف الطقم ومن بعد خلّص",
-  },
-];
-
-const whatsappItem: TrustItem = {
-  icon: BadgeCheck,
-  title: "دعم واتساب",
-  subtitle: "نجاوبو على أسئلتك قبل الطلب",
-};
+import { purchaseTrustBadges } from "@/config/trust";
+import { hasWhatsApp } from "@/config/site";
+import { BadgeCheck } from "lucide-react";
 
 export function ProductTrustBadges({ compact = false }: { compact?: boolean }) {
-  const items = hasWhatsApp ? [...baseTrustItems.slice(0, 3), whatsappItem] : baseTrustItems;
+  const items = hasWhatsApp
+    ? [
+        ...purchaseTrustBadges.slice(0, 4),
+        {
+          icon: BadgeCheck,
+          title: "دعم واتساب",
+          subtitle: "نجاوبو على أسئلتك قبل الطلب",
+        },
+      ]
+    : purchaseTrustBadges.slice(0, 6);
 
   if (compact) {
     return (

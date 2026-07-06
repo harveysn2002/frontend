@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { X } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { CheckoutTrustBar } from "@/components/trust/checkout-trust-bar";
 import { Button } from "@/components/ui/button";
 import { getProductById, upsellOffers } from "@/config/products";
 import { siteConfig } from "@/config/site";
@@ -220,13 +221,12 @@ export function CheckoutModal() {
                   <span className="text-sm text-red-700">{form.formState.errors.region?.message}</span>
                 </label>
               </div>
-              <div className="grid grid-cols-2 gap-2 text-xs font-bold text-brand-primary">
-                <span>الدفع عند الاستلام</span>
-                <span>تأكيد قبل الإرسال</span>
+              <div className="mt-3">
+                <CheckoutTrustBar />
               </div>
               {error && <p className="rounded-2xl bg-red-50 p-3 text-sm text-red-700">{error}</p>}
               <Button className="w-full" disabled={items.length === 0 || submitting}>
-                أكد الطلب
+                أكد الطلب — الدفع عند الاستلام
               </Button>
             </form>
           </Dialog.Content>

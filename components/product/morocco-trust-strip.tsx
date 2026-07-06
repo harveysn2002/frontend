@@ -2,13 +2,14 @@
 
 import type { LucideIcon } from "lucide-react";
 import { ShieldCheck, PhoneCall, Truck, BadgeCheck } from "lucide-react";
+import { orderSteps } from "@/config/trust";
 import { useInView } from "@/hooks/use-in-view";
 
 const miniItems: Array<{ icon: LucideIcon; title: string }> = [
   { icon: ShieldCheck, title: "الدفع عند الاستلام" },
   { icon: PhoneCall, title: "تأكيد بالهاتف" },
   { icon: Truck, title: "توصيل للمغرب" },
-  { icon: BadgeCheck, title: "علامة موثوقة" },
+  { icon: BadgeCheck, title: "تفتيش قبل الدفع" },
 ];
 
 export function MoroccoTrustMini() {
@@ -37,19 +38,13 @@ export function MoroccoTrustMini() {
 
 export function OrderStepsStrip() {
   const { ref, visible } = useInView<HTMLDivElement>(0.15);
-  const steps = [
-    "اختار العرض",
-    "زيد للسلّة",
-    "أكد الاسم والهاتف",
-    "الدفع عند الاستلام",
-  ];
 
   return (
     <div ref={ref} className="grid gap-3 md:grid-cols-4">
-      {steps.map((step, index) => (
+      {orderSteps.map((step, index) => (
         <div
-          key={step}
-          className={`rounded-2xl bg-brand-primary/8 px-4 py-5 text-center transition-transform duration-300 hover:-translate-y-1 ${
+          key={step.title}
+          className={`rounded-2xl bg-brand-primary/8 px-4 py-4 text-center transition-transform duration-300 hover:-translate-y-1 sm:py-5 ${
             visible ? "opacity-100" : "opacity-0"
           }`}
           style={{
@@ -64,7 +59,8 @@ export function OrderStepsStrip() {
           >
             {index + 1}
           </div>
-          <p className="font-black text-brand-ink">{step}</p>
+          <p className="font-black text-brand-ink">{step.title}</p>
+          <p className="mt-1 text-xs leading-6 text-brand-muted">{step.text}</p>
         </div>
       ))}
     </div>

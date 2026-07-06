@@ -3,6 +3,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { Trash2, X } from "lucide-react";
+import { CheckoutTrustBar } from "@/components/trust/checkout-trust-bar";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { formatMad } from "@/lib/currency";
@@ -119,12 +120,11 @@ export function CartDrawer() {
                 {siteConfig.priceIncludesShippingNote}
               </p>
             </div>
-            <div className="mb-4 grid grid-cols-2 gap-2 text-xs font-bold text-brand-primary">
-              <span>الدفع عند الاستلام</span>
-              <span>تأكيد قبل الإرسال</span>
+            <div className="mb-3">
+              <CheckoutTrustBar />
             </div>
             <Button className="w-full" disabled={items.length === 0} onClick={handleCheckout}>
-              كمل الطلب
+              كمل الطلب — COD
             </Button>
             {items.length > 0 ? (
               <button

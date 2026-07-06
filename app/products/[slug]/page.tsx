@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
 import { MoroccoTrustMini, OrderStepsStrip } from "@/components/product/morocco-trust-strip";
+import { ProductSocialProof } from "@/components/product/product-social-proof";
 import { StoreSocialStats } from "@/components/trust/store-social-stats";
+import { TrustPillarsSection } from "@/components/trust/trust-pillars-section";
 import { socialProofPlaceholderNote, getActiveSocialProof } from "@/config/social-proof";
+import { productFaqs } from "@/config/trust";
 import { ProductPainCards } from "@/components/product/product-pain-cards";
 import { ProductCard } from "@/components/product/product-card";
 import { ProductPageCta } from "@/components/product/product-page-cta";
@@ -60,6 +63,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               contained={false}
             />
           ) : null}
+          <ProductSocialProof />
         </div>
         <ProductPurchasePanel product={product} />
       </section>
@@ -71,6 +75,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           <MoroccoTrustMini />
         </div>
       </section>
+
+      <TrustPillarsSection />
 
       {story[0] ? (
         <ProductStoryBanner
@@ -100,29 +106,15 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         />
       ) : null}
 
-      <section className="bg-brand-primary py-16 text-white">
+      <section className="bg-brand-primary py-12 text-white sm:py-14">
         <div className="container">
-          <h2 className="text-4xl font-black">علاش VORLAY فالمغرب؟</h2>
-          <p className="mt-4 max-w-3xl text-lg leading-9 text-white/85">
+          <h2 className="text-2xl font-black sm:text-3xl">علاش VORLAY فالمغرب؟</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-8 text-white/85 sm:text-base">
             {socialProof
               ? "أرقام وتقييمات من طلبات حقيقية — ثقة مبنية على تجربة زبناء فالمغرب."
               : `VORLAY كتبني ثقة حقيقية: ${socialProofPlaceholderNote}`}
           </p>
           <StoreSocialStats variant="dark" className="mt-6" />
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {[
-              "منتجات دعم الظهر للاستعمال اليومي",
-              "توصيل لجميع مدن المغرب",
-              "الدفع عند الاستلام فقط",
-              "تأكيد الطلب قبل الإرسال",
-              "تأكيد الطلب بالهاتف قبل الإرسال",
-              "شفافية كاملة فالأسعار والتوصيل",
-            ].map((point) => (
-              <div key={point} className="rounded-[2rem] bg-white/10 p-6">
-                <p className="leading-8">{point}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -146,15 +138,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <div className="rounded-[3rem] bg-white p-8 shadow-soft">
           <h2 className="text-3xl font-black">أسئلة مهمة</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {[
-              ["واش كيعالج آلام الظهر؟", "لا. هو منتج دعم وراحة يومية وليس بديلاً عن الطبيب."],
-              ["واش الأداء عند الاستلام؟", "نعم، كتخلص حتى توصلك السلعة."],
-              ["كيفاش كيتأكد الطلب؟", "الفريق كيتاصل بك بالهاتف قبل الإرسال."],
-              ["واش كاين تبديل؟", "التبديل حسب الشروط الموضحة فصفحة التوصيل والاستبدال."],
-            ].map(([q, a]) => (
+            {productFaqs.map(({ q, a }) => (
               <div key={q} className="rounded-2xl bg-brand-ivory p-5">
                 <h3 className="font-black">{q}</h3>
-                <p className="mt-2 text-brand-muted">{a}</p>
+                <p className="mt-2 text-sm leading-7 text-brand-muted">{a}</p>
               </div>
             ))}
           </div>
