@@ -14,7 +14,6 @@ const errorMessages: Record<string, string> = {
 
 const fieldErrorMessages: Record<string, string> = {
   city: "دخل المدينة",
-  region: "دخل المنطقة أو الحي",
   name: "دخل الاسم الكامل",
   phone: "دخل رقم هاتف مغربي صحيح",
 };

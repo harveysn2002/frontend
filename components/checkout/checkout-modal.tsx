@@ -27,7 +27,6 @@ const schema = z.object({
       message: "دخل رقم هاتف مغربي صحيح",
     }),
   city: z.string().trim().min(2, "دخل المدينة"),
-  region: z.string().trim().min(2, "دخل المنطقة أو الحي"),
 });
 
 type CheckoutValues = z.infer<typeof schema>;
@@ -44,7 +43,7 @@ export function CheckoutModal() {
 
   const form = useForm<CheckoutValues>({
     resolver: zodResolver(schema),
-    defaultValues: { name: "", phone: "", city: "", region: "" },
+    defaultValues: { name: "", phone: "", city: "" },
   });
 
   async function onValid(values: CheckoutValues) {
@@ -65,7 +64,7 @@ export function CheckoutModal() {
           phone: phone.local,
           phone_e164: phone.e164,
           city: values.city,
-          region: values.region,
+          region: "",
         },
         items: currentItems.map((item) => ({
           product_id: item.productId,
@@ -126,14 +125,11 @@ export function CheckoutModal() {
         <Dialog.Overlay className="fixed inset-0 z-50 bg-brand-ink/40" />
         <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[94vh] w-[calc(100%-1.5rem)] max-w-xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[2rem] bg-white p-5 shadow-soft md:p-7">
           <div className="flex items-center justify-between">
-            <Dialog.Title className="text-2xl font-black">كمل الطلب</Dialog.Title>
+            <Dialog.Title className="text-2xl font-black">طلبك</Dialog.Title>
             <Dialog.Close className="rounded-full p-2 hover:bg-brand-soft" aria-label="Close checkout">
               <X className="h-5 w-5" />
             </Dialog.Close>
           </div>
-          <p className="mt-2 text-brand-muted">
-            دخل الاسم، الهاتف، المدينة والمنطقة. فريق VORLAY غادي يتاصل بك قبل الإرسال.
-          </p>
 
           <div className="mt-5 rounded-3xl bg-brand-soft/35 p-4">
             <div className="mb-3 font-black">ملخص الطلب</div>
@@ -144,11 +140,11 @@ export function CheckoutModal() {
               </div>
             ))}
             <div className="mt-3 flex justify-between border-t border-brand-primary/10 pt-3 text-lg font-black">
-              <span>المجموع</span>
+              <span>الإجمالي</span>
               <span>{formatMad(total)}</span>
             </div>
             <p className="mt-2 text-sm font-semibold text-brand-primary">
-              {siteConfig.priceIncludesShippingNote}
+              {siteConfig.priceIncludesShippingNote} — الدفع عند الاستلام فقط
             </p>
           </div>
 
@@ -157,40 +153,35 @@ export function CheckoutModal() {
               <span className="font-bold">الاسم الكامل</span>
               <input
                 className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
+                placeholder="مثال: أحمد بنعلي"
                 {...form.register("name")}
               />
               <span className="text-sm text-red-700">{form.formState.errors.name?.message}</span>
             </label>
             <label className="block">
-              <span className="font-bold">رقم الهاتف</span>
+              <span className="font-bold">رقم الهاتف المغربي</span>
               <input
                 className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
-                placeholder="0612345678"
+                placeholder="06XXXXXXXX"
+                inputMode="tel"
+                autoComplete="tel"
                 {...form.register("phone")}
               />
               <span className="text-sm text-red-700">{form.formState.errors.phone?.message}</span>
             </label>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="block">
-                <span className="font-bold">المدينة</span>
-                <input
-                  className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
-                  placeholder="الدار البيضاء"
-                  {...form.register("city")}
-                />
-                <span className="text-sm text-red-700">{form.formState.errors.city?.message}</span>
-              </label>
-              <label className="block">
-                <span className="font-bold">المنطقة / الحي</span>
-                <input
-                  className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
-                  placeholder="المعاريف"
-                  {...form.register("region")}
-                />
-                <span className="text-sm text-red-700">{form.formState.errors.region?.message}</span>
-              </label>
-            </div>
-            <div className="mt-3">
+            <label className="block">
+              <span className="font-bold">المدينة</span>
+              <input
+                className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
+                placeholder="الدار البيضاء"
+                {...form.register("city")}
+              />
+              <span className="text-sm text-red-700">{form.formState.errors.city?.message}</span>
+            </label>
+            <p className="text-sm text-brand-muted">
+              فريق VORLAY غادي يتاصل بيك قبل الإرسال باش يأكد العنوان.
+            </p>
+            <div className="mt-1">
               <CheckoutTrustBar />
             </div>
             {error && <p className="rounded-2xl bg-red-50 p-3 text-sm text-red-700">{error}</p>}
