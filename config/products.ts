@@ -171,17 +171,17 @@ export const products: Product[] = [
     quantityUnit: "set",
     images: [
       staticProductImage("wisada-set-floating.png"),
-      staticProductImage("wisada-hero-white.png"),
       staticProductImage("wisada-back-detail.png"),
       staticProductImage("wisada-neck-pillow.png"),
       staticProductImage("wisada-lumbar-front.png"),
       staticProductImage("wisada-set-angle.png"),
+      staticProductImage("wisada-hero-white.png"),
     ],
     detailImage: staticProductImage("wisada-set-floating.png"),
     afterPainImage: staticProductImage("wisada-set-floating.png"),
     storyImages: [
       staticProductImage("wisada-back-detail.png"),
-      staticProductImage("wisada-neck-pillow.png"),
+      staticProductImage("wisada-hero-white.png"),
     ],
     crossSellIds: ["belt", "bundle"],
     offers: [
