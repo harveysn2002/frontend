@@ -1,86 +1,33 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { trustTickerItems } from "@/config/trust";
 
-type TrustTickerProps = {
-  variant?: "fade" | "announcement";
-  className?: string;
-};
-
-export function TrustTicker({ variant = "fade", className = "" }: TrustTickerProps) {
-  const [index, setIndex] = useState(0);
-  const isAnnouncement = variant === "announcement";
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setIndex((current) => (current + 1) % trustTickerItems.length);
-    }, 3200);
-    return () => window.clearInterval(timer);
-  }, []);
-
+export function TrustTicker({ className = "" }: { className?: string }) {
   return (
     <div
-      className={
-        isAnnouncement
-          ? `relative mx-auto h-7 w-full max-w-full overflow-hidden text-white ${className}`
-          : `relative overflow-hidden rounded-2xl border border-brand-primary/12 bg-gradient-to-l from-brand-soft/70 to-white px-4 py-3.5 ${className}`
-      }
-      aria-live="polite"
+      className={`w-full bg-gradient-to-l from-[#1a2e2a] to-[#1f3832] py-3 sm:py-3.5 ${className}`}
     >
-      <div
-        className={`relative mx-auto flex w-full max-w-full items-center justify-center overflow-hidden ${
-          isAnnouncement ? "h-7" : "min-h-[2rem]"
-        }`}
-      >
-        {trustTickerItems.map((item, itemIndex) => {
+      <div className="container flex items-center justify-between gap-2 overflow-x-auto sm:gap-4">
+        {trustTickerItems.map((item) => {
           const Icon = item.icon;
-          const isActive = itemIndex === index;
-
           return (
             <div
               key={item.label}
-              className={`absolute inset-0 flex items-center justify-center gap-2 transition-all duration-700 ${
-                isActive ? "scale-100 opacity-100" : "pointer-events-none scale-90 opacity-0"
-              }`}
+              className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-2.5"
             >
-              <span
-                className={`grid place-items-center rounded-full ${
-                  isAnnouncement
-                    ? "h-7 w-7 bg-white/15 text-white"
-                    : "h-9 w-9 bg-brand-soft text-brand-primary"
-                } ${isActive ? "animate-pop-in" : ""}`}
-              >
-                <Icon className={isAnnouncement ? "h-3.5 w-3.5" : "h-4 w-4"} />
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#c9a44e]/30 bg-[#c9a44e]/15 sm:h-9 sm:w-9">
+                <Icon className="h-4 w-4 text-[#c9a44e] sm:h-[18px] sm:w-[18px]" />
               </span>
-              <span
-                className={`font-black ${
-                  isAnnouncement ? "text-sm text-white" : "text-sm text-brand-primary md:text-base"
-                }`}
-              >
-                {item.label}
-              </span>
+              <div className="min-w-0">
+                <p className="whitespace-nowrap text-[11px] font-bold leading-tight text-[#c9a44e] sm:text-xs">
+                  {item.label}
+                </p>
+                <p className="whitespace-nowrap text-[9px] leading-tight text-white/60 sm:text-[10px]">
+                  {item.subtitle}
+                </p>
+              </div>
             </div>
           );
         })}
-        <span className="pointer-events-none absolute inset-0 flex items-center justify-center gap-2 font-black opacity-0">
-          <span className={isAnnouncement ? "h-7 w-7" : "h-9 w-9"} />
-          {trustTickerItems[0].label}
-        </span>
       </div>
-
-      {!isAnnouncement && (
-        <div className="mt-2.5 flex justify-center gap-1.5">
-          {trustTickerItems.map((item, itemIndex) => (
-            <span
-              key={item.label}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                itemIndex === index ? "w-5 bg-brand-primary" : "w-1.5 bg-brand-primary/25"
-              }`}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 }

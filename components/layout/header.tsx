@@ -35,9 +35,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full max-w-full border-b border-brand-primary/10 bg-white/88 backdrop-blur-xl">
-      <div className="w-full max-w-full bg-brand-primary py-2.5">
-        <TrustTicker variant="announcement" />
-      </div>
+      <TrustTicker />
       <div className="container flex min-w-0 items-center gap-2 py-2.5 sm:gap-3 sm:py-3 md:py-4">
         <BrandLogo className="min-w-0 flex-1" />
         <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 text-sm font-semibold text-brand-ink lg:flex">

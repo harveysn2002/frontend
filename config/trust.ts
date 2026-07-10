@@ -18,13 +18,11 @@ import { siteConfig } from "@/config/site";
 export const painAnswer =
   "ڤورلاي كتجاوب بمنتج عملي ومريح — والدفع عند الاستلام.";
 
-export const trustTickerItems: Array<{ label: string; icon: LucideIcon }> = [
-  { label: "الدفع عند الاستلام", icon: ShieldCheck },
-  { label: "توصيل لجميع مدن المغرب", icon: Truck },
-  { label: "تأكيد الطلب بالهاتف", icon: PhoneCall },
-  { label: "تفتيش الطرد قبل الدفع", icon: PackageCheck },
-  { label: siteConfig.priceIncludesShippingNote, icon: BadgeCheck },
-  { label: "30 يوم للاسترجاع", icon: RefreshCw },
+export const trustTickerItems: Array<{ label: string; subtitle: string; icon: LucideIcon }> = [
+  { label: "الدفع عند الاستلام", subtitle: "بدون دفع أونلاين", icon: ShieldCheck },
+  { label: "توصيل 2‑5 أيام", subtitle: "لجميع مدن المغرب", icon: Truck },
+  { label: "ضمان 30 يوم", subtitle: "استرجاع كامل", icon: RefreshCw },
+  { label: "تأكيد بالهاتف", subtitle: "قبل كل إرسال", icon: PhoneCall },
 ];
 
 export type TrustBadgeItem = {
