@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { RefreshCw } from "lucide-react";
 import { OfferSelector } from "@/components/product/offer-selector";
 import { ProductTrustBadges } from "@/components/product/product-trust-badges";
 import { RatingStars } from "@/components/product/rating-stars";
@@ -10,6 +11,15 @@ import { useProductPurchase } from "@/hooks/use-product-purchase";
 
 const buyButtonClass =
   "flex w-full min-h-12 items-center justify-center gap-2 rounded-2xl bg-gradient-to-l from-[#E8C872] via-brand-gold to-[#A8842E] px-5 py-3.5 text-base font-black text-[#1a1208] shadow-[0_8px_28px_rgba(201,162,74,0.32)] transition hover:brightness-110 active:scale-[0.99] sm:min-h-[3.25rem] sm:text-lg";
+
+function RefundGuaranteeNote() {
+  return (
+    <p className="mt-2 flex items-center justify-center gap-1.5 text-[11px] font-bold text-brand-primary sm:text-xs">
+      <RefreshCw className="h-3.5 w-3.5 shrink-0 motion-safe:animate-spin" style={{ animationDuration: "2.8s" }} aria-hidden />
+      ضمان 30 يوم للاسترجاع
+    </p>
+  );
+}
 
 export function ProductPurchasePanel({ product }: { product: Product }) {
   const defaultOffer = product.offers.find((offer) => offer.recommended) || product.offers[0];
@@ -73,9 +83,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           <span>{priceLabel}</span>
         </button>
 
-        <p className="mt-2 text-center text-[11px] font-bold text-brand-primary sm:text-xs">
-          30 يوم للاسترجاع
-        </p>
+        <RefundGuaranteeNote />
 
         <p className="mt-2 text-center text-[11px] font-semibold text-brand-muted sm:text-xs">
           الدفع عند الاستلام · بدون دفع أونلاين
@@ -102,9 +110,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
               <span className="opacity-60">·</span>
               <span>{priceLabel}</span>
             </button>
-            <p className="mt-2 text-center text-[11px] font-bold text-brand-primary sm:text-xs">
-              30 يوم للاسترجاع
-            </p>
+            <RefundGuaranteeNote />
           </div>
         </div>
       ) : null}
