@@ -21,7 +21,7 @@ export const painAnswer =
 export const trustTickerItems: Array<{ label: string; subtitle: string; icon: LucideIcon }> = [
   { label: "الدفع عند الاستلام", subtitle: "بدون دفع أونلاين", icon: ShieldCheck },
   { label: "توصيل 2‑5 أيام", subtitle: "لجميع مدن المغرب", icon: Truck },
-  { label: "ضمان 30 يوم", subtitle: "استرجاع كامل", icon: RefreshCw },
+  { label: "30 يوم ضمان الاسترجاع", subtitle: "استرجاع كامل", icon: RefreshCw },
   { label: "تأكيد بالهاتف", subtitle: "قبل كل إرسال", icon: PhoneCall },
 ];
 

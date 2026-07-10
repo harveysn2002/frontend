@@ -6,14 +6,17 @@ export function TrustTicker({ className = "" }: { className?: string }) {
       className={`w-full bg-gradient-to-l from-[#1a2e2a] to-[#1f3832] py-3 sm:py-3.5 ${className}`}
     >
       <div className="container flex items-center justify-between gap-2 overflow-x-auto sm:gap-4">
-        {trustTickerItems.map((item) => {
+        {trustTickerItems.map((item, index) => {
           const Icon = item.icon;
           return (
             <div
               key={item.label}
               className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-2.5"
             >
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#c9a44e]/30 bg-[#c9a44e]/15 sm:h-9 sm:w-9">
+              <span
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#c9a44e]/30 bg-[#c9a44e]/15 motion-safe:animate-float sm:h-9 sm:w-9"
+                style={{ animationDelay: `${index * 0.18}s` }}
+              >
                 <Icon className="h-4 w-4 text-[#c9a44e] sm:h-[18px] sm:w-[18px]" />
               </span>
               <div className="min-w-0">
