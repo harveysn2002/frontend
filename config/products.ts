@@ -171,6 +171,8 @@ export const products: Product[] = [
     quantityUnit: "set",
     images: [
       staticProductImage("wisada-hero-white.png"),
+      staticProductImage("wisada-story-compare.png"),
+      staticProductImage("wisada-story-lifestyle.png"),
       staticProductImage("wisada-set-floating.png"),
       staticProductImage("wisada-car-lifestyle.png"),
       staticProductImage("wisada-back-detail.png"),
@@ -178,11 +180,11 @@ export const products: Product[] = [
       staticProductImage("wisada-set-angle.png"),
       staticProductImage("wisada-car-lifestyle-2.png"),
     ],
-    detailImage: staticProductImage("wisada-set-floating.png"),
-    afterPainImage: staticProductImage("wisada-car-lifestyle.png"),
+    detailImage: staticProductImage("wisada-hero-white.png"),
+    afterPainImage: staticProductImage("wisada-story-compare.png"),
     storyImages: [
       staticProductImage("wisada-story-comfort.png"),
-      staticProductImage("wisada-car-lifestyle-2.png"),
+      staticProductImage("wisada-story-lifestyle.png"),
     ],
     crossSellIds: ["belt", "bundle"],
     offers: [
