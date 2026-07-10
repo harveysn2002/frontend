@@ -73,6 +73,10 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           <span>{priceLabel}</span>
         </button>
 
+        <p className="mt-2 text-center text-[11px] font-bold text-brand-primary sm:text-xs">
+          30 يوم للاسترجاع
+        </p>
+
         <p className="mt-2 text-center text-[11px] font-semibold text-brand-muted sm:text-xs">
           الدفع عند الاستلام · بدون دفع أونلاين
         </p>
@@ -98,6 +102,9 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
               <span className="opacity-60">·</span>
               <span>{priceLabel}</span>
             </button>
+            <p className="mt-2 text-center text-[11px] font-bold text-brand-primary sm:text-xs">
+              30 يوم للاسترجاع
+            </p>
           </div>
         </div>
       ) : null}
