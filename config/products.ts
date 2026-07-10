@@ -165,13 +165,13 @@ export const products: Product[] = [
     mechanism:
       "الطقم كيجمع وسادة رقبة ووسادة ظهر قابلة للتعديل. الميموري فوم كيتشكل على جسمك باش يعطي دعم مخصص للظهر والرقبة، خاصة فالسياقة الطويلة أو الجلوس المتواصل. الوجه الناعم كيخليك تحس براحة أكثر على البشرة، والحشوة كتبقى ثابتة حتى بعد الاستعمال المتكرر — بلا وعود علاجية.",
     eyebrow: "VORLAY · طقم 2 في 1 الأكثر طلباً · توصيل لجميع مدن المغرب",
-    image: staticProductImage("wisada-hero-white.png"),
+    image: staticProductImage("wisada-set-floating.png"),
     heroImageFit: "contain",
     carouselImageFit: "contain",
     quantityUnit: "set",
     images: [
-      staticProductImage("wisada-hero-white.png"),
       staticProductImage("wisada-set-floating.png"),
+      staticProductImage("wisada-hero-white.png"),
       staticProductImage("wisada-back-detail.png"),
       staticProductImage("wisada-neck-pillow.png"),
       staticProductImage("wisada-lumbar-front.png"),
