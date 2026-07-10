@@ -24,6 +24,7 @@ export const trustTickerItems: Array<{ label: string; icon: LucideIcon }> = [
   { label: "تأكيد الطلب بالهاتف", icon: PhoneCall },
   { label: "تفتيش الطرد قبل الدفع", icon: PackageCheck },
   { label: siteConfig.priceIncludesShippingNote, icon: BadgeCheck },
+  { label: "30 يوم للاسترجاع", icon: RefreshCw },
 ];
 
 export type TrustBadgeItem = {
@@ -59,6 +60,11 @@ export const purchaseTrustBadges: TrustBadgeItem[] = [
     subtitle: "ما خاصكش تدخل بيانات البطاقة",
   },
   {
+    icon: RefreshCw,
+    title: "30 يوم للاسترجاع",
+    subtitle: "ما عجبكش؟ رجّعو خلال 30 يوم",
+  },
+  {
     icon: Lock,
     title: "بياناتك آمنة",
     subtitle: "غير الاسم والهاتف والعنوان للتوصيل",
@@ -70,6 +76,7 @@ export const checkoutTrustItems: Array<{ icon: LucideIcon; label: string }> = [
   { icon: PhoneCall, label: "تأكيد بالهاتف" },
   { icon: PackageCheck, label: "تفتيش قبل الدفع" },
   { icon: Truck, label: "توصيل شامل" },
+  { icon: RefreshCw, label: "30 يوم للاسترجاع" },
 ];
 
 export const riskFreeOrderNote =
@@ -93,8 +100,8 @@ export const trustPillars: Array<{ icon: LucideIcon; title: string; description:
   },
   {
     icon: RefreshCw,
-    title: "شفافية كاملة",
-    description: "ما كاينش رسوم مخفية. كتعرف الثمن من البداية حتى الاستلام.",
+    title: "30 يوم للاسترجاع",
+    description: "إلا ما عجبكش المنتج، عندك 30 يوم باش ترجعو — بلا تعقيد.",
   },
 ];
 
@@ -160,8 +167,8 @@ export const productFaqs: Array<{ q: string; a: string }> = [
     a: "نعم. تقدر تلغي ملي نتاصلو بيك للتأكيد — قبل ما تخرج الشحنة.",
   },
   {
-    q: "واش كاين تبديل؟",
-    a: "التبديل حسب الشروط الموضحة فصفحة التوصيل والاستبدال.",
+    q: "واش كاين استرجاع؟",
+    a: "نعم. عندك 30 يوم من تاريخ الاستلام باش ترجّع المنتج إلا ما عجبكش — بلا تعقيد.",
   },
   {
     q: "شحال كياخد التوصيل؟",
