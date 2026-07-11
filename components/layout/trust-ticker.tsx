@@ -10,7 +10,7 @@ export function TrustTicker({ className = "" }: { className?: string }) {
     if (trustTickerItems.length <= 1) return;
     const id = setInterval(() => {
       setIndex((current) => (current + 1) % trustTickerItems.length);
-    }, 2800);
+    }, 4000);
     return () => clearInterval(id);
   }, []);
 

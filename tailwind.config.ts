@@ -68,10 +68,10 @@ const config: Config = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "trust-fade": {
-          "0%": { opacity: "0", transform: "translateY(6px)" },
-          "12%": { opacity: "1", transform: "translateY(0)" },
-          "88%": { opacity: "1", transform: "translateY(0)" },
-          "100%": { opacity: "0", transform: "translateY(-6px)" },
+          "0%": { opacity: "0", transform: "translateY(8px)" },
+          "8%": { opacity: "1", transform: "translateY(0)" },
+          "92%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(-8px)" },
         },
         "hero-progress": {
           "0%": { width: "0%" },
@@ -88,7 +88,7 @@ const config: Config = {
         "hero-float": "hero-float 5s ease-in-out infinite",
         "hero-glow": "hero-glow 4s ease-in-out infinite",
         "hero-fade-up": "hero-fade-up 0.65s ease-out both",
-        "trust-fade": "trust-fade 0.5s ease-out both",
+        "trust-fade": "trust-fade 4s ease-in-out both",
         "hero-progress": "hero-progress linear forwards",
       },
     },
