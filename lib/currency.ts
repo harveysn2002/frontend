@@ -21,7 +21,7 @@ export function offerQuantityLabel(quantity: number, unit: QuantityUnit = "piece
 
 export function offerPriceScopeLabel(quantity: number, unit: QuantityUnit = "piece"): string {
   if (unit === "set") {
-    if (quantity === 1) return "الثمن لطقم واحد (2 في 1)";
+    if (quantity === 1) return "الثمن لطقم واحد";
     return `الثمن لـ ${quantity} أطقم`;
   }
   if (quantity === 1) return "الثمن لقطعة واحدة";

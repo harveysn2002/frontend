@@ -30,12 +30,12 @@ export const pillowSlide: HomeHeroSlide = {
   headlineWhite: "راحة حقيقية",
   headlineGold: "لكل رحلة",
   description:
-    "طقم 2 في 1 — وسادة رقبة ووسادة ظهر بميموري فوم. للسيارة، المكتب، والجلوس الطويل.",
+    "طقم وسادة رقبة ووسادة ظهر بميموري فوم. للسيارة، المكتب، والجلوس الطويل.",
   image: heroImage("hero-home.png"),
   imageAlt: "طقم VORLAY — وسادة رقبة وظهر",
   priceMad: 199,
   compareAtPriceMad: 245,
-  priceNote: "طقم واحد 2 في 1 — الدفع عند الاستلام",
+  priceNote: "طقم واحد — رقبة وظهر — الدفع عند الاستلام",
 };
 
 /** Single homepage hero — product pages keep their own galleries. */
