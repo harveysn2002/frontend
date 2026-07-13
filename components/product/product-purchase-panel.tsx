@@ -50,10 +50,10 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
         <p className="mt-2 inline-flex rounded-full bg-brand-gold/15 px-2.5 py-0.5 text-[10px] font-black text-brand-ink sm:text-xs">
           {product.eyebrow ?? "VORLAY · دعم يومي مريح · الدفع عند الاستلام"}
         </p>
-        <h1 className="mt-3 text-2xl font-black leading-tight text-brand-ink sm:text-3xl md:text-4xl">
+        <h1 className="mt-3 text-xl font-black leading-tight text-brand-ink sm:text-2xl md:text-3xl">
           {product.headline}
         </h1>
-        <p className="mt-2 text-sm leading-7 text-brand-muted sm:text-base sm:leading-8">{product.subheading}</p>
+        <p className="mt-2 text-[13px] leading-6 text-brand-muted sm:text-sm sm:leading-7">{product.subheading}</p>
 
         <div className="mt-3 flex flex-wrap gap-1.5">
           {product.bestFor.map((tag) => (

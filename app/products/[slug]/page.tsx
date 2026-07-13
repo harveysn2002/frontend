@@ -41,14 +41,21 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="pb-24 md:pb-0">
-      <section className="container grid gap-6 py-6 sm:gap-8 sm:py-8 lg:grid-cols-[1fr_1.05fr]">
-        <div className="grid gap-3 sm:gap-4">
+      <section className="container flex flex-col gap-6 py-6 sm:gap-8 sm:py-8 lg:grid lg:grid-cols-[1fr_1.05fr] lg:items-start">
+        <div className="order-1 lg:col-start-1 lg:row-start-1">
           <ProductImageCarousel
             images={product.images}
             alt={product.nameAr}
             imageFit={carouselFit}
             product={product}
           />
+        </div>
+
+        <div className="order-2 lg:order-none lg:col-start-2 lg:row-span-2 lg:row-start-1">
+          <ProductPurchasePanel product={product} />
+        </div>
+
+        <div className="order-3 grid gap-3 sm:gap-4 lg:col-start-1 lg:row-start-2">
           {product.trustVideo ? (
             <ProductTrustVideo
               src={product.trustVideo}
@@ -66,7 +73,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             />
           ) : null}
         </div>
-        <ProductPurchasePanel product={product} />
       </section>
 
       {story[0] ? (
