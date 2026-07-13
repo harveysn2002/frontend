@@ -49,6 +49,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             imageFit={carouselFit}
             product={product}
           />
+          {product.trustVideo ? (
+            <ProductTrustVideo
+              src={product.trustVideo}
+              poster={product.trustVideoPoster}
+              compact
+            />
+          ) : null}
           <ProductPainCards pains={product.pains} painResponses={product.painResponses} />
           {product.afterPainImage ? (
             <ProductStoryBanner
@@ -88,14 +95,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <ProductStoryBanner
           src={story[1]}
           alt={`${product.nameAr} — الراحة اللي كتستحقها`}
-          product={product}
-        />
-      ) : null}
-
-      {product.trustVideo ? (
-        <ProductTrustVideo
-          src={product.trustVideo}
-          poster={product.trustVideoPoster}
           product={product}
         />
       ) : null}
