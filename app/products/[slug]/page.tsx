@@ -4,6 +4,7 @@ import { ProductCard } from "@/components/product/product-card";
 import { ProductImageCarousel } from "@/components/product/product-image-carousel";
 import { ProductPurchasePanel } from "@/components/product/product-purchase-panel";
 import { ProductStoryBanner } from "@/components/product/product-story-banners";
+import { ProductTrustVideo } from "@/components/product/product-trust-video";
 import { productFaqs } from "@/config/trust";
 import { getProductBySlug, getListedProductById, getListedProducts } from "@/config/products";
 
@@ -87,6 +88,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <ProductStoryBanner
           src={story[1]}
           alt={`${product.nameAr} — الراحة اللي كتستحقها`}
+          product={product}
+        />
+      ) : null}
+
+      {product.trustVideo ? (
+        <ProductTrustVideo
+          src={product.trustVideo}
+          poster={product.trustVideoPoster}
           product={product}
         />
       ) : null}

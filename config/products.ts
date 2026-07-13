@@ -38,6 +38,10 @@ export type Product = {
   storyImages?: string[];
   /** Image shown after pain cards, before the price panel */
   afterPainImage?: string;
+  /** Trust-building video (mp4 under /public) shown lower on the product page */
+  trustVideo?: string;
+  /** Poster image for the trust video */
+  trustVideoPoster?: string;
   /** Short persuasive line above the headline (gold pill) */
   eyebrow?: string;
   /** Promo graphics with text — use contain so badges/prices stay visible */
@@ -179,6 +183,8 @@ export const products: Product[] = [
     ],
     detailImage: staticProductImage("wisada-set-floating.png"),
     afterPainImage: staticProductImage("wisada-ad-compare-infographic.png"),
+    trustVideo: "/videos/vorlay-trust.mp4",
+    trustVideoPoster: staticProductImage("vorlay-trust-poster.jpg"),
     storyImages: [
       staticProductImage("wisada-ad-features-car.png"),
       staticProductImage("wisada-ad-car-man.png"),

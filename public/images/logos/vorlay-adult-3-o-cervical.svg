@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" fill="none" role="img" aria-label="VORLAY adult wordmark O cervical merge">
+  <text x="24" y="62" fill="#0F766E" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.5">VOR</text>
+  <!-- O = cervical headrest contour + alignment -->
+  <ellipse cx="198" cy="46" rx="20" ry="17" stroke="#0F766E" stroke-width="5" fill="none"/>
+  <path d="M178 46 C178 34 188 26 198 26 C208 26 218 34 218 46" stroke="#115E59" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.45"/>
+  <circle cx="198" cy="28" r="3.2" fill="#C9A24A"/>
+  <text x="232" y="62" fill="#1F2933" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.5">LAY</text>
+</svg>

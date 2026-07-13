@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" fill="none" role="img" aria-label="VORLAY adult wordmark L strap merge">
+  <text x="24" y="62" fill="#0F766E" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.5">VOR</text>
+  <!-- L merged with posture strap -->
+  <path d="M168 22 V68 H208" stroke="#1F2933" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M152 46 H224" stroke="#0F766E" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M152 46 H224" stroke="#C9A24A" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+  <text x="232" y="62" fill="#1F2933" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.5">AY</text>
+</svg>
