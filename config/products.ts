@@ -209,7 +209,7 @@ export const products: Product[] = [
         title: "طقمين",
         subtitle: "4 وسائد — وسادتين عنق + وسادتين ظهر",
         badge: "وفّر أكثر",
-        priceMad: 327,
+        priceMad: 309,
         compareAtPriceMad: 358,
       },
       {
