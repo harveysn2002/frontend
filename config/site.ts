@@ -18,7 +18,7 @@ export const siteConfig = {
   supportEmail: "support@vorlay.shop",
   /** Displayed shipping line is 0 — product prices already include delivery. */
   shippingMad: 0,
-  priceIncludesShippingNote: "الثمن يشمل تكلفة التوصيل",
+  priceIncludesShippingNote: "التوصيل على حسابنا",
   announcement: "الدفع عند الاستلام | توصيل لجميع مدن المغرب | تأكيد الطلب بالهاتف",
   social: {
     whatsappNumber: hasWhatsApp ? whatsappNumber : "",

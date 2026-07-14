@@ -8,9 +8,9 @@ export default function ShippingReturnsPage() {
       <article className="rounded-[3rem] bg-white p-8 leading-8 shadow-soft">
         <h1 className="text-4xl font-black">التوصيل والاستبدال</h1>
         <p className="mt-5 text-brand-muted">
-          التوصيل متاح لجميع مدن المغرب، والدفع يكون عند الاستلام. الثمن المعروض على
-          المنتجات يشمل تكلفة التوصيل. بعد تسجيل الطلب، فريق VORLAY يتاصل بك لتأكيد
-          المعلومات قبل الإرسال.
+          التوصيل متاح لجميع مدن المغرب، والدفع يكون عند الاستلام. التوصيل على
+          حسابنا — الثمن المعروض هو اللي كتخلص. بعد تسجيل الطلب، فريق VORLAY يتاصل بك
+          لتأكيد المعلومات قبل الإرسال.
         </p>
         <h2 className="mt-8 text-2xl font-black">الاستبدال</h2>
         <p className="mt-3 text-brand-muted">
