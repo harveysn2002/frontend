@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { RefreshCw } from "lucide-react";
+import { OfferCountdown } from "@/components/product/offer-countdown";
 import { OfferSelector } from "@/components/product/offer-selector";
 import { ProductTrustBadges } from "@/components/product/product-trust-badges";
 import { RatingStars } from "@/components/product/rating-stars";
@@ -65,6 +66,8 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
             </span>
           ))}
         </div>
+
+        <OfferCountdown />
 
         <p className="mt-5 text-sm font-black text-brand-ink">اختار العرض:</p>
         <div className="mt-2">
