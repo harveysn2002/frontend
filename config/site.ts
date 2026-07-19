@@ -24,7 +24,7 @@ export const siteConfig = {
     whatsappNumber: hasWhatsApp ? whatsappNumber : "",
     whatsappMessage: "السلام عليكم، عندي سؤال على VORLAY",
     instagramUrl:
-      process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/vorlay",
+      process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/vorlay.hlt/",
     facebookUrl:
       process.env.NEXT_PUBLIC_FACEBOOK_URL || "https://www.facebook.com/vorlayshop",
   },
