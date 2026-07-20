@@ -1,4 +1,4 @@
-export type ProductId = "belt" | "pillow" | "bundle";
+export type ProductId = "belt" | "pillow" | "bundle" | "neck-pillow";
 
 export type QuantityUnit = "piece" | "set";
 
@@ -221,6 +221,91 @@ export const products: Product[] = [
         badge: "أفضل قيمة",
         priceMad: 407,
         compareAtPriceMad: 537,
+      },
+    ],
+  },
+  {
+    id: "neck-pillow",
+    slug: "wisada-onk",
+    nameAr: "وسادة العنق الطبية",
+    nameEn: "VORLAY Cervical Neck Pillow",
+    headline: "وسادة العنق اللي كترجع لرقبتك راحتها كل ليلة",
+    subheading:
+      "وسادة رقبة مريحة بتصميم مدروس ومناطق دعم مختلفة للنوم على الظهر أو الجنب. قماش منسوج ناعم كيتنفّس، حشوة كترجع بسرعة لشكلها، وقابلة للغسل فالغسالة.",
+    cardHeading: "وسادة عنق بمناطق دعم مدروسة",
+    cardSubheading: "قماش منسوج يتنفّس — قابلة للغسل — لنوم مريح كل ليلة",
+    bestFor: ["النوم على الظهر", "النوم على الجنب", "راحة الرقبة"],
+    benefits: [
+      "مناطق دعم مختلفة: منطقة لحماية الرقبة ومناطق للنوم على الجنب والظهر.",
+      "حشوة كترجع بسرعة لشكلها — دعم ثابت وكيدوم مع الوقت.",
+      "قماش منسوج ناعم كيتنفّس ومريح على البشرة.",
+      "قابلة للغسل فالغسالة وما كتتشوهش عند السحب.",
+      "تصميم مريح كيعاون على وضعية أحسن للرقبة والعمود الفقري العنقي.",
+      "مناسبة لكل الناس اللي كيحسو بتعب الرقبة بعد النوم.",
+    ],
+    pains: [
+      "كتفيق مصدّع ولا رقبتك كتوجعك من الوسادة العادية؟",
+      "الوسادة قاصحة بزاف ولا طرية بزاف وما كتعطي حتى دعم؟",
+      "كتقلب على وسادة كتناسب النوم على الظهر والجنب بجوج؟",
+    ],
+    painResponses: [
+      "وسادة VORLAY بمناطق دعم مدروسة — كتسند الرقبة مزيان وكتفيق مرتاح.",
+      "الحشوة كترجع بسرعة لشكلها: لا قاصحة بزاف لا طرية بزاف — دعم متوازن كل ليلة.",
+      "مناطق مختلفة فنفس الوسادة: تقدر تنعس على الظهر ولا على الجنب بنفس الراحة. الدفع عند الاستلام.",
+    ],
+    mechanism:
+      "الوسادة مصمّمة بمناطق دعم مختلفة: منطقة وسطية لحماية الرقبة، ومناطق جانبية أعلى شوية للنوم على الجنب. الحشوة كترجع بسرعة لشكلها باش تعطي دعم ثابت للرقبة طول الليل، والقماش المنسوج كيتنفّس باش تبقى مرتاح — بلا وعود علاجية.",
+    eyebrow: "VORLAY · وسادة عنق طبية · توصيل لجميع مدن المغرب",
+    image: staticProductImage("cervical-hero.png"),
+    heroImageFit: "contain",
+    carouselImageFit: "contain",
+    quantityUnit: "piece",
+    images: [
+      staticProductImage("cervical-hero.png"),
+      staticProductImage("cervical-zones-top.png"),
+      staticProductImage("cervical-zones-side.png"),
+      staticProductImage("cervical-rebound.png"),
+      staticProductImage("cervical-fabric.png"),
+      staticProductImage("cervical-fill.png"),
+    ],
+    detailImage: staticProductImage("cervical-zones-side.png"),
+    afterPainImage: staticProductImage("cervical-zones-top.png"),
+    storyImages: [
+      staticProductImage("cervical-rebound.png"),
+      staticProductImage("cervical-washable.png"),
+    ],
+    crossSellIds: ["pillow", "belt"],
+    offers: [
+      {
+        id: "neck-pillow-1",
+        productId: "neck-pillow",
+        quantity: 1,
+        title: "وسادة واحدة",
+        subtitle: "جرّب راحة وسادة العنق من VORLAY",
+        badge: "للتجربة",
+        priceMad: 149,
+        compareAtPriceMad: 199,
+      },
+      {
+        id: "neck-pillow-2",
+        productId: "neck-pillow",
+        quantity: 2,
+        title: "وسادتين",
+        subtitle: "وحدة ليك ووحدة لشريك حياتك",
+        badge: "الأكثر طلباً",
+        priceMad: 249,
+        compareAtPriceMad: 398,
+        recommended: true,
+      },
+      {
+        id: "neck-pillow-3",
+        productId: "neck-pillow",
+        quantity: 3,
+        title: "ثلاث وسائد",
+        subtitle: "أفضل قيمة للعائلة",
+        badge: "أفضل قيمة",
+        priceMad: 329,
+        compareAtPriceMad: 597,
       },
     ],
   },
