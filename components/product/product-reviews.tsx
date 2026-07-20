@@ -85,7 +85,7 @@ export function ProductReviews({ summary }: { summary: ProductReviewSummary }) {
   const visible = showAll ? summary.reviews : summary.reviews.slice(0, 5);
 
   return (
-    <section className="container py-6 sm:py-8">
+    <section id="reviews" className="container scroll-mt-24 py-6 sm:py-8">
       <div className="rounded-2xl bg-white p-5 shadow-soft sm:rounded-3xl sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-xl font-black sm:text-2xl">آراء الناس</h2>

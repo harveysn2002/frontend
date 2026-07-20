@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { RefreshCw } from "lucide-react";
+import { RefreshCw, Star } from "lucide-react";
 import { OfferCountdown } from "@/components/product/offer-countdown";
 import { OfferSelector } from "@/components/product/offer-selector";
 import { ProductTrustBadges } from "@/components/product/product-trust-badges";
 import { RatingStars } from "@/components/product/rating-stars";
 import type { Offer, Product } from "@/config/products";
+import { getProductReviews } from "@/config/reviews";
 import { formatMad } from "@/lib/currency";
 import { useProductPurchase } from "@/hooks/use-product-purchase";
 
@@ -30,6 +31,11 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
   const unit = product.quantityUnit ?? "piece";
   const { addToCart, buyNow } = useProductPurchase(product);
   const priceLabel = formatMad(selectedOffer.priceMad);
+  const reviews = getProductReviews(product.id);
+
+  const scrollToReviews = () => {
+    document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   useEffect(() => {
     const node = panelRef.current;
@@ -48,6 +54,33 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
     <>
       <div id="order" ref={panelRef} className="glass-card scroll-mt-28 rounded-[1.5rem] p-4 sm:rounded-[1.75rem] sm:p-5 md:p-6">
         <RatingStars />
+        {reviews ? (
+          <button
+            type="button"
+            onClick={scrollToReviews}
+            className="mt-2 flex w-full items-center justify-between gap-2 rounded-2xl border border-brand-primary/15 bg-white px-3 py-2 text-right transition hover:bg-brand-soft"
+          >
+            <span className="inline-flex items-center gap-1.5">
+              <span className="inline-flex items-center gap-0.5" aria-hidden>
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star
+                    key={i}
+                    className={`h-4 w-4 ${
+                      i <= Math.round(reviews.average)
+                        ? "fill-amber-400 text-amber-400"
+                        : "fill-none text-brand-primary/20"
+                    }`}
+                  />
+                ))}
+              </span>
+              <span className="text-sm font-black text-brand-ink">{reviews.average.toFixed(1)}</span>
+              <span className="text-xs font-semibold text-brand-muted">({reviews.count} تقييم)</span>
+            </span>
+            <span className="text-xs font-black text-brand-primary underline underline-offset-2">
+              شوف آراء الناس
+            </span>
+          </button>
+        ) : null}
         <p className="mt-2 inline-flex rounded-full bg-brand-gold/15 px-2.5 py-0.5 text-[10px] font-black text-brand-ink sm:text-xs">
           {product.eyebrow ?? "VORLAY · دعم يومي مريح · الدفع عند الاستلام"}
         </p>

@@ -46,7 +46,7 @@ const reviewsByProduct: Partial<Record<ProductId, ProductReviewSummary>> = {
         text: "منتج زوين. مع مشاكل العمود الفقري العنقي اللي عندي، كيخدم بشكل رائع وكيدعم منطقة الرقبة وأنا كنسوق.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "Y***f",
         rating: 5,
         date: "18 غشت 2025",
         variant: "أسود",
@@ -74,7 +74,7 @@ const reviewsByProduct: Partial<Record<ProductId, ProductReviewSummary>> = {
         text: "مصنوعة بجودة عالية. أنا قياس M، والوسادة كتجي مزبوطة على ظهري. الحشوة مريحة.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "H***m",
         rating: 5,
         date: "14 أبريل 2026",
         variant: "أسود",
@@ -109,21 +109,21 @@ const reviewsByProduct: Partial<Record<ProductId, ProductReviewSummary>> = {
         text: "التوصيل والشحن سريع بزاف. جودة مزيانة ووسادة مريحة. كننصح بهاد المتجر والبائع.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "R***a",
         rating: 5,
         date: "15 نونبر 2025",
         variant: "رمادي",
         text: "مريحة ولكن قاصحة بما يكفي باش ترتاح منها الظهر اللي كيوجع.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "O***r",
         rating: 5,
         date: "01 نونبر 2025",
         variant: "أسود",
         text: "هادي ثالث وسادة كنطلب. صحابي حتى هوما عجباتهم بزاف، كننصح بيها.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "N***l",
         rating: 5,
         date: "23 ماي 2026",
         variant: "أسود",
@@ -160,7 +160,7 @@ const reviewsByProduct: Partial<Record<ProductId, ProductReviewSummary>> = {
         text: "شريتها حيت ظهري كان كيتعب فالسياقة الطويلة، وكتبان مزيانة.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "K***m",
         rating: 5,
         date: "30 غشت 2025",
         variant: "طقم رمادي",
@@ -221,7 +221,7 @@ const reviewsByProduct: Partial<Record<ProductId, ProductReviewSummary>> = {
         variant: "طقم بني",
       },
       {
-        name: "AliExpress Shopper",
+        name: "S***a",
         rating: 5,
         date: "07 أكتوبر 2025",
         variant: "مسند رأس أسود",
