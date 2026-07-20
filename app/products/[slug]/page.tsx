@@ -5,8 +5,10 @@ import { ProductImageCarousel } from "@/components/product/product-image-carouse
 import { ProductPurchasePanel } from "@/components/product/product-purchase-panel";
 import { ProductStoryBanner } from "@/components/product/product-story-banners";
 import { ProductTrustVideo } from "@/components/product/product-trust-video";
+import { ProductReviews } from "@/components/product/product-reviews";
 import { productFaqs } from "@/config/trust";
 import { getProductBySlug, getListedProductById, getListedProducts } from "@/config/products";
+import { getProductReviews } from "@/config/reviews";
 
 export function generateStaticParams() {
   return getListedProducts().map((product) => ({ slug: product.slug }));
@@ -38,6 +40,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     .slice(0, 2);
   const keyFaqs = productFaqs.slice(0, 4);
   const keyBenefits = product.benefits.slice(0, 4);
+  const reviews = getProductReviews(product.id);
 
   return (
     <div className="pb-24 md:pb-0">
@@ -104,6 +107,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           product={product}
         />
       ) : null}
+
+      {reviews ? <ProductReviews summary={reviews} /> : null}
 
       {crossSells.length > 0 ? (
         <section className="container py-8 sm:py-10">
