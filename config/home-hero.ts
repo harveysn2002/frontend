@@ -30,7 +30,7 @@ export const pillowSlide: HomeHeroSlide = {
   headlineWhite: "راحة حقيقية",
   headlineGold: "لكل رحلة",
   description:
-    "طقم وسادة رقبة ووسادة ظهر بميموري فوم. للسيارة، المكتب، والجلوس الطويل.",
+    "طقم وسادة رقبة ووسادة ظهر بحشوة كتتأقلم مع الجسم. للسيارة، المكتب، والجلوس الطويل.",
   image: heroImage("hero-home.png"),
   imageAlt: "طقم VORLAY — وسادة رقبة وظهر",
   priceMad: 179,

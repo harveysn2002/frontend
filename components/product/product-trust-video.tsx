@@ -19,10 +19,12 @@ export function ProductTrustVideo({
           className="h-auto w-full"
           src={src}
           poster={poster}
-          controls
-          playsInline
-          preload="metadata"
+          autoPlay
+          loop
           muted
+          playsInline
+          preload="auto"
+          controls
         />
       </div>
       {product ? <ImageBuyNowCta product={product} /> : null}

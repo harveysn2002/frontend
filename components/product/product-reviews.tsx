@@ -61,10 +61,7 @@ function ReviewRow({ review }: { review: ProductReview }) {
         </div>
         <div className="mt-1 flex flex-wrap items-center gap-2">
           <Stars rating={review.rating} />
-          {review.variant ? (
-            <span className="text-[11px] font-semibold text-brand-muted">{review.variant}</span>
-          ) : null}
-          <span className="text-[11px] text-brand-muted">· {review.date}</span>
+          <span className="text-[11px] text-brand-muted">{review.date}</span>
         </div>
         {review.text ? (
           <p className="mt-2 text-sm leading-7 text-brand-ink/90">{review.text}</p>

@@ -58,14 +58,14 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           <button
             type="button"
             onClick={scrollToReviews}
-            className="mt-2 flex w-full items-center justify-between gap-2 rounded-2xl border border-brand-primary/15 bg-white px-3 py-2 text-right transition hover:bg-brand-soft"
+            className="mt-3 flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-brand-primary/25 bg-brand-soft/70 px-4 py-3.5 text-right shadow-sm transition hover:border-brand-primary/40 hover:bg-brand-soft active:scale-[0.99] sm:py-4"
           >
-            <span className="inline-flex items-center gap-1.5">
+            <span className="inline-flex items-center gap-2">
               <span className="inline-flex items-center gap-0.5" aria-hidden>
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star
                     key={i}
-                    className={`h-4 w-4 ${
+                    className={`h-5 w-5 ${
                       i <= Math.round(reviews.average)
                         ? "fill-amber-400 text-amber-400"
                         : "fill-none text-brand-primary/20"
@@ -73,10 +73,12 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
                   />
                 ))}
               </span>
-              <span className="text-sm font-black text-brand-ink">{reviews.average.toFixed(1)}</span>
-              <span className="text-xs font-semibold text-brand-muted">({reviews.count} تقييم)</span>
+              <span className="text-base font-black text-brand-ink sm:text-lg">
+                {reviews.average.toFixed(1)}
+              </span>
+              <span className="text-sm font-semibold text-brand-muted">({reviews.count} تقييم)</span>
             </span>
-            <span className="text-xs font-black text-brand-primary underline underline-offset-2">
+            <span className="rounded-full bg-brand-primary px-3.5 py-1.5 text-sm font-black text-white sm:text-base">
               شوف آراء الناس
             </span>
           </button>
