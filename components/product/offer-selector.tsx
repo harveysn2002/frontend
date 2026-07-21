@@ -71,7 +71,7 @@ export function OfferSelector({
                     </span>
                   ) : null}
                 </div>
-                <p className="mt-0.5 line-clamp-2 text-[11px] leading-5 text-brand-muted sm:text-xs">
+                <p className="mt-0.5 line-clamp-2 text-xs leading-5 text-brand-muted sm:text-sm sm:leading-6">
                   {offer.subtitle}
                 </p>
                 {clarity ? (
