@@ -183,8 +183,8 @@ export const products: Product[] = [
     ],
     detailImage: staticProductImage("wisada-set-floating.png"),
     afterPainImage: staticProductImage("wisada-ad-compare-infographic.png"),
-    trustVideo: "/videos/vorlay-ad-v5.mp4",
-    trustVideoPoster: staticProductImage("vorlay-ad-v5-poster.jpg"),
+    trustVideo: "/videos/vorlay-trust.mp4",
+    trustVideoPoster: staticProductImage("vorlay-trust-poster.jpg"),
     storyImages: [
       staticProductImage("wisada-ad-features-car.png"),
       staticProductImage("wisada-ad-car-man.png"),
