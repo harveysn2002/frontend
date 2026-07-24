@@ -9,6 +9,7 @@ import { z } from "zod";
 import { CheckoutTrustBar } from "@/components/trust/checkout-trust-bar";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
+import { useKeyboardInset } from "@/hooks/use-keyboard-inset";
 import { createOrder } from "@/lib/api";
 import { formatMad } from "@/lib/currency";
 import { createEventId } from "@/lib/events";
@@ -31,6 +32,12 @@ const schema = z.object({
 
 type CheckoutValues = z.infer<typeof schema>;
 
+/** Wait for the keyboard animation before recentering the field. */
+function keepFieldVisible(event: React.FocusEvent<HTMLInputElement>) {
+  const field = event.target;
+  window.setTimeout(() => field.scrollIntoView({ block: "center", behavior: "smooth" }), 300);
+}
+
 export function CheckoutModal() {
   const items = useCartStore((state) => state.items);
   const total = useCartStore((state) => state.total());
@@ -40,6 +47,7 @@ export function CheckoutModal() {
   const checkoutEventId = useCartStore((state) => state.checkoutEventId);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const { inset: keyboardInset, viewportHeight } = useKeyboardInset(isCheckoutOpen);
 
   const form = useForm<CheckoutValues>({
     resolver: zodResolver(schema),
@@ -123,7 +131,14 @@ export function CheckoutModal() {
     <Dialog.Root open={isCheckoutOpen} onOpenChange={(value) => !value && closeCheckout()}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-brand-ink/40" />
-        <Dialog.Content className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-50 mx-auto flex max-h-[min(92dvh,94vh)] w-auto max-w-xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-soft sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:w-[calc(100%-1.5rem)] sm:-translate-x-1/2 sm:-translate-y-1/2">
+        <Dialog.Content
+          style={
+            keyboardInset > 0
+              ? { bottom: `${keyboardInset + 12}px`, maxHeight: `${viewportHeight - 24}px` }
+              : undefined
+          }
+          className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-50 mx-auto flex max-h-[min(92dvh,94vh)] w-auto max-w-xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-soft sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:w-[calc(100%-1.5rem)] sm:-translate-x-1/2 sm:-translate-y-1/2"
+        >
           <div className="flex items-center justify-between px-5 pb-2 pt-5 md:px-7 md:pt-7">
             <Dialog.Title className="text-2xl font-black">طلبك</Dialog.Title>
             <Dialog.Close className="rounded-full p-2 hover:bg-brand-soft" aria-label="Close checkout">
@@ -159,6 +174,7 @@ export function CheckoutModal() {
                   className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
                   placeholder="مثال: أحمد بنعلي"
                   autoComplete="name"
+                  onFocus={keepFieldVisible}
                   {...form.register("name")}
                 />
                 <span className="text-sm text-red-700">{form.formState.errors.name?.message}</span>
@@ -171,6 +187,7 @@ export function CheckoutModal() {
                   type="tel"
                   inputMode="tel"
                   autoComplete="tel"
+                  onFocus={keepFieldVisible}
                   {...form.register("phone")}
                 />
                 <span className="text-sm text-red-700">{form.formState.errors.phone?.message}</span>
@@ -181,6 +198,7 @@ export function CheckoutModal() {
                   className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
                   placeholder="الدار البيضاء"
                   autoComplete="address-level2"
+                  onFocus={keepFieldVisible}
                   {...form.register("city")}
                 />
                 <span className="text-sm text-red-700">{form.formState.errors.city?.message}</span>
