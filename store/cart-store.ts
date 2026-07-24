@@ -32,10 +32,34 @@ type CartState = {
   openUpsell: () => void;
   closeUpsell: () => void;
   addOffer: (product: Product, offer: Offer, options?: { isUpsell?: boolean }) => CartItem;
+  /** Buy-now: cart becomes exactly this one offer (no stacking). */
+  replaceWithOffer: (product: Product, offer: Offer) => CartItem;
   removeItem: (id: string) => void;
   clear: () => void;
   total: () => number;
 };
+
+function buildCartItem(
+  product: Product,
+  offer: Offer,
+  options?: { isUpsell?: boolean },
+): CartItem {
+  const eventId = createEventId(options?.isUpsell ? "upsell_add" : "addtocart");
+  return {
+    id: `${offer.id}-${eventId}`,
+    productId: product.id,
+    slug: product.slug,
+    nameAr: product.nameAr,
+    offerId: offer.id,
+    offerTitle: offer.title,
+    quantity: offer.quantity,
+    unitPriceMad: Math.round(offer.priceMad / offer.quantity),
+    totalPriceMad: offer.priceMad,
+    image: product.image,
+    isUpsell: options?.isUpsell,
+    addToCartEventId: eventId,
+  };
+}
 
 export const useCartStore = create<CartState>((set, get) => ({
   items: [],
@@ -53,23 +77,17 @@ export const useCartStore = create<CartState>((set, get) => ({
   openUpsell: () => set({ isUpsellOpen: true }),
   closeUpsell: () => set({ isUpsellOpen: false }),
   addOffer: (product, offer, options) => {
-    const eventId = createEventId(options?.isUpsell ? "upsell_add" : "addtocart");
-    const item: CartItem = {
-      id: `${offer.id}-${eventId}`,
-      productId: product.id,
-      slug: product.slug,
-      nameAr: product.nameAr,
-      offerId: offer.id,
-      offerTitle: offer.title,
-      quantity: offer.quantity,
-      unitPriceMad: Math.round(offer.priceMad / offer.quantity),
-      totalPriceMad: offer.priceMad,
-      image: product.image,
-      isUpsell: options?.isUpsell,
-      addToCartEventId: eventId,
-    };
-
-    set((state) => ({ items: [...state.items, item], isCartOpen: true }));
+    const item = buildCartItem(product, offer, options);
+    set((state) => ({
+      // Same offer must not stack (double-tap / reopen).
+      items: [...state.items.filter((existing) => existing.offerId !== offer.id), item],
+      isCartOpen: true,
+    }));
+    return item;
+  },
+  replaceWithOffer: (product, offer) => {
+    const item = buildCartItem(product, offer);
+    set({ items: [item], isCartOpen: false });
     return item;
   },
   removeItem: (id) => set((state) => ({ items: state.items.filter((item) => item.id !== id) })),

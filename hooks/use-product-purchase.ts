@@ -2,14 +2,14 @@
 
 import type { Offer, Product } from "@/config/products";
 import { trackAddToCart, trackInitiateCheckout } from "@/lib/tracking";
-import { useCartStore } from "@/store/cart-store";
+import { useCartStore, type CartItem } from "@/store/cart-store";
 
 export function useProductPurchase(product: Product) {
   const addOfferToStore = useCartStore((state) => state.addOffer);
+  const replaceWithOffer = useCartStore((state) => state.replaceWithOffer);
   const openCheckout = useCartStore((state) => state.openCheckout);
 
-  function addOffer(offer: Offer) {
-    const item = addOfferToStore(product, offer);
+  function trackCartItem(item: CartItem, offer: Offer) {
     trackAddToCart({
       eventId: item.addToCartEventId,
       value: item.totalPriceMad,
@@ -22,15 +22,18 @@ export function useProductPurchase(product: Product) {
         },
       ],
     });
-    return item;
   }
 
   function addToCart(offer: Offer) {
-    return addOffer(offer);
+    const item = addOfferToStore(product, offer);
+    trackCartItem(item, offer);
+    return item;
   }
 
   function buyNow(offer: Offer) {
-    addOffer(offer);
+    // Always one selection in checkout — never stack on each "اطلب دابا".
+    const item = replaceWithOffer(product, offer);
+    trackCartItem(item, offer);
     const eventId = openCheckout();
     trackInitiateCheckout({
       eventId,
