@@ -123,71 +123,82 @@ export function CheckoutModal() {
     <Dialog.Root open={isCheckoutOpen} onOpenChange={(value) => !value && closeCheckout()}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-brand-ink/40" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[94vh] w-[calc(100%-1.5rem)] max-w-xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[2rem] bg-white p-5 shadow-soft md:p-7">
-          <div className="flex items-center justify-between">
+        <Dialog.Content className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-50 mx-auto flex max-h-[min(92dvh,94vh)] w-auto max-w-xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-soft sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:w-[calc(100%-1.5rem)] sm:-translate-x-1/2 sm:-translate-y-1/2">
+          <div className="flex items-center justify-between px-5 pb-2 pt-5 md:px-7 md:pt-7">
             <Dialog.Title className="text-2xl font-black">طلبك</Dialog.Title>
             <Dialog.Close className="rounded-full p-2 hover:bg-brand-soft" aria-label="Close checkout">
               <X className="h-5 w-5" />
             </Dialog.Close>
           </div>
 
-          <div className="mt-5 rounded-3xl bg-brand-soft/35 p-4">
-            <div className="mb-3 font-black">ملخص الطلب</div>
-            {items.map((item) => (
-              <div key={item.id} className="flex justify-between py-1 text-sm">
-                <span>{item.nameAr} · {item.offerTitle}</span>
-                <span>{formatMad(item.totalPriceMad)}</span>
+          <form
+            className="flex min-h-0 flex-1 flex-col"
+            onSubmit={form.handleSubmit(onValid)}
+          >
+            <div className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain px-5 pb-3 md:px-7">
+              <div className="rounded-3xl bg-brand-soft/35 p-4">
+                <div className="mb-3 font-black">ملخص الطلب</div>
+                {items.map((item) => (
+                  <div key={item.id} className="flex justify-between py-1 text-sm">
+                    <span>{item.nameAr} · {item.offerTitle}</span>
+                    <span>{formatMad(item.totalPriceMad)}</span>
+                  </div>
+                ))}
+                <div className="mt-3 flex justify-between border-t border-brand-primary/10 pt-3 text-lg font-black">
+                  <span>الإجمالي</span>
+                  <span>{formatMad(total)}</span>
+                </div>
+                <p className="mt-2 text-sm font-semibold text-brand-primary">
+                  {siteConfig.priceIncludesShippingNote} — الدفع عند الاستلام فقط
+                </p>
               </div>
-            ))}
-            <div className="mt-3 flex justify-between border-t border-brand-primary/10 pt-3 text-lg font-black">
-              <span>الإجمالي</span>
-              <span>{formatMad(total)}</span>
-            </div>
-            <p className="mt-2 text-sm font-semibold text-brand-primary">
-              {siteConfig.priceIncludesShippingNote} — الدفع عند الاستلام فقط
-            </p>
-          </div>
 
-          <form className="mt-5 space-y-4" onSubmit={form.handleSubmit(onValid)}>
-            <label className="block">
-              <span className="font-bold">الاسم الكامل</span>
-              <input
-                className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
-                placeholder="مثال: أحمد بنعلي"
-                {...form.register("name")}
-              />
-              <span className="text-sm text-red-700">{form.formState.errors.name?.message}</span>
-            </label>
-            <label className="block">
-              <span className="font-bold">رقم الهاتف المغربي</span>
-              <input
-                className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
-                placeholder="06XXXXXXXX"
-                inputMode="tel"
-                autoComplete="tel"
-                {...form.register("phone")}
-              />
-              <span className="text-sm text-red-700">{form.formState.errors.phone?.message}</span>
-            </label>
-            <label className="block">
-              <span className="font-bold">المدينة</span>
-              <input
-                className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
-                placeholder="الدار البيضاء"
-                {...form.register("city")}
-              />
-              <span className="text-sm text-red-700">{form.formState.errors.city?.message}</span>
-            </label>
-            <p className="text-sm text-brand-muted">
-              فريق VORLAY غادي يتاصل بيك قبل الإرسال باش يأكد العنوان.
-            </p>
-            <div className="mt-1">
-              <CheckoutTrustBar />
+              <label className="block">
+                <span className="font-bold">الاسم الكامل</span>
+                <input
+                  className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
+                  placeholder="مثال: أحمد بنعلي"
+                  autoComplete="name"
+                  {...form.register("name")}
+                />
+                <span className="text-sm text-red-700">{form.formState.errors.name?.message}</span>
+              </label>
+              <label className="block">
+                <span className="font-bold">رقم الهاتف المغربي</span>
+                <input
+                  className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
+                  placeholder="06XXXXXXXX"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  {...form.register("phone")}
+                />
+                <span className="text-sm text-red-700">{form.formState.errors.phone?.message}</span>
+              </label>
+              <label className="block">
+                <span className="font-bold">المدينة</span>
+                <input
+                  className="mt-2 w-full rounded-2xl border border-brand-primary/20 px-4 py-3 outline-none focus:border-brand-primary"
+                  placeholder="الدار البيضاء"
+                  autoComplete="address-level2"
+                  {...form.register("city")}
+                />
+                <span className="text-sm text-red-700">{form.formState.errors.city?.message}</span>
+              </label>
+              <p className="text-sm text-brand-muted">
+                فريق VORLAY غادي يتاصل بيك قبل الإرسال باش يأكد العنوان.
+              </p>
+              <div className="mt-1">
+                <CheckoutTrustBar />
+              </div>
             </div>
-            {error && <p className="rounded-2xl bg-red-50 p-3 text-sm text-red-700">{error}</p>}
-            <Button className="w-full" disabled={items.length === 0 || submitting}>
-              {submitting ? "كنسجّلو الطلب..." : "أكد الطلب — الدفع عند الاستلام"}
-            </Button>
+
+            <div className="sticky bottom-0 shrink-0 border-t border-brand-primary/10 bg-white px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 md:px-7 md:pb-7">
+              {error && <p className="mb-3 rounded-2xl bg-red-50 p-3 text-sm text-red-700">{error}</p>}
+              <Button className="w-full" disabled={items.length === 0 || submitting}>
+                {submitting ? "كنسجّلو الطلب..." : "أكد الطلب — الدفع عند الاستلام"}
+              </Button>
+            </div>
           </form>
         </Dialog.Content>
       </Dialog.Portal>
