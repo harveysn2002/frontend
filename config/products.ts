@@ -42,6 +42,8 @@ export type Product = {
   trustVideo?: string;
   /** Poster image for the trust video */
   trustVideoPoster?: string;
+  /** Video frame shape — portrait (Reels) or landscape product demos */
+  trustVideoAspect?: "portrait" | "landscape";
   /** Short persuasive line above the headline (gold pill) */
   eyebrow?: string;
   /** Promo graphics with text — use contain so badges/prices stay visible */
@@ -103,6 +105,9 @@ export const products: Product[] = [
       staticProductImage("belt-features-infographic.png"),
     ],
     afterPainImage: staticProductImage("belt-lifestyle-infographic.png"),
+    trustVideo: "/videos/belt-trust.mp4",
+    trustVideoPoster: staticProductImage("belt-trust-poster.jpg"),
+    trustVideoAspect: "landscape",
     storyImages: [
       staticProductImage("belt-wearing-infographic.png"),
       staticProductImage("belt-daily-use-infographic.png"),

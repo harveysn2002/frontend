@@ -63,6 +63,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <ProductTrustVideo
               src={product.trustVideo}
               poster={product.trustVideoPoster}
+              aspect={product.trustVideoAspect}
               compact
             />
           ) : null}

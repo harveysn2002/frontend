@@ -5,15 +5,20 @@ export function ProductTrustVideo({
   src,
   poster,
   product,
+  aspect = "portrait",
   compact = false,
 }: {
   src: string;
   poster?: string;
   product?: Product;
+  aspect?: "portrait" | "landscape";
   compact?: boolean;
 }) {
+  const frameClass =
+    aspect === "landscape" ? "mx-auto w-full max-w-md sm:max-w-lg" : "mx-auto w-full max-w-[280px]";
+
   const video = (
-    <div className="mx-auto w-full max-w-[280px]">
+    <div className={frameClass}>
       <div className="overflow-hidden rounded-2xl bg-black shadow-soft">
         <video
           className="h-auto w-full"
