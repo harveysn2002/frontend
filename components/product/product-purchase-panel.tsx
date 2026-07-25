@@ -76,7 +76,6 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
               <span className="text-base font-black text-brand-ink sm:text-lg">
                 {reviews.average.toFixed(1)}
               </span>
-              <span className="text-sm font-semibold text-brand-muted">({reviews.count} تقييم)</span>
             </span>
             <span className="rounded-full bg-brand-primary px-3.5 py-1.5 text-sm font-black text-white sm:text-base">
               شوف آراء الناس

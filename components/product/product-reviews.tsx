@@ -92,9 +92,6 @@ export function ProductReviews({ summary }: { summary: ProductReviewSummary }) {
             </span>
             <div>
               <Stars rating={summary.average} />
-              <p className="mt-0.5 text-[11px] font-semibold text-brand-muted">
-                من {summary.count} تقييم
-              </p>
             </div>
           </div>
         </div>
@@ -111,7 +108,7 @@ export function ProductReviews({ summary }: { summary: ProductReviewSummary }) {
             onClick={() => setShowAll((prev) => !prev)}
             className="mt-4 w-full rounded-full border border-brand-primary/20 px-4 py-2.5 text-sm font-bold text-brand-primary transition hover:bg-brand-soft"
           >
-            {showAll ? "عرض أقل" : `شوف باقي التقييمات (${summary.reviews.length - 5})`}
+            {showAll ? "عرض أقل" : "شوف باقي التقييمات"}
           </button>
         ) : null}
       </div>
