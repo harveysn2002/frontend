@@ -95,12 +95,17 @@ export const products: Product[] = [
     eyebrow: "VORLAY · دعم يومي للوقفة والحركة · الدفع عند الاستلام",
     image: staticProductImage("belt-hero-white.png"),
     heroImageFit: "contain",
+    carouselImageFit: "contain",
     images: [
       staticProductImage("belt-hero-white.png"),
       staticProductImage("belt-lifestyle-infographic.png"),
       staticProductImage("belt-wearing-infographic.png"),
-      staticProductImage("belt-daily-use-infographic.png"),
       staticProductImage("belt-features-infographic.png"),
+    ],
+    afterPainImage: staticProductImage("belt-lifestyle-infographic.png"),
+    storyImages: [
+      staticProductImage("belt-wearing-infographic.png"),
+      staticProductImage("belt-daily-use-infographic.png"),
     ],
     crossSellIds: ["pillow", "bundle"],
     offers: [
