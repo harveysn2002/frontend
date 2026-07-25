@@ -29,7 +29,7 @@ export type ProductReviewSummary = {
 const reviewsByProduct: Partial<Record<ProductId, ProductReviewSummary>> = {
   belt: {
     average: 4.8,
-    count: 28,
+    count: 27,
     reviews: [
       {
         name: "مشتري ڤورلاي",
@@ -194,12 +194,6 @@ const reviewsByProduct: Partial<Record<ProductId, ProductReviewSummary>> = {
         rating: 5,
         date: "10 أبريل 2026",
         text: "من حيث المبدأ كيخدم مزيان. غادي نشوف النتيجة من بعد ساعات الاستعمال.",
-      },
-      {
-        name: "مشتريت ڤورلاي",
-        rating: 5,
-        date: "20 أبريل 2026",
-        text: "توصل فـ 8 أيام، الشكل مزيان.",
       },
     ],
   },
