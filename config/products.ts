@@ -125,9 +125,10 @@ export const products: Product[] = [
         quantity: 1,
         title: "قطعة واحدة",
         subtitle: "جرب دعم VORLAY اليومي",
-        badge: "للتجربة",
+        badge: "الأكثر اختياراً",
         priceMad: 109,
         compareAtPriceMad: 149,
+        recommended: true,
       },
       {
         id: "belt-2",
@@ -135,10 +136,9 @@ export const products: Product[] = [
         quantity: 2,
         title: "قطعتين",
         subtitle: "واحدة ليك وواحدة لشخص عزيز",
-        badge: "الأكثر اختياراً",
+        badge: "وفّر أكثر",
         priceMad: 199,
         compareAtPriceMad: 298,
-        recommended: true,
       },
       {
         id: "belt-3",
