@@ -109,7 +109,23 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         />
       ) : null}
 
+      {story[2] ? (
+        <ProductStoryBanner
+          src={story[2]}
+          alt={`${product.nameAr} — استعمال يومي`}
+          product={product}
+        />
+      ) : null}
+
       {reviews ? <ProductReviews summary={reviews} /> : null}
+
+      {story[3] ? (
+        <ProductStoryBanner
+          src={story[3]}
+          alt={`${product.nameAr} — جودة قريبة`}
+          product={product}
+        />
+      ) : null}
 
       {crossSells.length > 0 ? (
         <section className="container py-8 sm:py-10">

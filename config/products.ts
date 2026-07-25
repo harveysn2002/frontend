@@ -113,7 +113,9 @@ export const products: Product[] = [
     trustVideoAspect: "landscape",
     storyImages: [
       staticProductImage("belt-features-callouts.png"),
+      staticProductImage("belt-wearing-infographic.png"),
       staticProductImage("belt-daily-use-infographic.png"),
+      staticProductImage("belt-lifestyle-infographic.png"),
     ],
     crossSellIds: ["pillow", "bundle"],
     offers: [
