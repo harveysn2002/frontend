@@ -98,9 +98,19 @@ export const products: Product[] = [
     image: staticProductImage("belt-hero-white.png"),
     heroImageFit: "contain",
     carouselImageFit: "contain",
-    images: [],
-    storyImages: [],
-    listed: false,
+    images: [
+      staticProductImage("belt-hero-white.png"),
+      staticProductImage("belt-before-after.png"),
+      staticProductImage("belt-lifestyle-infographic.png"),
+      staticProductImage("belt-wearing-infographic.png"),
+      staticProductImage("belt-daily-use-infographic.png"),
+    ],
+    afterPainImage: staticProductImage("belt-before-after.png"),
+    storyImages: [
+      staticProductImage("belt-wearing-infographic.png"),
+      staticProductImage("belt-daily-use-infographic.png"),
+      staticProductImage("belt-lifestyle-infographic.png"),
+    ],
     crossSellIds: ["pillow", "bundle"],
     offers: [
       {
