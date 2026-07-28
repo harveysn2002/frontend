@@ -118,7 +118,7 @@ export const products: Product[] = [
         title: "قطعة واحدة",
         subtitle: "جرب دعم VORLAY اليومي",
         badge: "الأكثر اختياراً",
-        priceMad: 109,
+        priceMad: 99,
         compareAtPriceMad: 149,
         recommended: true,
       },
@@ -409,7 +409,7 @@ export const upsellOffers: Offer[] = [
     subtitle: "عرض خاص غير الآن قبل تأكيد الطلب",
     badge: "خصم خاص",
     priceMad: 99,
-    compareAtPriceMad: 109,
+    compareAtPriceMad: 149,
     upsellOnly: true,
   },
 ];
