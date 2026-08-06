@@ -42,11 +42,9 @@ const products: Product[] = [
       img("armani", "armani-02.jpg"),
       img("armani", "armani-03.jpg"),
       img("armani", "armani-04.jpg"),
-      img("armani", "armani-05.jpg"),
-      img("armani", "armani-06.jpg"),
     ],
     afterPainImage: img("armani", "armani-03.jpg"),
-    storyImages: [img("armani", "armani-04.jpg"), img("armani", "armani-05.jpg")],
+    storyImages: [img("armani", "armani-02.jpg"), img("armani", "armani-04.jpg")],
     crossSellIds: ["gshock", "benyar"],
     offers: [
       {
