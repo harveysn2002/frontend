@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Trash2, X } from "lucide-react";
 import { CheckoutTrustBar } from "@/components/trust/checkout-trust-bar";
 import { Button } from "@/components/ui/button";
+import { nicheCopy } from "@/config/niche-copy";
 import { siteConfig } from "@/config/site";
 import { formatMad } from "@/lib/currency";
 import { trackInitiateCheckout } from "@/lib/tracking";
@@ -95,7 +96,7 @@ export function CartDrawer() {
 
             {crossSell && crossSellOffer && (
               <div className="mt-6 rounded-[2rem] bg-brand-soft/45 p-4">
-                <div className="text-sm font-black text-brand-primary">كمل الراحة ديالك</div>
+                <div className="text-sm font-black text-brand-primary">{nicheCopy.cartCrossSellHeading}</div>
                 <div className="mt-1 text-xl font-black">{crossSell.nameAr}</div>
                 <p className="mt-1 text-sm text-brand-muted">{crossSell.cardSubheading}</p>
                 <div className="mt-3 flex items-center justify-between">

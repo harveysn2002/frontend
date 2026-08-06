@@ -13,13 +13,14 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "#0F766E",
-          dark: "#115E59",
-          soft: "#CCFBF1",
-          gold: "#C9A24A",
-          ivory: "#FFF7ED",
-          ink: "#1F2933",
-          muted: "#667085",
+          /* Niche-aware — values set on <html> via config/theme.ts */
+          primary: "var(--brand-primary)",
+          dark: "var(--brand-dark)",
+          soft: "var(--brand-soft)",
+          gold: "var(--brand-gold)",
+          ivory: "var(--brand-ivory)",
+          ink: "var(--brand-ink)",
+          muted: "var(--brand-muted)",
         },
       },
       fontFamily: {

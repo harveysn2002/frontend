@@ -7,6 +7,7 @@ import { OfferSelector } from "@/components/product/offer-selector";
 import { ProductTrustBadges } from "@/components/product/product-trust-badges";
 import { RatingStars } from "@/components/product/rating-stars";
 import type { Offer, Product } from "@/config/products";
+import { nicheCopy } from "@/config/niche-copy";
 import { getProductReviews } from "@/config/reviews";
 import { formatMad } from "@/lib/currency";
 import { useProductPurchase } from "@/hooks/use-product-purchase";
@@ -83,7 +84,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           </button>
         ) : null}
         <p className="mt-2 inline-flex rounded-full bg-brand-gold/15 px-2.5 py-0.5 text-[10px] font-black text-brand-ink sm:text-xs">
-          {product.eyebrow ?? "VORLAY · دعم يومي مريح · الدفع عند الاستلام"}
+          {product.eyebrow ?? nicheCopy.defaultEyebrow}
         </p>
         <h1 className="mt-3 text-xl font-black leading-tight text-brand-ink sm:text-2xl md:text-3xl">
           {product.headline}

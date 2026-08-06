@@ -1,57 +1,22 @@
-import type { ProductId } from "@/config/products";
-import { products } from "@/config/products";
+import { byNiche } from "@/config/niche";
+import {
+  comfortHeroRotatingItems,
+  comfortHeroSlides,
+} from "@/config/niches/comfort/hero";
+import {
+  watchesHeroRotatingItems,
+  watchesHeroSlides,
+} from "@/config/niches/watches/hero";
+import type { HeroRotatingItem, HomeHeroSlide } from "@/config/hero-types";
 
-export type HeroRotatingItem =
-  | { kind: "headline"; lineWhite: string; lineGold: string }
-  | { kind: "body"; text: string };
+export type { HeroRotatingItem, HomeHeroSlide };
 
-export type HomeHeroSlide = {
-  id: ProductId;
-  slug: string;
-  nameAr: string;
-  badge: string;
-  headlineWhite: string;
-  headlineGold: string;
-  description: string;
-  image: string;
-  imageAlt: string;
-  priceMad: number;
-  compareAtPriceMad?: number;
-  priceNote?: string;
-};
+export const homeHeroSlides: HomeHeroSlide[] = byNiche({
+  comfort: comfortHeroSlides,
+  watches: watchesHeroSlides,
+});
 
-const heroImage = (file: string) => `/images/hero/${file}`;
-
-export const pillowSlide: HomeHeroSlide = {
-  id: "pillow",
-  slug: "wisada-dahr",
-  nameAr: "وسادة الظهر",
-  badge: "VORLAY ✦ NEW COLLECTION",
-  headlineWhite: "راحة حقيقية",
-  headlineGold: "لكل رحلة",
-  description:
-    "طقم وسادة رقبة ووسادة ظهر بحشوة كتتأقلم مع الجسم. للسيارة، المكتب، والجلوس الطويل.",
-  image: heroImage("hero-home.png"),
-  imageAlt: "طقم VORLAY — وسادة رقبة وظهر",
-  priceMad: 179,
-  compareAtPriceMad: 245,
-  priceNote: "طقم واحد — رقبة وظهر — الدفع عند الاستلام",
-};
-
-/** Single homepage hero — product pages keep their own galleries. */
-export const homeHeroSlides: HomeHeroSlide[] = [pillowSlide];
-
-export const heroRotatingItems: HeroRotatingItem[] = [
-  {
-    kind: "headline",
-    lineWhite: pillowSlide.headlineWhite,
-    lineGold: pillowSlide.headlineGold,
-  },
-  { kind: "body", text: pillowSlide.description },
-];
-
-export function getHeroOffer(productId: ProductId) {
-  const product = products.find((item) => item.id === productId);
-  if (!product) return null;
-  return product.offers.find((item) => item.recommended) || product.offers[0];
-}
+export const heroRotatingItems: HeroRotatingItem[] = byNiche({
+  comfort: comfortHeroRotatingItems,
+  watches: watchesHeroRotatingItems,
+});

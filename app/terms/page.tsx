@@ -1,3 +1,5 @@
+import { nicheCopy } from "@/config/niche-copy";
+
 export const metadata = {
   title: "شروط الاستخدام | VORLAY",
 };
@@ -11,10 +13,7 @@ export default function TermsPage() {
           استعمال موقع VORLAY يعني قبولك لشروط الطلب والدفع عند الاستلام. الطلب
           لا يعتبر مؤكداً حتى يتواصل معك الفريق لتأكيد التفاصيل والعنوان.
         </p>
-        <p className="mt-4 text-brand-muted">
-          منتجات VORLAY موجهة لدعم الراحة اليومية وليست بديلاً عن استشارة الطبيب
-          في حالات الألم الحاد أو الحالات الطبية.
-        </p>
+        <p className="mt-4 text-brand-muted">{nicheCopy.termsDisclaimer}</p>
       </article>
     </div>
   );

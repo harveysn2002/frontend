@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/layout/brand-logo";
 import { SocialLinks } from "@/components/layout/social-links";
+import { nicheCopy } from "@/config/niche-copy";
 import { hasWhatsApp, siteConfig } from "@/config/site";
 import { getListedProducts } from "@/config/products";
 import { whatsappLink } from "@/lib/social";
@@ -16,8 +17,7 @@ export function Footer() {
         <div className="md:col-span-1">
           <BrandLogo />
           <p className="mt-4 text-sm leading-7 text-brand-muted">
-            VORLAY كتقدم منتجات دعم وراحة الظهر للحياة اليومية، بتجربة طلب واضحة
-            والدفع عند الاستلام.
+            {nicheCopy.footerTagline}
           </p>
           <div className="mt-5">
             <p className="mb-3 text-sm font-black text-brand-ink">تابعنا</p>

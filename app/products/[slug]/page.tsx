@@ -6,9 +6,10 @@ import { ProductPurchasePanel } from "@/components/product/product-purchase-pane
 import { ProductStoryBanner } from "@/components/product/product-story-banners";
 import { ProductTrustVideo } from "@/components/product/product-trust-video";
 import { ProductReviews } from "@/components/product/product-reviews";
-import { productFaqs } from "@/config/trust";
+import { nicheCopy } from "@/config/niche-copy";
 import { getProductBySlug, getListedProductById, getListedProducts } from "@/config/products";
 import { getProductReviews } from "@/config/reviews";
+import { productFaqs } from "@/config/trust";
 
 export function generateStaticParams() {
   return getListedProducts().map((product) => ({ slug: product.slug }));
@@ -38,9 +39,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     .map((id) => getListedProductById(id))
     .filter(Boolean)
     .slice(0, 2);
-  const keyFaqs = productFaqs.slice(0, 4);
+  const keyFaqs = [
+    productFaqs[0],
+    nicheCopy.disclaimerFaq,
+    ...productFaqs.slice(2, 4),
+  ];
   const keyBenefits = product.benefits.slice(0, 4);
   const reviews = getProductReviews(product.id);
+  const storyAlts = nicheCopy.storyAlts;
 
   return (
     <div className="pb-24 md:pb-0">
@@ -71,7 +77,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           {product.afterPainImage ? (
             <ProductStoryBanner
               src={product.afterPainImage}
-              alt={`${product.nameAr} — الفرق من أول لمسة`}
+              alt={`${product.nameAr} — ${storyAlts.afterPain}`}
               product={product}
               contained={false}
             />
@@ -82,13 +88,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       {story[0] ? (
         <ProductStoryBanner
           src={story[0]}
-          alt={`${product.nameAr} — راحة فكل رحلة`}
+          alt={`${product.nameAr} — ${storyAlts.first}`}
           product={product}
         />
       ) : null}
 
       <section className="container py-6 sm:py-8">
-        <h2 className="text-2xl font-black sm:text-3xl">كيفاش كيعاون؟</h2>
+        <h2 className="text-2xl font-black sm:text-3xl">{nicheCopy.mechanismHeading}</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-brand-muted sm:text-base sm:leading-8">
           {product.mechanism}
         </p>
@@ -104,7 +110,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       {story[1] ? (
         <ProductStoryBanner
           src={story[1]}
-          alt={`${product.nameAr} — الراحة اللي كتستحقها`}
+          alt={`${product.nameAr} — ${storyAlts.second}`}
           product={product}
         />
       ) : null}
@@ -112,7 +118,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       {story[2] ? (
         <ProductStoryBanner
           src={story[2]}
-          alt={`${product.nameAr} — استعمال يومي`}
+          alt={`${product.nameAr} — ${storyAlts.third}`}
           product={product}
         />
       ) : null}
@@ -122,7 +128,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       {story[3] ? (
         <ProductStoryBanner
           src={story[3]}
-          alt={`${product.nameAr} — جودة قريبة`}
+          alt={`${product.nameAr} — ${storyAlts.fourth}`}
           product={product}
         />
       ) : null}
