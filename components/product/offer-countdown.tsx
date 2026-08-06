@@ -45,7 +45,7 @@ function calcLeft(deadline: number): TimeLeft {
 function TimeBlock({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex min-w-[3.25rem] flex-col items-center sm:min-w-[3.75rem]">
-      <span className="flex h-11 w-full items-center justify-center rounded-xl bg-[#1a2e2a] text-lg font-black tabular-nums text-[#E8C872] shadow-inner sm:h-12 sm:text-xl">
+      <span className="flex h-11 w-full items-center justify-center rounded-xl bg-brand-dark text-lg font-black tabular-nums text-brand-gold shadow-inner sm:h-12 sm:text-xl">
         {value}
       </span>
       <span className="mt-1 text-[10px] font-bold text-white/70 sm:text-[11px]">{label}</span>
@@ -76,18 +76,18 @@ export function OfferCountdown() {
 
   if (!left) {
     return (
-      <div className="mt-4 h-[5.5rem] animate-pulse rounded-2xl bg-gradient-to-l from-[#1a2e2a] to-[#1f3832]" />
+      <div className="mt-4 h-[5.5rem] animate-pulse rounded-2xl bg-gradient-to-l from-brand-dark to-brand-primary" />
     );
   }
 
   return (
-    <div className="mt-4 overflow-hidden rounded-2xl bg-gradient-to-l from-[#1a2e2a] via-[#1f3832] to-[#243f38] p-3.5 shadow-[0_10px_28px_rgba(26,46,42,0.28)] sm:p-4">
+    <div className="mt-4 overflow-hidden rounded-2xl bg-gradient-to-l from-brand-dark via-brand-primary to-[#243044] p-3.5 shadow-[0_10px_28px_rgba(15,22,33,0.32)] sm:p-4">
       <div className="flex items-center justify-center gap-2">
         <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#E8C872] opacity-60" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#E8C872]" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-gold opacity-60" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-gold" />
         </span>
-        <p className="flex items-center gap-1.5 text-[12px] font-black text-[#E8C872] sm:text-sm">
+        <p className="flex items-center gap-1.5 text-[12px] font-black text-brand-gold sm:text-sm">
           <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
           العرض الحالي كينتهي فـ:
         </p>
@@ -95,9 +95,9 @@ export function OfferCountdown() {
 
       <div className="mt-3 flex items-end justify-center gap-2 sm:gap-2.5" dir="ltr">
         <TimeBlock value={pad(left.hours)} label="ساعة" />
-        <span className="mb-5 text-lg font-black text-[#E8C872]/80">:</span>
+        <span className="mb-5 text-lg font-black text-brand-gold/80">:</span>
         <TimeBlock value={pad(left.minutes)} label="دقيقة" />
-        <span className="mb-5 text-lg font-black text-[#E8C872]/80">:</span>
+        <span className="mb-5 text-lg font-black text-brand-gold/80">:</span>
         <TimeBlock value={pad(left.seconds)} label="ثانية" />
       </div>
 
