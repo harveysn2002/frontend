@@ -6,13 +6,13 @@ const img = (folder: string, file: string) =>
 const products: Product[] = [
   {
     id: "armani-chrono",
-    slug: "emporio-armani",
-    nameAr: "ساعة Emporio Armani",
-    nameEn: "VORLAY Emporio Armani Chronograph",
+    slug: "chrono-elegance",
+    nameAr: "ساعة VORLAY كرونوغراف أنيقة",
+    nameEn: "VORLAY Chronograph Elegance",
     headline: "كرونوغراف أنيق كيبان غالي من أول نظرة",
     subheading:
-      "ساعة رجالية بستايل Emporio Armani — معدن، كرونوغراف، ومناسبة للخدمة والطلعات. الدفع عند الاستلام فكل المغرب.",
-    cardHeading: "ستايل إيطالي يومي",
+      "ساعة رجالية كرونوغراف بمعدن أنيق — مناسبة للخدمة والطلعات والهدية. الدفع عند الاستلام فكل المغرب.",
+    cardHeading: "ستايل يومي أنيق",
     cardSubheading: "للمكتب، الهدية، والطلعات",
     bestFor: ["الطلعات", "الهدية للرجال", "الستايل اليومي"],
     benefits: [
@@ -22,7 +22,7 @@ const products: Product[] = [
       "الدفع عند الاستلام وتأكيد الطلب بالهاتف.",
     ],
     pains: [
-      "بغيت ساعة كيبان فيها الستايل بلا ما تدفع ثمن الماركات الغالية؟",
+      "بغيت ساعة كيبان فيها الستايل بلا ما تدفع ثمن المحلات الغالية؟",
       "كتقلّب على هدية رجالية زوينة وما كتعرفش شنو تختار؟",
       "خاصك ساعة تليق مع الجينز ومع اللبسة الرسمية؟",
     ],
@@ -32,7 +32,7 @@ const products: Product[] = [
       "ستايل محايد: يمشي مع الخدمة ومع الطلعات.",
     ],
     mechanism:
-      "ساعة فاشن رجالية بستايل كرونوغراف معروف. مش ساعة أصلية ديال الماركة — لوك أنيق للاستعمال اليومي والهدية.",
+      "ساعة فاشن رجالية كرونوغراف من VORLAY — للاستعمال اليومي والهدية، بتجربة طلب واضحة والدفع عند الاستلام.",
     eyebrow: "VORLAY Watches · كرونوغراف رجالي · الدفع عند الاستلام",
     image: img("armani", "armani-01.jpg"),
     heroImageFit: "contain",
@@ -72,17 +72,17 @@ const products: Product[] = [
   },
   {
     id: "gshock",
-    slug: "casio-gshock",
-    nameAr: "ساعة Casio G-Shock",
-    nameEn: "VORLAY Casio G-Shock Style",
+    slug: "sport-watch",
+    nameAr: "ساعة VORLAY رياضية",
+    nameEn: "VORLAY Sport Watch",
     headline: "رياضية قوية — للرجال اللي كيبغيو يتحركو",
     subheading:
-      "ستايل G-Shock الكلاسيك: مقاومة، حضور كبير، وألوان كتشد العين. مثالية للخدمة والحركة اليومية.",
+      "ساعة رجالية بستايل رياضي: حضور كبير، مريحة للحركة اليومية، وألوان كتشد العين. مثالية للخدمة والسبور.",
     cardHeading: "ستايل رياضي يومي",
     cardSubheading: "للشباب، السبور، والاستعمال القاسي",
     bestFor: ["الرياضة", "الشباب", "الاستعمال اليومي"],
     benefits: [
-      "شكل رياضي معروف وكيتباع بزاف فالمغرب.",
+      "شكل رياضي قوي وكيبان واضح فالمعاصم.",
       "سوار مريح للاستعمال الطويل.",
       "ثمن مناسب باش تجرب البراند بلا مخاطرة.",
       "توصيل + الدفع عند الاستلام.",
@@ -93,13 +93,13 @@ const products: Product[] = [
       "كتقلب على ساعة يومية ما تتعبّكش فالثمن؟",
     ],
     painResponses: [
-      "ستايل G-Shock معروف بالقوة والحضور — مناسب للحركة اليومية.",
+      "الستايل الرياضي كيعطي قوة وحضور — مناسب للحركة اليومية.",
       "التصميم الكبير كيبان واضح فالإعلانات والمعاصم.",
       "ثمن دخول مريح مع نفس تجربة الطلب ديال VORLAY.",
     ],
     mechanism:
-      "ساعة فاشن بستايل Casio G-Shock الرياضي. مش بالضرورة موديل أصلي من Casio — ستايل مطلوب للرجال فالمغرب.",
-    eyebrow: "VORLAY Watches · ستايل G-Shock · الدفع عند الاستلام",
+      "ساعة فاشن رجالية بستايل رياضي من VORLAY — مطلوبة للرجال فالمغرب، مع الدفع عند الاستلام.",
+    eyebrow: "VORLAY Watches · ستايل رياضي · الدفع عند الاستلام",
     image: img("gshock", "gshock-01.jpg"),
     heroImageFit: "contain",
     carouselImageFit: "contain",
@@ -140,13 +140,13 @@ const products: Product[] = [
   },
   {
     id: "benyar",
-    slug: "benyar-chrono",
-    nameAr: "ساعة Benyar كرونوغراف",
-    nameEn: "VORLAY Benyar Chronograph",
+    slug: "chrono-pro",
+    nameAr: "ساعة VORLAY كرونوغراف Pro",
+    nameEn: "VORLAY Chronograph Pro",
     headline: "كرونوغراف رجالي بوزن وحضور",
     subheading:
-      "Benyar ستايل لوكس للرجال: كرونوغراف، معدن، ولوك كيبان أغلى من الثمن. خيار قوي للهدية.",
-    cardHeading: "لوك لوكس بثمن ذكي",
+      "كرونوغراف رجالي بحضور قوي: معدن، لوك كيبان أغلى من الثمن، وخيار واضح للهدية.",
+    cardHeading: "لوك قوي بثمن ذكي",
     cardSubheading: "للرجال اللي كيبغيو ساعة كتفرض وجودها",
     bestFor: ["الهدية", "الستايل الرسمي", "الطلعات المسائية"],
     benefits: [
@@ -158,7 +158,7 @@ const products: Product[] = [
     pains: [
       "الساعات الرخيصة كيبانو رخاص فالتصاور؟",
       "بغيت هدية رجالية ما تكونش تافهة؟",
-      "كتقلب على لوك لوكس بلا ما تدخل فثمن 1500 درهم؟",
+      "كتقلب على لوك قوي بلا ما تدخل فثمن 1500 درهم؟",
     ],
     painResponses: [
       "التصميم والكرونوغراف كيعطيو حضور قوي فالمعاصم والفيديوهات.",
@@ -166,8 +166,8 @@ const products: Product[] = [
       "ثمن متوسط بين Avito الرخيص ومواقع الـ 1500 درهم.",
     ],
     mechanism:
-      "ساعة فاشن رجالية من فئة Benyar الكرونوغراف. لوك تجاري مطلوب فالإعلانات، مع تجربة COD ديال VORLAY.",
-    eyebrow: "VORLAY Watches · Benyar Chrono · الدفع عند الاستلام",
+      "ساعة فاشن رجالية كرونوغراف من VORLAY — لوك تجاري مطلوب، مع تجربة COD واضحة.",
+    eyebrow: "VORLAY Watches · كرونوغراف Pro · الدفع عند الاستلام",
     image: img("benyar", "benyar-01.jpg"),
     heroImageFit: "contain",
     carouselImageFit: "contain",
@@ -199,7 +199,7 @@ const products: Product[] = [
         productId: "benyar",
         quantity: 2,
         title: "ساعتين",
-        subtitle: "هدية + واحدةاستعمال الشخصي",
+        subtitle: "هدية + الاستعمال الشخصي",
         badge: "أفضل قيمة",
         priceMad: 699,
         compareAtPriceMad: 758,
@@ -213,7 +213,7 @@ const upsellOffers: Offer[] = [
     id: "upsell-gshock",
     productId: "gshock",
     quantity: 1,
-    title: "زيد G-Shock",
+    title: "زيد الساعة الرياضية",
     subtitle: "عرض خاص غير الآن قبل تأكيد الطلب",
     badge: "خصم خاص",
     priceMad: 249,
@@ -224,7 +224,7 @@ const upsellOffers: Offer[] = [
     id: "upsell-armani",
     productId: "armani-chrono",
     quantity: 1,
-    title: "زيد Armani كرونوغراف",
+    title: "زيد الكرونوغراف الأنيق",
     subtitle: "عرض خاص غير الآن قبل تأكيد الطلب",
     badge: "خصم خاص",
     priceMad: 319,
