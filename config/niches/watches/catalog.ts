@@ -34,17 +34,17 @@ const products: Product[] = [
     mechanism:
       "ساعة فاشن رجالية كرونوغراف من VORLAY — للاستعمال اليومي والهدية، بتجربة طلب واضحة والدفع عند الاستلام.",
     eyebrow: "VORLAY Watches · كرونوغراف رجالي · الدفع عند الاستلام",
-    image: img("armani", "armani-01.jpg"),
+    image: img("armani", "armani-hero.jpg"),
     heroImageFit: "contain",
     carouselImageFit: "contain",
     images: [
-      img("armani", "armani-01.jpg"),
+      img("armani", "armani-hero.jpg"),
+      img("armani", "armani-blue-box.jpg"),
       img("armani", "armani-02.jpg"),
-      img("armani", "armani-03.jpg"),
       img("armani", "armani-04.jpg"),
     ],
-    afterPainImage: img("armani", "armani-03.jpg"),
-    storyImages: [img("armani", "armani-02.jpg"), img("armani", "armani-04.jpg")],
+    afterPainImage: img("armani", "armani-blue-box.jpg"),
+    storyImages: [img("armani", "armani-blue-box.jpg"), img("armani", "armani-04.jpg")],
     crossSellIds: ["gshock", "benyar"],
     offers: [
       {

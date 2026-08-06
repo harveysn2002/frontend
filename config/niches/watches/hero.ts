@@ -9,7 +9,7 @@ const chronoSlide: HomeHeroSlide = {
   headlineGold: "كتفرض وجودها",
   description:
     "كرونوغراف رجالي أنيق — مثالي للهدية وللطلعات. الدفع عند الاستلام فكل المغرب.",
-  image: "/images/hero/watches-hero.jpg",
+  image: "/images/products/watches/armani/armani-hero.jpg",
   imageAlt: "VORLAY Watches — ساعة كرونوغراف رجالية",
   priceMad: 349,
   compareAtPriceMad: 499,
