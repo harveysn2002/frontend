@@ -4,18 +4,18 @@
 
 :root {
   color-scheme: light;
-  /* Fallback = comfort (teal/ivory). Watches overrides via inline style on <html>. */
-  --brand-primary: #0f766e;
-  --brand-dark: #115e59;
-  --brand-soft: #ccfbf1;
-  --brand-gold: #c9a24a;
-  --brand-ivory: #fff7ed;
-  --brand-ink: #1f2933;
-  --brand-muted: #667085;
-  --page-bg: #fff7ed;
-  --page-glow: rgba(204, 251, 241, 0.55);
-  --selection: #ccfbf1;
-  --glass-border: rgba(15, 118, 110, 0.14);
+  /* Fallback = VORLAY brand (steel + champagne). Niche packs override via <html> inline style. */
+  --brand-primary: #1a2332;
+  --brand-dark: #0f1621;
+  --brand-soft: #e8eaed;
+  --brand-gold: #b8956c;
+  --brand-ivory: #f3f1ec;
+  --brand-ink: #121820;
+  --brand-muted: #6b7280;
+  --page-bg: #f3f1ec;
+  --page-glow: rgba(184, 149, 108, 0.22);
+  --selection: #e8eaed;
+  --glass-border: rgba(26, 35, 50, 0.12);
   background: var(--page-bg);
   color: var(--brand-ink);
 }

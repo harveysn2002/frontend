@@ -4,13 +4,12 @@
  * `comfort` = the original neck/back/joint support store.
  * `watches` = the VORLAY watches store.
  *
- * Set NEXT_PUBLIC_NICHE=comfort in EasyPanel (or .env) to bring the old
- * storefront back with zero code changes. Everything niche-specific
- * (catalog, hero, reviews, copy, colors) is keyed off this value.
+ * Set NEXT_PUBLIC_NICHE=watches for the watches storefront.
+ * Default is comfort (neck/back). Brand colors stay steel + champagne.
  */
 export type NicheId = "comfort" | "watches";
 
-const DEFAULT_NICHE: NicheId = "watches";
+const DEFAULT_NICHE: NicheId = "comfort";
 
 function resolveNiche(): NicheId {
   const raw = (process.env.NEXT_PUBLIC_NICHE || "").trim().toLowerCase();
