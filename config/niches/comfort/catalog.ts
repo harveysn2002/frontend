@@ -4,6 +4,83 @@ const staticProductImage = (file: string) => `/images/products/${file}`;
 
 const products: Product[] = [
   {
+    id: "seat",
+    slug: "maqad-julus",
+    nameAr: "مقعد الجلوس",
+    nameEn: "VORLAY Seat Cushion",
+    headline: "مقعد الجلوس اللي كيخفّف الضغط من التحت",
+    subheading:
+      "مقعد بشكل U للجلوس الطويل فالمكتب والسيارة. كيخفّف الضغط من التحت وكيعاونك تجلس مرتاح مدة أطول — باش تكمل نهارك بظهر هاني وراحة أكثر.",
+    cardHeading: "مقعد جلوس بشكل U",
+    cardSubheading: "للمكتب والسيارة — خفيف وسهل التنقل",
+    bestFor: ["الجلوس فالمكتب", "السياقة", "الجلسة الطويلة"],
+    benefits: [
+      "تصميم بفتحة من الورّا (U) كيخفّف الضغط من التحت.",
+      "خفيف وسهل تنقّلو بين المكتب والسيارة والدار.",
+      "كيتحط على أغلب الكراسي بسهولة.",
+      "كيعاونك تجلس مدة أطول براحة أكثر — بلا تعقيد.",
+    ],
+    pains: [
+      "كتعاني من وجع أسفل الظهر والضغط من التحت ملي كتطول جالس؟",
+      "كرسي المكتب أو السيارة كيحرقك بعد ساعتين؟",
+      "بغيت تكمّل نهارك بظهر هاني بلا ما توقف كل شوية؟",
+    ],
+    painResponses: [
+      "مقعد VORLAY بفتحة من الورّا كيخفّف الضغط من التحت وكيخلي الجلسة أهدى.",
+      "حطّو على كرسي المكتب أو السيارة — خفيف وسهل تنقّلو فين ما مشيتي.",
+      "كيعاونك تجلس مرتاح مدة أطول باش تكمل نهارك بظهر هاني وراحة أكثر. الدفع عند الاستلام.",
+    ],
+    mechanism:
+      "المقعد بتصميم U كيخفّف تركّز الضغط من التحت أثناء الجلوس الطويل، وكيوزّع الوزن باش الجلسة تكون أثبت وأهدى فالمكتب أو السيارة — بلا وعود علاجية.",
+    eyebrow: "VORLAY · مقعد جلوس للراحة اليومية · الدفع عند الاستلام",
+    image: staticProductImage("maqad-hero.png"),
+    heroImageFit: "contain",
+    carouselImageFit: "contain",
+    quantityUnit: "piece",
+    images: [
+      staticProductImage("maqad-hero.png"),
+    ],
+    detailImage: staticProductImage("maqad-hero.png"),
+    afterPainImage: staticProductImage("maqad-hero.png"),
+    storyImages: [
+      staticProductImage("maqad-hero.png"),
+    ],
+    crossSellIds: ["pillow", "belt"],
+    offers: [
+      {
+        id: "seat-1",
+        productId: "seat",
+        quantity: 1,
+        title: "قطعة واحدة",
+        subtitle: "جرّب راحة الجلوس مع VORLAY",
+        badge: "الأكثر اختياراً",
+        priceMad: 199,
+        compareAtPriceMad: 279,
+        recommended: true,
+      },
+      {
+        id: "seat-2",
+        productId: "seat",
+        quantity: 2,
+        title: "قطعتين",
+        subtitle: "واحدة للمكتب وواحدة للسيارة",
+        badge: "وفّر أكثر",
+        priceMad: 349,
+        compareAtPriceMad: 398,
+      },
+      {
+        id: "seat-3",
+        productId: "seat",
+        quantity: 3,
+        title: "ثلاث قطع",
+        subtitle: "أفضل قيمة للعائلة",
+        badge: "أفضل قيمة",
+        priceMad: 479,
+        compareAtPriceMad: 597,
+      },
+    ],
+  },
+  {
     id: "belt",
     slug: "hizam-dahr",
     nameAr: "حزام الظهر",
@@ -47,7 +124,7 @@ const products: Product[] = [
       staticProductImage("belt-daily-use-infographic.png"),
       staticProductImage("belt-lifestyle-infographic.png"),
     ],
-    crossSellIds: ["pillow", "bundle"],
+    crossSellIds: ["seat", "pillow"],
     offers: [
       {
         id: "belt-1",
@@ -134,7 +211,7 @@ const products: Product[] = [
       staticProductImage("wisada-ad-features-car.png"),
       staticProductImage("wisada-ad-car-man.png"),
     ],
-    crossSellIds: ["belt", "bundle"],
+    crossSellIds: ["seat", "belt"],
     offers: [
       {
         id: "pillow-1",
@@ -219,7 +296,7 @@ const products: Product[] = [
       staticProductImage("cervical-rebound.png"),
       staticProductImage("cervical-washable.png"),
     ],
-    crossSellIds: ["pillow", "belt"],
+    crossSellIds: ["seat", "pillow"],
     offers: [
       {
         id: "neck-pillow-1",
@@ -328,6 +405,17 @@ const products: Product[] = [
 ];
 
 const upsellOffers: Offer[] = [
+  {
+    id: "upsell-seat",
+    productId: "seat",
+    quantity: 1,
+    title: "زيد مقعد الجلوس",
+    subtitle: "عرض خاص غير الآن قبل تأكيد الطلب",
+    badge: "خصم خاص",
+    priceMad: 179,
+    compareAtPriceMad: 199,
+    upsellOnly: true,
+  },
   {
     id: "upsell-pillow",
     productId: "pillow",
