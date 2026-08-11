@@ -7,12 +7,15 @@ export function ProductTrustVideo({
   product,
   aspect = "portrait",
   compact = false,
+  showHeading = true,
 }: {
   src: string;
   poster?: string;
   product?: Product;
   aspect?: "portrait" | "landscape";
   compact?: boolean;
+  /** When false, skips the “شوف المنتج فالحقيقة” label (useful when stacking videos). */
+  showHeading?: boolean;
 }) {
   const frameClass =
     aspect === "landscape" ? "mx-auto w-full max-w-md sm:max-w-lg" : "mx-auto w-full max-w-[280px]";
@@ -37,14 +40,20 @@ export function ProductTrustVideo({
   );
 
   if (compact) {
-    return (
-      <div className="rounded-2xl bg-white/60 p-3 shadow-sm">
-        <p className="mb-2 text-center text-sm font-black text-brand-ink">
-          شوف المنتج فالحقيقة
-        </p>
+    const body = (
+      <>
+        {showHeading ? (
+          <p className="mb-2 text-center text-sm font-black text-brand-ink">
+            شوف المنتج فالحقيقة
+          </p>
+        ) : null}
         {video}
-      </div>
+      </>
     );
+
+    if (!showHeading) return body;
+
+    return <div className="rounded-2xl bg-white/60 p-3 shadow-sm">{body}</div>;
   }
 
   return (

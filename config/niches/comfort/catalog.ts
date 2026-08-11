@@ -56,6 +56,13 @@ const products: Product[] = [
     trustVideo: "/videos/maqad-real.mp4",
     trustVideoPoster: staticProductImage("maqad-poster.jpg"),
     trustVideoAspect: "landscape",
+    extraTrustVideos: [
+      {
+        src: "/videos/maqad-demo.mp4",
+        poster: staticProductImage("maqad-demo-poster.jpg"),
+        aspect: "portrait",
+      },
+    ],
     // Spread across the page (not only the top carousel)
     storyImages: [
       staticProductImage("maqad-features-car.jpg"),

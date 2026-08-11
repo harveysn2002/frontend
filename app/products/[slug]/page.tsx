@@ -102,13 +102,31 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="order-3 grid gap-3 sm:gap-4 lg:col-start-1 lg:row-start-2">
-          {product.trustVideo ? (
-            <ProductTrustVideo
-              src={product.trustVideo}
-              poster={product.trustVideoPoster}
-              aspect={product.trustVideoAspect}
-              compact
-            />
+          {product.trustVideo || (product.extraTrustVideos?.length ?? 0) > 0 ? (
+            <div className="grid gap-3 rounded-2xl bg-white/60 p-3 shadow-sm">
+              <p className="text-center text-sm font-black text-brand-ink">
+                شوف المنتج فالحقيقة
+              </p>
+              {product.trustVideo ? (
+                <ProductTrustVideo
+                  src={product.trustVideo}
+                  poster={product.trustVideoPoster}
+                  aspect={product.trustVideoAspect}
+                  compact
+                  showHeading={false}
+                />
+              ) : null}
+              {(product.extraTrustVideos ?? []).map((video) => (
+                <ProductTrustVideo
+                  key={video.src}
+                  src={video.src}
+                  poster={video.poster}
+                  aspect={video.aspect}
+                  compact
+                  showHeading={false}
+                />
+              ))}
+            </div>
           ) : null}
           {product.afterPainImage ? (
             <ProductStoryBanner

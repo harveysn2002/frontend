@@ -50,6 +50,12 @@ export type Product = {
   trustVideoPoster?: string;
   /** Video frame shape — portrait (Reels) or landscape product demos */
   trustVideoAspect?: "portrait" | "landscape";
+  /** Extra trust videos shown together with `trustVideo` (not replacing it) */
+  extraTrustVideos?: Array<{
+    src: string;
+    poster?: string;
+    aspect?: "portrait" | "landscape";
+  }>;
   /** Short persuasive line above the headline (gold pill) */
   eyebrow?: string;
   /** Promo graphics with text — use contain so badges/prices stay visible */
