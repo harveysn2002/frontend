@@ -110,7 +110,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               compact
             />
           ) : null}
-          <ProductPainCards pains={product.pains} painResponses={product.painResponses} />
           {product.afterPainImage ? (
             <ProductStoryBanner
               src={product.afterPainImage}
@@ -119,6 +118,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               contained={false}
             />
           ) : null}
+          <ProductPainCards pains={product.pains} painResponses={product.painResponses} />
         </div>
       </section>
 
