@@ -23,6 +23,36 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
+function storyAlt(index: number, nameAr: string) {
+  const alts = nicheCopy.storyAlts;
+  const ordered = [alts.first, alts.second, alts.third, alts.fourth];
+  const suffix = ordered[index] ?? `صورة ${index + 1}`;
+  return `${nameAr} — ${suffix}`;
+}
+
+function StoryList({
+  images,
+  startIndex,
+  product,
+}: {
+  images: string[];
+  startIndex: number;
+  product: NonNullable<ReturnType<typeof getProductBySlug>>;
+}) {
+  return (
+    <>
+      {images.map((src, i) => (
+        <ProductStoryBanner
+          key={src}
+          src={src}
+          alt={storyAlt(startIndex + i, product.nameAr)}
+          product={product}
+        />
+      ))}
+    </>
+  );
+}
+
 export default function ProductPage({ params }: { params: { slug: string } }) {
   const product = getProductBySlug(params.slug);
   if (!product) notFound();
@@ -47,6 +77,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   const keyBenefits = product.benefits.slice(0, 4);
   const reviews = getProductReviews(product.id);
   const storyAlts = nicheCopy.storyAlts;
+
+  // Spread every story image across the page (not capped at 2–3).
+  const chunk = Math.max(1, Math.ceil(story.length / 4));
+  const s1 = story.slice(0, chunk);
+  const s2 = story.slice(chunk, chunk * 2);
+  const s3 = story.slice(chunk * 2, chunk * 3);
+  const s4 = story.slice(chunk * 3);
 
   return (
     <div className="pb-24 md:pb-0">
@@ -85,13 +122,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {story[0] ? (
-        <ProductStoryBanner
-          src={story[0]}
-          alt={`${product.nameAr} — ${storyAlts.first}`}
-          product={product}
-        />
-      ) : null}
+      <StoryList images={s1} startIndex={0} product={product} />
 
       <section className="container py-6 sm:py-8">
         <h2 className="text-2xl font-black sm:text-3xl">{nicheCopy.mechanismHeading}</h2>
@@ -107,31 +138,11 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </ul>
       </section>
 
-      {story[1] ? (
-        <ProductStoryBanner
-          src={story[1]}
-          alt={`${product.nameAr} — ${storyAlts.second}`}
-          product={product}
-        />
-      ) : null}
-
-      {story[2] ? (
-        <ProductStoryBanner
-          src={story[2]}
-          alt={`${product.nameAr} — ${storyAlts.third}`}
-          product={product}
-        />
-      ) : null}
+      <StoryList images={s2} startIndex={s1.length} product={product} />
 
       {reviews ? <ProductReviews summary={reviews} /> : null}
 
-      {story[3] ? (
-        <ProductStoryBanner
-          src={story[3]}
-          alt={`${product.nameAr} — ${storyAlts.fourth}`}
-          product={product}
-        />
-      ) : null}
+      <StoryList images={s3} startIndex={s1.length + s2.length} product={product} />
 
       {crossSells.length > 0 ? (
         <section className="container py-8 sm:py-10">
@@ -141,6 +152,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           </div>
         </section>
       ) : null}
+
+      <StoryList
+        images={s4}
+        startIndex={s1.length + s2.length + s3.length}
+        product={product}
+      />
 
       <section className="container pb-16 sm:pb-20">
         <div className="rounded-2xl bg-white p-5 shadow-soft sm:rounded-3xl sm:p-6">
