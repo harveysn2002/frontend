@@ -39,11 +39,19 @@ const products: Product[] = [
     quantityUnit: "piece",
     images: [
       staticProductImage("maqad-hero.png"),
+      staticProductImage("maqad-1.jpg"),
+      staticProductImage("maqad-2.jpg"),
+      staticProductImage("maqad-car.jpg"),
+      staticProductImage("maqad-car-seat.jpg"),
     ],
-    detailImage: staticProductImage("maqad-hero.png"),
-    afterPainImage: staticProductImage("maqad-hero.png"),
+    detailImage: staticProductImage("maqad-1.jpg"),
+    afterPainImage: staticProductImage("maqad-2.jpg"),
+    trustVideo: "/videos/maqad-real.mp4",
+    trustVideoPoster: staticProductImage("maqad-poster.jpg"),
+    trustVideoAspect: "landscape",
     storyImages: [
-      staticProductImage("maqad-hero.png"),
+      staticProductImage("maqad-car.jpg"),
+      staticProductImage("maqad-car-seat.jpg"),
     ],
     crossSellIds: ["pillow", "belt"],
     offers: [
