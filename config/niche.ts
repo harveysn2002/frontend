@@ -5,7 +5,7 @@
  * `watches` = the VORLAY watches store.
  *
  * Set NEXT_PUBLIC_NICHE=watches for the watches storefront.
- * Default is comfort (neck/back). Brand colors stay steel + champagne.
+ * Default is comfort (neck/back) with teal/ivory colors; watches uses steel + champagne.
  */
 export type NicheId = "comfort" | "watches";
 

@@ -1,8 +1,8 @@
 import { byNiche } from "@/config/niche";
 
 /**
- * Visual tokens. Both niches share the current VORLAY brand palette
- * (charcoal steel + champagne gold). Teal comfort colors are retired.
+ * Visual tokens per niche. Comfort = original teal/ivory store.
+ * Watches = charcoal steel + champagne boutique.
  * Applied as CSS variables on <html data-niche="...">.
  */
 export type NicheTheme = {
@@ -19,8 +19,23 @@ export type NicheTheme = {
   glassBorder: string;
 };
 
-/** Shared brand look: charcoal steel + champagne */
-export const brandTheme: NicheTheme = {
+/** Original comfort look: teal + warm ivory */
+export const comfortTheme: NicheTheme = {
+  primary: "#0F766E",
+  dark: "#115E59",
+  soft: "#CCFBF1",
+  gold: "#C9A24A",
+  ivory: "#FFF7ED",
+  ink: "#1F2933",
+  muted: "#667085",
+  pageBg: "#fff7ed",
+  pageGlow: "rgba(204, 251, 241, 0.55)",
+  selection: "#ccfbf1",
+  glassBorder: "rgba(15, 118, 110, 0.14)",
+};
+
+/** Charcoal steel + champagne — watches boutique */
+export const watchesTheme: NicheTheme = {
   primary: "#1A2332",
   dark: "#0F1621",
   soft: "#E8EAED",
@@ -33,9 +48,6 @@ export const brandTheme: NicheTheme = {
   selection: "#e8eaed",
   glassBorder: "rgba(26, 35, 50, 0.12)",
 };
-
-export const comfortTheme: NicheTheme = brandTheme;
-export const watchesTheme: NicheTheme = brandTheme;
 
 export const activeTheme: NicheTheme = byNiche({
   comfort: comfortTheme,
