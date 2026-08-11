@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageBuyNowCta } from "@/components/product/image-buy-now-cta";
@@ -25,6 +25,15 @@ export function ProductImageCarousel({
   function go(step: number) {
     setIndex((current) => (current + step + images.length) % images.length);
   }
+
+  // Auto-advance the top slider; pause while user is touching/swiping.
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const id = window.setInterval(() => {
+      setIndex((current) => (current + 1) % images.length);
+    }, 3500);
+    return () => window.clearInterval(id);
+  }, [images.length]);
 
   if (images.length === 0) return null;
 
@@ -92,27 +101,6 @@ export function ProductImageCarousel({
           </>
         ) : null}
       </div>
-
-      {images.length > 1 ? (
-        <div className="grid grid-cols-4 gap-2 sm:gap-3">
-          {images.map((image, thumbIndex) => (
-            <button
-              key={image}
-              type="button"
-              aria-label={`عرض صورة ${thumbIndex + 1}`}
-              onClick={() => setIndex(thumbIndex)}
-              className={cn(
-                "relative aspect-[4/3] overflow-hidden rounded-xl border-2 bg-white transition sm:rounded-2xl",
-                thumbIndex === index
-                  ? "border-brand-primary ring-2 ring-brand-soft sm:ring-4"
-                  : "border-transparent opacity-80 hover:opacity-100",
-              )}
-            >
-              <Image src={image} alt="" fill quality={85} sizes="120px" className="object-contain p-0.5" />
-            </button>
-          ))}
-        </div>
-      ) : null}
 
       {product ? <ImageBuyNowCta product={product} className="pt-1" /> : null}
     </div>
