@@ -20,7 +20,7 @@ export const painAnswer =
 
 export const trustTickerItems: Array<{ label: string; subtitle: string; icon: LucideIcon }> = [
   { label: "الدفع عند الاستلام", subtitle: "بدون دفع أونلاين", icon: ShieldCheck },
-  { label: "توصيل 2‑5 أيام", subtitle: "لجميع مدن المغرب", icon: Truck },
+  { label: "توصيل سريع", subtitle: "لجميع مدن المغرب", icon: Truck },
   { label: "30 يوم ضمان الاسترجاع", subtitle: "استرجاع كامل", icon: RefreshCw },
   { label: "تأكيد بالهاتف", subtitle: "قبل كل إرسال", icon: PhoneCall },
 ];
@@ -170,7 +170,7 @@ export const productFaqs: Array<{ q: string; a: string }> = [
   },
   {
     q: "شحال كياخد التوصيل؟",
-    a: "عادة 2–5 أيام عمل حسب المدينة — كنأكدو المدة ملي نتاصلو بيك.",
+    a: "توصيل سريع لجميع مدن المغرب — كنأكدو التفاصيل ملي نتاصلو بيك.",
   },
   {
     q: "واش نقدر نشوف المنتج قبل ما نخلص؟",
