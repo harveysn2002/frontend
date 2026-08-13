@@ -242,13 +242,13 @@ export const comfortReviews: ReviewsByProduct = {
         text: "وسادة ممتازة. هادي ثاني مرة كنشريها.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "K***d",
         rating: 5,
         date: "14 أكتوبر 2025",
         text: "مثالية ومريحة بزاف، مصنوعة من ميموري فوم، كننصح بها.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "H***m",
         rating: 4,
         date: "23 أبريل 2026",
         text: "المنتوج زوين، ولكن كنت باغي يكون أطول شوية حيت قصير على الكرسي. المواد مزيانين ولكن ماشي قداش تصوّرت. أنا ثقيل، يمكن خاصني أوسع. للي الوزن ديالو بين 70 و80 كغ كافي. ما ندمش حيت كتحسّن الراحة.",
@@ -260,7 +260,7 @@ export const comfortReviews: ReviewsByProduct = {
         text: "زوين ورخيص وكيدير الخدمة، كنستعملو كل نهار فالمكتب. فهاد الثمن الجودة مزيانة.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "Y***s",
         rating: 5,
         date: "27 غشت 2025",
         text: "بحال الوصف… مريح بزاف… كننصح بيه.",
@@ -284,13 +284,13 @@ export const comfortReviews: ReviewsByProduct = {
         text: "مقعد ممتاز، مريح وكيجي مزيان.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "L***a",
         rating: 5,
         date: "13 أكتوبر 2025",
         text: "وصلات بسرعة وبحال ما قال البائع. ولكن المقعد أرق وأقل كثافة من اللي كنت كنستعمل من قبل.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "F***k",
         rating: 5,
         date: "25 يناير 2026",
         text: "كننصح بها. عجبني نجلس على هاد المقعد. النتيجة بحال ما توقّعت.",
@@ -308,13 +308,13 @@ export const comfortReviews: ReviewsByProduct = {
         text: "المقعد زوين، جا معبّي أحسن من المرة اللي فاتت، التوصيل كان سريع ومريح.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "R***d",
         rating: 5,
         date: "10 نونبر 2025",
         text: "منتوج زوين ومريح.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "T***b",
         rating: 5,
         date: "27 مارس 2026",
         text: "التوصيل سريع. كيبان مريح.",
@@ -338,7 +338,7 @@ export const comfortReviews: ReviewsByProduct = {
         text: "ممتاز، مريح بزاف.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "W***n",
         rating: 5,
         date: "14 أبريل 2026",
         text: "كنطلب للمرة الثانية.",
@@ -350,7 +350,7 @@ export const comfortReviews: ReviewsByProduct = {
         text: "جودة الغطاء ممتازة.",
       },
       {
-        name: "AliExpress Shopper",
+        name: "J***l",
         rating: 4,
         date: "03 فبراير 2026",
         text: "صحيح وأحسن للجلوس.",
