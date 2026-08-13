@@ -13,8 +13,6 @@ export type ProductReview = {
   text?: string;
   /** "Helpful" count from the source, when present */
   helpful?: number;
-  /** Customer photos from the original review (black product only) */
-  images?: string[];
 };
 
 export type ProductReviewSummary = {

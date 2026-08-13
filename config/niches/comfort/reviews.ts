@@ -252,7 +252,6 @@ export const comfortReviews: ReviewsByProduct = {
         rating: 4,
         date: "23 أبريل 2026",
         text: "المنتوج زوين، ولكن كنت باغي يكون أطول شوية حيت قصير على الكرسي. المواد مزيانين ولكن ماشي قداش تصوّرت. أنا ثقيل، يمكن خاصني أوسع. للي الوزن ديالو بين 70 و80 كغ كافي. ما ندمش حيت كتحسّن الراحة.",
-        images: ["/images/reviews/seat/r-apr-1.jpg", "/images/reviews/seat/r-apr-2.jpg"],
       },
       {
         name: "n***n",
@@ -313,14 +312,12 @@ export const comfortReviews: ReviewsByProduct = {
         rating: 5,
         date: "10 نونبر 2025",
         text: "منتوج زوين ومريح.",
-        images: ["/images/reviews/seat/r-nov-chair.jpg"],
       },
       {
         name: "AliExpress Shopper",
         rating: 5,
         date: "27 مارس 2026",
         text: "التوصيل سريع. كيبان مريح.",
-        images: ["/images/reviews/seat/r-mar-bag.jpg"],
       },
       {
         name: "A***o",
@@ -339,7 +336,6 @@ export const comfortReviews: ReviewsByProduct = {
         rating: 5,
         date: "08 أكتوبر 2025",
         text: "ممتاز، مريح بزاف.",
-        images: ["/images/reviews/seat/r-mn.jpg"],
       },
       {
         name: "AliExpress Shopper",
@@ -352,7 +348,6 @@ export const comfortReviews: ReviewsByProduct = {
         rating: 4,
         date: "06 فبراير 2026",
         text: "جودة الغطاء ممتازة.",
-        images: ["/images/reviews/seat/r-pack.jpg"],
       },
       {
         name: "AliExpress Shopper",
