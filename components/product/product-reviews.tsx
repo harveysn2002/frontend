@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Star, ThumbsUp, BadgeCheck } from "lucide-react";
 import type { ProductReview, ProductReviewSummary } from "@/config/reviews";
 
@@ -65,6 +66,24 @@ function ReviewRow({ review }: { review: ProductReview }) {
         </div>
         {review.text ? (
           <p className="mt-2 text-sm leading-7 text-brand-ink/90">{review.text}</p>
+        ) : null}
+        {review.images && review.images.length > 0 ? (
+          <div className="mt-3 flex flex-wrap gap-2">
+            {review.images.map((src) => (
+              <div
+                key={src}
+                className="relative h-20 w-20 overflow-hidden rounded-xl bg-brand-ivory sm:h-24 sm:w-24"
+              >
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  sizes="96px"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
         ) : null}
         {review.helpful ? (
           <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-brand-muted">
