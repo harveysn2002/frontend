@@ -85,7 +85,7 @@ const products: Product[] = [
         title: "قطعتين",
         subtitle: "للركبتين معاً — وفّر أكثر",
         badge: "وفّر أكثر",
-        priceMad: 419,
+        priceMad: 399,
         compareAtPriceMad: 478,
       },
     ],
