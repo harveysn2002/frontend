@@ -129,7 +129,7 @@ const products: Product[] = [
       staticProductImage("maqad-before-after-ar.jpg"),
       staticProductImage("maqad-features-ar.jpg"),
       staticProductImage("maqad-hero.jpg"),
-      staticProductImage("maqad-car-rear.jpg"),
+      staticProductImage("maqad-features-car.jpg"),
       staticProductImage("maqad-office.jpg"),
       staticProductImage("maqad-desk.jpg"),
       staticProductImage("maqad-foam.jpg"),
@@ -153,7 +153,7 @@ const products: Product[] = [
     // Spread across the page (not only the top carousel)
     storyImages: [
       staticProductImage("maqad-features-ar.jpg"),
-      staticProductImage("maqad-car-rear.jpg"),
+      staticProductImage("maqad-features-car.jpg"),
       staticProductImage("maqad-office.jpg"),
       staticProductImage("maqad-foam.jpg"),
       staticProductImage("maqad-wash.jpg"),
