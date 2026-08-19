@@ -136,7 +136,6 @@ const products: Product[] = [
       staticProductImage("maqad-wash.jpg"),
       staticProductImage("maqad-mesh.jpg"),
       staticProductImage("maqad-1.jpg"),
-      staticProductImage("maqad-2.jpg"),
     ],
     detailImage: staticProductImage("maqad-foam.jpg"),
     afterPainImage: staticProductImage("maqad-before-after-ar.jpg"),
@@ -160,7 +159,6 @@ const products: Product[] = [
       staticProductImage("maqad-mesh.jpg"),
       staticProductImage("maqad-desk.jpg"),
       staticProductImage("maqad-1.jpg"),
-      staticProductImage("maqad-2.jpg"),
     ],
     crossSellIds: ["pillow", "belt"],
     offers: [
