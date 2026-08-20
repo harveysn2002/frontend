@@ -36,15 +36,15 @@ const products: Product[] = [
     mechanism:
       "الصفيحتان المعدنيتان القابلتان للطي على الجانبين كتوزّع الحمل على محيط الركبة وكتمنع الحركات الجانبية الخاطئة. وسادة EVA حول الرضفة كتمتص الصدمات بشكل مباشر. الأحزمة المرنة كتوزّع الضغط باش ما يكونش ثقيل في نقطة واحدة — بلا وعود علاجية.",
     eyebrow: "VORLAY · دعامة معدنية للركبة · الدفع عند الاستلام",
-    image: staticProductImage("knee-hero.png"),
+    image: staticProductImage("knee-before-after.png"),
     heroImageFit: "contain",
     carouselImageFit: "contain",
     quantityUnit: "piece",
     images: [
-      staticProductImage("knee-hero.png"),
       staticProductImage("knee-before-after.png"),
-      staticProductImage("knee-features-numbered.png"),
       staticProductImage("knee-infographic.png"),
+      staticProductImage("knee-hero.png"),
+      staticProductImage("knee-features-numbered.png"),
       staticProductImage("knee-hinges-story.png"),
       staticProductImage("knee-buckle-story.png"),
       staticProductImage("knee-features-ar.png"),
@@ -54,8 +54,8 @@ const products: Product[] = [
     ],
     afterPainImage: staticProductImage("knee-before-after.png"),
     storyImages: [
-      staticProductImage("knee-hinges-story.png"),
       staticProductImage("knee-infographic.png"),
+      staticProductImage("knee-hinges-story.png"),
       staticProductImage("knee-buckle-story.png"),
       staticProductImage("knee-features-ar.png"),
       staticProductImage("knee-how-to-wear.png"),
