@@ -42,7 +42,6 @@ const products: Product[] = [
     quantityUnit: "piece",
     images: [
       staticProductImage("knee-hero.png"),
-      staticProductImage("knee-lifestyle.png"),
       staticProductImage("knee-features-numbered.png"),
       staticProductImage("knee-infographic.png"),
       staticProductImage("knee-hinges-story.png"),
@@ -51,11 +50,9 @@ const products: Product[] = [
       staticProductImage("knee-flat-back.png"),
       staticProductImage("knee-how-to-wear.png"),
       staticProductImage("knee-dims.png"),
-      staticProductImage("knee-weight.png"),
     ],
     afterPainImage: staticProductImage("knee-features-numbered.png"),
     storyImages: [
-      staticProductImage("knee-lifestyle.png"),
       staticProductImage("knee-hinges-story.png"),
       staticProductImage("knee-infographic.png"),
       staticProductImage("knee-buckle-story.png"),
@@ -63,7 +60,6 @@ const products: Product[] = [
       staticProductImage("knee-how-to-wear.png"),
       staticProductImage("knee-flat-back.png"),
       staticProductImage("knee-dims.png"),
-      staticProductImage("knee-weight.png"),
     ],
     crossSellIds: ["belt", "seat"],
     offers: [
