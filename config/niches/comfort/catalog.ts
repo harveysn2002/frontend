@@ -42,6 +42,7 @@ const products: Product[] = [
     quantityUnit: "piece",
     images: [
       staticProductImage("knee-hero.png"),
+      staticProductImage("knee-before-after.png"),
       staticProductImage("knee-features-numbered.png"),
       staticProductImage("knee-infographic.png"),
       staticProductImage("knee-hinges-story.png"),
@@ -51,7 +52,7 @@ const products: Product[] = [
       staticProductImage("knee-how-to-wear.png"),
       staticProductImage("knee-dims.png"),
     ],
-    afterPainImage: staticProductImage("knee-features-numbered.png"),
+    afterPainImage: staticProductImage("knee-before-after.png"),
     storyImages: [
       staticProductImage("knee-hinges-story.png"),
       staticProductImage("knee-infographic.png"),
