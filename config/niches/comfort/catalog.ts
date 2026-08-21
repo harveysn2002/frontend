@@ -166,8 +166,8 @@ const products: Product[] = [
         title: "قطعة واحدة",
         subtitle: "جرّب راحة الجلوس مع VORLAY",
         badge: "الأكثر اختياراً",
-        priceMad: 199,
-        compareAtPriceMad: 279,
+        priceMad: 229,
+        compareAtPriceMad: 299,
         recommended: true,
       },
       {
@@ -525,7 +525,7 @@ const upsellOffers: Offer[] = [
     subtitle: "عرض خاص غير الآن قبل تأكيد الطلب",
     badge: "خصم خاص",
     priceMad: 179,
-    compareAtPriceMad: 199,
+    compareAtPriceMad: 229,
     upsellOnly: true,
   },
   {
