@@ -9,9 +9,9 @@ const products: Product[] = [
     slug: "daamat-rukba",
     nameAr: "دعامة الركبة المعززة",
     nameEn: "VORLAY Hinged Knee Brace",
-    headline: "ركبتك كتوجعك؟ — دعامة معدنية كتعطيها ثبات حقيقي",
+    headline: "ركبتك كتوجعك؟ ثبات معدني حقيقي",
     subheading:
-      "دعامة الركبة VORLAY بصفيحتين معدنيتين قابلتين للطي على الجانبين، وسادة EVA سميكة تحيط بالرضفة، وأحزمة فيلكرو قابلة للتعديل. مناسبة للمشي، الرياضة، والتعافي بعد الإجهاد — الدفع عند الاستلام.",
+      "صفيحتان ألومنيوم قابلتان للطي + وسادة EVA. للمشي، الرياضة، والتعافي — الدفع عند الاستلام والتوصيل على حسابنا.",
     cardHeading: "دعامة ركبة بدعم معدني مزدوج",
     cardSubheading: "صفيحتان ألومنيوم قابلتان للطي — لكل الأنشطة اليومية",
     bestFor: ["وجع الركبة", "الرياضة والمشي", "التعافي من الإجهاد"],
@@ -35,11 +35,13 @@ const products: Product[] = [
     ],
     mechanism:
       "الصفيحتان المعدنيتان القابلتان للطي على الجانبين كتوزّع الحمل على محيط الركبة وكتمنع الحركات الجانبية الخاطئة. وسادة EVA حول الرضفة كتمتص الصدمات بشكل مباشر. الأحزمة المرنة كتوزّع الضغط باش ما يكونش ثقيل في نقطة واحدة — بلا وعود علاجية.",
-    eyebrow: "VORLAY · دعامة معدنية للركبة · الدفع عند الاستلام",
+    eyebrow: "VORLAY · دعامة معدنية · الدفع عند الاستلام",
     image: staticProductImage("knee-before-after.png"),
     heroImageFit: "contain",
     carouselImageFit: "contain",
     quantityUnit: "piece",
+    buyersCount: 220,
+    hideOfferCountdown: true,
     images: [
       staticProductImage("knee-before-after.png"),
       staticProductImage("knee-infographic.png"),

@@ -63,6 +63,10 @@ export type Product = {
   /** Gallery fit — defaults to `heroImageFit` when omitted */
   carouselImageFit?: "cover" | "contain";
   quantityUnit?: QuantityUnit;
+  /** Soft social proof near the buy box, e.g. 220 → "+220 مشتري" */
+  buyersCount?: number;
+  /** Hide the urgency countdown on this product page */
+  hideOfferCountdown?: boolean;
   offers: Offer[];
   crossSellIds: ProductId[];
   /** Set false to hide from storefront until back in stock */

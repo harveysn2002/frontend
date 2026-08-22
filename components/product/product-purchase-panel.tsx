@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { RefreshCw, Star } from "lucide-react";
+import { RefreshCw, Star, Users } from "lucide-react";
 import { OfferCountdown } from "@/components/product/offer-countdown";
 import { OfferSelector } from "@/components/product/offer-selector";
 import { ProductTrustBadges } from "@/components/product/product-trust-badges";
@@ -34,8 +34,13 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
   const unit = product.quantityUnit ?? "piece";
   const { addToCart, buyNow } = useProductPurchase(product);
   const priceLabel = formatMad(selectedOffer.priceMad);
+  const compareLabel =
+    selectedOffer.compareAtPriceMad > selectedOffer.priceMad
+      ? formatMad(selectedOffer.compareAtPriceMad)
+      : null;
   const reviews = getProductReviews(product.id);
   const viewedProductId = useRef<string | null>(null);
+  const buyersCount = product.buyersCount;
 
   const scrollToReviews = () => {
     document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -73,7 +78,36 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
     <>
       <div id="order" ref={panelRef} className="glass-card scroll-mt-28 rounded-[1.5rem] p-4 sm:rounded-[1.75rem] sm:p-5 md:p-6">
         <RatingStars />
-        {reviews ? (
+
+        {buyersCount ? (
+          <div className="mt-3 flex items-center justify-between gap-3 rounded-2xl border border-brand-primary/15 bg-brand-soft/80 px-3.5 py-2.5">
+            <span className="inline-flex items-center gap-2 text-sm font-black text-brand-ink">
+              <Users className="h-4 w-4 text-brand-primary" aria-hidden />
+              +{buyersCount} مشتري
+            </span>
+            {reviews ? (
+              <button
+                type="button"
+                onClick={scrollToReviews}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-primary underline-offset-2 hover:underline"
+              >
+                <span className="inline-flex items-center gap-0.5" aria-hidden>
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star
+                      key={i}
+                      className={`h-3.5 w-3.5 ${
+                        i <= Math.round(reviews.average)
+                          ? "fill-amber-400 text-amber-400"
+                          : "fill-none text-brand-primary/20"
+                      }`}
+                    />
+                  ))}
+                </span>
+                {reviews.average.toFixed(1)} · شوف الآراء
+              </button>
+            ) : null}
+          </div>
+        ) : reviews ? (
           <button
             type="button"
             onClick={scrollToReviews}
@@ -101,13 +135,16 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
             </span>
           </button>
         ) : null}
-        <p className="mt-2 inline-flex rounded-full bg-brand-gold/15 px-2.5 py-0.5 text-[10px] font-black text-brand-ink sm:text-xs">
+
+        <p className="mt-3 inline-flex rounded-full bg-brand-gold/15 px-2.5 py-0.5 text-[10px] font-black text-brand-ink sm:text-xs">
           {product.eyebrow ?? nicheCopy.defaultEyebrow}
         </p>
-        <h1 className="mt-3 text-xl font-black leading-tight text-brand-ink sm:text-2xl md:text-3xl">
+        <h1 className="mt-2 text-xl font-black leading-tight text-brand-ink sm:text-2xl md:text-[1.7rem]">
           {product.headline}
         </h1>
-        <p className="mt-2 text-[13px] leading-6 text-brand-muted sm:text-sm sm:leading-7">{product.subheading}</p>
+        <p className="mt-2 text-[13px] leading-6 text-brand-muted sm:text-sm sm:leading-7">
+          {product.subheading}
+        </p>
 
         <div className="mt-3 flex flex-wrap gap-1.5">
           {product.bestFor.map((tag) => (
@@ -120,9 +157,9 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           ))}
         </div>
 
-        <OfferCountdown />
+        {!product.hideOfferCountdown ? <OfferCountdown /> : null}
 
-        <p className="mt-5 text-sm font-black text-brand-ink">اختار العرض:</p>
+        <p className="mt-4 text-sm font-black text-brand-ink">اختار العرض:</p>
         <div className="mt-2">
           <OfferSelector
             offers={product.offers}
@@ -133,21 +170,34 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           />
         </div>
 
-        <button type="button" onClick={() => buyNow(selectedOffer)} className={`mt-4 ${buyButtonClass}`}>
+        <div className="mt-3 rounded-2xl border border-brand-primary/10 bg-white px-3.5 py-3 text-center">
+          <p className="text-[11px] font-bold text-brand-muted">الثمن الحالي</p>
+          <p className="mt-0.5 flex items-baseline justify-center gap-2">
+            <span className="text-2xl font-black text-brand-ink sm:text-3xl">{priceLabel}</span>
+            {compareLabel ? (
+              <span className="text-sm font-bold text-brand-muted line-through">{compareLabel}</span>
+            ) : null}
+          </p>
+          <p className="mt-1 text-[11px] font-semibold text-brand-primary">
+            التوصيل على حسابنا · الدفع عند الاستلام
+          </p>
+        </div>
+
+        <button type="button" onClick={() => buyNow(selectedOffer)} className={`mt-3 ${buyButtonClass}`}>
           <span>اطلب دابا</span>
           <span className="opacity-60">·</span>
           <span>{priceLabel}</span>
         </button>
 
-        <RefundGuaranteeNote />
-
-        <p className="mt-2 text-center text-[11px] font-semibold text-brand-muted sm:text-xs">
-          الدفع عند الاستلام · بدون دفع أونلاين
-        </p>
-
         <div className="mt-3">
           <ProductTrustBadges compact />
         </div>
+
+        <RefundGuaranteeNote />
+
+        <p className="mt-2 text-center text-[11px] font-semibold text-brand-muted sm:text-xs">
+          الدفع عند الاستلام · بدون دفع أونلاين · تأكيد بالهاتف
+        </p>
 
         <button
           type="button"
@@ -161,6 +211,11 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
       {showSticky ? (
         <div className="fixed inset-x-0 bottom-0 z-50 border-t border-brand-primary/10 bg-white/95 p-3 shadow-[0_-12px_40px_rgba(31,41,51,0.12)] backdrop-blur-xl">
           <div className="container">
+            {buyersCount ? (
+              <p className="mb-2 text-center text-[11px] font-bold text-brand-muted">
+                +{buyersCount} مشتري · الدفع عند الاستلام
+              </p>
+            ) : null}
             <button type="button" onClick={() => buyNow(selectedOffer)} className={buyButtonClass}>
               <span>اطلب دابا</span>
               <span className="opacity-60">·</span>
