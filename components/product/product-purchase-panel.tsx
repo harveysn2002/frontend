@@ -10,6 +10,8 @@ import type { Offer, Product } from "@/config/products";
 import { nicheCopy } from "@/config/niche-copy";
 import { getProductReviews } from "@/config/reviews";
 import { formatMad } from "@/lib/currency";
+import { createEventId } from "@/lib/events";
+import { trackViewContent } from "@/lib/tracking";
 import { useProductPurchase } from "@/hooks/use-product-purchase";
 
 const buyButtonClass =
@@ -33,10 +35,26 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
   const { addToCart, buyNow } = useProductPurchase(product);
   const priceLabel = formatMad(selectedOffer.priceMad);
   const reviews = getProductReviews(product.id);
+  const viewedProductId = useRef<string | null>(null);
 
   const scrollToReviews = () => {
     document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  useEffect(() => {
+    if (viewedProductId.current === product.id) return;
+    viewedProductId.current = product.id;
+    const offer = product.offers.find((o) => o.recommended) || product.offers[0];
+    trackViewContent({
+      eventId: createEventId("view"),
+      value: offer?.priceMad,
+      currency: "MAD",
+      product,
+      contents: offer
+        ? [{ id: product.id, quantity: offer.quantity, item_price: Math.round(offer.priceMad / offer.quantity) }]
+        : undefined,
+    });
+  }, [product]);
 
   useEffect(() => {
     const node = panelRef.current;
