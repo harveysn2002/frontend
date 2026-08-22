@@ -50,17 +50,12 @@ const products: Product[] = [
       staticProductImage("knee-hinges-story.png"),
       staticProductImage("knee-buckle-story.png"),
       staticProductImage("knee-features-ar.png"),
-      staticProductImage("knee-flat-back.png"),
-      staticProductImage("knee-dims.png"),
     ],
     afterPainImage: staticProductImage("knee-before-after.png"),
     storyImages: [
       staticProductImage("knee-infographic.png"),
       staticProductImage("knee-hinges-story.png"),
-      staticProductImage("knee-buckle-story.png"),
       staticProductImage("knee-features-ar.png"),
-      staticProductImage("knee-flat-back.png"),
-      staticProductImage("knee-dims.png"),
     ],
     crossSellIds: ["belt", "seat"],
     offers: [
