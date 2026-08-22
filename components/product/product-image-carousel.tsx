@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageBuyNowCta } from "@/components/product/image-buy-now-cta";
@@ -25,15 +25,6 @@ export function ProductImageCarousel({
   function go(step: number) {
     setIndex((current) => (current + step + images.length) % images.length);
   }
-
-  // Auto-advance the top slider; pause while user is touching/swiping.
-  useEffect(() => {
-    if (images.length <= 1) return;
-    const id = window.setInterval(() => {
-      setIndex((current) => (current + 1) % images.length);
-    }, 3500);
-    return () => window.clearInterval(id);
-  }, [images.length]);
 
   if (images.length === 0) return null;
 
