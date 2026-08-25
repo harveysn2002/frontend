@@ -129,17 +129,15 @@ const products: Product[] = [
       staticProductImage("maqad-hero.jpg"),
       staticProductImage("maqad-features-car.jpg"),
       staticProductImage("maqad-office.jpg"),
-      staticProductImage("maqad-desk.jpg"),
+      staticProductImage("maqad-car-seat.jpg"),
       staticProductImage("maqad-foam.jpg"),
       staticProductImage("maqad-wash.jpg"),
       staticProductImage("maqad-mesh.jpg"),
-      staticProductImage("maqad-1.jpg"),
+      staticProductImage("maqad-design.jpg"),
     ],
     detailImage: staticProductImage("maqad-foam.jpg"),
     afterPainImage: staticProductImage("maqad-before-after-ar.jpg"),
-    trustVideo: "/videos/maqad-real.mp4",
-    trustVideoPoster: staticProductImage("maqad-poster.jpg"),
-    trustVideoAspect: "landscape",
+    // First “شوف المنتج فالحقيقة” video (maqad-real) removed — keep demo only
     extraTrustVideos: [
       {
         src: "/videos/maqad-demo.mp4",
@@ -155,8 +153,8 @@ const products: Product[] = [
       staticProductImage("maqad-foam.jpg"),
       staticProductImage("maqad-wash.jpg"),
       staticProductImage("maqad-mesh.jpg"),
-      staticProductImage("maqad-desk.jpg"),
-      staticProductImage("maqad-1.jpg"),
+      staticProductImage("maqad-car-seat.jpg"),
+      staticProductImage("maqad-design.jpg"),
     ],
     crossSellIds: ["pillow", "belt"],
     offers: [
