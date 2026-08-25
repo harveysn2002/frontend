@@ -78,13 +78,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   const reviews = getProductReviews(product.id);
   const storyAlts = nicheCopy.storyAlts;
 
-  // Spread every story image across the page (not capped at 2–3).
-  const chunk = Math.max(1, Math.ceil(story.length / 4));
-  const s1 = story.slice(0, chunk);
-  const s2 = story.slice(chunk, chunk * 2);
-  const s3 = story.slice(chunk * 2, chunk * 3);
-  const s4 = story.slice(chunk * 3);
-
   return (
     <div className="pb-24 md:pb-0">
       <section className="container flex flex-col gap-6 py-6 sm:gap-8 sm:py-8 lg:grid lg:grid-cols-[1fr_1.05fr] lg:items-start">
@@ -140,7 +133,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      <StoryList images={s1} startIndex={0} product={product} />
+      {/* All product story images first — never below reviews or cross-sells */}
+      <StoryList images={story} startIndex={0} product={product} />
 
       <section className="container py-6 sm:py-8">
         <h2 className="text-2xl font-black sm:text-3xl">{nicheCopy.mechanismHeading}</h2>
@@ -156,11 +150,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </ul>
       </section>
 
-      <StoryList images={s2} startIndex={s1.length} product={product} />
-
       {reviews ? <ProductReviews summary={reviews} /> : null}
-
-      <StoryList images={s3} startIndex={s1.length + s2.length} product={product} />
 
       {crossSells.length > 0 ? (
         <section className="container py-8 sm:py-10">
@@ -170,12 +160,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           </div>
         </section>
       ) : null}
-
-      <StoryList
-        images={s4}
-        startIndex={s1.length + s2.length + s3.length}
-        product={product}
-      />
 
       <section className="container pb-16 sm:pb-20">
         <div className="rounded-2xl bg-white p-5 shadow-soft sm:rounded-3xl sm:p-6">
