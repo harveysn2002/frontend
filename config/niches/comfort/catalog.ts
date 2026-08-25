@@ -129,11 +129,11 @@ const products: Product[] = [
       staticProductImage("maqad-hero.jpg"),
       staticProductImage("maqad-features-car.jpg"),
       staticProductImage("maqad-office.jpg"),
-      staticProductImage("maqad-car-seat.jpg"),
+      staticProductImage("maqad-desk.jpg"),
       staticProductImage("maqad-foam.jpg"),
       staticProductImage("maqad-wash.jpg"),
       staticProductImage("maqad-mesh.jpg"),
-      staticProductImage("maqad-design.jpg"),
+      staticProductImage("maqad-1.jpg"),
     ],
     detailImage: staticProductImage("maqad-foam.jpg"),
     afterPainImage: staticProductImage("maqad-before-after-ar.jpg"),
@@ -145,7 +145,7 @@ const products: Product[] = [
         aspect: "portrait",
       },
     ],
-    // Spread across the page (not only the top carousel)
+    // All story images render above reviews/cross-sells (see product page)
     storyImages: [
       staticProductImage("maqad-features-ar.jpg"),
       staticProductImage("maqad-features-car.jpg"),
@@ -153,8 +153,8 @@ const products: Product[] = [
       staticProductImage("maqad-foam.jpg"),
       staticProductImage("maqad-wash.jpg"),
       staticProductImage("maqad-mesh.jpg"),
-      staticProductImage("maqad-car-seat.jpg"),
-      staticProductImage("maqad-design.jpg"),
+      staticProductImage("maqad-desk.jpg"),
+      staticProductImage("maqad-1.jpg"),
     ],
     crossSellIds: ["pillow", "belt"],
     offers: [
