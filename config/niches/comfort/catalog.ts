@@ -53,6 +53,9 @@ const products: Product[] = [
     ],
     afterPainImage: staticProductImage("arch-flatfoot-ar.jpg"),
     storyImages: [
+      staticProductImage("arch-flatfoot-ar.jpg"),
+      staticProductImage("arch-benefits-ar.jpg"),
+      staticProductImage("arch-before-after-ar.jpg"),
       staticProductImage("arch-gel-pad-ar.jpg"),
       staticProductImage("arch-elastic-ar.jpg"),
       staticProductImage("arch-dimensions-ar.jpg"),
