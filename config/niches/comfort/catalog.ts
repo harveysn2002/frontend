@@ -3,6 +3,87 @@ import type { NicheCatalog, Offer, Product } from "@/config/product-types";
 const staticProductImage = (file: string) => `/images/products/${file}`;
 
 const products: Product[] = [
+  // ── دعامة قوس القدم ───────────────────────────────────────────────────────
+  {
+    id: "arch",
+    slug: "daamat-qaws-qadam",
+    nameAr: "دعامة قوس القدم",
+    nameEn: "VORLAY Arch Support Sleeve",
+    headline: "قدمك كتعياك من الوقوف والمشي؟",
+    subheading:
+      "دعامة مرنة بوسادة سيليكون طبي مدمجة — كتدعم قوس الرجل وتخفّف الضغط على القدم المسطحة. زوج كامل، مقاس موحد، يلبس تحت الجراب والحذاء.",
+    cardHeading: "دعامة قوس القدم بوسادة سيليكون",
+    cardSubheading: "زوج كامل — مرنة — للوقوف والمشي اليومي",
+    bestFor: ["القدم المسطحة", "إجهاد الرجل", "الوقوف الطويل"],
+    benefits: [
+      "وسادة سيليكون طبي (SEBS) مدمجة تحت القوس — دعم مستهدف.",
+      "نسيج مرن (7.7 سم يتمدد حتى 12 سم) — كيتكيف مع شكل رجليك.",
+      "حزام كعب كيخلي الدعامة ثابتة فالحركة.",
+      "راحة فالوقوف الطويل والمشي اليومي — بلا ما يبان تحت الملابس.",
+      "زوج كامل — مقاس موحد يناسب رجال ونساء.",
+      "قابل للغسل وإعادة الاستعمال — خفيف وناعم.",
+    ],
+    pains: [
+      "كتحس قدمك مسطحة ولا كتوجعك من تحت ملي كتمشي ولا تقف؟",
+      "الوقوف الطويل فالخدمة ولا الدار كيخلي رجليك متعبة من البداية؟",
+      "بغيت دعم خفيف يلبس تحت الجراب والحذاء بلا ما يبان؟",
+    ],
+    painResponses: [
+      "وسادة سيليكون مدمجة كتدعم القوس وكتخفّف الضغط على القدم المسطحة — مش مجرد ضغط قماش.",
+      "ضغط خفيف ومرن كيعاونك تكمل نهارك واقف ولا ماشي براحة أكثر.",
+      "تصميم رقيق ومرن — تلبسيه تحت الجراب وداخل الحذاء. الدفع عند الاستلام.",
+    ],
+    mechanism:
+      "الدعامة المرنة كتلفّ منتصف الرجل وكتثبت بحزام الكعب. وسادة السيليكون تحت القوس كتعطي رفع خفيف وضغط موزّع باش تخفّف إجهاد الرجل أثناء الوقوف والمشي — بلا وعود علاجية.",
+    eyebrow: "VORLAY · دعم قوس القدم · زوج كامل · الدفع عند الاستلام",
+    image: staticProductImage("arch-gel-pad-ar.jpg"),
+    heroImageFit: "contain",
+    carouselImageFit: "contain",
+    quantityUnit: "set",
+    buyersCount: 180,
+    hideOfferCountdown: true,
+    images: [
+      staticProductImage("arch-flatfoot-ar.jpg"),
+      staticProductImage("arch-before-after-ar.jpg"),
+      staticProductImage("arch-benefits-ar.jpg"),
+      staticProductImage("arch-gel-pad-ar.jpg"),
+      staticProductImage("arch-elastic-ar.jpg"),
+      staticProductImage("arch-dimensions-ar.jpg"),
+      staticProductImage("arch-specs-ar.jpg"),
+    ],
+    afterPainImage: staticProductImage("arch-flatfoot-ar.jpg"),
+    storyImages: [
+      staticProductImage("arch-gel-pad-ar.jpg"),
+      staticProductImage("arch-elastic-ar.jpg"),
+      staticProductImage("arch-dimensions-ar.jpg"),
+      staticProductImage("arch-specs-ar.jpg"),
+    ],
+    crossSellIds: ["seat", "belt"],
+    listed: true,
+    offers: [
+      {
+        id: "arch-1",
+        productId: "arch",
+        quantity: 1,
+        title: "زوج واحد",
+        subtitle: "دعامة يمين + يسار — جرّب الراحة",
+        badge: "الأكثر اختياراً",
+        priceMad: 199,
+        compareAtPriceMad: 279,
+        recommended: true,
+      },
+      {
+        id: "arch-2",
+        productId: "arch",
+        quantity: 2,
+        title: "زوجين",
+        subtitle: "واحد ليك وواحد كهدية",
+        badge: "وفّر أكثر",
+        priceMad: 349,
+        compareAtPriceMad: 398,
+      },
+    ],
+  },
   // ── دعامة الركبة المعززة ──────────────────────────────────────────────────
   {
     id: "knee",

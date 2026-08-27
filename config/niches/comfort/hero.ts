@@ -2,29 +2,29 @@ import type { HeroRotatingItem, HomeHeroSlide } from "@/config/hero-types";
 
 const heroImage = (file: string) => `/images/hero/${file}`;
 
-const pillowSlide: HomeHeroSlide = {
-  id: "pillow",
-  slug: "wisada-dahr",
-  nameAr: "وسادة الظهر",
-  badge: "VORLAY ✦ NEW COLLECTION",
-  headlineWhite: "راحة حقيقية",
-  headlineGold: "لكل رحلة",
+const archSlide: HomeHeroSlide = {
+  id: "arch",
+  slug: "daamat-qaws-qadam",
+  nameAr: "دعامة قوس القدم",
+  badge: "VORLAY ✦ دعم يومي",
+  headlineWhite: "راحة لقوس",
+  headlineGold: "رجليك",
   description:
-    "طقم وسادة رقبة ووسادة ظهر بحشوة كتتأقلم مع الجسم. للسيارة، المكتب، والجلوس الطويل.",
+    "دعامة مرنة بوسادة سيليكون مدمجة — للوقوف الطويل والمشي اليومي. زوج كامل، مقاس موحد.",
   image: heroImage("hero-home.png"),
-  imageAlt: "طقم VORLAY — وسادة رقبة وظهر",
-  priceMad: 179,
-  compareAtPriceMad: 245,
-  priceNote: "طقم واحد — رقبة وظهر — الدفع عند الاستلام",
+  imageAlt: "VORLAY — دعامة قوس القدم",
+  priceMad: 199,
+  compareAtPriceMad: 279,
+  priceNote: "زوج كامل — الدفع عند الاستلام",
 };
 
-export const comfortHeroSlides: HomeHeroSlide[] = [pillowSlide];
+export const comfortHeroSlides: HomeHeroSlide[] = [archSlide];
 
 export const comfortHeroRotatingItems: HeroRotatingItem[] = [
   {
     kind: "headline",
-    lineWhite: pillowSlide.headlineWhite,
-    lineGold: pillowSlide.headlineGold,
+    lineWhite: archSlide.headlineWhite,
+    lineGold: archSlide.headlineGold,
   },
-  { kind: "body", text: pillowSlide.description },
+  { kind: "body", text: archSlide.description },
 ];
