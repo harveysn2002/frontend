@@ -1,4 +1,5 @@
 import type { NicheCatalog, Offer, Product } from "@/config/product-types";
+import { placeholderImage } from "@/config/product-types";
 
 const staticProductImage = (file: string) => `/images/products/${file}`;
 
@@ -36,28 +37,13 @@ const products: Product[] = [
     mechanism:
       "الدعامة المرنة كتلفّ منتصف الرجل وكتثبت بحزام الكعب. وسادة السيليكون تحت القوس كتعطي رفع خفيف وضغط موزّع باش تخفّف إجهاد الرجل أثناء الوقوف والمشي — بلا وعود علاجية.",
     eyebrow: "VORLAY · دعم قوس القدم · زوج كامل · الدفع عند الاستلام",
-    image: staticProductImage("arch-gel-pad-ar.jpg"),
+    image: placeholderImage("دعامة قوس القدم"),
     heroImageFit: "contain",
     carouselImageFit: "contain",
     quantityUnit: "set",
     buyersCount: 180,
     hideOfferCountdown: true,
-    images: [
-      staticProductImage("arch-flatfoot-ar.jpg"),
-      staticProductImage("arch-before-after-ar.jpg"),
-      staticProductImage("arch-benefits-ar.jpg"),
-      staticProductImage("arch-gel-pad-ar.jpg"),
-      staticProductImage("arch-elastic-ar.jpg"),
-      staticProductImage("arch-dimensions-ar.jpg"),
-      staticProductImage("arch-specs-ar.jpg"),
-    ],
-    afterPainImage: staticProductImage("arch-flatfoot-ar.jpg"),
-    storyImages: [
-      staticProductImage("arch-gel-pad-ar.jpg"),
-      staticProductImage("arch-elastic-ar.jpg"),
-      staticProductImage("arch-dimensions-ar.jpg"),
-      staticProductImage("arch-specs-ar.jpg"),
-    ],
+    images: [],
     crossSellIds: ["seat", "belt"],
     listed: true,
     offers: [
@@ -68,8 +54,8 @@ const products: Product[] = [
         title: "زوج واحد",
         subtitle: "دعامة يمين + يسار — جرّب الراحة",
         badge: "الأكثر اختياراً",
-        priceMad: 199,
-        compareAtPriceMad: 279,
+        priceMad: 149,
+        compareAtPriceMad: 199,
         recommended: true,
       },
       {
@@ -79,8 +65,8 @@ const products: Product[] = [
         title: "زوجين",
         subtitle: "واحد ليك وواحد كهدية",
         badge: "وفّر أكثر",
-        priceMad: 349,
-        compareAtPriceMad: 398,
+        priceMad: 269,
+        compareAtPriceMad: 318,
       },
     ],
   },

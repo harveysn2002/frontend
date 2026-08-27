@@ -13,8 +13,8 @@ const archSlide: HomeHeroSlide = {
     "دعامة مرنة بوسادة سيليكون مدمجة — للوقوف الطويل والمشي اليومي. زوج كامل، مقاس موحد.",
   image: heroImage("hero-home.png"),
   imageAlt: "VORLAY — دعامة قوس القدم",
-  priceMad: 199,
-  compareAtPriceMad: 279,
+  priceMad: 149,
+  compareAtPriceMad: 199,
   priceNote: "زوج كامل — الدفع عند الاستلام",
 };
 
