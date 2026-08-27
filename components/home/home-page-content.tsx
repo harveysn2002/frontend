@@ -36,6 +36,7 @@ function AnimatedBlock({
 
 export function HomePageContent() {
   const { home } = nicheCopy;
+  const listed = getListedProducts();
 
   return (
     <>
@@ -62,26 +63,28 @@ export function HomePageContent() {
         </div>
       </section>
 
-      <section className="container py-10 sm:py-14">
-        <AnimatedBlock>
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <h2 className="text-4xl font-black">{home.productsHeading}</h2>
-              <p className="mt-3 text-brand-muted">{home.productsSubheading}</p>
+      {listed.length > 0 ? (
+        <section className="container py-10 sm:py-14">
+          <AnimatedBlock>
+            <div className="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <h2 className="text-4xl font-black">{home.productsHeading}</h2>
+                <p className="mt-3 text-brand-muted">{home.productsSubheading}</p>
+              </div>
+              <Link href="/collections" className="hidden font-black text-brand-primary md:block">
+                شاهد المجموعة
+              </Link>
             </div>
-            <Link href="/collections" className="hidden font-black text-brand-primary md:block">
-              شاهد المجموعة
-            </Link>
+          </AnimatedBlock>
+          <div className="grid gap-6 md:grid-cols-3">
+            {listed.map((product, index) => (
+              <AnimatedBlock key={product.id} delay={index * 0.06}>
+                <ProductCard product={product} />
+              </AnimatedBlock>
+            ))}
           </div>
-        </AnimatedBlock>
-        <div className="grid gap-6 md:grid-cols-3">
-          {getListedProducts().map((product, index) => (
-            <AnimatedBlock key={product.id} delay={index * 0.06}>
-              <ProductCard product={product} />
-            </AnimatedBlock>
-          ))}
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <TrustPillarsSection />
     </>

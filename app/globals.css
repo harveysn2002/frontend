@@ -4,14 +4,19 @@
 
 :root {
   color-scheme: light;
-  /* Fallback = comfort (teal/ivory). Watches overrides via inline style on <html>. */
+  /* VORLAY brand fallbacks (comfort). Watches overrides via inline style on <html>. */
   --brand-primary: #0f766e;
   --brand-dark: #115e59;
   --brand-soft: #ccfbf1;
   --brand-gold: #c9a24a;
+  --brand-gold-soft: #f7e7b4;
   --brand-ivory: #fff7ed;
+  --brand-sand: #f5efe6;
   --brand-ink: #1f2933;
   --brand-muted: #667085;
+  --brand-border: #e7ddd0;
+  --brand-error: #b42318;
+  --brand-success: #067647;
   --page-bg: #fff7ed;
   --page-glow: rgba(204, 251, 241, 0.55);
   --selection: #ccfbf1;
@@ -39,7 +44,7 @@ body {
   overflow-x: hidden;
   background:
     radial-gradient(circle at top right, var(--page-glow), transparent 30rem),
-    linear-gradient(180deg, var(--page-bg) 0%, #ffffff 45%, var(--page-bg) 100%);
+    linear-gradient(180deg, var(--page-bg) 0%, #ffffff 45%, var(--brand-sand) 100%);
   color: var(--brand-ink);
 }
 

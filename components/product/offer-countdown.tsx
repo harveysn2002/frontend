@@ -81,7 +81,7 @@ export function OfferCountdown() {
   }
 
   return (
-    <div className="mt-4 overflow-hidden rounded-2xl bg-gradient-to-l from-brand-dark via-brand-primary to-[#243044] p-3.5 shadow-[0_10px_28px_rgba(15,22,33,0.32)] sm:p-4">
+    <div className="mt-4 overflow-hidden rounded-2xl bg-gradient-to-l from-brand-dark via-brand-primary to-brand-dark p-3.5 shadow-[0_10px_28px_rgba(15,118,110,0.32)] sm:p-4">
       <div className="flex items-center justify-center gap-2">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-gold opacity-60" />

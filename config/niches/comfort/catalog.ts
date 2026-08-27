@@ -64,6 +64,7 @@ const products: Product[] = [
       staticProductImage("knee-features-ar.png"),
     ],
     crossSellIds: ["belt", "seat"],
+    listed: false,
     offers: [
       {
         id: "knee-1",
@@ -157,6 +158,7 @@ const products: Product[] = [
       staticProductImage("maqad-1.jpg"),
     ],
     crossSellIds: ["pillow", "belt"],
+    listed: false,
     offers: [
       {
         id: "seat-1",
@@ -236,6 +238,7 @@ const products: Product[] = [
       staticProductImage("belt-lifestyle-infographic.png"),
     ],
     crossSellIds: ["seat", "pillow"],
+    listed: false,
     offers: [
       {
         id: "belt-1",
@@ -323,6 +326,7 @@ const products: Product[] = [
       staticProductImage("wisada-ad-car-man.png"),
     ],
     crossSellIds: ["seat", "belt"],
+    listed: false,
     offers: [
       {
         id: "pillow-1",
@@ -408,6 +412,7 @@ const products: Product[] = [
       staticProductImage("cervical-washable.png"),
     ],
     crossSellIds: ["seat", "pillow"],
+    listed: false,
     offers: [
       {
         id: "neck-pillow-1",

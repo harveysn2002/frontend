@@ -8,6 +8,7 @@ export const metadata = {
 
 export default function CollectionsPage() {
   const { collections } = nicheCopy;
+  const listed = getListedProducts();
 
   return (
     <div className="container py-14">
@@ -16,28 +17,37 @@ export default function CollectionsPage() {
         <p className="mt-5 max-w-3xl text-xl leading-9 text-brand-muted">{collections.body}</p>
       </section>
 
-      <section className="mt-10 grid gap-6 md:grid-cols-3">
-        {getListedProducts().map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </section>
+      {listed.length > 0 ? (
+        <>
+          <section className="mt-10 grid gap-6 md:grid-cols-3">
+            {listed.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </section>
 
-      <section className="mt-12 rounded-[3rem] bg-white p-8 shadow-soft">
-        <h2 className="text-3xl font-black">{collections.guideHeading}</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {getListedProducts().map((product) => (
-            <div key={product.id} className="rounded-[2rem] border border-brand-primary/10 p-5">
-              <h3 className="text-xl font-black">{product.nameAr}</h3>
-              <p className="mt-2 text-brand-muted">{product.cardSubheading}</p>
-              <ul className="mt-4 space-y-2 text-sm text-brand-muted">
-                {product.bestFor.map((item) => (
-                  <li key={item}>• {item}</li>
-                ))}
-              </ul>
+          <section className="mt-12 rounded-[3rem] bg-white p-8 shadow-soft">
+            <h2 className="text-3xl font-black">{collections.guideHeading}</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {listed.map((product) => (
+                <div key={product.id} className="rounded-[2rem] border border-brand-border bg-brand-sand/40 p-5">
+                  <h3 className="text-xl font-black">{product.nameAr}</h3>
+                  <p className="mt-2 text-brand-muted">{product.cardSubheading}</p>
+                  <ul className="mt-4 space-y-2 text-sm text-brand-muted">
+                    {product.bestFor.map((item) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
+        </>
+      ) : (
+        <section className="mt-10 rounded-[3rem] border border-brand-border bg-brand-sand/50 p-8 text-center shadow-soft md:p-12">
+          <p className="text-2xl font-black text-brand-ink">المنتجات غادي توصل قريباً</p>
+          <p className="mt-3 text-brand-muted">كنحضّرو مجموعة جديدة بألوان وتصميم VORLAY.</p>
+        </section>
+      )}
     </div>
   );
 }
