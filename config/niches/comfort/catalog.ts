@@ -1,5 +1,4 @@
 import type { NicheCatalog, Offer, Product } from "@/config/product-types";
-import { placeholderImage } from "@/config/product-types";
 
 const staticProductImage = (file: string) => `/images/products/${file}`;
 
