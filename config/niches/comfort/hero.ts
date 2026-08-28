@@ -10,7 +10,7 @@ const archSlide: HomeHeroSlide = {
   headlineWhite: "راحة تحت",
   headlineGold: "القوس",
   description:
-    "مشد مرن بوسادة جل مدمجة — للقدم المسطحة، الوقوف، والمشي اليومي. زوج كامل (L و R).",
+    "حلّين فواحد: يخفّف ضغط الوقوف والمشي، ويدعم القدم المسطحة. زوج كامل (L و R).",
   image: heroImage("hero-home.png"),
   imageAlt: "VORLAY — مشد دعم قوس القدم",
   priceMad: 149,
