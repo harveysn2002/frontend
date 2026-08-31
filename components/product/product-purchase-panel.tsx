@@ -39,6 +39,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
       ? formatMad(selectedOffer.compareAtPriceMad)
       : null;
   const reviews = getProductReviews(product.id);
+  const reviewsLabel = reviews?.hideComments ? "شوف التقييمات" : "شوف آراء الناس";
   const viewedProductId = useRef<string | null>(null);
   const buyersCount = product.buyersCount;
 
@@ -103,7 +104,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
                     />
                   ))}
                 </span>
-                {reviews.average.toFixed(1)} · شوف الآراء
+                {reviews.average.toFixed(1)} · {reviewsLabel}
               </button>
             ) : null}
           </div>
@@ -131,7 +132,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
               </span>
             </span>
             <span className="rounded-full bg-brand-primary px-3.5 py-1.5 text-sm font-black text-white sm:text-base">
-              شوف آراء الناس
+              {reviewsLabel}
             </span>
           </button>
         ) : null}

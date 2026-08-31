@@ -18,6 +18,8 @@ export type ProductReview = {
 export type ProductReviewSummary = {
   average: number;
   count: number;
+  /** When true, only star ratings are shown — no review comment text */
+  hideComments?: boolean;
   reviews: ProductReview[];
 };
 

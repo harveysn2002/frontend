@@ -40,7 +40,7 @@ function Stars({ rating, className = "" }: { rating: number; className?: string 
   );
 }
 
-function ReviewRow({ review }: { review: ProductReview }) {
+function ReviewRow({ review, hideComments }: { review: ProductReview; hideComments?: boolean }) {
   return (
     <div className="flex gap-3 border-b border-brand-primary/10 py-4 last:border-none">
       <div
@@ -63,10 +63,10 @@ function ReviewRow({ review }: { review: ProductReview }) {
           <Stars rating={review.rating} />
           <span className="text-[11px] text-brand-muted">{review.date}</span>
         </div>
-        {review.text ? (
+        {!hideComments && review.text ? (
           <p className="mt-2 text-sm leading-7 text-brand-ink/90">{review.text}</p>
         ) : null}
-        {review.helpful ? (
+        {!hideComments && review.helpful ? (
           <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-brand-muted">
             <ThumbsUp className="h-3 w-3" />
             مفيد ({review.helpful})
@@ -80,25 +80,31 @@ function ReviewRow({ review }: { review: ProductReview }) {
 export function ProductReviews({ summary }: { summary: ProductReviewSummary }) {
   const [showAll, setShowAll] = useState(false);
   const visible = showAll ? summary.reviews : summary.reviews.slice(0, 5);
+  const title = summary.hideComments ? "تقييمات المشتريين" : "آراء الناس";
 
   return (
     <section id="reviews" className="container scroll-mt-24 py-6 sm:py-8">
       <div className="rounded-2xl bg-white p-5 shadow-soft sm:rounded-3xl sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-xl font-black sm:text-2xl">آراء الناس</h2>
+          <h2 className="text-xl font-black sm:text-2xl">{title}</h2>
           <div className="flex items-center gap-3">
             <span className="text-2xl font-black text-brand-ink sm:text-3xl">
               {summary.average.toFixed(1)}
             </span>
             <div>
               <Stars rating={summary.average} />
+              <p className="mt-0.5 text-[11px] font-bold text-brand-muted">{summary.count} تقييم</p>
             </div>
           </div>
         </div>
 
         <div className="mt-4">
           {visible.map((review, index) => (
-            <ReviewRow key={`${review.name}-${index}`} review={review} />
+            <ReviewRow
+              key={`${review.name}-${index}`}
+              review={review}
+              hideComments={summary.hideComments}
+            />
           ))}
         </div>
 
