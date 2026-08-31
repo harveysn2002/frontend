@@ -40,7 +40,7 @@ function Stars({ rating, className = "" }: { rating: number; className?: string 
   );
 }
 
-function ReviewRow({ review, hideComments }: { review: ProductReview; hideComments?: boolean }) {
+function ReviewRow({ review }: { review: ProductReview }) {
   return (
     <div className="flex gap-3 border-b border-brand-primary/10 py-4 last:border-none">
       <div
@@ -63,10 +63,10 @@ function ReviewRow({ review, hideComments }: { review: ProductReview; hideCommen
           <Stars rating={review.rating} />
           <span className="text-[11px] text-brand-muted">{review.date}</span>
         </div>
-        {!hideComments && review.text ? (
+        {review.text ? (
           <p className="mt-2 text-sm leading-7 text-brand-ink/90">{review.text}</p>
         ) : null}
-        {!hideComments && review.helpful ? (
+        {review.helpful ? (
           <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-brand-muted">
             <ThumbsUp className="h-3 w-3" />
             مفيد ({review.helpful})
@@ -81,6 +81,7 @@ export function ProductReviews({ summary }: { summary: ProductReviewSummary }) {
   const [showAll, setShowAll] = useState(false);
   const visible = showAll ? summary.reviews : summary.reviews.slice(0, 5);
   const title = summary.hideComments ? "تقييمات المشتريين" : "آراء الناس";
+  const ratingsOnly = summary.hideComments === true;
 
   return (
     <section id="reviews" className="container scroll-mt-24 py-6 sm:py-8">
@@ -98,25 +99,25 @@ export function ProductReviews({ summary }: { summary: ProductReviewSummary }) {
           </div>
         </div>
 
-        <div className="mt-4">
-          {visible.map((review, index) => (
-            <ReviewRow
-              key={`${review.name}-${index}`}
-              review={review}
-              hideComments={summary.hideComments}
-            />
-          ))}
-        </div>
+        {ratingsOnly ? null : (
+          <>
+            <div className="mt-4">
+              {visible.map((review, index) => (
+                <ReviewRow key={`${review.name}-${index}`} review={review} />
+              ))}
+            </div>
 
-        {summary.reviews.length > 5 ? (
-          <button
-            type="button"
-            onClick={() => setShowAll((prev) => !prev)}
-            className="mt-4 w-full rounded-full border border-brand-primary/20 px-4 py-2.5 text-sm font-bold text-brand-primary transition hover:bg-brand-soft"
-          >
-            {showAll ? "عرض أقل" : "شوف باقي التقييمات"}
-          </button>
-        ) : null}
+            {summary.reviews.length > 5 ? (
+              <button
+                type="button"
+                onClick={() => setShowAll((prev) => !prev)}
+                className="mt-4 w-full rounded-full border border-brand-primary/20 px-4 py-2.5 text-sm font-bold text-brand-primary transition hover:bg-brand-soft"
+              >
+                {showAll ? "عرض أقل" : "شوف باقي التقييمات"}
+              </button>
+            ) : null}
+          </>
+        )}
       </div>
     </section>
   );
