@@ -11,7 +11,7 @@ const archSlide: HomeHeroSlide = {
   headlineGold: "القوس",
   description:
     "حلّين فواحد: يخفّف ضغط الوقوف والمشي، ويدعم القدم المسطحة. زوج كامل (L و R).",
-  image: heroImage("arch-hero.png"),
+  image: heroImage("hero-home.png"),
   imageAlt: "VORLAY — مشد دعم قوس القدم",
   priceMad: 149,
   compareAtPriceMad: 199,

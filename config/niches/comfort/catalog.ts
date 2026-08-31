@@ -36,13 +36,14 @@ const products: Product[] = [
     mechanism:
       "فالقدم المسطحة، القوس الطبيعي كيكون ضعيف ولا منهار — فباطن الرجل كيلامس الأرض أكثر وكيزيد الضغط على الأنسجة. المشد كيلف منتصف القدم ووسادة الجل تحت القوس كتعطي رفع خفيف ودعم، وكتساعد على توزيع الضغط أثناء الوقوف والمشي. دعم يومي للراحة — ماشي بديل على الطبيب.",
     eyebrow: "VORLAY · دعم قوس القدم · زوج كامل · الدفع عند الاستلام",
-    image: staticProductImage("arch-gel-pad-ar.jpg"),
+    image: staticProductImage("arch-hero.png"),
     heroImageFit: "contain",
     carouselImageFit: "contain",
     quantityUnit: "set",
     buyersCount: 180,
     hideOfferCountdown: true,
     images: [
+      staticProductImage("arch-hero.png"),
       staticProductImage("arch-flatfoot-ar.jpg"),
       staticProductImage("arch-benefits-ar.jpg"),
       staticProductImage("arch-before-after-ar.jpg"),
