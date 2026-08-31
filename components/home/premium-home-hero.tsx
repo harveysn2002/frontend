@@ -7,7 +7,7 @@ import { heroRotatingItems, homeHeroSlides } from "@/config/home-hero";
 import { getListedProducts } from "@/config/products";
 import { formatMad } from "@/lib/currency";
 
-const trustPoints = ["╪د┘╪»┘╪╣ ╪╣┘╪» ╪د┘╪د╪│╪ز┘╪د┘à", "╪ز┘ê╪╡┘è┘ ┘╪ش┘à┘è╪╣ ┘à╪»┘ ╪د┘┘à╪║╪▒╪ذ", "╪ز╪ث┘â┘è╪» ╪د┘╪╖┘╪ذ ╪ذ╪د┘┘ç╪د╪ز┘"];
+const trustPoints = ["الدفع عند الاستلام", "توصيل لجميع مدن المغرب", "تأكيد الطلب بالهاتف"];
 
 export function PremiumHomeHero() {
   const slide = homeHeroSlides[0];
@@ -47,7 +47,7 @@ export function PremiumHomeHero() {
           {activeProduct && slide.priceNote ? (
             <p className="mt-1 text-sm font-bold text-brand-gold/90">{slide.priceNote}</p>
           ) : !activeProduct ? (
-            <p className="mt-3 text-sm font-bold text-brand-gold/90">┘à╪ش┘à┘ê╪╣╪ر ╪ش╪»┘è╪»╪ر ┘é╪▒┘è╪ذ╪د┘ï ┬╖ VORLAY</p>
+            <p className="mt-3 text-sm font-bold text-brand-gold/90">مجموعة جديدة قريباً · VORLAY</p>
           ) : null}
 
           <div className="mt-4 flex flex-wrap justify-center gap-2 sm:mt-5 sm:gap-2.5 lg:justify-start">
@@ -57,13 +57,13 @@ export function PremiumHomeHero() {
                   href={`${productHref}#order`}
                   className="inline-flex min-h-10 flex-1 items-center justify-center rounded-2xl bg-gradient-to-l from-brand-gold-soft via-brand-gold to-[#A8842E] px-4 py-2 text-sm font-black text-[#1a1208] shadow-[0_8px_30px_rgba(201,162,74,0.35)] transition hover:brightness-110 sm:min-h-11 sm:flex-none sm:px-5 sm:text-base"
                 >
-                  {`╪د╪╖┘╪ذ ╪د┘╪ت┘ ظ¤ ${priceLabel}`}
+                  {`اطلب الآن — ${priceLabel}`}
                 </Link>
                 <Link
                   href={productHref}
                   className="inline-flex min-h-10 flex-1 items-center justify-center rounded-2xl border border-white/25 bg-white/5 px-4 py-2 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white/10 sm:min-h-11 sm:flex-none sm:px-5 sm:text-base"
                 >
-                  ╪┤┘ê┘ ╪د┘╪ز┘╪د╪╡┘è┘
+                  شوف التفاصيل
                 </Link>
               </>
             ) : (
@@ -71,7 +71,7 @@ export function PremiumHomeHero() {
                 href="/contact"
                 className="inline-flex min-h-10 items-center justify-center rounded-2xl bg-gradient-to-l from-brand-gold-soft via-brand-gold to-[#A8842E] px-5 py-2 text-sm font-black text-[#1a1208] shadow-[0_8px_30px_rgba(201,162,74,0.35)] transition hover:brightness-110 sm:min-h-11 sm:text-base"
               >
-                ╪ز┘ê╪د╪╡┘ ┘à╪╣┘╪د
+                تواصل معنا
               </Link>
             )}
           </div>
