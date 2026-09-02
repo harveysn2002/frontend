@@ -5,8 +5,8 @@ const whatsappNumber = (
   process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "212633115775"
 ).replace(/\D/g, "");
 
-/** WhatsApp FAB/links hidden for now (store request). Set true to show again. */
-export const hasWhatsApp = false;
+/** WhatsApp shown when a real number is configured (not placeholder). */
+export const hasWhatsApp = !PLACEHOLDER_WHATSAPP.has(whatsappNumber);
 
 export const siteConfig = {
   nameAr: "VORLAY",

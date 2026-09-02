@@ -13,6 +13,7 @@ import { useKeyboardInset } from "@/hooks/use-keyboard-inset";
 import { createOrder } from "@/lib/api";
 import { formatMad } from "@/lib/currency";
 import { createEventId } from "@/lib/events";
+import { saveOrderConfirmation } from "@/lib/order-confirmation-storage";
 import { normalizeMoroccanMobile } from "@/lib/phone";
 import { trackPurchase } from "@/lib/tracking";
 import { collectAttribution, collectPixelCookies } from "@/lib/utm";
@@ -113,6 +114,20 @@ export function CheckoutModal() {
           id: item.productId,
           quantity: item.quantity,
           item_price: item.unitPriceMad,
+        })),
+      });
+
+      saveOrderConfirmation({
+        orderNumber: response.orderNumber,
+        customerName: values.name.trim(),
+        phone: phone.local,
+        city: values.city.trim(),
+        totalMad: currentTotal,
+        items: currentItems.map((item) => ({
+          nameAr: item.nameAr,
+          offerTitle: item.offerTitle,
+          quantity: item.quantity,
+          totalPriceMad: item.totalPriceMad,
         })),
       });
 

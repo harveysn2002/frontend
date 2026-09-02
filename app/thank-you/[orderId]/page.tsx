@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { ThankYouActions } from "@/components/checkout/thank-you-whatsapp";
 
 export const metadata = {
   title: "شكرا لك | VORLAY",
@@ -24,16 +23,16 @@ export default function ThankYouPage({
         <p className="mt-4 text-xl text-brand-muted">رقم الطلب: {orderNumber}</p>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-brand-muted">
           فريق VORLAY غادي يتاصل بك قريباً لتأكيد الطلب والعنوان قبل الإرسال.
-          خلي الهاتف قريب منك باش نسرعو التوصيل.
+          تقدر حتى تأكد الطلب مباشرة على WhatsApp باش نسرعو المعالجة.
         </p>
         <div className="mt-8 grid gap-4 text-right md:grid-cols-4">
           {["تسجيل الطلب", "اتصال التأكيد", "تجهيز الطلب", "الدفع عند الاستلام"].map((step) => (
-            <div key={step} className="rounded-2xl bg-white p-4 font-black shadow-sm">{step}</div>
+            <div key={step} className="rounded-2xl bg-white p-4 font-black shadow-sm">
+              {step}
+            </div>
           ))}
         </div>
-        <Link href="/collections">
-          <Button className="mt-8">رجع للمجموعة</Button>
-        </Link>
+        <ThankYouActions orderNumber={orderNumber} />
       </section>
     </div>
   );
