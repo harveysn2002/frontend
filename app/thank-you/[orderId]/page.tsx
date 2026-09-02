@@ -4,6 +4,9 @@ export const metadata = {
   title: "شكرا لك | VORLAY",
 };
 
+const addressNote =
+  "باش نوصلو الطلب، رسل العنوان على WhatsApp: فين بلاصة فالمدينة؟ (الحي + العنوان).";
+
 export default function ThankYouPage({
   params,
   searchParams,
@@ -21,15 +24,15 @@ export default function ThankYouPage({
         </div>
         <h1 className="mt-6 text-5xl font-black">شكرا لك، طلبك تسجل بنجاح</h1>
         <p className="mt-4 text-xl text-brand-muted">رقم الطلب: {orderNumber}</p>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-brand-muted">
-          باش نأكدو الطلب ونبداو التجهيز، رسل لينا رسالة على WhatsApp. ما غadi نتصلو بيك بالهاتف.
-        </p>
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-brand-muted">{addressNote}</p>
         <div className="mt-8 grid gap-4 text-right md:grid-cols-4">
-          {["تسجيل الطلب", "العنوان على WhatsApp", "تجهيز الطلب", "الدفع عند الاستلام"].map((step) => (
-            <div key={step} className="rounded-2xl bg-white p-4 font-black shadow-sm">
-              {step}
-            </div>
-          ))}
+          {["تسجيل الطلب", "العنوان على WhatsApp", "تجهيز الطلب", "الدفع عند الاستلام"].map(
+            (step) => (
+              <div key={step} className="rounded-2xl bg-white p-4 font-black shadow-sm">
+                {step}
+              </div>
+            ),
+          )}
         </div>
         <ThankYouActions orderNumber={orderNumber} />
       </section>
