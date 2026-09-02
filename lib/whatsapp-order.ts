@@ -9,49 +9,49 @@ export type OrderConfirmationSnapshot = {
 
 export function buildCustomerOrderConfirmationMessage(snapshot: OrderConfirmationSnapshot) {
   const lines = snapshot.items.map(
-    (item) => `• ${item.nameAr} (${item.offerTitle}) × ${item.quantity} — ${item.totalPriceMad} درهم`,
+    (item) => `- ${item.nameAr} (${item.offerTitle}) x ${item.quantity} — ${item.totalPriceMad} درهم`,
   );
 
   return [
     "السلام عليكم،",
     "",
-    "بغيت نأكد طلبي من vorlay.shop ✅",
+    "بغيت نأكد طلبي من vorlay.shop",
     "",
-    `📦 رقم الطلب: ${snapshot.orderNumber}`,
-    `👤 الاسم: ${snapshot.customerName}`,
-    `📱 الهاتف: ${snapshot.phone}`,
-    `📍 المدينة: ${snapshot.city}`,
+    `رقم الطلب: ${snapshot.orderNumber}`,
+    `الاسم: ${snapshot.customerName}`,
+    `الهاتف: ${snapshot.phone}`,
+    `المدينة: ${snapshot.city}`,
     "",
-    "🛍 الطلب:",
+    "الطلب:",
     ...lines,
     "",
-    `💰 المجموع: ${snapshot.totalMad} درهم`,
-    "💳 الدفع عند الاستلام",
+    `المجموع: ${snapshot.totalMad} درهم`,
+    "الدفع عند الاستلام",
     "",
-    "شكراً 🙏",
+    "شكراً",
   ].join("\n");
 }
 
 export function buildStoreOrderConfirmationMessage(snapshot: OrderConfirmationSnapshot) {
   const lines = snapshot.items.map(
-    (item) => `• ${item.nameAr} (${item.offerTitle}) × ${item.quantity} — ${item.totalPriceMad} درهم`,
+    (item) => `- ${item.nameAr} (${item.offerTitle}) x ${item.quantity} — ${item.totalPriceMad} درهم`,
   );
 
   return [
-    `السلام عليكم ${snapshot.customerName} 👋`,
+    `السلام عليكم ${snapshot.customerName}`,
     "",
-    "تأكيد طلبك من VORLAY ✅",
+    "تأكيد طلبك من VORLAY",
     "",
-    `📦 رقم الطلب: ${snapshot.orderNumber}`,
-    `📍 المدينة: ${snapshot.city}`,
+    `رقم الطلب: ${snapshot.orderNumber}`,
+    `المدينة: ${snapshot.city}`,
     "",
-    "🛍 الطلب:",
+    "الطلب:",
     ...lines,
     "",
-    `💰 المجموع: ${snapshot.totalMad} درهم (الدفع عند الاستلام)`,
+    `المجموع: ${snapshot.totalMad} درهم (الدفع عند الاستلام)`,
     "",
     "غادي نتاصلو بيك قريباً لتأكيد العنوان والتوصيل.",
-    "شكراً على ثقتك 🙏",
-    "— فريق VORLAY",
+    "شكراً على ثقتك",
+    "فريق VORLAY",
   ].join("\n");
 }

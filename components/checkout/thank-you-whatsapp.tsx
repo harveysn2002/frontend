@@ -32,7 +32,7 @@ export function ThankYouWhatsApp({ orderNumber }: { orderNumber: string }) {
     const snapshot = readOrderConfirmation(orderNumber);
     const message = snapshot
       ? buildCustomerOrderConfirmationMessage(snapshot)
-      : `السلام عليكم، بغيت نأكد طلبي من vorlay.shop ✅\n\n📦 رقم الطلب: ${orderNumber}\n💳 الدفع عند الاستلام\n\nشكراً 🙏`;
+      : `السلام عليكم، بغيت نأكد طلبي من vorlay.shop\n\nرقم الطلب: ${orderNumber}\nالدفع عند الاستلام\n\nشكراً`;
 
     return whatsappLink(siteConfig.social.whatsappNumber, message);
   }, [orderNumber, ready]);
