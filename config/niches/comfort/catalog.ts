@@ -42,9 +42,9 @@ const products: Product[] = [
     quantityUnit: "set",
     buyersCount: 180,
     hideOfferCountdown: true,
-    images: [
-      staticProductImage("arch-hero.png"),
-      staticProductImage("arch-flatfoot-ar.jpg"),
+    images: [staticProductImage("arch-hero.png")],
+    afterPainImage: staticProductImage("arch-flatfoot-ar.jpg"),
+    storyImages: [
       staticProductImage("arch-benefits-ar.jpg"),
       staticProductImage("arch-before-after-ar.jpg"),
       staticProductImage("arch-gel-pad-ar.jpg"),
