@@ -25,7 +25,7 @@ export default function ThankYouPage({
           باش نأكدو الطلب ونبداو التجهيز، رسل لينا رسالة على WhatsApp. ما غadi نتصلو بيك بالهاتف.
         </p>
         <div className="mt-8 grid gap-4 text-right md:grid-cols-4">
-          {["تسجيل الطلب", "تأكيد WhatsApp", "تجهيز الطلب", "الدفع عند الاستلام"].map((step) => (
+          {["تسجيل الطلب", "العنوان على WhatsApp", "تجهيز الطلب", "الدفع عند الاستلام"].map((step) => (
             <div key={step} className="rounded-2xl bg-white p-4 font-black shadow-sm">
               {step}
             </div>

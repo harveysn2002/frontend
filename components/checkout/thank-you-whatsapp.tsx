@@ -32,7 +32,7 @@ export function ThankYouWhatsApp({ orderNumber }: { orderNumber: string }) {
     const snapshot = readOrderConfirmation(orderNumber);
     const message = snapshot
       ? buildCustomerOrderConfirmationMessage(snapshot)
-      : `السلام عليكم، بغيت نأكد طلبي من vorlay.shop\n\nرقم الطلب: ${orderNumber}\nالدفع عند الاستلام\n\nشكراً`;
+      : `السلام عليكم، بغيت نأكد طلبي من vorlay.shop\n\nرقم الطلب: ${orderNumber}\nالمدينة:\n\nبلاصة السكن فالمدينة (الحي + العنوان):\n\nشكراً`;
 
     return whatsappLink(siteConfig.social.whatsappNumber, message);
   }, [orderNumber, ready]);
@@ -47,7 +47,7 @@ export function ThankYouWhatsApp({ orderNumber }: { orderNumber: string }) {
       className="mt-4 inline-flex w-full min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-5 py-3 text-base font-bold text-white transition hover:brightness-110"
     >
       <WhatsAppIcon className="h-5 w-5" />
-      أكد الطلب على WhatsApp
+      أكد العنوان على WhatsApp
     </a>
   );
 }

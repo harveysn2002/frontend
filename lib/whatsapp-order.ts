@@ -28,30 +28,24 @@ export function buildCustomerOrderConfirmationMessage(snapshot: OrderConfirmatio
     `المجموع: ${snapshot.totalMad} درهم`,
     "الدفع عند الاستلام",
     "",
+    "بلاصة السكن فالمدينة (الحي + العنوان):",
+    "",
     "شكراً",
   ].join("\n");
 }
 
-export function buildStoreOrderConfirmationMessage(snapshot: OrderConfirmationSnapshot) {
-  const lines = snapshot.items.map(
-    (item) => `- ${item.nameAr} (${item.offerTitle}) x ${item.quantity} — ${item.totalPriceMad} درهم`,
-  );
-
+export function buildStoreAddressRequestMessage(snapshot: OrderConfirmationSnapshot) {
   return [
     `السلام عليكم ${snapshot.customerName}`,
     "",
-    "تأكيد طلبك من VORLAY",
+    "وصلنا طلبك من VORLAY",
     "",
     `رقم الطلب: ${snapshot.orderNumber}`,
     `المدينة: ${snapshot.city}`,
     "",
-    "الطلب:",
-    ...lines,
+    "عافاك عطينا بلاصة السكن فالمدينة (الحي + العنوان أو نقطة قريبة) باش نوصلو الطلب.",
     "",
-    `المجموع: ${snapshot.totalMad} درهم (الدفع عند الاستلام)`,
-    "",
-    "من بعد ما تأكدنا على WhatsApp، غadi نبداو التجهيز والتوصيل.",
-    "شكراً على ثقتك",
+    "شكراً",
     "فريق VORLAY",
   ].join("\n");
 }

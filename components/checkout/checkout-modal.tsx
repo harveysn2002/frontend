@@ -219,7 +219,7 @@ export function CheckoutModal() {
                 <span className="text-sm text-red-700">{form.formState.errors.city?.message}</span>
               </label>
               <p className="text-sm text-brand-muted">
-                من بعد الطلب، أكد على WhatsApp باش نبداو التجهيز — ما كنتصلوش بالهاتف.
+                من بعد الطلب، رسل العنوان على WhatsApp: فين بلاصة فالمدينة؟ (الحي + العنوان).
               </p>
               <div className="mt-1">
                 <CheckoutTrustBar />
