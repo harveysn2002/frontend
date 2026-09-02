@@ -5,7 +5,6 @@ import { CartDrawer } from "@/components/cart/cart-drawer";
 import { CheckoutModal } from "@/components/checkout/checkout-modal";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
-import { WhatsAppFab } from "@/components/layout/social-links";
 import { PixelScripts } from "@/components/tracking/pixel-scripts";
 import { activeNiche } from "@/config/niche";
 import { nicheCopy } from "@/config/niche-copy";
