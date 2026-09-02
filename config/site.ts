@@ -19,7 +19,7 @@ export const siteConfig = {
   /** Displayed shipping line is 0 — product prices already include delivery. */
   shippingMad: 0,
   priceIncludesShippingNote: "التوصيل على حسابنا",
-  announcement: "الدفع عند الاستلام | توصيل لجميع مدن المغرب | تأكيد الطلب بالهاتف",
+  announcement: "الدفع عند الاستلام | توصيل لجميع مدن المغرب | تأكيد الطلب على WhatsApp",
   social: {
     whatsappNumber: hasWhatsApp ? whatsappNumber : "",
     whatsappMessage: "السلام عليكم، عندي سؤال على VORLAY",

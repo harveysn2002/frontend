@@ -22,11 +22,10 @@ export default function ThankYouPage({
         <h1 className="mt-6 text-5xl font-black">شكرا لك، طلبك تسجل بنجاح</h1>
         <p className="mt-4 text-xl text-brand-muted">رقم الطلب: {orderNumber}</p>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-brand-muted">
-          فريق VORLAY غادي يتاصل بك قريباً لتأكيد الطلب والعنوان قبل الإرسال.
-          تقدر حتى تأكد الطلب مباشرة على WhatsApp باش نسرعو المعالجة.
+          باش نأكدو الطلب ونبداو التجهيز، رسل لينا رسالة على WhatsApp. ما غadi نتصلو بيك بالهاتف.
         </p>
         <div className="mt-8 grid gap-4 text-right md:grid-cols-4">
-          {["تسجيل الطلب", "اتصال التأكيد", "تجهيز الطلب", "الدفع عند الاستلام"].map((step) => (
+          {["تسجيل الطلب", "تأكيد WhatsApp", "تجهيز الطلب", "الدفع عند الاستلام"].map((step) => (
             <div key={step} className="rounded-2xl bg-white p-4 font-black shadow-sm">
               {step}
             </div>

@@ -7,7 +7,7 @@ import { heroRotatingItems, homeHeroSlides } from "@/config/home-hero";
 import { getListedProducts } from "@/config/products";
 import { formatMad } from "@/lib/currency";
 
-const trustPoints = ["الدفع عند الاستلام", "توصيل لجميع مدن المغرب", "تأكيد الطلب بالهاتف"];
+const trustPoints = ["الدفع عند الاستلام", "توصيل لجميع مدن المغرب", "تأكيد الطلب على WhatsApp"];
 
 export function PremiumHomeHero() {
   const slide = homeHeroSlides[0];

@@ -50,7 +50,7 @@ export function buildStoreOrderConfirmationMessage(snapshot: OrderConfirmationSn
     "",
     `المجموع: ${snapshot.totalMad} درهم (الدفع عند الاستلام)`,
     "",
-    "غادي نتاصلو بيك قريباً لتأكيد العنوان والتوصيل.",
+    "من بعد ما تأكدنا على WhatsApp، غadi نبداو التجهيز والتوصيل.",
     "شكراً على ثقتك",
     "فريق VORLAY",
   ].join("\n");

@@ -65,7 +65,7 @@ export function Footer() {
           <h3 className="font-black">الثقة</h3>
           <ul className="mt-4 space-y-3 text-sm text-brand-muted">
             <li>الدفع عند الاستلام</li>
-            <li>تأكيد الطلب قبل الإرسال</li>
+            <li>تأكيد الطلب على WhatsApp</li>
             <li>توصيل لجميع مدن المغرب</li>
             <li>{siteConfig.supportEmail}</li>
             <li>{siteConfig.supportHours}</li>

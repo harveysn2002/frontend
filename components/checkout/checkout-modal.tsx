@@ -219,7 +219,7 @@ export function CheckoutModal() {
                 <span className="text-sm text-red-700">{form.formState.errors.city?.message}</span>
               </label>
               <p className="text-sm text-brand-muted">
-                فريق VORLAY غادي يتاصل بيك قبل الإرسال باش يأكد العنوان.
+                من بعد الطلب، أكد على WhatsApp باش نبداو التجهيز — ما كنتصلوش بالهاتف.
               </p>
               <div className="mt-1">
                 <CheckoutTrustBar />

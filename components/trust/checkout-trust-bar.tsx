@@ -16,7 +16,7 @@ export function CheckoutTrustBar({ showNote = true }: { showNote?: boolean }) {
       </div>
       {showNote ? (
         <p className="mt-1.5 text-center text-[10px] leading-4 text-brand-muted">
-          COD · تأكيد بالهاتف · توصيل شامل
+          COD · تأكيد WhatsApp · توصيل شامل
         </p>
       ) : null}
     </div>

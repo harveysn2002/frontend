@@ -11,7 +11,7 @@ export default function TermsPage() {
         <h1 className="text-4xl font-black">شروط الاستخدام</h1>
         <p className="mt-5 text-brand-muted">
           استعمال موقع VORLAY يعني قبولك لشروط الطلب والدفع عند الاستلام. الطلب
-          لا يعتبر مؤكداً حتى يتواصل معك الفريق لتأكيد التفاصيل والعنوان.
+          لا يعتبر مؤكداً حتى تؤكده على WhatsApp مع فريق VORLAY.
         </p>
         <p className="mt-4 text-brand-muted">{nicheCopy.termsDisclaimer}</p>
       </article>

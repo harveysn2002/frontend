@@ -9,8 +9,8 @@ export default function ShippingReturnsPage() {
         <h1 className="text-4xl font-black">التوصيل والاستبدال</h1>
         <p className="mt-5 text-brand-muted">
           التوصيل متاح لجميع مدن المغرب، والدفع يكون عند الاستلام. التوصيل على
-          حسابنا — الثمن المعروض هو اللي كتخلص. بعد تسجيل الطلب، فريق VORLAY يتاصل بك
-          لتأكيد المعلومات قبل الإرسال.
+          حسابنا — الثمن المعروض هو اللي كتخلص. من بعد تسجيل الطلب، كتأكد على WhatsApp
+          قبل ما نبداو الإرسال.
         </p>
         <h2 className="mt-8 text-2xl font-black">الاستبدال</h2>
         <p className="mt-3 text-brand-muted">

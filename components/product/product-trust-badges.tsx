@@ -1,18 +1,7 @@
 import { purchaseTrustBadges } from "@/config/trust";
-import { hasWhatsApp } from "@/config/site";
-import { BadgeCheck } from "lucide-react";
 
 export function ProductTrustBadges({ compact = false }: { compact?: boolean }) {
-  const items = hasWhatsApp
-    ? [
-        ...purchaseTrustBadges.slice(0, 4),
-        {
-          icon: BadgeCheck,
-          title: "دعم واتساب",
-          subtitle: "نجاوبو على أسئلتك قبل الطلب",
-        },
-      ]
-    : purchaseTrustBadges.slice(0, 6);
+  const items = purchaseTrustBadges.slice(0, 6);
 
   if (compact) {
     return (

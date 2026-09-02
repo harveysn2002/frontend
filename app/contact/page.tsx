@@ -18,8 +18,8 @@ export default function ContactPage() {
         <h1 className="text-5xl font-black">تواصل معنا</h1>
         <p className="mt-5 max-w-2xl text-xl leading-9 text-brand-muted">
           {hasWhatsApp
-            ? "عندك سؤال قبل الطلب؟ راسلنا على WhatsApp أو تابعنا على Instagram و Facebook. فريق VORLAY كيجاوبك، والطلب كيتأكد بالهاتف قبل الإرسال."
-            : "عندك سؤال قبل الطلب؟ تابعنا على Instagram و Facebook، أو راسلنا بالإيميل. فريق VORLAY كيجاوبك، والطلب كيتأكد بالهاتف قبل الإرسال."}
+            ? "عندك سؤال قبل الطلب؟ راسلنا على WhatsApp أو تابعنا على Instagram و Facebook. فريق VORLAY كيجاوبك، والطلب كيتأكد على WhatsApp قبل الإرسال."
+            : "عندك سؤال قبل الطلب؟ تابعنا على Instagram و Facebook، أو راسلنا بالإيميل. فريق VORLAY كيجاوبك، والطلب كيتأكد على WhatsApp قبل الإرسال."}
         </p>
         <div className="mt-8">
           <SocialLinks showLabels />

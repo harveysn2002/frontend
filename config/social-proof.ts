@@ -37,4 +37,4 @@ export function getActiveSocialProof(): SocialProofStats | null {
 }
 
 export const socialProofPlaceholderNote =
-  "تجربة طلب واضحة، دعم قبل البيع، وتأكيد بالهاتف قبل ما تخرج أي شحنة.";
+  "تجربة طلب واضحة، دعم قبل البيع، وتأكيد على WhatsApp قبل ما تخرج أي شحنة.";

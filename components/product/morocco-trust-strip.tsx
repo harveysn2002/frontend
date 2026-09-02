@@ -1,13 +1,13 @@
 "use client";
 
 import type { LucideIcon } from "lucide-react";
-import { ShieldCheck, PhoneCall, Truck, BadgeCheck } from "lucide-react";
+import { ShieldCheck, MessageCircle, Truck, BadgeCheck } from "lucide-react";
 import { orderSteps } from "@/config/trust";
 import { useInView } from "@/hooks/use-in-view";
 
 const miniItems: Array<{ icon: LucideIcon; title: string }> = [
   { icon: ShieldCheck, title: "الدفع عند الاستلام" },
-  { icon: PhoneCall, title: "تأكيد بالهاتف" },
+  { icon: MessageCircle, title: "تأكيد WhatsApp" },
   { icon: Truck, title: "توصيل للمغرب" },
   { icon: BadgeCheck, title: "تفتيش قبل الدفع" },
 ];
