@@ -219,7 +219,7 @@ export function CheckoutModal() {
                 <span className="text-sm text-red-700">{form.formState.errors.city?.message}</span>
               </label>
               <p className="text-sm text-brand-muted">
-                من بعد الطلب، رسل العنوان على WhatsApp: فين بلاصة فالمدينة؟ (الحي + العنوان).
+                فريق VORLAY غادي يتصل بيك أو يراسلك على واتساب لتأكيد العنوان قبل الإرسال.
               </p>
               <div className="mt-1">
                 <CheckoutTrustBar />

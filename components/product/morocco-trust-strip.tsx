@@ -7,7 +7,7 @@ import { useInView } from "@/hooks/use-in-view";
 
 const miniItems: Array<{ icon: LucideIcon; title: string }> = [
   { icon: ShieldCheck, title: "الدفع عند الاستلام" },
-  { icon: MessageCircle, title: "تأكيد WhatsApp" },
+  { icon: MessageCircle, title: "تأكيد بالهاتف أو واتساب" },
   { icon: Truck, title: "توصيل للمغرب" },
   { icon: BadgeCheck, title: "تفتيش قبل الدفع" },
 ];

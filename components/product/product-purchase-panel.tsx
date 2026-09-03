@@ -197,7 +197,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
         <RefundGuaranteeNote />
 
         <p className="mt-2 text-center text-[11px] font-semibold text-brand-muted sm:text-xs">
-          الدفع عند الاستلام · بدون دفع أونلاين · تأكيد على WhatsApp
+          الدفع عند الاستلام · بدون دفع أونلاين · تأكيد بالهاتف أو واتساب
         </p>
 
         <button

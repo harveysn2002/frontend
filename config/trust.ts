@@ -21,7 +21,7 @@ export const trustTickerItems: Array<{ label: string; subtitle: string; icon: Lu
   { label: "الدفع عند الاستلام", subtitle: "بدون دفع أونلاين", icon: ShieldCheck },
   { label: "توصيل سريع", subtitle: "لجميع مدن المغرب", icon: Truck },
   { label: "30 يوم ضمان الاسترجاع", subtitle: "استرجاع كامل", icon: RefreshCw },
-  { label: "تأكيد WhatsApp", subtitle: "قبل كل إرسال", icon: MessageCircle },
+  { label: "تأكيد بالهاتف أو واتساب", subtitle: "قبل كل إرسال", icon: MessageCircle },
 ];
 
 export type TrustBadgeItem = {
@@ -38,8 +38,8 @@ export const purchaseTrustBadges: TrustBadgeItem[] = [
   },
   {
     icon: MessageCircle,
-    title: "تأكيد على WhatsApp",
-    subtitle: "كنأكدو الطلب قبل الإرسال",
+    title: "تأكيد بالهاتف أو واتساب",
+    subtitle: "كنتصلو بيك قبل الإرسال",
   },
   {
     icon: Truck,
@@ -70,14 +70,14 @@ export const purchaseTrustBadges: TrustBadgeItem[] = [
 
 export const checkoutTrustItems: Array<{ icon: LucideIcon; label: string }> = [
   { icon: ShieldCheck, label: "COD" },
-  { icon: MessageCircle, label: "تأكيد WhatsApp" },
+  { icon: MessageCircle, label: "تأكيد بالهاتف أو واتساب" },
   { icon: PackageCheck, label: "تفتيش قبل الدفع" },
   { icon: Truck, label: "توصيل شامل" },
   { icon: RefreshCw, label: "30 يوم للاسترجاع" },
 ];
 
 export const riskFreeOrderNote =
-  "طلب بلا مخاطرة: ما كتخلص والو دابا — تقدر تلغي على WhatsApp إلا ما بغيتيش.";
+  "طلب بلا مخاطرة: ما كتخلص والو دابا — تقدر تلغي ملي نتصلو بيك للتأكيد.";
 
 export const trustPillars: Array<{ icon: LucideIcon; title: string; description: string }> = [
   {
@@ -87,8 +87,8 @@ export const trustPillars: Array<{ icon: LucideIcon; title: string; description:
   },
   {
     icon: MessageCircle,
-    title: "تأكيد على WhatsApp قبل الإرسال",
-    description: "من بعد الطلب، كتأكد معانا على WhatsApp — بلا اتصال هاتفي.",
+    title: "تأكيد بالهاتف أو واتساب قبل الإرسال",
+    description: "فريق VORLAY كيتصل بيك أو كيراسلك على واتساب باش يأكد العنوان — بلا مفاجآت.",
   },
   {
     icon: Truck,
@@ -115,8 +115,8 @@ export const socialProofPoints: Array<{ icon: LucideIcon; title: string; text: s
   },
   {
     icon: Clock,
-    title: "تأكيد على WhatsApp",
-    text: "من بعد الطلب، كتأكد على WhatsApp قبل ما تخرج أي شحنة.",
+    title: "تأكيد بالهاتف أو واتساب",
+    text: "فريق VORLAY كيتصل بيك أو كيراسلك قبل ما تخرج أي شحنة.",
   },
   {
     icon: Headphones,
@@ -138,7 +138,7 @@ export const socialProofPoints: Array<{ icon: LucideIcon; title: string; text: s
 export const orderSteps: Array<{ title: string; text: string }> = [
   { title: "اختار العرض", text: "طقم واحد أو أكثر — الثمن واضح" },
   { title: "كمل معلوماتك", text: "الاسم، الهاتف، والمدينة" },
-  { title: "أرسل العنوان", text: "فين بلاصة فالمدينة؟ (الحي + العنوان) على WhatsApp" },
+  { title: "تأكيد العنوان", text: "نتصلو بيك أو نراسلك على واتساب" },
   { title: "استلم وخلّص", text: "شوف المنتج ومن بعد ادفع COD" },
 ];
 
@@ -153,7 +153,7 @@ export const productFaqs: Array<{ q: string; a: string }> = [
   },
   {
     q: "كيفاش كيتأكد الطلب؟",
-    a: "من بعد ما تسجل الطلب، رسل لينا على WhatsApp بلاصة السكن فالمدينة (الحي + العنوان). ما كنتصلوش بالهاتف.",
+    a: "فريق VORLAY كيتصل بيك أو كيراسلك على واتساب باش يأكد العنوان قبل الإرسال.",
   },
   {
     q: "واش الثمن فيه التوصيل؟",

@@ -10,7 +10,7 @@ export function RatingStars() {
       <span className="text-brand-primary/30">·</span>
       <span className="inline-flex items-center gap-1">
         <PhoneCall className="h-3.5 w-3.5 text-brand-primary" />
-        تأكيد WhatsApp
+        تأكيد بالهاتف أو واتساب
       </span>
       <span className="text-brand-primary/30">·</span>
       <span className="inline-flex items-center gap-1">

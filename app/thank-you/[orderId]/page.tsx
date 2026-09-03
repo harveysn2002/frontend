@@ -1,11 +1,9 @@
-import { ThankYouActions } from "@/components/checkout/thank-you-whatsapp";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export const metadata = {
   title: "شكرا لك | VORLAY",
 };
-
-const addressNote =
-  "باش نوصلو الطلب، رسل العنوان على WhatsApp: فين بلاصة فالمدينة؟ (الحي + العنوان).";
 
 export default function ThankYouPage({
   params,
@@ -24,17 +22,22 @@ export default function ThankYouPage({
         </div>
         <h1 className="mt-6 text-5xl font-black">شكرا لك، طلبك تسجل بنجاح</h1>
         <p className="mt-4 text-xl text-brand-muted">رقم الطلب: {orderNumber}</p>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-brand-muted">{addressNote}</p>
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-brand-muted">
+          فريق VORLAY غادي يتاصل بيك قريباً بالهاتف أو واتساب لتأكيد العنوان قبل الإرسال.
+          خلي الهاتف قريب منك باش نسرعو التوصيل.
+        </p>
         <div className="mt-8 grid gap-4 text-right md:grid-cols-4">
-          {["تسجيل الطلب", "العنوان على WhatsApp", "تجهيز الطلب", "الدفع عند الاستلام"].map(
-            (step) => (
-              <div key={step} className="rounded-2xl bg-white p-4 font-black shadow-sm">
-                {step}
-              </div>
-            ),
-          )}
+          {["تسجيل الطلب", "تأكيد العنوان", "تجهيز الطلب", "الدفع عند الاستلام"].map((step) => (
+            <div key={step} className="rounded-2xl bg-white p-4 font-black shadow-sm">
+              {step}
+            </div>
+          ))}
         </div>
-        <ThankYouActions orderNumber={orderNumber} />
+        <div className="mt-8">
+          <Link href="/collections">
+            <Button variant="secondary">رجع للمجموعة</Button>
+          </Link>
+        </div>
       </section>
     </div>
   );
