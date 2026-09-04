@@ -4,7 +4,6 @@ import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { X } from "lucide-react";
-import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { CheckoutTrustBar } from "@/components/trust/checkout-trust-bar";
@@ -183,18 +182,6 @@ export function CheckoutModal() {
                   {siteConfig.priceIncludesShippingNote} — الدفع عند الاستلام فقط
                 </p>
               </div>
-
-              {items.some((item) => item.productId === "arch") ? (
-                <div className="overflow-hidden rounded-2xl border border-brand-primary/10 bg-[#f7f4ef]">
-                  <Image
-                    src="/images/products/arch-cart-benefits.png"
-                    alt="دعم قوس الرجل — قبل وبعد الاستعمال"
-                    width={800}
-                    height={800}
-                    className="h-auto w-full"
-                  />
-                </div>
-              ) : null}
 
               <label className="block">
                 <span className="font-bold">الاسم الكامل</span>

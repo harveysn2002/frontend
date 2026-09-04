@@ -52,9 +52,9 @@ const products: Product[] = [
       staticProductImage("arch-dimensions-ar.jpg"),
       staticProductImage("arch-specs-ar.jpg"),
     ],
-    afterPainImage: staticProductImage("arch-flatfoot-ar.jpg"),
+    afterPainImage: staticProductImage("arch-under-slider.jpg"),
     storyImages: [
-      staticProductImage("arch-benefits-ar.jpg"),
+      staticProductImage("arch-flatfoot-ar.jpg"),
       staticProductImage("arch-before-after-ar.jpg"),
       staticProductImage("arch-gel-pad-ar.jpg"),
       staticProductImage("arch-elastic-ar.jpg"),

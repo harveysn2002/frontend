@@ -95,6 +95,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="order-3 grid gap-3 sm:gap-4 lg:col-start-1 lg:row-start-2">
+          {product.afterPainImage ? (
+            <ProductStoryBanner
+              src={product.afterPainImage}
+              alt={`${product.nameAr} — ${storyAlts.afterPain}`}
+              product={product}
+              contained={false}
+            />
+          ) : null}
           {product.trustVideo || (product.extraTrustVideos?.length ?? 0) > 0 ? (
             <div className="grid gap-3 rounded-2xl bg-white/60 p-3 shadow-sm">
               <p className="text-center text-sm font-black text-brand-ink">
@@ -120,14 +128,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 />
               ))}
             </div>
-          ) : null}
-          {product.afterPainImage ? (
-            <ProductStoryBanner
-              src={product.afterPainImage}
-              alt={`${product.nameAr} — ${storyAlts.afterPain}`}
-              product={product}
-              contained={false}
-            />
           ) : null}
           <ProductPainCards pains={product.pains} painResponses={product.painResponses} />
         </div>

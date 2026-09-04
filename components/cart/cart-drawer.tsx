@@ -94,18 +94,6 @@ export function CartDrawer() {
               </div>
             )}
 
-            {items.some((item) => item.productId === "arch") ? (
-              <div className="mt-4 overflow-hidden rounded-2xl border border-brand-primary/10 bg-[#f7f4ef]">
-                <Image
-                  src="/images/products/arch-cart-benefits.png"
-                  alt="دعم قوس الرجل — قبل وبعد الاستعمال"
-                  width={800}
-                  height={800}
-                  className="h-auto w-full"
-                />
-              </div>
-            ) : null}
-
             {crossSell && crossSellOffer && (
               <div className="mt-6 rounded-[2rem] bg-brand-soft/45 p-4">
                 <div className="text-sm font-black text-brand-primary">{nicheCopy.cartCrossSellHeading}</div>
