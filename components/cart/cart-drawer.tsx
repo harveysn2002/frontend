@@ -54,18 +54,6 @@ export function CartDrawer() {
             </Dialog.Close>
           </div>
           <div className="flex-1 overflow-y-auto py-5">
-            {items.some((item) => item.productId === "arch") ? (
-              <div className="mb-4 overflow-hidden rounded-2xl border border-brand-primary/10 bg-[#f7f4ef]">
-                <Image
-                  src="/images/products/arch-cart-benefits.png"
-                  alt="دعم قوس الرجل — قبل وبعد الاستعمال"
-                  width={800}
-                  height={800}
-                  className="h-auto w-full"
-                  priority
-                />
-              </div>
-            ) : null}
             {items.length === 0 ? (
               <p className="text-brand-muted">السلة فارغة دابا.</p>
             ) : (
@@ -105,6 +93,18 @@ export function CartDrawer() {
                 ))}
               </div>
             )}
+
+            {items.some((item) => item.productId === "arch") ? (
+              <div className="mt-4 overflow-hidden rounded-2xl border border-brand-primary/10 bg-[#f7f4ef]">
+                <Image
+                  src="/images/products/arch-cart-benefits.png"
+                  alt="دعم قوس الرجل — قبل وبعد الاستعمال"
+                  width={800}
+                  height={800}
+                  className="h-auto w-full"
+                />
+              </div>
+            ) : null}
 
             {crossSell && crossSellOffer && (
               <div className="mt-6 rounded-[2rem] bg-brand-soft/45 p-4">
