@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { RefreshCw, Users } from "lucide-react";
+import { RefreshCw, Star, Users } from "lucide-react";
 import { OfferCountdown } from "@/components/product/offer-countdown";
 import { OfferSelector } from "@/components/product/offer-selector";
 import { ProductTrustBadges } from "@/components/product/product-trust-badges";
 import { RatingStars } from "@/components/product/rating-stars";
 import type { Offer, Product } from "@/config/products";
 import { nicheCopy } from "@/config/niche-copy";
+import { getProductReviews } from "@/config/reviews";
 import { formatMad } from "@/lib/currency";
 import { createEventId } from "@/lib/events";
 import { trackViewContent } from "@/lib/tracking";
@@ -39,6 +40,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
       : null;
   const viewedProductId = useRef<string | null>(null);
   const buyersCount = product.buyersCount;
+  const reviews = getProductReviews(product.id);
 
   useEffect(() => {
     if (viewedProductId.current === product.id) return;
@@ -73,12 +75,33 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
       <div id="order" ref={panelRef} className="glass-card scroll-mt-28 rounded-[1.5rem] p-4 sm:rounded-[1.75rem] sm:p-5 md:p-6">
         <RatingStars />
 
-        {buyersCount ? (
-          <div className="mt-3 flex items-center gap-3 rounded-2xl border border-brand-primary/15 bg-brand-soft/80 px-3.5 py-2.5">
-            <span className="inline-flex items-center gap-2 text-sm font-black text-brand-ink">
-              <Users className="h-4 w-4 text-brand-primary" aria-hidden />
-              +{buyersCount} مشتري
-            </span>
+        {(buyersCount || reviews) ? (
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-brand-primary/15 bg-brand-soft/80 px-3.5 py-2.5">
+            {buyersCount ? (
+              <span className="inline-flex items-center gap-2 text-sm font-black text-brand-ink">
+                <Users className="h-4 w-4 text-brand-primary" aria-hidden />
+                +{buyersCount} مشتري
+              </span>
+            ) : (
+              <span />
+            )}
+            {reviews ? (
+              <span className="inline-flex items-center gap-1.5 text-sm font-black text-brand-ink">
+                <span className="inline-flex items-center gap-0.5" aria-hidden>
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star
+                      key={i}
+                      className={`h-3.5 w-3.5 ${
+                        i <= Math.round(reviews.average)
+                          ? "fill-amber-400 text-amber-400"
+                          : "fill-none text-brand-primary/20"
+                      }`}
+                    />
+                  ))}
+                </span>
+                {reviews.average.toFixed(1)}
+              </span>
+            ) : null}
           </div>
         ) : null}
 
