@@ -42,7 +42,16 @@ const products: Product[] = [
     quantityUnit: "set",
     buyersCount: 180,
     hideOfferCountdown: true,
-    images: [staticProductImage("arch-hero.png")],
+    images: [
+      staticProductImage("arch-hero.png"),
+      staticProductImage("arch-flatfoot-ar.jpg"),
+      staticProductImage("arch-benefits-ar.jpg"),
+      staticProductImage("arch-before-after-ar.jpg"),
+      staticProductImage("arch-gel-pad-ar.jpg"),
+      staticProductImage("arch-elastic-ar.jpg"),
+      staticProductImage("arch-dimensions-ar.jpg"),
+      staticProductImage("arch-specs-ar.jpg"),
+    ],
     afterPainImage: staticProductImage("arch-flatfoot-ar.jpg"),
     storyImages: [
       staticProductImage("arch-benefits-ar.jpg"),
