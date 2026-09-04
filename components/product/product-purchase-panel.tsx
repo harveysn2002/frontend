@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { RefreshCw, Star, Users } from "lucide-react";
+import { RefreshCw, Users } from "lucide-react";
 import { OfferCountdown } from "@/components/product/offer-countdown";
 import { OfferSelector } from "@/components/product/offer-selector";
 import { ProductTrustBadges } from "@/components/product/product-trust-badges";
 import { RatingStars } from "@/components/product/rating-stars";
 import type { Offer, Product } from "@/config/products";
 import { nicheCopy } from "@/config/niche-copy";
-import { getProductReviews } from "@/config/reviews";
 import { formatMad } from "@/lib/currency";
 import { createEventId } from "@/lib/events";
 import { trackViewContent } from "@/lib/tracking";
@@ -38,14 +37,8 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
     selectedOffer.compareAtPriceMad > selectedOffer.priceMad
       ? formatMad(selectedOffer.compareAtPriceMad)
       : null;
-  const reviews = getProductReviews(product.id);
-  const reviewsLabel = reviews?.hideComments ? "شوف التقييمات" : "شوف آراء الناس";
   const viewedProductId = useRef<string | null>(null);
   const buyersCount = product.buyersCount;
-
-  const scrollToReviews = () => {
-    document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   useEffect(() => {
     if (viewedProductId.current === product.id) return;
@@ -81,60 +74,12 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
         <RatingStars />
 
         {buyersCount ? (
-          <div className="mt-3 flex items-center justify-between gap-3 rounded-2xl border border-brand-primary/15 bg-brand-soft/80 px-3.5 py-2.5">
+          <div className="mt-3 flex items-center gap-3 rounded-2xl border border-brand-primary/15 bg-brand-soft/80 px-3.5 py-2.5">
             <span className="inline-flex items-center gap-2 text-sm font-black text-brand-ink">
               <Users className="h-4 w-4 text-brand-primary" aria-hidden />
               +{buyersCount} مشتري
             </span>
-            {reviews ? (
-              <button
-                type="button"
-                onClick={scrollToReviews}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-primary underline-offset-2 hover:underline"
-              >
-                <span className="inline-flex items-center gap-0.5" aria-hidden>
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star
-                      key={i}
-                      className={`h-3.5 w-3.5 ${
-                        i <= Math.round(reviews.average)
-                          ? "fill-amber-400 text-amber-400"
-                          : "fill-none text-brand-primary/20"
-                      }`}
-                    />
-                  ))}
-                </span>
-                {reviews.average.toFixed(1)} · {reviewsLabel}
-              </button>
-            ) : null}
           </div>
-        ) : reviews ? (
-          <button
-            type="button"
-            onClick={scrollToReviews}
-            className="mt-3 flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-brand-primary/25 bg-brand-soft/70 px-4 py-3.5 text-right shadow-sm transition hover:border-brand-primary/40 hover:bg-brand-soft active:scale-[0.99] sm:py-4"
-          >
-            <span className="inline-flex items-center gap-2">
-              <span className="inline-flex items-center gap-0.5" aria-hidden>
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star
-                    key={i}
-                    className={`h-5 w-5 ${
-                      i <= Math.round(reviews.average)
-                        ? "fill-amber-400 text-amber-400"
-                        : "fill-none text-brand-primary/20"
-                    }`}
-                  />
-                ))}
-              </span>
-              <span className="text-base font-black text-brand-ink sm:text-lg">
-                {reviews.average.toFixed(1)}
-              </span>
-            </span>
-            <span className="rounded-full bg-brand-primary px-3.5 py-1.5 text-sm font-black text-white sm:text-base">
-              {reviewsLabel}
-            </span>
-          </button>
         ) : null}
 
         <p className="mt-3 inline-flex rounded-full bg-brand-gold/15 px-2.5 py-0.5 text-[10px] font-black text-brand-ink sm:text-xs">
