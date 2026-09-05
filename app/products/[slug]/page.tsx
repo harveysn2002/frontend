@@ -70,6 +70,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     .filter(Boolean)
     .slice(0, 2);
   const keyFaqs = [
+    ...(product.faqs ?? []),
     productFaqs[0],
     nicheCopy.disclaimerFaq,
     ...productFaqs.slice(2, 4),

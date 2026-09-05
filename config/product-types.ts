@@ -67,6 +67,8 @@ export type Product = {
   buyersCount?: number;
   /** Hide the urgency countdown on this product page */
   hideOfferCountdown?: boolean;
+  /** Extra FAQs shown on this product page only */
+  faqs?: Array<{ q: string; a: string }>;
   offers: Offer[];
   crossSellIds: ProductId[];
   /** Set false to hide from storefront until back in stock */
