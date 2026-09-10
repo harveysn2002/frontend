@@ -94,10 +94,19 @@ export function ProductReviews({ summary }: { summary: ProductReviewSummary }) {
             </span>
             <div>
               <Stars rating={summary.average} />
-              <p className="mt-0.5 text-[11px] font-bold text-brand-muted">{summary.count} تقييم</p>
+              <p className="mt-0.5 text-[11px] font-bold text-brand-muted">+{summary.count} تقييم</p>
             </div>
           </div>
         </div>
+
+        {ratingsOnly ? (
+          <a
+            href="#wa-testimonials"
+            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-black text-white transition hover:brightness-110 sm:text-base"
+          >
+            شوف رسائل الزبائن على واتساب
+          </a>
+        ) : null}
 
         {ratingsOnly ? null : (
           <>

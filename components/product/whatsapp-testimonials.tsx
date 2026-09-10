@@ -17,7 +17,7 @@ const testimonials = [
 
 export function WhatsAppTestimonials() {
   return (
-    <section className="container py-8 sm:py-10">
+    <section id="wa-testimonials" className="container scroll-mt-24 py-8 sm:py-10">
       <div className="mx-auto max-w-4xl text-center">
         <p className="inline-flex items-center gap-2 rounded-full bg-[#25D366]/10 px-3 py-1 text-xs font-black text-[#128C7E] sm:text-sm">
           <span className="inline-block h-2 w-2 rounded-full bg-[#25D366]" aria-hidden />

@@ -509,7 +509,7 @@ export const comfortReviews: ReviewsByProduct = {
   },
   arch: {
     average: 4.8,
-    count: 18,
+    count: 100,
     hideComments: true,
     reviews: [
       { name: "F***a", rating: 5, date: "12 غشت 2026" },
