@@ -69,6 +69,8 @@ export type Product = {
   hideOfferCountdown?: boolean;
   /** Extra FAQs shown on this product page only */
   faqs?: Array<{ q: string; a: string }>;
+  /** Small thumbnail shown once per unit inside each offer card (e.g. one pair icon per quantity) */
+  offerUnitImage?: string;
   offers: Offer[];
   crossSellIds: ProductId[];
   /** Set false to hide from storefront until back in stock */

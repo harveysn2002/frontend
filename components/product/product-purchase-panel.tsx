@@ -140,6 +140,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
             offers={product.offers}
             selectedOfferId={selectedOffer.id}
             quantityUnit={unit}
+            unitImage={product.offerUnitImage}
             onSelect={setSelectedOffer}
             onBuyNow={buyNow}
           />

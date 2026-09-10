@@ -43,6 +43,7 @@ const products: Product[] = [
     quantityUnit: "set",
     buyersCount: 500,
     hideOfferCountdown: true,
+    offerUnitImage: staticProductImage("arch-pair.png"),
     faqs: [
       {
         q: "شحال أقل مقاس حذاء كيجي معاه؟",

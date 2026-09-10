@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, type MouseEvent } from "react";
+import Image from "next/image";
+import { Fragment, useRef, type MouseEvent } from "react";
 import { cn } from "@/lib/cn";
 import {
   formatMad,
@@ -15,12 +16,14 @@ export function OfferSelector({
   offers,
   selectedOfferId,
   quantityUnit = "piece",
+  unitImage,
   onSelect,
   onBuyNow,
 }: {
   offers: Offer[];
   selectedOfferId: string;
   quantityUnit?: QuantityUnit;
+  unitImage?: string;
   onSelect: (offer: Offer) => void;
   onBuyNow?: (offer: Offer) => void;
 }) {
@@ -86,6 +89,27 @@ export function OfferSelector({
                   <p className="mt-0.5 text-[10px] text-brand-muted">
                     {formatMad(unitPrice)} {quantityUnit === "set" ? "للطقم" : "للقطعة"}
                   </p>
+                ) : null}
+                {unitImage ? (
+                  <div className="mt-2 flex items-center gap-1.5">
+                    {Array.from({ length: Math.max(1, Math.min(offer.quantity, 3)) }).map((_, i) => (
+                      <Fragment key={i}>
+                        {i > 0 ? (
+                          <span className="text-sm font-black text-brand-primary/70">+</span>
+                        ) : null}
+                        <span className="relative inline-block h-8 w-8 shrink-0 overflow-hidden rounded-md bg-white ring-1 ring-brand-primary/10">
+                          <Image
+                            src={unitImage}
+                            alt=""
+                            fill
+                            aria-hidden
+                            className="object-contain p-0.5"
+                            sizes="32px"
+                          />
+                        </span>
+                      </Fragment>
+                    ))}
+                  </div>
                 ) : null}
               </div>
 
