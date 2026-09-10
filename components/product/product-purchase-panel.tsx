@@ -86,7 +86,10 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
               <span />
             )}
             {reviews ? (
-              <span className="inline-flex items-center gap-1.5 text-sm font-black text-brand-ink">
+              <a
+                href="#wa-testimonials"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366]/10 px-2.5 py-1 text-sm font-black text-brand-ink transition hover:bg-[#25D366]/20"
+              >
                 <span className="inline-flex items-center gap-0.5" aria-hidden>
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star
@@ -100,7 +103,10 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
                   ))}
                 </span>
                 {reviews.average.toFixed(1)}
-              </span>
+                <span className="text-[11px] font-black text-[#128C7E]">
+                  شوف الرسائل
+                </span>
+              </a>
             ) : null}
           </div>
         ) : null}
