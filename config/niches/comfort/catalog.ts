@@ -41,7 +41,7 @@ const products: Product[] = [
     heroImageFit: "contain",
     carouselImageFit: "contain",
     quantityUnit: "set",
-    buyersCount: 180,
+    buyersCount: 500,
     hideOfferCountdown: true,
     faqs: [
       {
