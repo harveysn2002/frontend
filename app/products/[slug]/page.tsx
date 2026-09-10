@@ -6,6 +6,7 @@ import { ProductPurchasePanel } from "@/components/product/product-purchase-pane
 import { ProductStoryBanner } from "@/components/product/product-story-banners";
 import { ProductTrustVideo } from "@/components/product/product-trust-video";
 import { ProductReviews } from "@/components/product/product-reviews";
+import { WhatsAppTestimonials } from "@/components/product/whatsapp-testimonials";
 import { nicheCopy } from "@/config/niche-copy";
 import { getProductBySlug, getListedProductById, getListedProducts } from "@/config/products";
 import { getProductReviews } from "@/config/reviews";
@@ -152,6 +153,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </section>
 
       {reviews ? <ProductReviews summary={reviews} /> : null}
+
+      {product.id === "arch" ? <WhatsAppTestimonials /> : null}
 
       {crossSells.length > 0 ? (
         <section className="container py-8 sm:py-10">
