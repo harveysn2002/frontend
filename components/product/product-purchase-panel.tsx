@@ -104,7 +104,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
                 </span>
                 {reviews.average.toFixed(1)}
                 <span className="text-[11px] font-black text-[#128C7E]">
-                  شوف الرسائل
+                  آراء الزبائن
                 </span>
               </a>
             ) : null}
