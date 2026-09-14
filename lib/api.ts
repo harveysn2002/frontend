@@ -7,7 +7,7 @@ const errorMessages: Record<string, string> = {
   "Order risk is too high": "تعذر قبول الطلب: مخاطرة مرتفعة",
   "Unable to verify order risk": "تعذر التحقق من الطلب، جرّب من جديد",
   "Unable to verify order location": "تعذر التحقق من موقع الطلب",
-  "Order screening is not configured": "التحقق من الطلب غير مفعّل بعد على السيرفر",
+  "This phone number cannot place orders": "تعذر تسجيل الطلب بهذا الرقم",
   "Database error while saving order": "خطأ في قاعدة البيانات. تأكد من تشغيل migration على السيرفر",
   "Field required": "عمر جميع الحقول المطلوبة",
 };

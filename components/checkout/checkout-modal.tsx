@@ -15,6 +15,7 @@ import { formatMad } from "@/lib/currency";
 import { createEventId } from "@/lib/events";
 import { saveOrderConfirmation } from "@/lib/order-confirmation-storage";
 import { normalizeMoroccanMobile } from "@/lib/phone";
+import { isBlockedCheckoutPhone } from "@/lib/blocked-phones";
 import { trackPurchase } from "@/lib/tracking";
 import { collectAttribution, collectPixelCookies } from "@/lib/utm";
 import { useCartStore } from "@/store/cart-store";
@@ -58,6 +59,11 @@ export function CheckoutModal() {
   async function onValid(values: CheckoutValues) {
     const phone = normalizeMoroccanMobile(values.phone);
     if (!phone) return;
+
+    if (isBlockedCheckoutPhone(phone.local)) {
+      setError("تعذر تسجيل الطلب بهذا الرقم");
+      return;
+    }
 
     setSubmitting(true);
     setError("");
