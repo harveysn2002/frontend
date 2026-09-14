@@ -16,6 +16,7 @@ import { createEventId } from "@/lib/events";
 import { saveOrderConfirmation } from "@/lib/order-confirmation-storage";
 import { normalizeMoroccanMobile } from "@/lib/phone";
 import { isBlockedCheckoutPhone } from "@/lib/blocked-phones";
+import { collectDevice, isDeviceBanned, markDeviceBanned } from "@/lib/device-ban";
 import { trackPurchase } from "@/lib/tracking";
 import { collectAttribution, collectPixelCookies } from "@/lib/utm";
 import { useCartStore } from "@/store/cart-store";
@@ -60,7 +61,8 @@ export function CheckoutModal() {
     const phone = normalizeMoroccanMobile(values.phone);
     if (!phone) return;
 
-    if (isBlockedCheckoutPhone(phone.local)) {
+    if (isDeviceBanned() || isBlockedCheckoutPhone(phone.local)) {
+      markDeviceBanned();
       setError("تعذر تسجيل الطلب بهذا الرقم");
       return;
     }
@@ -109,6 +111,7 @@ export function CheckoutModal() {
         },
         attribution: collectAttribution(),
         pixel_cookies: collectPixelCookies(),
+        device: collectDevice(),
       });
 
       trackPurchase({
@@ -142,6 +145,9 @@ export function CheckoutModal() {
       window.location.href = `/thank-you/${response.orderId}?order=${encodeURIComponent(response.orderNumber)}`;
     } catch (err) {
       const message = err instanceof Error ? err.message : "تعذر تسجيل الطلب";
+      if (message.includes("تعذر تسجيل الطلب بهذا الرقم")) {
+        markDeviceBanned();
+      }
       setError(message);
     } finally {
       setSubmitting(false);
