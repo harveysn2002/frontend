@@ -4,14 +4,26 @@ const testimonials = [
   {
     src: "/images/testimonials/wa-testimonial-1.png",
     alt: "رسالة واتساب من زبونة توصلات بالمنتج",
+    width: 768,
+    height: 718,
   },
   {
     src: "/images/testimonials/wa-testimonial-2.png",
     alt: "رسالة واتساب من زبون",
+    width: 768,
+    height: 718,
   },
   {
     src: "/images/testimonials/wa-testimonial-3.png",
     alt: "رسالة واتساب من زبونة",
+    width: 768,
+    height: 718,
+  },
+  {
+    src: "/images/testimonials/wa-testimonial-4.png",
+    alt: "محادثة مع زبون عاود طلب المنتج لخوه",
+    width: 700,
+    height: 1768,
   },
 ];
 
@@ -28,20 +40,22 @@ export function WhatsAppTestimonials() {
         </h2>
       </div>
 
-      <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid items-start gap-4 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
         {testimonials.map((item) => (
           <div
             key={item.src}
-            className="overflow-hidden rounded-2xl border border-brand-primary/10 bg-white shadow-soft"
+            className={`overflow-hidden rounded-2xl border border-brand-primary/10 bg-white shadow-soft ${
+              item.height > item.width ? "mx-auto w-full max-w-xs sm:max-w-none" : ""
+            }`}
           >
             <Image
               src={item.src}
               alt={item.alt}
-              width={768}
-              height={718}
+              width={item.width}
+              height={item.height}
               className="h-auto w-full"
               quality={90}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             />
           </div>
         ))}
