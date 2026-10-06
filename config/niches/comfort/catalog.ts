@@ -261,7 +261,7 @@ const products: Product[] = [
         title: "قطعتين",
         subtitle: "واحدة للمكتب وواحدة للسيارة",
         badge: "وفّر أكثر",
-        priceMad: 349,
+        priceMad: 319,
         compareAtPriceMad: 398,
       },
       {
