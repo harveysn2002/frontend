@@ -216,6 +216,7 @@ const products: Product[] = [
     heroImageFit: "contain",
     carouselImageFit: "contain",
     quantityUnit: "piece",
+    hideOfferCountdown: true,
     images: [
       staticProductImage("maqad-v-01-top-view.jpg"),
       staticProductImage("maqad-v-04-dimensions.jpg"),
