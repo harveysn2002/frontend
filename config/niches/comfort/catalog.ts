@@ -241,7 +241,7 @@ const products: Product[] = [
       staticProductImage("maqad-v-17-smooth-black.jpg"),
     ],
     crossSellIds: ["pillow", "belt"],
-    listed: false,
+    listed: true,
     offers: [
       {
         id: "seat-1",
