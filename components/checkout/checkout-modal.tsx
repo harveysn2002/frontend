@@ -217,6 +217,10 @@ export function CheckoutModal() {
                   onFocus={keepFieldVisible}
                   {...form.register("phone")}
                 />
+                <span className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-[#128C7E] sm:text-sm">
+                  <span className="inline-block h-2 w-2 shrink-0 rounded-full bg-[#25D366]" aria-hidden />
+                  من الأحسن يكون الرقم فيه واتساب، باش نأكدو معاك الطلب بسرعة.
+                </span>
                 <span className="text-sm text-red-700">{form.formState.errors.phone?.message}</span>
               </label>
               <label className="block">
