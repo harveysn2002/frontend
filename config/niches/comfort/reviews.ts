@@ -520,4 +520,17 @@ export const comfortReviews: ReviewsByProduct = {
       { name: "L***h", rating: 5, date: "14 أبريل 2026" },
     ],
   },
+  ankle: {
+    average: 4.7,
+    count: 48,
+    hideComments: true,
+    reviews: [
+      { name: "K***l", rating: 5, date: "18 شتنبر 2026" },
+      { name: "M***a", rating: 5, date: "02 غشت 2026" },
+      { name: "R***d", rating: 4, date: "21 يوليوز 2026" },
+      { name: "S***n", rating: 5, date: "09 يونيو 2026" },
+      { name: "A***m", rating: 5, date: "28 ماي 2026" },
+      { name: "H***y", rating: 4, date: "11 أبريل 2026" },
+    ],
+  },
 };

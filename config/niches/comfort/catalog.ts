@@ -3,6 +3,110 @@ import type { NicheCatalog, Offer, Product } from "@/config/product-types";
 const staticProductImage = (file: string) => `/images/products/${file}`;
 
 const products: Product[] = [
+  // ── دعامة الكاحل ──────────────────────────────────────────────────────────
+  {
+    id: "ankle",
+    slug: "daamat-kahil",
+    nameAr: "دعامة الكاحل",
+    nameEn: "VORLAY Ankle Support Brace",
+    headline: "كاحلك كيحسّو ضعيف؟ ثبات وضغط قابل للتعديل",
+    subheading:
+      "دعامة ضغط خفيفة بشريط فيلكرو قابل للتعديل — كتعطي ثبات على الجانبين وكتعاون الكاحل فالمشي، الرياضة، والتعافي اليومي. رقيقة كتلبس مع الحذاء، ومناسبة للنساء والرجال.",
+    cardHeading: "دعامة الكاحل القابلة للتعديل",
+    cardSubheading: "ضغط ديناميكي — رقيقة وخفيفة — مع الحذاء",
+    bestFor: ["ثبات الكاحل", "الرياضة والمشي", "التعافي اليومي"],
+    benefits: [
+      "ضغط ديناميكي على الجانبين — ثبات للكاحل أثناء الحركة.",
+      "شريط هوك آند لوب قابل للتعديل — شدّ على مقاسك بسهولة.",
+      "خامة رقيقة (~0.9 مم) مسامية — مريحة وما كتحسّش بثقل.",
+      "كعب وأصابع مفتوحين — حركة طبيعية وقبضة أحسن.",
+      "رقيقة كتدخل تحت الجراب والحذاء الرياضي بسهولة.",
+      "مقاس XL قابل للتعديل بالأحزمة — مناسب لأغلب المقاسات.",
+      "مناسبة للنساء والرجال — للمشي، التمرين، والاستعمال اليومي.",
+    ],
+    pains: [
+      "كاحلك كيحسّو ضعيف ولا كيتعب بسرعة فالمشي أو الرياضة؟",
+      "بغيتي دعم خفيف بلا دعامة سميكة محرجة؟",
+      "عندك التواء خفيف وبغيتي ثبات أثناء التعافي اليومي؟",
+    ],
+    painResponses: [
+      "دعامة VORLAY كتعطي ضغط على الجانبين باش الكاحل يحس بثبات أكثر فالمشي والتمرين.",
+      "خامة رقيقة ومسامية + شريط قابل للتعديل — دعم عملي بلا حجم زايد.",
+      "لفّ محكم وخطوات لبس سهلة — ثبات يومي أثناء التعافي. الدفع عند الاستلام.",
+    ],
+    mechanism:
+      "الدعامة كيلفّ الكاحل وقوس القدم بضغط قابل للتعديل على الجانبين، باش تعطي إحساس بالثبات أثناء المشي والحركة. التصميم المفتوح للكعب والأصابع كيخلي الحركة طبيعية، والخامة الرقيقة كتخليها تلبس مع الحذاء — دعم يومي للراحة، ماشي بديل على الطبيب.",
+    eyebrow: "VORLAY · دعامة كاحل قابلة للتعديل · الدفع عند الاستلام",
+    image: staticProductImage("ankle-hero.jpg"),
+    heroImageFit: "contain",
+    carouselImageFit: "contain",
+    quantityUnit: "piece",
+    buyersCount: 180,
+    hideOfferCountdown: true,
+    faqs: [
+      {
+        q: "شنو المقاس؟",
+        a: "المقاس XL مع أحزمة فيلكرو قابلة للتعديل. العرض تقريباً 38 سم، والارتفاع حوالي 20–28 سم حسب الجهة. الأحزمة كتخليك تشدّ على راحة رجلك.",
+      },
+      {
+        q: "واش كتلبس مع الحذاء؟",
+        a: "إيوا — رقيقة ومصمّمة تدخل تحت الجراب والحذاء الرياضي بدون ما تبان سميكة.",
+      },
+      {
+        q: "قطعة وحدة ولا زوج؟",
+        a: "العرض الأساسي قطعة واحدة لكاحل واحد. إلا بغيتي الكاحلين بجوج، اختار عرض القطعتين.",
+      },
+    ],
+    images: [
+      staticProductImage("ankle-hero.jpg"),
+      staticProductImage("ankle-features-callouts-ar.jpg"),
+      staticProductImage("ankle-before-after-ar.jpg"),
+      staticProductImage("ankle-benefits-ar.jpg"),
+      staticProductImage("ankle-comfort-icons-ar.jpg"),
+      staticProductImage("ankle-dynamic-pressure-ar.jpg"),
+      staticProductImage("ankle-how-to-wear-ar.jpg"),
+      staticProductImage("ankle-angles-grid.jpg"),
+      staticProductImage("ankle-athlete-hero.jpg"),
+      staticProductImage("ankle-sprain-types-ar.jpg"),
+      staticProductImage("ankle-material-ar.jpg"),
+      staticProductImage("ankle-hook-loop-ar.jpg"),
+      staticProductImage("ankle-dimensions-ar.jpg"),
+    ],
+    afterPainImage: staticProductImage("ankle-before-after-ar.jpg"),
+    storyImages: [
+      staticProductImage("ankle-features-callouts-ar.jpg"),
+      staticProductImage("ankle-how-to-wear-ar.jpg"),
+      staticProductImage("ankle-comfort-icons-ar.jpg"),
+      staticProductImage("ankle-dynamic-pressure-ar.jpg"),
+      staticProductImage("ankle-angles-grid.jpg"),
+      staticProductImage("ankle-dimensions-ar.jpg"),
+    ],
+    crossSellIds: ["arch", "seat"],
+    listed: true,
+    offers: [
+      {
+        id: "ankle-1",
+        productId: "ankle",
+        quantity: 1,
+        title: "قطعة واحدة",
+        subtitle: "دعامة لكاحل واحد — جرّب الثبات",
+        badge: "الأكثر اختياراً",
+        priceMad: 149,
+        compareAtPriceMad: 199,
+        recommended: true,
+      },
+      {
+        id: "ankle-2",
+        productId: "ankle",
+        quantity: 2,
+        title: "قطعتين",
+        subtitle: "للكاحلين معاً — وفّر أكثر",
+        badge: "وفّر أكثر",
+        priceMad: 249,
+        compareAtPriceMad: 298,
+      },
+    ],
+  },
   // ── دعامة قوس القدم ───────────────────────────────────────────────────────
   {
     id: "arch",
@@ -69,7 +173,7 @@ const products: Product[] = [
       staticProductImage("arch-dimensions-ar.jpg"),
       staticProductImage("arch-specs-ar.jpg"),
     ],
-    crossSellIds: ["seat", "belt"],
+    crossSellIds: ["ankle", "seat"],
     listed: true,
     offers: [
       {
