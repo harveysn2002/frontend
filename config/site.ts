@@ -22,7 +22,7 @@ export const siteConfig = {
   announcement: "الدفع عند الاستلام | توصيل لجميع مدن المغرب | تأكيد الطلب بالهاتف أو واتساب",
   social: {
     whatsappNumber: hasWhatsApp ? whatsappNumber : "",
-    whatsappMessage: "السلام عليكم",
+    whatsappMessage: "",
     instagramUrl:
       process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/vorlay.hlt/",
     facebookUrl:
